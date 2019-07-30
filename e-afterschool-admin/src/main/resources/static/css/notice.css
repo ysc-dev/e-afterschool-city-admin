@@ -1,0 +1,19 @@
+@charset "EUC-KR";
+
+.notice-detail .card-body {
+	padding: 0 !important;
+}
+
+.notice-detail .subject, .notice-detail .file {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    font-size: 1rem;
+}
+
+.notice-detail .subject label, .notice-detail .file label {
+	margin-bottom: 0;
+}
+
+.notice-detail .content {
+    padding: 6rem 1.2rem;
+}

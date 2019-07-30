@@ -1,0 +1,77 @@
+@charset "EUC-KR";
+
+/*******************************************************************************************************
+ Header 디자인
+*******************************************************************************************************/
+.navbar-brand {
+	padding-top: 0.2rem;
+    padding-bottom: 0.1rem;
+}
+
+.navbar-brand img {
+	height: 38px;
+}
+
+.navbar-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+/*******************************************************************************************************
+ content 디자인
+*******************************************************************************************************/
+.page-title {
+	padding: 1.5rem 0.2rem;
+}
+
+.page-title i {
+	font-size: 22px;
+	vertical-align: text-top;
+}
+
+/*******************************************************************************************************
+ sidebar 디자인
+*******************************************************************************************************/
+.sidebar-dark .nav-sidebar>.nav-item-open>.nav-link:not(.disabled), 
+.sidebar-dark .nav-sidebar>.nav-item>.nav-link.active, 
+.sidebar-light .card[class*=bg-]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar>.nav-item-open>.nav-link:not(.disabled), 
+.sidebar-light .card[class*=bg-]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #26a69a !important;
+}
+
+.sidebar-dark .nav-sidebar .nav-item>.nav-link.active {
+	background-color: rgba(0,0,0,.3);
+}
+
+/*******************************************************************************************************
+ swal2 디자인
+*******************************************************************************************************/
+.swal2-title {
+	font-weight: 600;
+}
+
+/*******************************************************************************************************
+ Table 디자인
+*******************************************************************************************************/
+.table th {
+	font-weight: 600;
+}
+
+.datatable-header {
+	padding-top: 0rem;
+	border-bottom: 0;
+}
+
+div.dt-buttons {
+	margin-bottom: 0;
+}
+
+.datatable-footer {
+    border-top: 1px solid #b7b7b7 !important;
+    margin-top: -1px !important;
+    margin-right: 1px !important;
+}
+
+.dataTables_wrapper .table-bordered {
+	border: 0 !important;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- 웹 : 기본페이지 -->
+    <definition name="layout" template="/WEB-INF/tiles/layout/layout.jsp">
+        <put-attribute name="head" value="/WEB-INF/jsp/common/head.jsp" />
+        <put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/jsp/common/sidebar.jsp" />
+    </definition>
+    
+    <definition name="home" extends="layout">
+        <put-attribute name="content" value="/WEB-INF/jsp/views/home/dashboard.jsp" />
+    </definition>
+    
+    <definition name="notice/*" extends="layout">
+        <put-attribute name="content" value="/WEB-INF/jsp/views/notice/{1}.jsp" />
+    </definition>
+    
+    <definition name="school/*" extends="layout">
+        <put-attribute name="content" value="/WEB-INF/jsp/views/school/{1}.jsp" />
+    </definition>
+    
+     <definition name="student/*" extends="layout">
+        <put-attribute name="content" value="/WEB-INF/jsp/views/student/{1}.jsp" />
+    </definition>
+</tiles-definitions>

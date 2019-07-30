@@ -1,0 +1,8 @@
+@charset "EUC-KR";
+
+.layout-boxed-bg {
+    /* background-image: url(../images/main.png);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background: url(../images/boxed_bg.png) repeat;
+}
