@@ -75,3 +75,7 @@ div.dt-buttons {
 .dataTables_wrapper .table-bordered {
 	border: 0 !important;
 }
+
+.btn-sm {
+	padding: 0.2rem 0.75rem;
+}

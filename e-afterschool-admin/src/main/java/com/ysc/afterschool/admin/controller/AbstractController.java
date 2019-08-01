@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,6 +36,18 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	}
 	
 	/**
+	 * 정보 불러오기
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("get")
+	@ResponseBody
+	public T get(ID id) {
+		log.debug("AbstractController.get - {}", id);
+		return crudService.get(id);
+	}
+	
+	/**
 	 * 조회
 	 * @param param
 	 * @return
@@ -43,6 +57,21 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	public ResponseEntity<?> search(@RequestBody P param) {
 		log.debug("AbstractController.search");
 		return new ResponseEntity<>(crudService.getList(param), HttpStatus.OK);
+	}
+	
+	/**
+	 * 정보 수정
+	 * @param domain
+	 * @return
+	 */
+	@PutMapping("update")
+	@ResponseBody
+	public ResponseEntity<?> update(T domain) {
+		if (crudService.update(domain)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	/**

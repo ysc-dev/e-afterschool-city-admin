@@ -2,12 +2,15 @@ package com.ysc.afterschool.admin.domain.db;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import com.ysc.afterschool.admin.domain.AbstractDomain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 /**
  * 학생 관리 도메인
@@ -48,4 +51,22 @@ public class Student extends AbstractDomain {
 	/** 주민등록번호 */
 	@Column(length = 15)
 	private String residentNumber;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private TargetType targetType;
+	
+	@Getter
+	public enum TargetType {
+		전체("전체"),
+		초등("초등"),
+		중등("중등"),
+		초_중등("초,중등");
+		
+		private String name;
+		
+		private TargetType(String name) {
+			this.name = name;
+		}
+	}
 }

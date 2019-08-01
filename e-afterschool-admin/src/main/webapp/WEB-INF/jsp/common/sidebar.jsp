@@ -25,9 +25,9 @@
 						<i class="icon-home4"></i><span>Dashboard</span>
 					</a>
 				</li>
-				<li id="notice" class="nav-item">
-					<a href="${pageContext.request.contextPath}/notice/list" class="nav-link">
-						<i class="icon-bubble-notification"></i><span>공지사항</span>
+				<li id="invitation" class="nav-item">
+					<a href="${pageContext.request.contextPath}/invitation/list" class="nav-link">
+						<i class="icon-notification2"></i><span>안내장 관리</span>
 					</a>
 				</li>
 				<li id="school" class="nav-item">
@@ -38,6 +38,11 @@
 				<li id="student" class="nav-item">
 					<a href="${pageContext.request.contextPath}/student/list" class="nav-link">
 						<i class="icon-users"></i><span>학생 관리</span>
+					</a>
+				</li>
+				<li id="notice" class="nav-item">
+					<a href="${pageContext.request.contextPath}/notice/list" class="nav-link">
+						<i class="icon-bubble-notification"></i><span>공지사항</span>
 					</a>
 				</li>
 			</ul>

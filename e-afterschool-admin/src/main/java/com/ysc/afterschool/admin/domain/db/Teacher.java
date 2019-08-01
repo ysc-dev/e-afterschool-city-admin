@@ -10,43 +10,39 @@ import com.ysc.afterschool.admin.domain.AbstractDomain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 /**
- * 학교 관리 도메인
+ * 강사 관리 도메인
  * 
  * @author hgko
  *
  */
 @Entity
-@Table(name = "tb_school")
+@Table(name = "tb_teacher")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class School extends AbstractDomain {
+public class Teacher extends AbstractDomain {
 
 	/** 이름 */
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 255)
 	private String name;
 	
-	/** 학생 수 */
-	private int number;
+	/** 연락처 */
+	@Column(nullable = false, length = 20)
+	private String tel;
 	
+	/** 이메일 */
+	@Column(nullable = false, length = 45)
+	private String email;
+	
+	/** 성별 */
 	@Enumerated(EnumType.ORDINAL)
-    @Column(nullable = false)
-	private SchoolType schoolType;
+	@Column(nullable = false)
+	private Sex sex;
 	
-	@Column(length = 45)
-	private String city;
+	private int subjectId;
 	
-	@Getter
-	public enum SchoolType {
-		초등학교("초등학교"),
-		중학교("중학교");
-		
-		private String name;
-		
-		private SchoolType(String name) {
-			this.name = name;
-		}
+	public enum Sex {
+		남성, 여성;
 	}
 }

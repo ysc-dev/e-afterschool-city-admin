@@ -14,15 +14,7 @@
         <put-attribute name="content" value="/WEB-INF/jsp/views/home/dashboard.jsp" />
     </definition>
     
-    <definition name="notice/*" extends="layout">
-        <put-attribute name="content" value="/WEB-INF/jsp/views/notice/{1}.jsp" />
-    </definition>
-    
-    <definition name="school/*" extends="layout">
-        <put-attribute name="content" value="/WEB-INF/jsp/views/school/{1}.jsp" />
-    </definition>
-    
-     <definition name="student/*" extends="layout">
-        <put-attribute name="content" value="/WEB-INF/jsp/views/student/{1}.jsp" />
+    <definition name="*/*" extends="layout">
+        <put-attribute name="content" value="/WEB-INF/jsp/views/{1}/{2}.jsp" />
     </definition>
 </tiles-definitions>
