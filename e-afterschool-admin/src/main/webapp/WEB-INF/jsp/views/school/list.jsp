@@ -81,7 +81,7 @@
 					<h5 class="card-title">학교 목록</h5>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-bordered text-nowrap" id="schoolTable">
+					<table class="table table-bordered" id="schoolTable">
 						<thead class="text-center">
 							<tr class="table-active">
 								<th>번호</th>

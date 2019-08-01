@@ -30,11 +30,6 @@
 						<i class="icon-notification2"></i><span>안내장 관리</span>
 					</a>
 				</li>
-				<li id="teacher" class="nav-item">
-					<a href="${pageContext.request.contextPath}/teacher/list" class="nav-link">
-						<i class="icon-user-tie"></i><span>강사 관리</span>
-					</a>
-				</li>
 				<li id="school" class="nav-item">
 					<a href="${pageContext.request.contextPath}/school/list" class="nav-link">
 						<i class="icon-office"></i><span>학교 관리</span>
@@ -44,6 +39,25 @@
 					<a href="${pageContext.request.contextPath}/student/list" class="nav-link">
 						<i class="icon-users"></i><span>학생 관리</span>
 					</a>
+				</li>
+				<li id="teacher" class="nav-item">
+					<a href="${pageContext.request.contextPath}/teacher/list" class="nav-link">
+						<i class="icon-user-tie"></i><span>강사 관리</span>
+					</a>
+				</li>
+				<li id="subject" class="nav-item nav-item-submenu">
+					<a href="#" class="nav-link"><i class="icon-archive"></i> <span>과목 관리</span></a>
+					<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+						<li id="subject_group_list" class="nav-item"><a href="${pageContext.request.contextPath}/subject/group/list" class="nav-link">
+							<i class="icon-list"></i><span>과목 그룹 관리</span></a>
+						</li>
+						<li id="subject_list" class="nav-item"><a href="${pageContext.request.contextPath}/subject/list" class="nav-link">
+							<i class="icon-list"></i><span>수강 과목 조회</span></a>
+						</li>
+						<li id="subject_regist" class="nav-item"><a href="${pageContext.request.contextPath}/subject/regist" class="nav-link">
+							<i class="icon-pencil5"></i><span>수강 과목 등록</span></a>
+						</li>
+					</ul>
 				</li>
 				<li id="notice" class="nav-item">
 					<a href="${pageContext.request.contextPath}/notice/list" class="nav-link">
