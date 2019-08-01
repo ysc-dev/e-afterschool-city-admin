@@ -10,9 +10,17 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.ysc.afterschool.admin.domain.AbstractDomain;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * 전체 공지사항 테이블 도메인
+ * 
+ * @author hgko
+ *
+ */
 @Entity
 @Table(name = "tb_notice")
 @Data

@@ -13,40 +13,35 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
- * 학교 관리 도메인
+ * 안내장 목록 테이블 도메인
  * 
  * @author hgko
  *
  */
 @Entity
-@Table(name = "tb_school")
+@Table(name = "tb_invitation")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class School extends AbstractDomain {
+public class Invitation extends AbstractDomain {
 
-	/** 이름 */
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 255)
 	private String name;
 	
-	/** 학생 수 */
-	private int number;
+	private String deadlineDate;
 	
 	@Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
-	private SchoolType schoolType;
-	
-	@Column(length = 45)
-	private String city;
+	private InvitationType type;
 	
 	@Getter
-	public enum SchoolType {
-		초등학교("초등학교"),
-		중학교("중학교"),
-		고등학교("고등학교");
+	public enum InvitationType {
+		수강신청("수강신청하기"),
+		마감("마감되었습니다."),
+		지남("지난 모집 공고 입니다.");
 		
 		private String name;
 		
-		private SchoolType(String name) {
+		private InvitationType(String name) {
 			this.name = name;
 		}
 	}

@@ -1,4 +1,4 @@
-package com.ysc.afterschool.admin.domain.db;
+package com.ysc.afterschool.admin.domain;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +9,6 @@ import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
 

@@ -6,6 +6,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
+import com.ysc.afterschool.admin.domain.AbstractDomain;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

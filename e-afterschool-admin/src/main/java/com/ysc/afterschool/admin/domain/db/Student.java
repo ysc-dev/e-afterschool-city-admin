@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.ysc.afterschool.admin.domain.AbstractDomain;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
