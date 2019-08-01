@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.antMatchers("/**").permitAll()
 			.antMatchers("/home").access("hasRole('ROLE_USER')")
 			.antMatchers("/invitation/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/teacher/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/school/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/student/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/notice/**").access("hasRole('ROLE_USER')")

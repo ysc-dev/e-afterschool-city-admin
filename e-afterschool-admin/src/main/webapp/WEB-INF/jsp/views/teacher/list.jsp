@@ -2,9 +2,9 @@
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
-  	<c:param name="icon" value="icon-users"/>
-  	<c:param name="title" value="학교 관리"/>
-  	<c:param name="lastname" value="학교관리"/>
+  	<c:param name="icon" value="icon-user-tie"/>
+  	<c:param name="title" value="강사 관리"/>
+  	<c:param name="lastname" value="강사관리"/>
 </c:import>
 
 <div class="content">
@@ -20,17 +20,8 @@
 	          		</div>
 				</div>
 				<div class="card-body">
-					<div class="font-size-xs text-muted mb-2">타입 선택</div>
 					<div class="form-group">
-						<select class="form-control form-control-select2" name="school">
-							<option value="">- 전 체 -</option>
-							<c:forEach var="type" items="${schoolTypes}" varStatus="status">
-								<option value="${type}">${type.name}</option>
-							</c:forEach>
-						</select>
-					</div>
-					<div class="form-group">
-						<input type="search" class="form-control" placeholder="학교 이름" name="name" autocomplete="off">
+						<input type="search" class="form-control" placeholder="강사 이름" name="name" autocomplete="off">
 					</div>
 					<button type="button" id="searchBtn" class="btn bg-blue-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
@@ -40,7 +31,7 @@
 			
 			<div class="card">
 				<div class="card-header bg-transparent header-elements-inline">
-					<span class="text-uppercase font-size-md font-weight-bold">학교 등록</span>
+					<span class="text-uppercase font-size-md font-weight-bold">강사 등록</span>
 					<div class="header-elements">
 						<div class="list-icons">
 	                		<a class="list-icons-item" data-action="collapse"></a>
@@ -48,28 +39,28 @@
 	          		</div>
 				</div>
 				<div class="card-body">
-					<form id="registForm" action="${pageContext.request.contextPath}/school/regist" method="post">
+					<form id="registForm" action="${pageContext.request.contextPath}/teacher/regist" method="post">
 						<div class="form-group">
-							<label>학교 이름:</label>
-							<input type="text" name="name" class="form-control" placeholder="학교 이름" required>
+							<label>강사 이름:</label>
+							<input type="text" name="name" class="form-control" placeholder="강사 이름" autocomplete="off" required>
 						</div>
 						<div class="form-group">
-							<label>학생 수:</label>
-							<input type="number" name="number" class="form-control" placeholder="학생 수" required>
+							<label>연락처:</label>
+							<input type="text" name="tel" class="form-control" data-mask="999-9999-9999" placeholder="핸드폰 번호" required>
 						</div>
 						<div class="form-group">
-							<label>지 역:</label>
-							<input type="text" name="city" class="form-control" placeholder="예) 창원">
+							<label>이메일:</label>
+							<input type="email" name="email" class="form-control" placeholder="이메일" autocomplete="off" required>
 						</div>
 						<div class="form-group">
-							<label>학교 타입:</label>
-							<select class="form-control form-control-select2" name="schoolType">
-								<c:forEach var="type" items="${schoolTypes}" varStatus="status">
-									<option value="${type}">${type.name}</option>
+							<label>성별:</label>
+							<select class="form-control form-control-select2" name="sex">
+								<c:forEach var="sex" items="${sexList}" varStatus="status">
+									<option value="${sex}">${sex}</option>
 								</c:forEach>
 							</select>
 						</div>
-						<button type="submit" class="btn bg-teal-400 btn-block"><i class="icon-paperplane mr-2"></i>학교 추가</button>
+						<button type="submit" class="btn bg-teal-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 추가</button>
 					</form>
 				</div>
 			</div>
@@ -78,16 +69,17 @@
 		<div class="col-md-10">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="card-title">학교 목록</h5>
+					<h5 class="card-title">등록된 강사 목록</h5>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-bordered text-nowrap" id="schoolTable">
+					<table class="table table-bordered text-nowrap" id="teacherTable">
 						<thead class="text-center">
 							<tr class="table-active">
 								<th>번호</th>
-								<th>학교 명</th>
-								<th>학생 수</th>
-								<th>지역</th>
+								<th>이름</th>
+								<th>연락처</th>
+								<th>이메일</th>
+								<th>성별</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -99,34 +91,34 @@
 	</div>
 </div>
 
-<div id="updateSchoolModal" class="modal fade" tabindex="-1">
+<div id="updateTeacherModal" class="modal fade" tabindex="-1">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
 			<div class="modal-header bg-primary">
 				<h5 class="modal-title">
-					<i class="icon-pencil6 mr-2"></i>학교 정보 수정
+					<i class="icon-pencil6 mr-2"></i>강사 정보 수정
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<form id="updateForm" action="${pageContext.request.contextPath}/school/update" class="form-horizontal">
+			<form id="updateForm" action="${pageContext.request.contextPath}/teacher/update" class="form-horizontal">
 				<div class="modal-body">
 					<input type="hidden" name="id">
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">학교 명 : </label>
+						<label class="col-form-label col-md-3 text-md-right">강사 이름 : </label>
 						<div class="col-md-7">
 							<input type="text" class="form-control" name="name" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">학생 수 : </label>
+						<label class="col-form-label col-md-3 text-md-right">연락처 : </label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="number" required>
+							<input type="text" class="form-control" name="tel" data-mask="999-9999-9999" required>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">지 역 : </label>
+						<label class="col-form-label col-md-3 text-md-right">이메일 : </label>
 						<div class="col-md-7">
-							<input type="text" class="form-control" name="city" placeholder="예) 창원">
+							<input type="text" class="form-control" name="email" required>
 						</div>
 					</div>
 				</div>
@@ -140,9 +132,9 @@
 </div>
 	
 <script>
-var SchoolManager = function() {
+var TeacherManager = function() {
 	var DataTable = {
-		ele: "#schoolTable",
+		ele: "#teacherTable",
 		table: null,
 		option: {
 			columns: [{
@@ -152,15 +144,16 @@ var SchoolManager = function() {
 		    	}
 		    }, 
 		    { data: "name" }, 
-		    { data: "number" }, 
-		    { data: "city" }, 
+		    { data: "tel" }, 
+		    { data: "email" }, 
+		    { data: "sex" }, 
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
-    				 + 'onClick="SchoolManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>'
+    				 + 'onClick="TeacherManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>'
     				 + '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm" '
-    				 + 'onClick="SchoolManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
+    				 + 'onClick="TeacherManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
 		    	}
 		    }]
 		},
@@ -170,9 +163,8 @@ var SchoolManager = function() {
 		},
 		search: function() {
 			var param = new Object();
-			param.schoolType = $("select[name=schoolType]").val();
 			param.name = $("input[name=name]").val();
-			Datatables.rowsAdd(this.table, contextPath + "/school/search", param);
+			Datatables.rowsAdd(this.table, contextPath + "/teacher/search", param);
 		}
 	}
 
@@ -186,7 +178,7 @@ var SchoolManager = function() {
 			var form = $(this);
 			var url = form.attr('action');
 			
-		    registCommon(url, form.serializeObject(), "학교", SchoolManager);
+		    registCommon(url, form.serializeObject(), "강사", TeacherManager);
 		});
 
 		$('#updateForm').submit(function(e) {
@@ -194,7 +186,7 @@ var SchoolManager = function() {
 			var form = $(this);
 			var url = form.attr('action');
 			
-		 	updateModalCommon(url, form.serializeObject(), "학교", DataTable, "updateSchoolModal");
+		 	updateModalCommon(url, form.serializeObject(), "강사", DataTable, "updateTeacherModal");
 		}); 
 	}
 	
@@ -204,31 +196,32 @@ var SchoolManager = function() {
 			Control();
 		},
 		_delete: function(id) {
-			deleteCommon(contextPath + "/school/delete", id, "학교", DataTable);
+			deleteCommon(contextPath + "/teacher/delete", id, "강사", DataTable);
 		},
 		modal: function(id) {
 			$.ajax({
-	    		url: contextPath + "/school/get",
+	    		url: contextPath + "/teacher/get",
 	    		type: "GET",
 	    		data: {"id": id},
 	    		success: function(response) {
 	    			$('#updateForm input[name="id"]').val(response.id);
 	    			$('#updateForm input[name="name"]').val(response.name);
-	    			$('#updateForm input[name="number"]').val(response.number);
-	    			$('#updateForm input[name="city"]').val(response.city);
-	    			$("#updateSchoolModal").modal();
+	    			$('#updateForm input[name="tel"]').val(response.tel);
+	    			$('#updateForm input[name="email"]').val(response.email);
+	    			$("#updateTeacherModal").modal();
 	           	}
 	    	}); 
 		},
 		success: function() {
 			DataTable.search();
 			$('#registForm input[name="name"]').val("");
-        	$('#registForm input[name="number"]').val("");
+        	$('#registForm input[name="tel"]').val("");
+        	$('#registForm input[name="email"]').val("");
 		}
 	}
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	SchoolManager.init();
+	TeacherManager.init();
 });
 </script>

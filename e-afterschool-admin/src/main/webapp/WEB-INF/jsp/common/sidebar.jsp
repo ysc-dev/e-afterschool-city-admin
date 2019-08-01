@@ -30,6 +30,11 @@
 						<i class="icon-notification2"></i><span>안내장 관리</span>
 					</a>
 				</li>
+				<li id="teacher" class="nav-item">
+					<a href="${pageContext.request.contextPath}/teacher/list" class="nav-link">
+						<i class="icon-user-tie"></i><span>강사 관리</span>
+					</a>
+				</li>
 				<li id="school" class="nav-item">
 					<a href="${pageContext.request.contextPath}/school/list" class="nav-link">
 						<i class="icon-office"></i><span>학교 관리</span>
