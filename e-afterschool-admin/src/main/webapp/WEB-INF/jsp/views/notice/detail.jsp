@@ -15,13 +15,8 @@
 	<div class="row">
 		<div class="col-md-10 mx-md-auto">
 			<div class="card notice-detail">
-				<div class="card-header bg-grey-300 header-elements-inline">
+				<div class="card-header bg-transparent">
 					<h3 class="card-title">${notice.title}</h3>
-					<div class="header-elements">
-						<div class="list-icons">
-	                		<a class="list-icons-item" data-action="collapse"></a>
-	                	</div>
-                	</div>
 				</div>
 				<div class="card-body">
 					<div class="subject">
@@ -69,7 +64,7 @@ function deleteNotice(id) {
         title: "공지사항을 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
-        confirmButtonClass: "btn btn-danger m-btn m-btn--custom",
+        confirmButtonClass: "btn btn-danger",
         showCancelButton: true, 
         cancelButtonText: "취소",
     }).then(function(e) {

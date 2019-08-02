@@ -15,5 +15,31 @@
 }
 
 .notice-detail .content {
-    padding: 6rem 1.2rem;
+    padding: 1.2rem 1.2rem;
+    min-height: 250px;
+}
+
+.card-header {
+	background-color: rgba(0,0,0,.035) !important;
+}
+
+/*****************************************************
+  ¥Ò±€ Ω∫≈∏¿œ
+******************************************************/
+.comment-body {
+	padding: 1rem 1.25rem !important;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.comment-list-body {
+	padding: 0.2rem 1.25rem !important;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.comment-list {
+	margin: 1.1rem 1.4rem;
+}
+
+.media-title {
+	margin-bottom: .25rem;
 }

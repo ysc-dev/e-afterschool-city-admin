@@ -25,7 +25,7 @@ public class InvitationServiceImpl implements InvitationService {
 	}
 
 	@Transactional(readOnly = true)
-	@Cacheable("school.list")
+	@Cacheable("invitation.list")
 	@Override
 	public List<Invitation> getList() {
 		return invitationRepository.findAll();

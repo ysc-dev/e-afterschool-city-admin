@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -59,11 +58,6 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		model.addAttribute("teachers", teacherService.getList());
 		model.addAttribute("targetTypes", TargetType.values());
 		model.addAttribute("gradeTypes", GradeType.values());
-	}
-	
-	@GetMapping("notice/{id}")
-	public String notice(Model model, @PathVariable int id) {
-		return "subject/notice";
 	}
 	
 	/**

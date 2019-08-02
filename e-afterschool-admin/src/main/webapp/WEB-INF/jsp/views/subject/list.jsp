@@ -214,7 +214,7 @@ var SubjectManager = function() {
 		    },{
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
-    				return '<a href="' + contextPath + '/subject/notice/' + row.id + '" ' +
+    				return '<a href="' + contextPath + '/subject/notice/list/' + row.id + '" ' +
     						 'class="btn btn-outline bg-teal-600 text-teal-600 btn-sm" title="수강 과목 공지사항">' +
     						'<i class="icon-bubble-notification"></i></a>' +
 	    				'<button type="button" class="btn btn-outline bg-primary text-primary-800 btn-sm" title="수강 과목 정보 수정" ' +

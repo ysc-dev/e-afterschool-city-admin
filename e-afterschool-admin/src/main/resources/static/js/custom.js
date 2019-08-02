@@ -85,7 +85,7 @@ function deleteCommon(url, id, name, Datatable, title) {
         title: title ? title : "선택된 " + name + "을 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
-        confirmButtonClass: "btn btn-danger m-btn m-btn--custom",
+        confirmButtonClass: "btn btn-danger",
         showCancelButton: true, 
         cancelButtonText: "취소",
     }).then(function(e) {

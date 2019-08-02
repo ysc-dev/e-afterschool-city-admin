@@ -9,3 +9,5 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>

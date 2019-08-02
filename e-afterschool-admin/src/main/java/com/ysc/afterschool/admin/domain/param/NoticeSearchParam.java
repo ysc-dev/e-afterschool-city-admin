@@ -17,6 +17,8 @@ public class NoticeSearchParam implements DomainParam {
 	
 	private String content;
 	
+	private int subjectId;
+	
 	/**
 	 * 공지사항 검색조건 
 	 */
