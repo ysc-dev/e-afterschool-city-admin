@@ -23,7 +23,7 @@
 					<div class="form-group">
 						<input type="search" class="form-control" placeholder="강사 이름" name="name" autocomplete="off">
 					</div>
-					<button type="button" id="searchBtn" class="btn bg-blue-400 btn-block">
+					<button type="button" id="searchBtn" class="btn bg-teal-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
 					</button>
 				</div>
@@ -60,7 +60,7 @@
 								</c:forEach>
 							</select>
 						</div>
-						<button type="submit" class="btn bg-teal-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 추가</button>
+						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 추가</button>
 					</form>
 				</div>
 			</div>

@@ -29,6 +29,7 @@ public class Invitation extends AbstractDomain {
 	@Column(nullable = false, length = 255)
 	private String name;
 	
+	/** 신청 마감일 */
 	@Column(nullable = false, length = 45)
 	private String deadlineDate;
 	
@@ -39,9 +40,22 @@ public class Invitation extends AbstractDomain {
     @Column(nullable = false)
 	private InvitationType type;
 	
+	/** 지역 */
 	@OneToOne
     @JoinColumn(name = "city_id")
 	private City city;
+	
+	/** 파일 이름 */
+	@Column(nullable = false, length = 100)
+	private String fileName;
+
+	/** 파일 데이터 */
+	@Column(columnDefinition = "longblob")
+	private byte[] content;
+
+	/** 파일 확장자 */
+	@Column(nullable = false, length = 100)
+	private String contentType;
 	
 	@Getter
 	public enum InvitationType {

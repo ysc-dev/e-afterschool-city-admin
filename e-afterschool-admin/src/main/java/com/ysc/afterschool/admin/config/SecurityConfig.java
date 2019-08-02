@@ -22,11 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.csrf().disable();
-//		http.headers().frameOptions().disable();
 		
 		// 로그인 설정
 		http.authorizeRequests() // 요청을 어떻게 보안을 할 것인지 설정
-//			.antMatchers("/**").permitAll()
 			.antMatchers("/home").access("hasRole('ROLE_USER')")
 			.antMatchers("/invitation/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/teacher/**").access("hasRole('ROLE_USER')")

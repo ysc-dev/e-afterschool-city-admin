@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div class="card-footer bg-white d-flex justify-content-center align-items-center py-3">
-						<button type="submit" class="btn bg-teal-400 mr-3 px-4"><i class="icon-pencil5 mr-2"></i>등 록</button>
+						<button type="submit" class="btn bg-blue-400 mr-3 px-4"><i class="icon-pencil5 mr-2"></i>등 록</button>
 						<a href="list" class="btn btn-light px-4"><i class="icon-list mr-2"></i>목 록</a>
 					</div>
 				</form>

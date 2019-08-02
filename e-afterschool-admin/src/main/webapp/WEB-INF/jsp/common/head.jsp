@@ -35,12 +35,12 @@
 	<!-- Theme JS files -->
 	<script src="${contextName}/limitless/js/plugins/forms/inputs/inputmask.js"></script>
 	<script src="${contextName}/limitless/js/plugins/forms/inputs/formatter.min.js"></script>
+	<script src="${contextName}/limitless/js/plugins/forms/selects/select2.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/ui/moment/moment.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script src="${contextName}/limitless/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
-	<script src="${contextName}/limitless/js/plugins/forms/selects/select2.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+	<script src="${contextName}/limitless/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	
 	<script src="${contextName}/limitless/js/plugins/notifications/sweet_alert.min.js"></script>

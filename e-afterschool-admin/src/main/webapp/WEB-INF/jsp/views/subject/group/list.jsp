@@ -4,15 +4,9 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp" >
   	<c:param name="icon" value="icon-display4" />
   	<c:param name="title" value="과목 그룹 관리" />
-  	<c:param name="firstname" value="과목관리" />
-  	<c:param name="lastname" value="과목그룹관리" />
+  	<c:param name="firstname" value="과목 관리" />
+  	<c:param name="lastname" value="과목 그룹 관리" />
 </c:import>
-
-<style>
-.dataTables_wrapper .table-bordered {
-    border: 1px solid #ddd !important;
-}
-</style>
 
 <div class="content">
 	<div class="row">
@@ -35,7 +29,7 @@
 						</div>
 					</div>
 					<div class="card-footer bg-white d-flex justify-content-center align-items-center">
-						<button type="submit" class="btn bg-teal-400 px-3"><i class="icon-plus-circle2 mr-2"></i>그룹 추가</button>
+						<button type="submit" class="btn bg-blue-400 px-3"><i class="icon-plus-circle2 mr-2"></i>그룹 추가</button>
 					</div>
 				</form>
 			</div>
@@ -47,7 +41,7 @@
 						<i class="icon-list mr-2"></i>과목 그룹 리스트
 					</h6>
 				</div>
-				<div class="card-body">
+				<div class="card-body table-no-responsive">
 					<table class="table table-bordered" id="subjectGroupTable">
 						<thead class="text-center">
 							<tr class="table-active">

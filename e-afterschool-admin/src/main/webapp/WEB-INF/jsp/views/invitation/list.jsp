@@ -4,7 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-notification2"/>
   	<c:param name="title" value="안내장 관리"/>
-  	<c:param name="lastname" value="안내장관리"/>
+  	<c:param name="lastname" value="안내장 관리"/>
 </c:import>
 
 <div class="content">
@@ -29,7 +29,7 @@
 							</c:forEach>
 						</select>
 					</div>
-					<button type="button" id="searchBtn" class="btn bg-blue-400 btn-block">
+					<button type="button" id="searchBtn" class="btn bg-teal-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
 					</button>
 				</div>
@@ -45,7 +45,7 @@
 	          		</div>
 				</div>
 				<div class="card-body">
-					<a href="regist" class="btn bg-teal-400 btn-block"><i class="icon-pencil5 mr-2"></i>안내장 등록</a>
+					<a href="regist" class="btn bg-blue-400 btn-block"><i class="icon-pencil5 mr-2"></i>안내장 등록</a>
 				</div>
 			</div>
 		</div>

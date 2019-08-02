@@ -13,7 +13,8 @@
 	<div class="row">
 		<div class="col-md-10 mx-md-auto">
 			<div class="card">
-				<form id="registForm" role="form" method="POST" enctype="multipart/form-data">
+				<form id="registForm" action="${pageContext.request.contextPath}/notice/regist/file" 
+					role="form" method="POST" enctype="multipart/form-data">
 					<div class="card-body">
 						<div class="form-group row mt-2">
 							<label class="col-md-3 col-form-label text-md-right">제&nbsp;&nbsp;&nbsp;&nbsp;목 :</label>

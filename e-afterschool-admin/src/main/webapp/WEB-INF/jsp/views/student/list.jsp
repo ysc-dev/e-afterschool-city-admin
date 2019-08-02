@@ -4,7 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-users"/>
   	<c:param name="title" value="학생 관리"/>
-  	<c:param name="lastname" value="학생관리"/>
+  	<c:param name="lastname" value="학생 관리"/>
 </c:import>
 
 <div class="content">
@@ -41,25 +41,9 @@
 					<div class="form-group">
 						<input type="search" class="form-control" placeholder="학생 이름" name="name" autocomplete="off">
 					</div>
-					<button type="button" id="searchBtn" class="btn bg-blue-400 btn-block">
+					<button type="button" id="searchBtn" class="btn bg-teal-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
 					</button>
-				</div>
-			</div>
-			
-			<div class="card">
-				<div class="card-header bg-transparent header-elements-inline">
-					<span class="text-uppercase font-size-sm font-weight-semibold">Action</span>
-					<div class="header-elements">
-						<div class="list-icons">
-	                		<a class="list-icons-item" data-action="collapse"></a>
-	               		</div>
-	          		</div>
-				</div>
-				<div class="card-body">
-					<a href="${pageContext.request.contextPath}/notice/regist" class="btn bg-teal-400 btn-block">
-						<i class="icon-pencil5 mr-2"></i>학생 등록
-					</a>
 				</div>
 			</div>
 		</div>

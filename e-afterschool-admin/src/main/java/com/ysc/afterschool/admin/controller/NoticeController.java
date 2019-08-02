@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ysc.afterschool.admin.domain.db.Notice;
@@ -68,7 +69,8 @@ public class NoticeController extends AbstractController<Notice, NoticeSearchPar
 	 * @param authentication
 	 * @return
 	 */
-	@PostMapping("regist")
+	@PostMapping("regist/file")
+	@ResponseBody
 	public ResponseEntity<?> regist(Notice notice, MultipartFile file, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		notice.setUserId(user.getUserId());

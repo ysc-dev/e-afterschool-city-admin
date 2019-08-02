@@ -21,6 +21,9 @@
 				<c:if test="${param.firstname ne null}">
 					<span class="breadcrumb-item">${param.firstname}</span>
 				</c:if>
+				<c:if test="${param.middlename ne null}">
+					<span class="breadcrumb-item">${param.middlename}</span>
+				</c:if>
 				<span class="breadcrumb-item active">${param.lastname}</span>
 			</div>
 		</div>

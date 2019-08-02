@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ysc.afterschool.admin.domain.db.School;
@@ -39,20 +38,6 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	@GetMapping("list")
 	public void list(Model model) {
 		model.addAttribute("schoolTypes", SchoolType.values());
-	}
-	
-	/**
-	 * 학교 추가 기능
-	 * @param school
-	 * @return
-	 */
-	@PostMapping("regist")
-	public ResponseEntity<?> regist(School school) {
-		if (schoolService.regist(school)) {
-			return new ResponseEntity<>(HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 
 	/**

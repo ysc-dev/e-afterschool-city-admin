@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Invitation.InvitationType;
@@ -60,6 +61,7 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 	 * @return
 	 */
 	@PostMapping("regist")
+	@ResponseBody 
 	public ResponseEntity<?> regist(Invitation invitation) {
 		invitation.setType(InvitationType.수강신청);
 		

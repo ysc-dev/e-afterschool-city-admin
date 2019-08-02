@@ -4,7 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-users"/>
   	<c:param name="title" value="학교 관리"/>
-  	<c:param name="lastname" value="학교관리"/>
+  	<c:param name="lastname" value="학교 관리"/>
 </c:import>
 
 <div class="content">
@@ -32,7 +32,7 @@
 					<div class="form-group">
 						<input type="search" class="form-control" placeholder="학교 이름" name="name" autocomplete="off">
 					</div>
-					<button type="button" id="searchBtn" class="btn bg-blue-400 btn-block">
+					<button type="button" id="searchBtn" class="btn bg-teal-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
 					</button>
 				</div>
@@ -69,7 +69,7 @@
 								</c:forEach>
 							</select>
 						</div>
-						<button type="submit" class="btn bg-teal-400 btn-block"><i class="icon-paperplane mr-2"></i>학교 추가</button>
+						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>학교 추가</button>
 					</form>
 				</div>
 			</div>

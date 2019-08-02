@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ysc.afterschool.admin.domain.db.Teacher;
@@ -39,20 +38,6 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	@GetMapping("list")
 	public void list(Model model) {
 		model.addAttribute("sexList", Sex.values());
-	}
-	
-	/**
-	 * 강사 추가 기능
-	 * @param teacher
-	 * @return
-	 */
-	@PostMapping("regist")
-	public ResponseEntity<?> regist(Teacher teacher) {
-		if (teacherService.regist(teacher)) {
-			return new ResponseEntity<>(HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	/**
