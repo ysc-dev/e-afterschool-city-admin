@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,7 @@ import com.ysc.afterschool.admin.domain.db.UploadedFile;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam.NoticeSearchType;
+import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.NoticeService;
 import com.ysc.afterschool.admin.service.UploadedFileService;
 
@@ -38,6 +40,9 @@ import com.ysc.afterschool.admin.service.UploadedFileService;
 public class NoticeController {
 	
 	@Autowired
+	private CityRepository cityRepository;
+	
+	@Autowired
 	private NoticeService noticeService;
 	
 	@Autowired
@@ -49,6 +54,7 @@ public class NoticeController {
 	 */
 	@GetMapping("list")
 	public void notice(Model model) {
+		model.addAttribute("cities", cityRepository.findAll());
 		model.addAttribute("searchTypes", NoticeSearchType.values());
 	}
 	
@@ -67,7 +73,8 @@ public class NoticeController {
 	 * 공지사항 등록 화면
 	 */
 	@GetMapping("regist")
-	public void regist() {
+	public void regist(Model model) {
+		model.addAttribute("cities", cityRepository.findAll());
 	}
 	
 	/**
@@ -134,6 +141,45 @@ public class NoticeController {
 		model.addAttribute("notice", noticeService.get(id));
 		return "notice/update";
 	}
+	
+	/**
+	 * 공지사항 등록
+	 * @param notice
+	 * @param file
+	 * @param authentication
+	 * @return
+	 */
+	@PutMapping("update")
+	@ResponseBody
+	public ResponseEntity<?> update(Notice notice, MultipartFile file) {
+		Notice temp = noticeService.get(notice.getId());
+		temp.setTitle(notice.getTitle());
+		temp.setContent(notice.getContent());
+		
+		if (!file.getOriginalFilename().isEmpty()) {
+			try {
+				UploadedFile uploadedFile = new UploadedFile();
+				uploadedFile.setFileName(file.getOriginalFilename());
+				uploadedFile.setContent(file.getBytes());
+				uploadedFile.setContentType(file.getContentType());
+				uploadedFileService.regist(uploadedFile);
+				
+				uploadedFileService.delete(notice.getUploadedFile().getId());
+				
+				temp.setUploadedFile(uploadedFile);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			}
+		}
+		
+		if (noticeService.update(temp)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
 	
 	/**
 	 * 정보 삭제

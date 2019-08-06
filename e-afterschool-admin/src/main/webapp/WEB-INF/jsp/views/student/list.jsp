@@ -25,14 +25,14 @@
 						<select class="form-control select-search" name="school">
 							<option value="">- 전 체 -</option>
 							<c:forEach var="school" items="${schools}" varStatus="status">
-								<option value="${school}">${school}</option>
+								<option value="${school.name}">${school.name}</option>
 							</c:forEach>
 						</select>
 					</div>
 					<div class="font-size-xs text-muted mb-2">학년 선택</div>
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="grade">
-							<option value="">- 전 체 -</option>
+							<option value="0">- 전 체 -</option>
 							<c:forEach var="item" begin="1" end="6" step="1">
 								<option value="${item}">${item} 학년</option>
 							</c:forEach>
@@ -77,3 +77,111 @@
 	</div>
 </div>
 	
+<script>
+var StudentManager = function() {
+	var DataTable = {
+		ele: "#studentTable",
+		table: null,
+		option: {
+			columns: [{
+		    	width: "6%",
+		    	render: function(data, type, row, meta) {
+		    		return meta.row + 1
+		    	}
+		    },
+		    { data: "name" },
+		    { data: "school" },
+		    {
+		    	render: function(data, type, row, meta) {
+		    		return row.grade + " 학년";
+		    	}
+		    },
+		    {
+		    	render: function(data, type, row, meta) {
+		    		return row.classType + " 반";
+		    	}
+		    },
+		    {
+		    	render: function(data, type, row, meta) {
+		    		return row.number + " 번";
+		    	}
+		    },
+		    { data: "tel" },
+		    { 
+		    	render: function(data, type, row, meta) {
+	    			return row.agree ? "동의" : "미동의";
+	    		} 
+		 	},
+		    { data: "residentNumber" },
+		    {
+		    	width: "10%",
+		    	render: function(data, type, row, meta) {
+		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-800 btn-sm" ' +
+		    				'onClick="StudentManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>' +
+    					'<button type="button" class="btn btn-outline bg-danger text-danger-800 btn-sm" ' + 
+	    					'onClick="StudentManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>'
+		    	}
+		    }]
+		},
+		init: function() {
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 학생이 있습니다.", [7, 8], [1,2,3,4,5,6,7,8]);
+			this.search();
+		},
+		search: function() {
+			var param = new Object();
+			param.school = $("select[name=school]").val();
+			param.grade = $("select[name=grade]").val();
+			param.name = $("input[name=name]").val();
+			Datatables.rowsAdd(this.table, contextPath + "/student/search", param);
+		}
+	}
+	
+	var searchControl = function() {
+		$("#searchBtn").click(function() {
+			DataTable.search();
+		});
+	}
+	
+	var controlStudentData = function() {
+		$('#updateStudentForm').submit(function(e) {
+			e.preventDefault();
+			var form = $(this);
+			var url = form.attr('action');
+			
+		 	updateModalCommon(url, form.serializeObject(), "학생", DataTable, "updateStudentModal");
+		}); 
+	}
+	
+	return {
+		init: function() {
+			DataTable.init();
+			searchControl();
+			controlStudentData();
+		},
+	 	modal: function(id) {
+	 		$.ajax({
+	    		url: contextPath + "/student/get",
+	    		type: "GET",
+	    		data: {"id": id},
+	    		success: function(response) {
+	    			$('#updateStudentForm input[name="id"]').val(response.id);
+	    			$('#updateStudentForm input[name="name"]').val(response.name);
+	    			$('#updateStudentForm select[name="school"]').val(response.school).trigger('change');
+	    			$('#updateStudentForm select[name="grade"]').val(response.grade).trigger('change');
+	    			$('#updateStudentForm select[name="classType"]').val(response.classType).trigger('change');
+	    			$('#updateStudentForm select[name="number"]').val(response.number).trigger('change');
+	    			$('#updateStudentForm input[name="tel"]').val(response.tel);
+	    			$("#updateStudentModal").modal();
+	           	}
+	    	}); 
+	 	},
+		_delete: function(id) {
+        	deleteCommon(contextPath + "/student/delete", id, "학생", DataTable);
+        }
+	}
+}();
+
+document.addEventListener('DOMContentLoaded', function() {
+	StudentManager.init();
+});
+</script>

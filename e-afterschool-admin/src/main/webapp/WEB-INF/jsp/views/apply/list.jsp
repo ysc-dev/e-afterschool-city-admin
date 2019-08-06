@@ -4,24 +4,26 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-list"/>
   	<c:param name="title" value="수강 관리"/>
+  	<c:param name="content" value="신청된 수강 목록"/>
   	<c:param name="lastname" value="수강 관리"/>
 </c:import>
 
 <div class="content">
 	<div id="list_content" class="card mb-0">
-		<div class="card-header header-elements-inline bg-white">
-			<h4 class="card-title font-weight-bold">
-				<i class="icon-list mr-2"></i>신청된 수강 목록
-			</h4>
-			<div class="header-elements">
-			
-			</div>
-		</div>
-		<div class="card-body">
-			<div class="d-flex mt-1 mb-2">
+		<div class="card-body table-no-responsive">
+			<div class="d-flex mt-1 mb-3">
 				<label class="col-form-label font-weight-bold mr-3">검색조건 <i class="icon-arrow-right13"></i></label>
-				<div class="mr-2">
-					<select class="form-control select-search" name="subject" data-width="300">
+				<label class="col-form-label mr-2">안내장 :</label>
+				<div class="mr-3">
+					<select class="form-control form-control-select2" name="invitation" data-width="280" id="invitationSelect">
+						<c:forEach var="invitation" items="${invitations}" varStatus="status">
+							<option value="${invitation.id}">${invitation.name}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<label class="col-form-label mr-2">과목 :</label>
+				<div class="mr-3">
+					<select class="form-control select-search" name="subject" data-width="300" id="subjectSelect">
 						<option value="">- 전 체 -</option>
 						<c:forEach var="subject" items="${subjects}" varStatus="status">
 							<option value="${subject.id}">
@@ -30,17 +32,19 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div class="mr-2">
-					<select class="form-control select-search" name="school" data-width="200">
+				<label class="col-form-label mr-2">학교 :</label>
+				<div class="mr-3">
+					<select class="form-control select-search" name="school" data-width="160">
 						<option value="">- 전 체 -</option>
 						<c:forEach var="school" items="${schools}" varStatus="status">
-							<option value="${school}">${school}</option>
+							<option value="${school.name}">${school.name}</option>
 						</c:forEach>
 					</select>
 				</div>
+				<label class="col-form-label mr-2">학년 :</label>
 				<div class="mr-3">
 					<select class="form-control form-control-select2" name="grade" data-width="100">
-						<option value="">- 전 체 -</option>
+						<option value="0">- 전 체 -</option>
 						<c:forEach var="item" begin="1" end="6" step="1">
 							<option value="${item}">${item} 학년</option>
 						</c:forEach>
@@ -70,3 +74,86 @@
 	</div>
 </div>
 	
+<script>
+$("#invitationSelect").change(function() {
+	$("#subjectSelect").empty();
+	
+	$.ajax({
+		url: contextPath + "/apply/subject/list",
+		type: "GET",
+		data: {"invitationId": $(this).val()},
+		success: function(response) {
+			if (response.length > 0) {
+				$.each(response, function (i, item) {
+					$('#subjectSelect').append($('<option>', {
+					    value: item.id,
+					    text: item.name
+					}));
+				});
+			} else {
+				$('#subjectSelect').append($('<option>', {
+				    value: 0,
+				    text: "데이터 없음"
+				}));
+			}
+       	}
+	}); 
+});
+
+var ApplyManager = function() {
+	var DataTable = {
+		ele: "#applyTable",
+		table: null,
+		option: {
+			columns: [{
+		    	width: "6%",
+		    	render: function(data, type, row, meta) {
+		    		return meta.row + 1
+		    	}
+		    },
+		    { data: "subject.name" },
+		    { data: "subject.period" },
+		    { data: "subject.time" },
+		    { data: "subject.week" },
+		    { data: "subject.teacher" },
+		    { data: "student.name" },
+		    { data: "student.school" },
+		    { 
+		    	render: function(data, type, row, meta) {
+		    		return row.student.grade + "학년 " + row.student.classType + "반 " + row.student.number + "번";
+		    	}
+		    },
+		    { data: "student.tel" }]
+		},
+		init: function() {
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9]);
+			this.search();
+		},
+		search: function() {
+			var param = new Object();
+			param.invitationId = $("select[name=invitation]").val();
+			param.subjectId = $("select[name=subject]").val();
+			param.school = $("select[name=school]").val();
+			param.grade = $("select[name=grade]").val();
+			Datatables.rowsAdd(this.table, contextPath + "/apply/search", param);
+		}
+	}
+	
+	var searchControl = function() {
+		$("#searchBtn").click(function() {
+			DataTable.search();
+		});
+	}
+	
+	return {
+		init: function() {
+			DataTable.init();
+			searchControl();
+		}
+	}
+}();
+
+document.addEventListener('DOMContentLoaded', function() {
+	ApplyManager.init();
+});
+</script>

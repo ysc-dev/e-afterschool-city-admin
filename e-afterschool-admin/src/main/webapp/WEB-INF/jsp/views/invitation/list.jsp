@@ -23,7 +23,7 @@
 					<div class="font-size-xs text-muted mb-2">지역 선택</div>
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="city">
-							<option value="">- 전 체 -</option>
+							<option value="0">- 전 체 -</option>
 							<c:forEach var="city" items="${cities}" varStatus="status">
 								<option value="${city.id}">${city.name}</option>
 							</c:forEach>

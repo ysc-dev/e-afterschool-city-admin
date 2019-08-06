@@ -20,6 +20,15 @@
 	          		</div>
 				</div>
 				<div class="card-body">
+					<div class="font-size-xs text-muted mb-2">지역 선택</div>
+					<div class="form-group">
+						<select class="form-control form-control-select2" name="city">
+							<option value="전체">- 전 체 -</option>
+							<c:forEach var="city" items="${cities}" varStatus="status">
+								<option value="${city.name}">${city.name}</option>
+			 				</c:forEach>
+						</select>
+					</div>
 					<div class="font-size-xs text-muted mb-2">카테고리</div>
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="searchType">
@@ -60,13 +69,14 @@
 					<h5 class="card-title">공지사항 목록</h5>
 				</div>
 				<div class="table-responsive">
-					<table class="table text-nowrap" id="noticeTable">
+					<table class="table" id="noticeTable">
 						<thead class="text-center">
 							<tr class="table-active">
 								<th>번 호</th>
 								<th>제 목</th>
 								<th>글쓴이</th>
 								<th>날 짜</th>
+								<th>지 역</th>
 								<th>조 회</th>
 							</tr>
 						</thead>
@@ -104,11 +114,14 @@ var NoticeManager = function() {
 		    	}
 		    }, {
 		    	width: "10%",
+		    	data: "city"
+		    }, {
+		    	width: "10%",
 		    	data: "hit"
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.order(this.ele, this.option, [1, 3]);
+			this.table = Datatables.order(this.ele, this.option, [3]);
 			this.search();
 		},
 		search: function() {

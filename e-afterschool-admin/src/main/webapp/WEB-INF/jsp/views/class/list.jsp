@@ -90,7 +90,6 @@ $("#invitationSelect").change(function() {
 		type: "GET",
 		data: {"invitationId": $(this).val()},
 		success: function(response) {
-			console.log(response);
 			if (response.length > 0) {
 				$.each(response, function (i, item) {
 					$('#subjectSelect').append($('<option>', {

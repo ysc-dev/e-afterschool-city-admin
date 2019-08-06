@@ -22,6 +22,11 @@ public class UploadedFileService {
 		}	
 	}
 	
+	public boolean delete(int id) {
+		uploadedFileRepository.deleteById(id);
+		return true;
+	}
+	
 	private boolean isNew(UploadedFile domain) {
 		return !uploadedFileRepository.existsById(domain.getId());
 	}

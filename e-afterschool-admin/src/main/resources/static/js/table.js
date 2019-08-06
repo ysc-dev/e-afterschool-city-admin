@@ -48,6 +48,34 @@ var Datatables = {
 		
 		return table;
 	},
+	download: function(id, tableOption, info, visible, exportColumns) {
+		var table = $(id).DataTable({
+			dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"iBp>',
+			language: {
+				info: info ? info : " _TOTAL_ 개의 데이터가 있습니다."
+			},
+			columns: tableOption ? tableOption.columns : null,
+			columnDefs: [
+				{ orderable: true, className: 'reorder', targets: 0 },
+		    	{ orderable: false, targets: '_all' },
+				{ visible: false, targets: visible }
+			],
+			buttons: {
+		        buttons: [{
+	                extend: 'excelHtml5',
+	                className: 'btn bg-primary-400 ml-3',
+                    text: '<i class="icon-folder-download mr-2"></i> 다운로드',
+                    fieldSeparator: '\t',
+		            exportOptions: {
+		                columns: exportColumns
+		            }
+	            }]
+		    },
+			order: [[0, 'asc']]
+		});
+		
+		return table;
+	},
 	rowsAdd: function(table, url, param) {
 		table.clear().draw();
 		

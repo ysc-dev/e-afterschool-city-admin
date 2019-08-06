@@ -2,6 +2,7 @@ package com.ysc.afterschool.admin.domain.db;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -45,6 +46,13 @@ public class Apply implements Domain {
 	@OneToOne
     @JoinColumn(name = "invitation_id")
 	private Invitation invitation;
+	
+	/** 소속(학교 명) */
+	@Column(nullable = false, length = 45)
+	private String school;
+	
+	/** 학년 */
+	private int grade;
 	
 	@CreationTimestamp
 	private LocalDateTime createDate;

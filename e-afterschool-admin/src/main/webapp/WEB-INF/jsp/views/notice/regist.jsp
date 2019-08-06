@@ -16,6 +16,16 @@
 				<form id="registForm" role="form" method="POST" enctype="multipart/form-data">
 					<div class="card-body">
 						<div class="form-group row mt-2">
+							<label class="col-md-3 col-form-label text-md-right">지&nbsp;&nbsp;&nbsp;&nbsp;역 :</label>
+							<div class="col-md-7">
+								<select class="form-control form-control-select2" name="city">
+									<c:forEach var="city" items="${cities}" varStatus="status">
+										<option value="${city.name}">${city.name}</option>
+									</c:forEach>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
 							<label class="col-md-3 col-form-label text-md-right">제&nbsp;&nbsp;&nbsp;&nbsp;목 :</label>
 							<div class="col-md-7">
 								<input type="text" class="form-control" name="title" placeholder="" autocomplete="off" required>
@@ -25,7 +35,7 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-form-label text-md-right">내&nbsp;&nbsp;&nbsp;&nbsp;용 :</label>
 							<div class="col-md-7">
-								<textarea class="form-control" name="content" rows="10" required></textarea>
+								<textarea class="form-control" name="content" rows="8" required></textarea>
 							</div>
 						</div>
 						

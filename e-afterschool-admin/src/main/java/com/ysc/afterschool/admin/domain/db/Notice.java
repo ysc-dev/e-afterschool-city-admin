@@ -37,6 +37,9 @@ public class Notice extends AbstractDomain {
 	@Enumerated(EnumType.STRING)
 	private PostStatus status;
 	
+	@Column(nullable = false, length = 20)
+	private String city;
+	
 	private int hit;
 	
 	@Column(nullable = false, length = 20)

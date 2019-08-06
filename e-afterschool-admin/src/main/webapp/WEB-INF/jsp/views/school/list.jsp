@@ -23,7 +23,7 @@
 					<div class="font-size-xs text-muted mb-2">타입 선택</div>
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="school">
-							<option value="">- 전 체 -</option>
+							<option value="NONE">- 전 체 -</option>
 							<c:forEach var="type" items="${schoolTypes}" varStatus="status">
 								<option value="${type}">${type.name}</option>
 							</c:forEach>
@@ -174,7 +174,7 @@ var SchoolManager = function() {
 		},
 		search: function() {
 			var param = new Object();
-			param.schoolType = $("select[name=schoolType]").val();
+			param.schoolType = $("select[name=school]").val();
 			param.name = $("input[name=name]").val();
 			Datatables.rowsAdd(this.table, contextPath + "/school/search", param);
 		}
