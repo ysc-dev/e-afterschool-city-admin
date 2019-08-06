@@ -46,7 +46,7 @@ public class Invitation extends AbstractDomain {
 	private City city;
 	
 	/** 파일 이름 */
-	@Column(nullable = false, length = 100)
+	@Column( length = 100)
 	private String fileName;
 
 	/** 파일 데이터 */
@@ -54,7 +54,7 @@ public class Invitation extends AbstractDomain {
 	private byte[] content;
 
 	/** 파일 확장자 */
-	@Column(nullable = false, length = 100)
+	@Column(length = 100)
 	private String contentType;
 	
 	@Getter

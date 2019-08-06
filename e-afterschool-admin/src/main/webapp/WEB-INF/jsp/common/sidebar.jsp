@@ -59,6 +59,16 @@
 						</li>
 					</ul>
 				</li>
+				<li id="class" class="nav-item">
+					<a href="${pageContext.request.contextPath}/class/list" class="nav-link">
+						<i class="icon-stack"></i><span>횟수별 수업 관리</span>
+					</a>
+				</li>
+				<li id="apply" class="nav-item">
+					<a href="${pageContext.request.contextPath}/apply/list" class="nav-link">
+						<i class="icon-list"></i><span>수강 관리</span>
+					</a>
+				</li>
 				<li id="notice" class="nav-item">
 					<a href="${pageContext.request.contextPath}/notice/list" class="nav-link">
 						<i class="icon-bubble-notification"></i><span>공지사항</span>

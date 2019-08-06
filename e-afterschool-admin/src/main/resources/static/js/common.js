@@ -10,7 +10,8 @@ var CommonWidget = function() {
     	
         var $select = $('.form-control-select2').select2({
             minimumResultsForSearch: Infinity,
-            width: '100%'
+            width: '100%',
+            placeholder: 'Select a Data...'
         });
         
         $('.select2-size').select2({

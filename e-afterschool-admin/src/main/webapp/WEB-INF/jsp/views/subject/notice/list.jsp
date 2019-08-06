@@ -54,6 +54,9 @@
 					<a href="${pageContext.request.contextPath}/subject/notice/regist/${subject.id}" class="btn bg-teal-400 btn-block">
 						<i class="icon-pencil5 mr-2"></i>공지사항 등록
 					</a>
+					<a href="${pageContext.request.contextPath}/subject/list" class="btn btn-light btn-block mt-3">
+						<i class="icon-circle-left2 mr-2"></i>뒤로가기
+					</a>
 				</div>
 			</div>
 		</div>

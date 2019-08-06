@@ -14,4 +14,6 @@ public interface SubjectNoticeRepository extends DefaultRepository<SubjectNotice
 
 	List<SubjectNotice> findBySubjectIdAndContentContaining(int subjectId, String content);
 
+	void deleteBySubjectId(int subjectId);
+
 }

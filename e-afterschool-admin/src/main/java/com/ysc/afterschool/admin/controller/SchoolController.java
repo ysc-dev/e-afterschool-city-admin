@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ysc.afterschool.admin.domain.db.School;
 import com.ysc.afterschool.admin.domain.db.School.SchoolType;
 import com.ysc.afterschool.admin.domain.param.SchoolSearchParam;
+import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.SchoolService;
 
@@ -26,6 +27,9 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	
 	@Autowired
 	private SchoolService schoolService;
+	
+	@Autowired
+	private CityRepository cityRepository;
 
 	public SchoolController(CRUDService<School, SchoolSearchParam, Integer> crudService) {
 		super(crudService);
@@ -38,6 +42,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	@GetMapping("list")
 	public void list(Model model) {
 		model.addAttribute("schoolTypes", SchoolType.values());
+		model.addAttribute("cities", cityRepository.findAll());
 	}
 
 	/**

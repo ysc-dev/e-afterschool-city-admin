@@ -59,7 +59,11 @@
 						</div>
 						<div class="form-group">
 							<label>지 역:</label>
-							<input type="text" name="city" class="form-control" placeholder="예) 창원">
+							<select class="form-control form-control-select2" name="city">
+								<c:forEach var="city" items="${cities}" varStatus="status">
+									<option value="${city.name}">${city.name}</option>
+								</c:forEach>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>학교 타입:</label>

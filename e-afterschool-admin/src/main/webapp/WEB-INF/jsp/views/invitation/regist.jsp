@@ -18,7 +18,7 @@
 						<div class="form-group row mt-2">
 							<label class="col-md-3 col-form-label text-md-right">지역 선택 :</label>
 							<div class="col-md-7">
-								<select class="form-control form-control-select2" name="cityId">
+								<select class="form-control form-control-select2" name="city">
 									<c:forEach var="city" items="${cities}" varStatus="status">
 										<option value="${city.id}">${city.name}</option>
 									</c:forEach>
@@ -77,7 +77,7 @@ $('#registForm').submit(function(e) {
    			});
        	},
         error: function(response) {
-        	swal({title: "공지사항 등록을 실패하였습니다.", type: "error"})
+        	swal({title: "안내장 등록을 실패하였습니다.", type: "error"})
         }
 	});
 });

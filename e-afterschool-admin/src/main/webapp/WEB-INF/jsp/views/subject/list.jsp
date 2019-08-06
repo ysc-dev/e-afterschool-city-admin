@@ -284,7 +284,7 @@ var SubjectManager = function() {
 	    	}); 
 		},
 		_delete: function(id) {
-        	deleteCommon(contextPath + "/subject/delete", id, "과목", DataTable);
+        	deleteCommon(contextPath + "/subject/delete", id, "과목", DataTable, "과목을 삭제하면 설정된 수업, 공지사항도 삭제가 됩니다.<br>그래도 삭제하시겠습니까?");
         }
 	}
 }();

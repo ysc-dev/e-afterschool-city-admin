@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ysc.afterschool.admin.convert.CityEditor;
 import com.ysc.afterschool.admin.convert.InvitationEditor;
 import com.ysc.afterschool.admin.convert.SubjectGroupEditor;
 import com.ysc.afterschool.admin.convert.TeacherEditor;
 import com.ysc.afterschool.admin.domain.Domain;
 import com.ysc.afterschool.admin.domain.DomainParam;
+import com.ysc.afterschool.admin.domain.db.City;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.SubjectGroup;
 import com.ysc.afterschool.admin.domain.db.Teacher;
@@ -48,11 +50,15 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	@Autowired
 	private TeacherEditor teacherEditor;
 	
+	@Autowired
+	private CityEditor cityEditor;
+	
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(SubjectGroup.class, "subjectGroup", subjectGroupEditor);
 		binder.registerCustomEditor(Teacher.class, "teacher", teacherEditor);
 		binder.registerCustomEditor(Invitation.class, "invitation", invitationEditor);
+		binder.registerCustomEditor(City.class, "city", cityEditor);
 	}
 	
 	public AbstractController(CRUDService<T, P, ID> crudService) {
