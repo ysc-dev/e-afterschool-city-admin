@@ -73,13 +73,9 @@ div.dt-buttons {
 }
 
 .dataTables_wrapper .table-bordered {
-	border: 0 !important;
+	border-top: 1px solid #ddd !important;
 }
 
 .btn-sm {
 	padding: 0.2rem 0.5rem;
-}
-
-.table-no-responsive .dataTables_wrapper .table-bordered {
-    border: 1px solid #ddd !important;
 }

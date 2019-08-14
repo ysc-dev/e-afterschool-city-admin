@@ -71,21 +71,19 @@
 				<div class="card-header">
 					<h5 class="card-title">등록된 강사 목록</h5>
 				</div>
-				<div class="table-responsive">
-					<table class="table table-bordered text-nowrap" id="teacherTable">
-						<thead class="text-center">
-							<tr class="table-active">
-								<th>번호</th>
-								<th>이름</th>
-								<th>연락처</th>
-								<th>이메일</th>
-								<th>성별</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody class="text-center"></tbody>
-					</table>
-				</div>
+				<table class="table table-bordered" id="teacherTable">
+					<thead class="text-center">
+						<tr class="table-active">
+							<th>번호</th>
+							<th>이름</th>
+							<th>연락처</th>
+							<th>이메일</th>
+							<th>성별</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="text-center"></tbody>
+				</table>
 			</div>
 		</div>
 	</div>

@@ -69,16 +69,16 @@ public class ApplyServiceImpl implements ApplyService {
 			applies = applyRepository.findByInvitationId(param.getInvitationId());
 		}
 		
-		if (!school.isEmpty() && !grade.isEmpty()) {
+		if (!school.isEmpty() && !grade.equals("0")) {
 			return applies.stream()
 					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool()) 
 							&& data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
 					.collect(Collectors.toList());
-		} else if (!school.isEmpty() && grade.isEmpty()) {
+		} else if (!school.isEmpty() && grade.equals("0")) {
 			return applies.stream()
 					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool());})
 					.collect(Collectors.toList());
-		} else if (school.isEmpty() && !grade.isEmpty()) {
+		} else if (school.isEmpty() && !grade.equals("0")) {
 			return applies.stream()
 					.filter(data -> {return data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
 					.collect(Collectors.toList());

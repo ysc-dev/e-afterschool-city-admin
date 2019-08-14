@@ -41,7 +41,7 @@
 						<i class="icon-list mr-2"></i>과목 그룹 리스트
 					</h6>
 				</div>
-				<div class="card-body table-no-responsive">
+				<div class="card-body">
 					<table class="table table-bordered" id="subjectGroupTable">
 						<thead class="text-center">
 							<tr class="table-active">

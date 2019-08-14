@@ -10,7 +10,7 @@
 
 <div class="content">
 	<div id="list_content" class="card mb-0">
-		<div class="card-body table-no-responsive">
+		<div class="card-body">
 			<div class="d-flex mt-1 mb-3">
 				<label class="col-form-label font-weight-bold mr-3">검색조건 <i class="icon-arrow-right13"></i></label>
 				<label class="col-form-label mr-2">안내장 :</label>
@@ -115,7 +115,7 @@ var ApplyManager = function() {
 		    { data: "subject.period" },
 		    { data: "subject.time" },
 		    { data: "subject.week" },
-		    { data: "subject.teacher" },
+		    { data: "subject.teacher.name" },
 		    { data: "student.name" },
 		    { data: "student.school" },
 		    { 

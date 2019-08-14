@@ -83,7 +83,7 @@
 						</a>
 					</div>
 					<div>
-						<button type="button" class="btn bg-danger-300 px-3" onclick="deleteNotice(${subjectNotice.id})">
+						<button type="button" class="btn bg-danger-400 px-3" onclick="deleteNotice(${subjectNotice.id})">
 							<i class="icon-trash mr-2"></i>삭 제
 						</button>
 					</div>

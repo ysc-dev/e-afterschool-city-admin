@@ -53,25 +53,23 @@
 				<div class="card-header">
 					<h5 class="card-title">등록된 학생 목록</h5>
 				</div>
-				<div class="table-responsive">
-					<table class="table" id="studentTable">
-						<thead class="text-center">
-							<tr class="table-active">
-								<th>번호</th>
-								<th>이름</th>
-								<th>소속(학교 명)</th>
-								<th>학년</th>
-								<th>학급(반)</th>
-								<th>번호</th>
-								<th>연락처</th>
-								<th>개인정보동의</th>
-								<th>주민번호</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody class="text-center"></tbody>
-					</table>
-				</div>
+				<table class="table table-bordered" id="studentTable">
+					<thead class="text-center">
+						<tr class="table-active">
+							<th>번호</th>
+							<th>이름</th>
+							<th>소속(학교 명)</th>
+							<th>학년</th>
+							<th>학급(반)</th>
+							<th>번호</th>
+							<th>연락처</th>
+							<th>개인정보동의</th>
+							<th>주민번호</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="text-center"></tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -84,7 +82,7 @@ var StudentManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "6%",
+		    	width: "8%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
@@ -116,9 +114,9 @@ var StudentManager = function() {
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
-		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-800 btn-sm" ' +
+		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm" ' +
 		    				'onClick="StudentManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>' +
-    					'<button type="button" class="btn btn-outline bg-danger text-danger-800 btn-sm" ' + 
+    					'<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm" ' + 
 	    					'onClick="StudentManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>'
 		    	}
 		    }]

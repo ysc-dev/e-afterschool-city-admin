@@ -60,15 +60,18 @@ public class SubjectNoticeServiceImpl implements SubjectNoticeService {
 	public List<SubjectNotice> getList(NoticeSearchParam param) {
 		NoticeSearchType searchType = param.getSearchType();
 		if (searchType == NoticeSearchType.전체) {
-			return subjectNoticeRepository.findBySubjectId(param.getSubjectId());
+			return subjectNoticeRepository.findBySubjectIdOrderByImportantDescCreateDateDesc(param.getSubjectId());
 		} else {
 			if (!param.getContent().isEmpty()) {
 				if (searchType == NoticeSearchType.제목) {
-					return subjectNoticeRepository.findBySubjectIdAndTitleContaining(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository.findBySubjectIdAndTitleContainingOrderByImportantDescCreateDateDesc
+							(param.getSubjectId(), param.getContent());
 				} else if (searchType == NoticeSearchType.작성자) {
-					return subjectNoticeRepository.findBySubjectIdAndUserNameContaining(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository.findBySubjectIdAndUserNameContainingOrderByImportantDescCreateDateDesc
+							(param.getSubjectId(), param.getContent());
 				} else if (searchType == NoticeSearchType.내용) {
-					return subjectNoticeRepository.findBySubjectIdAndContentContaining(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository.findBySubjectIdAndContentContainingOrderByImportantDescCreateDateDesc
+							(param.getSubjectId(), param.getContent());
 				}
 			}
 		}

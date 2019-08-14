@@ -124,30 +124,6 @@ public class ClassContentsController  {
 		
 		classContents.setUploadedFiles(uploadedFiles);
 		
-//		Iterator<String> files = request.getFileNames();
-//		while (files.hasNext()) {
-//			String uploadFile = files.next();
-//			MultipartFile multipartFile = request.getFile(uploadFile);
-//			String fileName = multipartFile.getOriginalFilename();
-//			System.err.println(fileName);
-//			if (!fileName.isEmpty()) {
-//				try {
-//					SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
-//					uploadedFile.setFileName(fileName);
-//					uploadedFile.setContent(multipartFile.getBytes());
-//					uploadedFile.setContentType(multipartFile.getContentType());
-//					uploadedFile.setClassContents(classContents);
-//					
-//					uploadedFiles.add(uploadedFile);
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//				}
-//			}
-//		}
-		
-//		classContents.setUploadedFiles(uploadedFiles);
-		
 		if (classContentsService.regist(classContents)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}

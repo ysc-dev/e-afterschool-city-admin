@@ -20,7 +20,6 @@ import com.ysc.afterschool.admin.domain.db.SubjectNotice;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam.NoticeSearchType;
-import com.ysc.afterschool.admin.service.CommentService;
 import com.ysc.afterschool.admin.service.SubjectNoticeService;
 import com.ysc.afterschool.admin.service.SubjectService;
 
@@ -40,9 +39,6 @@ public class SubjectNoticeController {
 	@Autowired
 	private SubjectNoticeService subjectNoticeService;
 	
-	@Autowired
-	private CommentService commentService;
-
 	/**
 	 * 과목별 공지사항 조회 화면
 	 * @param model
@@ -86,9 +82,10 @@ public class SubjectNoticeController {
 	 * @return
 	 */
 	@PostMapping("regist")
+	@ResponseBody
 	public ResponseEntity<?> notice(SubjectNotice subjectNotice, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
-		subjectNotice.setUserId(user.getUserId());
+		subjectNotice.setUserId(user.getId());
 		subjectNotice.setUserName(user.getName());
 		
 		if (subjectNoticeService.regist(subjectNotice)) {
@@ -109,7 +106,7 @@ public class SubjectNoticeController {
 		SubjectNotice notice = subjectNoticeService.get(id);
 		model.addAttribute("subjectNotice", notice);
 		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss"));
-		model.addAttribute("comments", commentService.getList(id));
+		model.addAttribute("comments", notice.getComments());
 		
 		notice.setHit(notice.getHit() + 1);
 		subjectNoticeService.update(notice);

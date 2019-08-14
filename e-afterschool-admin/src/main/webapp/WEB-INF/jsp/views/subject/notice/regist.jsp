@@ -27,7 +27,7 @@
 						<div class="form-group row mt-2">
 							<label class="col-md-3 col-form-label text-md-right">제&nbsp;&nbsp;&nbsp;&nbsp;목 :</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="title" placeholder="" autocomplete="off" required>
+								<input type="text" class="form-control" name="title" autocomplete="off" required>
 							</div>
 						</div>
 						
@@ -76,7 +76,6 @@ $('#registForm').submit(function(e) {
        	processData: false,
        	contentType: false,
        	success: function(response) {
-           	console.log(response);
        		swal({
    				title: "과목 별 공지사항 등록이 되었습니다.", 
    				type: "success"

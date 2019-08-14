@@ -98,8 +98,13 @@ var NoticeManager = function() {
 		    	}
 		    }, {
 	        	render: function(data, type, row, meta) {
+		        	var important = "";
+					if (row.important) {
+						important = '<span class="text-danger mr-2">[공지사항]</span>';
+					}
+		        	
 		    		return '<a href="${pageContext.request.contextPath}/subject/notice/detail/' + row.id + '"'
-		    		 + 'class="text-default font-weight-bold">' + row.title + '</a>';
+		    		 + 'class="text-default font-weight-bold">' + important + row.title + '</a>';
 		    	}
 		    }, {
 		    	width: "15%",

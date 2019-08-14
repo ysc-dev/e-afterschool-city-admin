@@ -55,21 +55,19 @@
 				<div class="card-header">
 					<h5 class="card-title">안내장 목록</h5>
 				</div>
-				<div class="table-responsive">
-					<table class="table table-bordered" id="invitationTable">
-						<thead class="text-center">
-							<tr class="table-active">
-								<th>번호</th>
-								<th>안내장 제목</th>
-								<th>신청 마감일</th>
-								<th>수강 신청 현황</th>
-								<th>지역</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody class="text-center"></tbody>
-					</table>
-				</div>
+				<table class="table table-bordered" id="invitationTable">
+					<thead class="text-center">
+						<tr class="table-active">
+							<th>번호</th>
+							<th>안내장 제목</th>
+							<th>신청 마감일</th>
+							<th>수강 신청 현황</th>
+							<th>지역</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody class="text-center"></tbody>
+				</table>
 			</div>
 		</div>
 	</div>

@@ -62,20 +62,18 @@
 				<div class="card-header">
 					<h5 class="card-title">수업 내용 목록</h5>
 				</div>
-				<div class="table-responsive">
-					<table class="table table-bordered" id="classTable">
-						<thead class="text-center">
-							<tr class="table-active">
-								<th>번호</th>
-								<th>등록일</th>
-								<th>사업내용</th>
-								<th>첨부파일</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody class="text-center"></tbody>
-					</table>
-				</div>
+				<table class="table table-bordered" id="classTable">
+					<thead class="text-center">
+						<tr class="table-active">
+							<th>번호</th>
+							<th>등록일</th>
+							<th>사업내용</th>
+							<th>첨부파일</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody class="text-center"></tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -92,14 +90,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-               <div id="image-viewer">
-               
-               </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">
-                    <i class="icon-cross3 mr-2"></i>닫 기
-                </button>
+               <div id="image-viewer"></div>
             </div>
         </div>
     </div>
