@@ -37,6 +37,17 @@
 								<textarea class="form-control" name="content" rows="10" required></textarea>
 							</div>
 						</div>
+						
+						<div class="form-group row">
+							<label class="col-md-3 col-form-label text-md-right">공지 여부 :</label>
+							<div class="col-md-7">
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input-styled" name="important" checked data-fouc>
+									</label>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="card-footer bg-white d-flex justify-content-center align-items-center py-3">
 						<button type="submit" class="btn bg-teal-400 mr-3 px-4"><i class="icon-pencil5 mr-2"></i>저 장</button>

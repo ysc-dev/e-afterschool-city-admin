@@ -33,6 +33,7 @@
 	<!-- Core JS files -->
 	
 	<!-- Theme JS files -->
+	<script src="${contextName}/limitless/js/plugins/forms/styling/uniform.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/forms/inputs/inputmask.js"></script>
 	<script src="${contextName}/limitless/js/plugins/forms/inputs/formatter.min.js"></script>
 	<script src="${contextName}/limitless/js/plugins/forms/selects/select2.min.js"></script>

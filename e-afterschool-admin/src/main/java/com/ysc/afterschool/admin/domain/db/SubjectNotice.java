@@ -32,6 +32,9 @@ public class SubjectNotice extends AbstractDomain {
 	
 	private int hit;
 	
+	/** 공지사항일 경우 또는 중요할 공지일 경우 */
+	private boolean important;
+	
 	/** 작성자 ID */
 	@Column(nullable = false, length = 20)
 	private String userId;

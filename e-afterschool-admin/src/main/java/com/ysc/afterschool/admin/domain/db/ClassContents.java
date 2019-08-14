@@ -1,17 +1,23 @@
 package com.ysc.afterschool.admin.domain.db;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.ysc.afterschool.admin.domain.Domain;
 
@@ -34,22 +40,20 @@ public class ClassContents implements Domain {
 	
 	private int subjectId;
 	
+	@Column(nullable = false, length = 45)
+	private String userId;
+	
+	@Column(nullable = false, length = 100)
+	private String userName;
+	
 	@Lob
 	@NotNull
 	private String content;
 	
-	/** 파일 이름 */
-	@Column( length = 100)
-	private String fileName;
-
-	/** 파일 데이터 */
-	@Column(columnDefinition = "longblob")
-	private byte[] file;
-
-	/** 파일 확장자 */
-	@Column(length = 100)
-	private String contentType;
-	
 	@CreationTimestamp
 	private LocalDateTime createDate;
+	
+	@OneToMany(mappedBy = "classContents", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
+	private List<SubjectUploadedFile> uploadedFiles;
 }

@@ -1,10 +1,14 @@
 package com.ysc.afterschool.admin.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ysc.afterschool.admin.domain.db.ClassContents;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
+import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile;
+import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
 import com.ysc.afterschool.admin.service.ClassContentsService;
 import com.ysc.afterschool.admin.service.InvitationService;
@@ -91,8 +98,37 @@ public class ClassContentsController  {
 	 */
 	@PostMapping("regist")
 	@ResponseBody 
-	public ResponseEntity<?> regist(ClassContents classContents, MultipartFile multipartFile) {
+	public ResponseEntity<?> regist(ClassContents classContents, MultipartHttpServletRequest request, Authentication authentication) {
 		System.err.println(classContents);
+		User user = (User) authentication.getPrincipal();
+		classContents.setUserId(user.getUserId());
+		classContents.setUserName(user.getName());
+		
+		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
+		
+		Iterator<String> files = request.getFileNames();
+		while (files.hasNext()) {
+			String uploadFile = files.next();
+			MultipartFile multipartFile = request.getFile(uploadFile);
+			String fileName = multipartFile.getOriginalFilename();
+			if (!fileName.isEmpty()) {
+				try {
+					SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
+					uploadedFile.setFileName(fileName);
+					uploadedFile.setContent(multipartFile.getBytes());
+					uploadedFile.setContentType(multipartFile.getContentType());
+					uploadedFile.setClassContents(classContents);
+					
+					uploadedFiles.add(uploadedFile);
+				} catch (IOException e) {
+					e.printStackTrace();
+					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				}
+			}
+		}
+		
+		classContents.setUploadedFiles(uploadedFiles);
+		
 		if (classContentsService.regist(classContents)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}

@@ -36,8 +36,7 @@ public class Comment implements Domain {
 	private int subjectNoticeId;
 	
 	/** 작성자 ID */
-	@Column(nullable = false, length = 20)
-	private String userId;
+	private int userId;
 	
 	/** 작성자 이름 */
 	@Column(nullable = false, length = 100)

@@ -2,6 +2,16 @@
  * 위젯 공통 기능
 *******************************************************************************************************/
 var CommonWidget = function() {
+	// Uniform
+    var _componentUniform = function() {
+    	if (!$().uniform) {
+            console.warn('Warning - uniform.min.js is not loaded.');
+            return;
+        }
+
+        $('.form-check-input-styled').uniform();
+    }
+	
 	var _componentSelect2 = function() {
 		if (!$().select2) {
         	console.warn('Warning - select2.min.js is not loaded.');
@@ -129,6 +139,7 @@ var CommonWidget = function() {
     
     return {
         init: function() {
+        	_componentUniform();
         	_componentSelect2();
         	_componentSwal();
         	_componentJQuery();

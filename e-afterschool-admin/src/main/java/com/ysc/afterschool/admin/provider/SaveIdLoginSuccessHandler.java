@@ -12,6 +12,9 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 
 import com.ysc.afterschool.admin.domain.db.User;
 
+import lombok.Setter;
+
+@Setter
 public class SaveIdLoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
 	private final String REQUEST_PARAM_NAME = "remember-me";
@@ -19,10 +22,6 @@ public class SaveIdLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 	private final int DEFAULT_MAX_AGE = 60 * 60 * 24 * 7;
 
 	private int maxAge = DEFAULT_MAX_AGE;
-
-	public void setMaxAge(int maxAge) {
-		this.maxAge = maxAge;
-	}
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,

@@ -25,9 +25,4 @@ public class MainController {
 			model.addAttribute("username", username);
 		}
 	}
-	
-	@GetMapping("home")
-	public void home(Model model) {
-		
-	}
 }

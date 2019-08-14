@@ -49,7 +49,7 @@ public class CommentController {
 	@ResponseBody
 	public ResponseEntity<?> regist(Comment comment, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
-		comment.setUserId(user.getUserId());
+		comment.setUserId(user.getId());
 		comment.setUserName(user.getName());
 		
 		if (commentService.regist(comment)) {

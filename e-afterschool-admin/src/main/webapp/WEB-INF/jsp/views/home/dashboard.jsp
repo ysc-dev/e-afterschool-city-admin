@@ -19,7 +19,35 @@
 			<div class="card card-body">
 				<div class="media">
 					<div class="mr-3 align-self-center">
-						<i class="icon-users icon-3x text-success-400"></i>
+						<i class="icon-notification2 icon-3x text-primary-400"></i>
+					</div>
+
+					<div class="media-body text-right">
+						<h3 class="font-weight-semibold mb-0">${invitations}</h3>
+						<span class="font-size-sm text-muted">안내장 수</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card card-body">
+				<div class="media">
+					<div class="mr-3 align-self-center">
+						<i class="icon-office icon-3x text-indigo-400"></i>
+					</div>
+
+					<div class="media-body text-right">
+						<h3 class="font-weight-semibold mb-0">${schools}</h3>
+						<span class="font-size-sm text-muted">학교 수</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card card-body">
+				<div class="media">
+					<div class="mr-3 align-self-center">
+						<i class="icon-users icon-3x text-teal-400"></i>
 					</div>
 
 					<div class="media-body text-right">
@@ -33,7 +61,21 @@
 			<div class="card card-body">
 				<div class="media">
 					<div class="mr-3 align-self-center">
-						<i class="icon-make-group icon-3x text-indigo-400"></i>
+						<i class="icon-user-tie icon-3x text-warning-400"></i>
+					</div>
+
+					<div class="media-body text-right">
+						<h3 class="font-weight-semibold mb-0">${teachers}</h3>
+						<span class="text-uppercase font-size-sm text-muted">강사 수</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card card-body">
+				<div class="media">
+					<div class="mr-3 align-self-center">
+						<i class="icon-make-group icon-3x text-success-400"></i>
 					</div>
 
 					<div class="media-body text-right">
@@ -47,7 +89,7 @@
 			<div class="card card-body">
 				<div class="media">
 					<div class="mr-3 align-self-center">
-						<i class="icon-books icon-3x text-blue-400"></i>
+						<i class="icon-books icon-3x text-info-400"></i>
 					</div>
 
 					<div class="media-body text-right">
@@ -61,12 +103,26 @@
 			<div class="card card-body">
 				<div class="media">
 					<div class="mr-3 align-self-center">
-						<i class="icon-database-add icon-3x text-danger-400"></i>
+						<i class="icon-database-add icon-3x text-slate-400"></i>
 					</div>
 
 					<div class="media-body text-right">
 						<h3 class="font-weight-semibold mb-0">${applies}</h3>
 						<span class="text-uppercase font-size-sm text-muted">수강 신청 수</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card card-body">
+				<div class="media">
+					<div class="mr-3 align-self-center">
+						<i class="icon-bubble-notification icon-3x text-orange-400"></i>
+					</div>
+
+					<div class="media-body text-right">
+						<h3 class="font-weight-semibold mb-0">${notices}</h3>
+						<span class="text-uppercase font-size-sm text-muted">공지사항 수</span>
 					</div>
 				</div>
 			</div>

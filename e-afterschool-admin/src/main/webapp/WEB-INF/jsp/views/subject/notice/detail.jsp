@@ -54,7 +54,7 @@
 									<a href="#" class="text-primary-800 font-weight-bold">${comment.userName}</a>
 									<fmt:formatDate var="createDate" value="${localDateTimeFormat.parse(comment.createDate)}" pattern="yyyy-MM-dd HH:mm:ss"/>
 									<span class="text-muted ml-3">${createDate}</span>
-									<c:if test="${user.userId == comment.userId}">
+									<c:if test="${user.id == comment.userId && user.name == comment.userName}">
 										<a href="#" onclick="updateBtnClick(${comment.id})" class="text-primary font-weight-bold ml-4">수정</a>
 										<a href="#" onclick="deleteComment(${comment.id})" class="text-danger font-weight-bold ml-2">삭제</a>
 									</c:if>
@@ -64,12 +64,15 @@
 								</div>
 								<div id="update_${comment.id}" class="d-none mt-1">
 									<div class="d-flex">
-										<textarea class="form-control" id="updateInput" rows="1"></textarea>
+										<textarea class="form-control" id="updateInput_${comment.id}" rows="1"></textarea>
 										<button type="button" onclick="updateComment(${comment.id})" class="btn btn-primary px-2 ml-3">수정</button>
 										<button type="button" onclick="cancel(${comment.id})" class="btn btn-light px-2 ml-2">취소</button>
 									</div>
 								</div>
 							</div>
+							<c:if test="${status.last == false}">
+								<hr class="my-0">
+							</c:if>
 						</c:forEach> 
 					</div>
 				</c:if>
@@ -126,7 +129,7 @@ function updateBtnClick(id) {
   		success: function(response) {
   			$("#content_" + id).addClass("d-none");
   			$("#update_" + id).removeClass("d-none");
-  			$("#updateInput").val(response.content)
+  			$("#updateInput_" + id).val(response.content)
  		}
 	});
 }
