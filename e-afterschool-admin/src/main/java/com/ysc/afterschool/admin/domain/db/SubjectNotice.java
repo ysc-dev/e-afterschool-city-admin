@@ -1,10 +1,18 @@
 package com.ysc.afterschool.admin.domain.db;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import com.ysc.afterschool.admin.domain.AbstractDomain;
 
@@ -44,4 +52,8 @@ public class SubjectNotice extends AbstractDomain {
 	private String userName;
 	
 	private int subjectId;
+	
+	@OneToMany(mappedBy = "subjectNotice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<Comment> comments;
 }

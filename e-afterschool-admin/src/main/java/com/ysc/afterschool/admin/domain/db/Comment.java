@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
@@ -32,8 +35,11 @@ public class Comment implements Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	/** 공지사항 ID */
-	private int subjectNoticeId;
+	/** 과목별 공지사항 */
+	@ManyToOne
+	@JoinColumn(name = "subject_notice_id")
+    @JsonIgnore
+    private SubjectNotice subjectNotice;
 	
 	/** 작성자 ID */
 	private int userId;

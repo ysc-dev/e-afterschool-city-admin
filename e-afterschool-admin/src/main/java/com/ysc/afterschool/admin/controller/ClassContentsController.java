@@ -2,7 +2,6 @@ package com.ysc.afterschool.admin.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ysc.afterschool.admin.domain.db.ClassContents;
 import com.ysc.afterschool.admin.domain.db.Invitation;
@@ -98,25 +97,21 @@ public class ClassContentsController  {
 	 */
 	@PostMapping("regist")
 	@ResponseBody 
-	public ResponseEntity<?> regist(ClassContents classContents, MultipartHttpServletRequest request, Authentication authentication) {
-		System.err.println(classContents);
+	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		classContents.setUserId(user.getUserId());
 		classContents.setUserName(user.getName());
 		
 		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
 		
-		Iterator<String> files = request.getFileNames();
-		while (files.hasNext()) {
-			String uploadFile = files.next();
-			MultipartFile multipartFile = request.getFile(uploadFile);
-			String fileName = multipartFile.getOriginalFilename();
+		for (MultipartFile file : classContents.getImages()) {
+			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
 				try {
 					SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
 					uploadedFile.setFileName(fileName);
-					uploadedFile.setContent(multipartFile.getBytes());
-					uploadedFile.setContentType(multipartFile.getContentType());
+					uploadedFile.setContent(file.getBytes());
+					uploadedFile.setContentType(file.getContentType());
 					uploadedFile.setClassContents(classContents);
 					
 					uploadedFiles.add(uploadedFile);
@@ -129,7 +124,51 @@ public class ClassContentsController  {
 		
 		classContents.setUploadedFiles(uploadedFiles);
 		
+//		Iterator<String> files = request.getFileNames();
+//		while (files.hasNext()) {
+//			String uploadFile = files.next();
+//			MultipartFile multipartFile = request.getFile(uploadFile);
+//			String fileName = multipartFile.getOriginalFilename();
+//			System.err.println(fileName);
+//			if (!fileName.isEmpty()) {
+//				try {
+//					SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
+//					uploadedFile.setFileName(fileName);
+//					uploadedFile.setContent(multipartFile.getBytes());
+//					uploadedFile.setContentType(multipartFile.getContentType());
+//					uploadedFile.setClassContents(classContents);
+//					
+//					uploadedFiles.add(uploadedFile);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//				}
+//			}
+//		}
+		
+//		classContents.setUploadedFiles(uploadedFiles);
+		
 		if (classContentsService.regist(classContents)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("file/get")
+	public ResponseEntity<?> getFile(int id) {
+		return new ResponseEntity<>(classContentsService.get(id), HttpStatus.OK);
+	}
+
+	/**
+	 * 정보 삭제
+	 * @param id
+	 * @return
+	 */
+	@DeleteMapping("delete")
+	@ResponseBody
+	public ResponseEntity<?> delete(int id) {
+		if (classContentsService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		

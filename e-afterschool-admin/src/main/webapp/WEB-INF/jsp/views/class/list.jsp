@@ -80,6 +80,30 @@
 		</div>
 	</div>
 </div>
+
+<!-- 모달창 -->
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="icon-images2 mr-2"></i>수업내용 첨부파일
+                </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+               <div id="image-viewer">
+               
+               </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">
+                    <i class="icon-cross3 mr-2"></i>닫 기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 	
 <script>
 $("#invitationSelect").change(function() {
@@ -134,15 +158,17 @@ var ClassManager = function() {
 			}, 
 		    { data: "content" },
 		    { 
+		    	width: "12%",
 			    render: function(data, type, row, meta) {
-				    return "";
+				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
+				    	+ 'onClick="ClassManager.imageModal(' + row.id + ')"><i class="icon-images2"></i></button>';
 			    }
 			},
 		    {
-		    	width: "10%",
+		    	width: "12%",
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm"'
-    				 + 'onClick="InvitationManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
+    					+ 'onClick="ClassManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
 		    	}
 		    }]
 		},
@@ -168,6 +194,23 @@ var ClassManager = function() {
 		init: function() {
 			DataTable.init();
 			Control();
+		},
+		imageModal: function(id) {
+			$("#image-viewer").empty();
+			
+			$.ajax({
+		        url: contextPath + "/class/file/get",
+		        type: "GET",
+		        data: {"id" : id},
+		        success : function(response) {
+			        response.uploadedFiles.forEach(function(file, index) {
+				        console.log(file);
+						var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
+				        $("#image-viewer").append(imageContent);
+                    });
+		        	$("#imageModal").modal();
+		        }
+		    });
 		},
 		_delete: function(id) {
 			deleteCommon(contextPath + "/class/delete", id, "수업 내용", DataTable);
