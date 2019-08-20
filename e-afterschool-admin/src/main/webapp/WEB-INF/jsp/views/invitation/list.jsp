@@ -74,7 +74,7 @@
 </div>
 
 <div id="updateInvitationModal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog modal-md">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header bg-primary">
 				<h5 class="modal-title">

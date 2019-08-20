@@ -79,3 +79,8 @@ div.dt-buttons {
 .btn-sm {
 	padding: 0.2rem 0.5rem;
 }
+
+#studentTable_wrapper .dataTables_paginate {
+	float: none;
+    text-align: center;
+}

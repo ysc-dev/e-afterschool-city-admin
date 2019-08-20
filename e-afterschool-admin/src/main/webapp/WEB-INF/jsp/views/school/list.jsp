@@ -102,7 +102,7 @@
 </div>
 
 <div id="updateSchoolModal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog modal-md">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header bg-primary">
 				<h5 class="modal-title">
@@ -114,20 +114,20 @@
 				<div class="modal-body">
 					<input type="hidden" name="id">
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">학교 명 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">학교 명 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="name" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">학생 수 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">학생 수 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="number" required>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">지 역 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">지 역 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="city" placeholder="예) 창원">
 						</div>
 					</div>

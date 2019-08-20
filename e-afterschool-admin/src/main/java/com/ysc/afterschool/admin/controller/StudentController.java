@@ -6,12 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ysc.afterschool.admin.domain.db.Student;
+import com.ysc.afterschool.admin.domain.db.Student.TargetType;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
+import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.SchoolService;
 import com.ysc.afterschool.admin.service.StudentService;
 
@@ -23,7 +23,7 @@ import com.ysc.afterschool.admin.service.StudentService;
  */
 @Controller
 @RequestMapping("student")
-public class StudentController {
+public class StudentController extends AbstractController<Student, StudentSearchParam, Integer> {
 	
 	@Autowired
 	private SchoolService schoolService;
@@ -31,19 +31,49 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
+	public StudentController(CRUDService<Student, StudentSearchParam, Integer> crudService) {
+		super(crudService);
+	}
+	
+	/**
+	 * 학생 조회 화면
+	 * @param model
+	 */
 	@GetMapping("list")
 	public void list(Model model) {
 		model.addAttribute("schools", schoolService.getList());
 	}
 	
 	/**
-	 * 조회
-	 * @param param
+	 * 학생 정보 수정
+	 * @param student
 	 * @return
 	 */
-	@PostMapping("search")
-	@ResponseBody 
-	public ResponseEntity<?> search(@RequestBody StudentSearchParam param) {
-		return new ResponseEntity<>(studentService.getList(param), HttpStatus.OK);
+	@Override
+	public ResponseEntity<?> update(Student student) {
+		Student temp = studentService.get(student.getId());
+		temp.setSchool(student.getSchool());
+		temp.setGrade(student.getGrade());
+		temp.setClassType(student.getClassType());
+		temp.setNumber(student.getNumber());
+		temp.setTel(student.getTel());
+		
+		String school = student.getSchool();
+		temp.setTargetType(school.contains("초등학교") ? TargetType.초등 : TargetType.중등);
+		school = school.endsWith("초등학교") ? 
+				school.substring(0, school.length() - 4) : school.substring(0, school.length() - 3);
+				temp.setSchoolInfo(school);
+		
+		if (student.getSchool().contains("초등")) {
+			temp.setTargetType(TargetType.초등);
+		} else {
+			temp.setTargetType(TargetType.중등);
+		}
+		
+		if (studentService.update(temp)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

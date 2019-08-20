@@ -45,10 +45,10 @@
 						<a href="${pageContext.request.contextPath}/notice/list" class="btn btn-light px-3"><i class="icon-list mr-2"></i>목 록</a>
 					</div>
 					<div>
-						<a href="${pageContext.request.contextPath}/notice/update/${notice.id}" class="btn bg-teal-300 mr-2 px-3">
+						<a href="${pageContext.request.contextPath}/notice/update/${notice.id}" class="btn bg-teal-400 mr-2 px-3">
 							<i class="icon-pencil5 mr-2"></i>수 정
 						</a>
-						<button type="button" class="btn bg-danger-300 px-3" onclick="deleteNotice(${notice.id})">
+						<button type="button" class="btn bg-danger-400 px-3" onclick="deleteNotice(${notice.id})">
 							<i class="icon-trash mr-2"></i>삭 제
 						</button>
 					</div>

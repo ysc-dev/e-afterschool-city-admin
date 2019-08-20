@@ -102,20 +102,20 @@
 				<div class="modal-body">
 					<input type="hidden" name="id">
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">강사 이름 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">강사 이름 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="name" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">연락처 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">연락처 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="tel" data-mask="999-9999-9999" required>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">이메일 : </label>
-						<div class="col-md-7">
+						<label class="col-form-label col-md-4 text-md-right">이메일 : </label>
+						<div class="col-md-6">
 							<input type="text" class="form-control" name="email" required>
 						</div>
 					</div>

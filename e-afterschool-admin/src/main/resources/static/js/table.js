@@ -3,7 +3,7 @@
  */
 $.extend( $.fn.dataTable.defaults, {
 	autoWidth: false,
-    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+    dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
     language: {
 		emptyTable: '데이터가 없습니다.',
 		infoEmpty: "",

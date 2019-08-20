@@ -60,7 +60,7 @@
 </div>
 	
 <div id="updateGroupModal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog modal-md">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header bg-primary">
 				<h5 class="modal-title">
@@ -74,14 +74,14 @@
 					<input type="hidden" name="id">
 					<div class="form-group row">
 						<label class="col-form-label col-md-3 text-md-right">그룹 이름 : </label>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<input type="text" class="form-control" name="name" placeholder="과목 그룹 이름" required>
 						</div>
 					</div>
 					<div class="form-group row mb-2">
 						<label class="col-form-label col-md-3 text-md-right">설 명 : </label>
-						<div class="col-md-7">
-							<textarea rows="4" class="form-control" name="description" placeholder="과목 그룹에 대한 설명" required></textarea>
+						<div class="col-md-8">
+							<textarea rows="5" class="form-control" name="description" placeholder="과목 그룹에 대한 설명" required></textarea>
 						</div>
 					</div>
 				</div>
