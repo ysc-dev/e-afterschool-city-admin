@@ -195,7 +195,6 @@ var ClassManager = function() {
 		        data: {"id" : id},
 		        success : function(response) {
 			        response.uploadedFiles.forEach(function(file, index) {
-				        console.log(file);
 						var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
 				        $("#image-viewer").append(imageContent);
                     });

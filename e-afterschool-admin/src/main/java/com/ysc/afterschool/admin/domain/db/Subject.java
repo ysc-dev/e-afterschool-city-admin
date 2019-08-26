@@ -73,6 +73,12 @@ public class Subject extends AbstractDomain {
 	/** 수강신청 인원 */
 	private int applyNumber;
 	
+	/** 대기 정원 */
+	private int waitFixedNumber;
+	
+	/** 신청 대기 인원 */
+	private int waitingNumber;
+	
 	/** 과목특징 */
 	@Column(nullable = false, length = 255)
 	private String description;

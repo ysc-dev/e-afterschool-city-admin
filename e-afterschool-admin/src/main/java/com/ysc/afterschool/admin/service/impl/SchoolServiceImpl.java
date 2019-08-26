@@ -60,6 +60,10 @@ public class SchoolServiceImpl implements SchoolService {
 	public List<School> getList(SchoolSearchParam param) {
 		if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
 			return schoolRepository.findBySchoolType(SchoolType.valueOf(param.getSchoolType()));
+		} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+			return schoolRepository.findBySchoolTypeAndNameContaining(SchoolType.valueOf(param.getSchoolType()), param.getName());
+		} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+			return schoolRepository.findByNameContaining(param.getName());
 		}
 		return getList();
 	}

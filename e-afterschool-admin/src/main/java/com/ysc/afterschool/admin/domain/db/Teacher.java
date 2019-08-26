@@ -28,16 +28,15 @@ public class Teacher extends AbstractDomain {
 	private String name;
 	
 	/** 연락처 */
-	@Column(nullable = false, length = 20)
+	@Column(length = 20)
 	private String tel;
 	
 	/** 이메일 */
-	@Column(nullable = false, length = 45)
+	@Column(length = 45)
 	private String email;
 	
 	/** 성별 */
 	@Enumerated(EnumType.ORDINAL)
-	@Column(nullable = false)
 	private Sex sex;
 	
 	private int subjectId;

@@ -91,6 +91,21 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	}
 	
 	/**
+	 * 과목 그룹 등록
+	 * @param subject
+	 * @return
+	 */
+	@Override
+	public ResponseEntity<?> regist(Subject subject) {
+		subject.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
+		if (subjectService.regist(subject)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
 	 * 과목 그룹 수정
 	 * @param subject
 	 * @return
@@ -104,6 +119,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		result.setTargetType(subject.getTargetType());
 		result.setGradeType(subject.getGradeType());
 		result.setFixedNumber(subject.getFixedNumber());
+		result.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
 		result.setPeriod(subject.getPeriod());
 		result.setTime(subject.getTime());
 		result.setWeek(subject.getWeek());

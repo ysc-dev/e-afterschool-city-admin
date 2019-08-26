@@ -16,7 +16,7 @@
 				<div class="col-md-5 ml-auto mr-3">
 					<div class="form-group">
 						<label class="font-weight-bold">안내장 선택 :</label>
-						<select class="form-control form-control-select2" name="invitation">
+						<select class="form-control form-control-select2" name="invitation" required>
 							<c:forEach var="invitation" items="${invitations}" varStatus="status">
 								<option value="${invitation.id}">${invitation.name}</option>
 							</c:forEach>
@@ -30,7 +30,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="font-weight-bold">대 상 :</label>
-								<select class="form-control form-control-select2" name="targetType">
+								<select class="form-control form-control-select2" name="targetType" required>
 									<c:forEach var="targetType" items="${targetTypes}" varStatus="status">
 										<option value="${targetType}">${targetType.name}</option>
 									</c:forEach>
@@ -71,7 +71,7 @@
 				<div class="col-md-5 mr-auto ml-3">
 					<div class="form-group">
 						<label class="font-weight-bold">캠퍼스 선택 :</label>
-						<select class="form-control form-control-select2" name="subjectGroup">
+						<select class="form-control form-control-select2" name="subjectGroup" required>
 							<c:forEach var="subjectGroup" items="${subjectGroups}" varStatus="status">
 								<option value="${subjectGroup.id}">${subjectGroup.name}</option>
 							</c:forEach>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold">강사 선택 :</label>
-						<select class="form-control form-control-select2" name="teacher">
+						<select class="form-control form-control-select2" name="teacher" required>
 							<c:forEach var="teacher" items="${teachers}" varStatus="status">
 								<option value="${teacher.id}">${teacher.name}</option>
 							</c:forEach>
@@ -111,7 +111,7 @@
 			</div>
 			<div class="card-footer bg-white d-flex justify-content-center align-items-center py-3">
 				<button type="submit" class="btn bg-blue-400 mr-3 px-5"><i class="icon-plus-circle2 mr-2"></i>등 록</button>
-				<a href="list" class="btn btn-light px-5"><i class="icon-cancel-circle2 mr-2"></i>취 소</a>
+				<a href="list" class="btn btn-light px-5"><i class="icon-cross2 mr-2"></i>취 소</a>
 			</div>
 		</form>
 	</div>

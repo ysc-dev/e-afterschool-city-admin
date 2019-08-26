@@ -51,7 +51,7 @@
 					<form id="registForm" action="${pageContext.request.contextPath}/school/regist" method="post">
 						<div class="form-group">
 							<label>학교 이름:</label>
-							<input type="text" name="name" class="form-control" placeholder="학교 이름" required>
+							<input type="text" name="name" class="form-control" placeholder="예) 가고파초등학교" required>
 						</div>
 						<div class="form-group">
 							<label>학생 수:</label>

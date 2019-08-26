@@ -102,22 +102,22 @@ var SettingManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "12%",
+		    	width: "10%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
 		    }, 
 		    { 
-		    	width: "16%",
+		    	width: "15%",
 		    	data: "name" 
 		    }, 
 		    { data: "description" }, 
 		    {
-		    	width: "15%",
+		    	width: "12%",
 		    	render: function(data, type, row, meta) {
-		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-800 btn-sm" ' +
+		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm" ' +
 		    			'onClick="SettingManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>' +
-    					'<button type="button" class="btn btn-outline bg-danger text-danger-800 btn-sm" ' + 
+    					'<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm" ' + 
 		    				'onClick="SettingManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>'
 		    	}
 		    }]

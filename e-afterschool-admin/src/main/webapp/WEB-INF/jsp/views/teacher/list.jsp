@@ -52,14 +52,14 @@
 							<label>이메일:</label>
 							<input type="email" name="email" class="form-control" placeholder="이메일" autocomplete="off" required>
 						</div>
-						<div class="form-group">
+						<%-- <div class="form-group">
 							<label>성별:</label>
 							<select class="form-control form-control-select2" name="sex">
 								<c:forEach var="sex" items="${sexList}" varStatus="status">
 									<option value="${sex}">${sex}</option>
 								</c:forEach>
 							</select>
-						</div>
+						</div> --%>
 						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 추가</button>
 					</form>
 				</div>
@@ -78,7 +78,7 @@
 							<th>이름</th>
 							<th>연락처</th>
 							<th>이메일</th>
-							<th>성별</th>
+							<!-- <th>성별</th> -->
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -144,7 +144,7 @@ var TeacherManager = function() {
 		    { data: "name" }, 
 		    { data: "tel" }, 
 		    { data: "email" }, 
-		    { data: "sex" }, 
+		    /* { data: "sex" }, */ 
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {

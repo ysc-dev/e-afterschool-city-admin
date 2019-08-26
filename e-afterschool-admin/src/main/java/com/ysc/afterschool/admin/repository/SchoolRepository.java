@@ -9,4 +9,8 @@ public interface SchoolRepository extends DefaultRepository<School, Integer> {
 
 	List<School> findBySchoolType(SchoolType type);
 
+	List<School> findBySchoolTypeAndNameContaining(SchoolType valueOf, String name);
+
+	List<School> findByNameContaining(String name);
+
 }
