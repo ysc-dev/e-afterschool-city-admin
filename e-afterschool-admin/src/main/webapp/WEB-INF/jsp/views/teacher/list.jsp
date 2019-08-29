@@ -41,16 +41,20 @@
 				<div class="card-body">
 					<form id="registForm" action="${pageContext.request.contextPath}/teacher/regist" method="post">
 						<div class="form-group">
-							<label>강사 이름:</label>
+							<label>대표 강사 이름:</label>
 							<input type="text" name="name" class="form-control" placeholder="강사 이름" autocomplete="off" required>
 						</div>
 						<div class="form-group">
+							<label>강사 이름:</label>
+							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요." required>
+						</div>
+						<div class="form-group">
 							<label>연락처:</label>
-							<input type="text" name="tel" class="form-control" data-mask="999-9999-9999" placeholder="핸드폰 번호" required>
+							<input type="text" name="tel" class="form-control" autocomplete="off" placeholder="핸드폰 번호">
 						</div>
 						<div class="form-group">
 							<label>이메일:</label>
-							<input type="email" name="email" class="form-control" placeholder="이메일" autocomplete="off" required>
+							<input type="email" name="email" class="form-control" placeholder="이메일" autocomplete="off">
 						</div>
 						<%-- <div class="form-group">
 							<label>성별:</label>
@@ -75,7 +79,8 @@
 					<thead class="text-center">
 						<tr class="table-active">
 							<th>번호</th>
-							<th>이름</th>
+							<th>대표 강사 이름</th>
+							<th>전체 강사 이름</th>
 							<th>연락처</th>
 							<th>이메일</th>
 							<!-- <th>성별</th> -->
@@ -102,21 +107,27 @@
 				<div class="modal-body">
 					<input type="hidden" name="id">
 					<div class="form-group row">
-						<label class="col-form-label col-md-4 text-md-right">강사 이름 : </label>
+						<label class="col-form-label col-md-4 text-md-right">대표 강사 이름 : </label>
 						<div class="col-md-6">
 							<input type="text" class="form-control" name="name" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">전체 강사 이름 : </label>
+						<div class="col-md-6">
+							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요." required>
+						</div>
+					</div>
+					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">연락처 : </label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="tel" data-mask="999-9999-9999" required>
+							<input type="tel" class="form-control" name="tel" placeholder="핸드폰 번호" autocomplete="off" required> 
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">이메일 : </label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="email" required>
+							<input type="text" class="form-control" name="email" placeholder="이메일" required>
 						</div>
 					</div>
 				</div>
@@ -130,6 +141,10 @@
 </div>
 	
 <script>
+$('[name="tel"]').formatter({
+    pattern: '{{999}}-{{9999}}-{{9999}}'
+});
+
 var TeacherManager = function() {
 	var DataTable = {
 		ele: "#teacherTable",
@@ -142,6 +157,7 @@ var TeacherManager = function() {
 		    	}
 		    }, 
 		    { data: "name" }, 
+		    { data: "content" }, 
 		    { data: "tel" }, 
 		    { data: "email" }, 
 		    /* { data: "sex" }, */ 
@@ -204,6 +220,7 @@ var TeacherManager = function() {
 	    		success: function(response) {
 	    			$('#updateForm input[name="id"]').val(response.id);
 	    			$('#updateForm input[name="name"]').val(response.name);
+	    			$('#updateForm input[name="content"]').val(response.content);
 	    			$('#updateForm input[name="tel"]').val(response.tel);
 	    			$('#updateForm input[name="email"]').val(response.email);
 	    			$("#updateTeacherModal").modal();
@@ -213,6 +230,7 @@ var TeacherManager = function() {
 		success: function() {
 			DataTable.search();
 			$('#registForm input[name="name"]').val("");
+			$('#registForm input[name="content"]').val("");
         	$('#registForm input[name="tel"]').val("");
         	$('#registForm input[name="email"]').val("");
 		}

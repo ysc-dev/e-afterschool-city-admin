@@ -13,7 +13,8 @@
 	<div class="row">
 		<div class="col-md-7 mx-md-auto">
 			<div class="card">
-				<form id="registForm" role="form" method="POST">
+				<form id="registForm" role="form" method="POST" enctype="multipart/form-data"
+					action="${pageContext.request.contextPath}/invitation/regist/file">
 					<div class="card-body">
 						<div class="form-group row mt-2">
 							<label class="col-md-3 col-form-label text-md-right">지역 선택 :</label>
@@ -34,13 +35,22 @@
 						<div class="form-group row">
 							<label class="col-md-3 col-form-label text-md-right">신청 마감일 :</label>
 							<div class="col-md-7">
-								<input type="text" class="form-control" name="deadlineDate" placeholder="예) 2019년 9월 30일" autocomplete="off" required>
+								<input type="text" class="form-control" name="deadlineDate" placeholder="예) 2019년 09월 30일" autocomplete="off" required>
 							</div>
 						</div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
 							<label class="col-md-3 col-form-label text-md-right">설&nbsp;&nbsp;&nbsp;&nbsp;명 :</label>
 							<div class="col-md-7">
 								<textarea class="form-control" name="description" rows="7" placeholder="필수 입력 항목은 아닙니다."></textarea>
+							</div>
+						</div> -->
+						
+						<div class="form-group row mt-4">
+							<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>
+							<div class="col-md-7">
+								<input type="file" class="file-input" data-show-upload="false" name="images" 
+									accept="image/*" multiple="multiple" data-fouc>
+								<span class="form-text text-muted">※ 이미지 파일만 업로드 가능합니다.</span>
 							</div>
 						</div>
 					</div>
@@ -55,6 +65,10 @@
 </div>
 
 <script>
+$('[name="deadlineDate"]').formatter({
+    pattern: '{{9999}}년 {{99}}월 {{99}}일'
+});
+
 $('#registForm').submit(function(e) {
 	e.preventDefault();
 

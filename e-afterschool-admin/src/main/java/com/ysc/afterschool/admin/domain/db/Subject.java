@@ -64,7 +64,7 @@ public class Subject extends AbstractDomain {
 	private String location;
 	
 	/** 재료비 및 교구비 부가적인 설명 */
-	@Column(nullable = false, length = 45)
+	@Column(length = 45)
 	private String cost;
 	
 	/** 정원 */
@@ -88,6 +88,7 @@ public class Subject extends AbstractDomain {
 	@Column(nullable = false)
 	private TargetType targetType;
 	
+	/** 학년타입 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private GradeType gradeType;

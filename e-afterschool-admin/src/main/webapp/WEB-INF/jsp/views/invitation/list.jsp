@@ -1,4 +1,4 @@
-W<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
@@ -63,6 +63,7 @@ W<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="u
 							<th>신청 마감일</th>
 							<th>수강 신청 현황</th>
 							<th>지역</th>
+							<th>첨부파일</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -82,35 +83,54 @@ W<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="u
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<form id="updateForm" action="${pageContext.request.contextPath}/invitation/update" class="form-horizontal">
+			<form id="updateForm" class="form-horizontal" enctype="multipart/form-data" role="form" method="PUT"
+				action="${pageContext.request.contextPath}/invitation/update/file">
 				<div class="modal-body">
 					<input type="hidden" name="id">
 					<div class="form-group row">
+						<label class="col-md-3 col-form-label text-md-right">지역 선택 :</label>
+						<div class="col-md-8">
+							<select class="form-control form-control-select2" name="city">
+								<c:forEach var="city" items="${cities}" varStatus="status">
+									<option value="${city.id}">${city.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
 						<label class="col-form-label col-md-3 text-md-right">안내장 제목 : </label>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<input type="text" class="form-control" name="name" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-form-label col-md-3 text-md-right">신청 마감일 : </label>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<input type="text" class="form-control" name="deadlineDate" placeholder="예) 2019년 9월 30일" required>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-form-label col-md-3 text-md-right">타 입 : </label>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<select class="form-control form-control-select2" name="type">
 								<c:forEach var="type" items="${invitationTypes}" varStatus="status">
-									<option value="${type}">${type.name}</option>
+									<option value="${type}">${type.type}</option>
 								</c:forEach>
 							</select>
 						</div>
 					</div>
-					<div class="form-group row mb-2">
+					<!-- <div class="form-group row mb-2">
 						<label class="col-form-label col-md-3 text-md-right">설 명 : </label>
 						<div class="col-md-7">
-							<textarea rows="5" class="form-control" name="description" required></textarea>
+							<textarea rows="5" class="form-control" name="description"></textarea>
+						</div>
+					</div> -->
+					<div class="form-group row mb-0">
+						<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>
+						<div class="col-md-8">
+							<input type="file" class="file-input" data-show-upload="false" name="images" 
+								accept="image/*" multiple="multiple" data-fouc>
+							<span class="form-text text-muted">※ 이미지 파일만 업로드 가능합니다.</span>
 						</div>
 					</div>
 				</div>
@@ -122,8 +142,29 @@ W<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="u
 		</div>
 	</div>
 </div>
+
+<!-- 이미지 모달창 -->
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="icon-images2 mr-2"></i>안내장 첨부파일
+                </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+               <div id="image-viewer"></div>
+            </div>
+        </div>
+    </div>
+</div>
 	
 <script>
+$('[name="deadlineDate"]').formatter({
+    pattern: '{{9999}}년 {{99}}월 {{99}}일'
+});
+
 var InvitationManager = function() {
 	var DataTable = {
 		ele: "#invitationTable",
@@ -137,8 +178,15 @@ var InvitationManager = function() {
 		    }, 
 		    { data: "name" }, 
 		    { data: "deadlineDate" },
-		    { data: "type" },
+		    { data: "typeContent" },
 		    { data: "city.name" },
+		    { 
+		    	width: "10%",
+			    render: function(data, type, row, meta) {
+				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
+				    	+ 'onClick="InvitationManager.imageModal(' + row.id + ')"><i class="icon-images2"></i></button>';
+			    }
+			},
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
@@ -167,8 +215,28 @@ var InvitationManager = function() {
 			e.preventDefault();
 			var form = $(this);
 			var url = form.attr('action');
-			
-		 	updateModalCommon(url, form.serializeObject(), "안내장", DataTable, "updateInvitationModal");
+			var formData = new FormData($("#updateForm")[0]);
+
+		    $.ajax({
+				type: "PUT",
+		       	url: url,
+		       	data: formData,
+		       	processData: false,
+		       	contentType: false,
+		       	success: function(response) {
+		       		$("#updateInvitationModal").modal('hide');
+		       		
+		       		swal({
+		   				title: "안내장 수정 되었습니다.", 
+		   				type: "success"
+		   			}).then(function(e) {
+		   				DataTable.search();
+		   			});
+		       	},
+		        error: function(response) {
+		        	swal({title: "안내장 수정을 실패하였습니다.", type: "error"})
+		        }
+			});
 		}); 
 	}
 	
@@ -184,6 +252,7 @@ var InvitationManager = function() {
 	    		data: {"id": id},
 	    		success: function(response) {
 	    			$('#updateForm input[name="id"]').val(response.id);
+	    			$('#updateForm select[name="city"]').val(response.city.id).trigger('change');
 	    			$('#updateForm input[name="name"]').val(response.name);
 	    			$('#updateForm input[name="deadlineDate"]').val(response.deadlineDate);
 	    			$('#updateForm select[name="type"]').val(response.type).trigger('change');
@@ -191,6 +260,22 @@ var InvitationManager = function() {
 	    			$("#updateInvitationModal").modal();
 	           	}
 	    	}); 
+		},
+		imageModal: function(id) {
+			$("#image-viewer").empty();
+			
+			$.ajax({
+		        url: contextPath + "/invitation/file/get",
+		        type: "GET",
+		        data: {"id" : id},
+		        success : function(response) {
+			        response.uploadedFiles.forEach(function(file, index) {
+						var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
+				        $("#image-viewer").append(imageContent);
+                    });
+		        	$("#imageModal").modal();
+		        }
+		    });
 		}
 	}
 }();

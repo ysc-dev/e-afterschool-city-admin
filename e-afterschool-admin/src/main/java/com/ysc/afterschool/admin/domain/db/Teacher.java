@@ -23,9 +23,13 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class Teacher extends AbstractDomain {
 
-	/** 이름 */
+	/** 대표강사 */
 	@Column(nullable = false, length = 255)
 	private String name;
+	
+	/** 강사들 */
+	@Column(length = 255)
+	private String content;
 	
 	/** 연락처 */
 	@Column(length = 20)

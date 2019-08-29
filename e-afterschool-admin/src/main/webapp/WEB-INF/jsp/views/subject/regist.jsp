@@ -101,7 +101,7 @@
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold">재료비 및 교구비 :</label>
-						<input type="text" class="form-control" name="cost" placeholder="예) 무료 또는 1만원" required>
+						<input type="text" class="form-control" name="cost" placeholder="예) 무료 또는 1만원">
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold">과목 특징 :</label>

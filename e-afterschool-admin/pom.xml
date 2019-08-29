@@ -7,6 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>e-afterschool-admin</name>
 	<description>e-afterschool</description>
+	<packaging>war</packaging>
 	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -92,6 +93,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>admin</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

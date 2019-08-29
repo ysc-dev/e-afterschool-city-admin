@@ -79,7 +79,7 @@
 	</div>
 </div>
 
-<!-- 모달창 -->
+<!-- 이미지 모달창 -->
 <div id="imageModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
