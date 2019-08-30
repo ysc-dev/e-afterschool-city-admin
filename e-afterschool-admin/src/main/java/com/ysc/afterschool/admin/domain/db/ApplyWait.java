@@ -47,7 +47,7 @@ public class ApplyWait implements Domain {
 	private Invitation invitation;
 	
 	/** 대기 순서 */
-	private int order;
+	private int orderNumber;
 	
 	@CreationTimestamp
 	private LocalDateTime createDate;

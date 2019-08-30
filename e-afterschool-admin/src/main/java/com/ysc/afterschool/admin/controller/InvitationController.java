@@ -20,10 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Invitation.InvitationType;
-import com.ysc.afterschool.admin.domain.db.InvitationUploadedFile;
+import com.ysc.afterschool.admin.domain.db.InvitationFile;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.CRUDService;
+import com.ysc.afterschool.admin.service.InvitationFileService;
 import com.ysc.afterschool.admin.service.InvitationService;
 
 /**
@@ -38,6 +39,9 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 	
 	@Autowired
 	private InvitationService invitationService;
+	
+	@Autowired
+	private InvitationFileService invitationFileService;
 	
 	@Autowired
 	private CityRepository cityRepository;
@@ -87,29 +91,28 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 	@PostMapping("regist/file")
 	@ResponseBody 
 	public ResponseEntity<?> regist(Invitation invitation) {
-		List<InvitationUploadedFile> uploadedFiles = new ArrayList<>();
-		for (MultipartFile file : invitation.getImages()) {
-			String fileName = file.getOriginalFilename();
-			if (!fileName.isEmpty()) {
-				try {
-					InvitationUploadedFile uploadedFile = new InvitationUploadedFile();
-					uploadedFile.setFileName(fileName);
-					uploadedFile.setContent(file.getBytes());
-					uploadedFile.setContentType(file.getContentType());
-					uploadedFile.setInvitation(invitation);
-					
-					uploadedFiles.add(uploadedFile);
-				} catch (IOException e) {
-					e.printStackTrace();
-					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		invitation.setType(InvitationType.대기);
+		
+		Invitation result = invitationService.registDomain(invitation);
+		if (result != null) {
+			for (MultipartFile file : invitation.getImages()) {
+				String fileName = file.getOriginalFilename();
+				if (!fileName.isEmpty()) {
+					try {
+						InvitationFile uploadedFile = new InvitationFile();
+						uploadedFile.setFileName(fileName);
+						uploadedFile.setContent(file.getBytes());
+						uploadedFile.setContentType(file.getContentType());
+						uploadedFile.setInvitationId(result.getId());
+						
+						invitationFileService.regist(uploadedFile);
+					} catch (IOException e) {
+						e.printStackTrace();
+						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+					}
 				}
 			}
-		}
-		
-		invitation.setType(InvitationType.대기);
-		invitation.setUploadedFiles(uploadedFiles);
-		
-		if (invitationService.regist(invitation)) {
+			
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
@@ -124,47 +127,51 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 	@PutMapping("update/file")
 	@ResponseBody 
 	public ResponseEntity<?> update(Invitation invitation) {
-		System.err.println(invitation);
-		
 		Invitation result = invitationService.get(invitation.getId());
 		result.setName(invitation.getName());
 		result.setCity(invitation.getCity());
 		result.setDeadlineDate(invitation.getDeadlineDate());
 		result.setDescription(invitation.getDescription());
 		result.setType(invitation.getType());
-		result.setUploadedFiles(invitation.getUploadedFiles());
-		
-		List<InvitationUploadedFile> uploadedFiles = new ArrayList<>();
-		for (MultipartFile file : invitation.getImages()) {
-			String fileName = file.getOriginalFilename();
-			if (!fileName.isEmpty()) {
-				try {
-					InvitationUploadedFile uploadedFile = new InvitationUploadedFile();
-					uploadedFile.setFileName(fileName);
-					uploadedFile.setContent(file.getBytes());
-					uploadedFile.setContentType(file.getContentType());
-					uploadedFile.setInvitation(result);
-					
-					uploadedFiles.add(uploadedFile);
-				} catch (IOException e) {
-					e.printStackTrace();
-					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-				}
-			}
-		}
-		
-		result.setUploadedFiles(uploadedFiles);
 		
 		if (invitationService.update(result)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			if (invitationFileService.delete(invitationFileService.getList(result.getId()))) {
+				List<InvitationFile> uploadedFiles = new ArrayList<>();
+				for (MultipartFile file : invitation.getImages()) {
+					String fileName = file.getOriginalFilename();
+					if (!fileName.isEmpty()) {
+						try {
+							InvitationFile uploadedFile = new InvitationFile();
+							uploadedFile.setFileName(fileName);
+							uploadedFile.setContent(file.getBytes());
+							uploadedFile.setContentType(file.getContentType());
+							uploadedFile.setInvitationId(result.getId());
+							
+							invitationFileService.regist(uploadedFile);
+							
+							uploadedFiles.add(uploadedFile);
+						} catch (IOException e) {
+							e.printStackTrace();
+							return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+						}
+					}
+				}
+				
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
+	/**
+	 * 안내장 첨부파일 가져오기
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("file/get")
 	public ResponseEntity<?> getFile(int id) {
-		return new ResponseEntity<>(invitationService.get(id), HttpStatus.OK);
+		return new ResponseEntity<>(invitationFileService.getList(id), HttpStatus.OK);
 	}
 
 }

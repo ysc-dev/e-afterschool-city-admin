@@ -18,7 +18,7 @@
 						<label class="font-weight-bold">안내장 선택 :</label>
 						<select class="form-control form-control-select2" name="invitation" required>
 							<c:forEach var="invitation" items="${invitations}" varStatus="status">
-								<option value="${invitation.id}">${invitation.name}</option>
+								<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -64,7 +64,7 @@
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold">수업 장소 :</label>
-						<textarea rows="4" class="form-control" name="location" placeholder="지명(주소)" required></textarea>
+						<textarea rows="4" class="form-control" name="location" placeholder="지명(주소)"></textarea>
 					</div>
 				</div>
 				
@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold">강사 선택 :</label>
-						<select class="form-control form-control-select2" name="teacher" required>
+						<select class="form-control select-search" name="teacher" required>
 							<c:forEach var="teacher" items="${teachers}" varStatus="status">
 								<option value="${teacher.id}">${teacher.name}</option>
 							</c:forEach>

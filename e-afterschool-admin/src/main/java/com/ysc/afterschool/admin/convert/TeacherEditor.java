@@ -16,7 +16,6 @@ public class TeacherEditor extends PropertyEditorSupport {
 	private TeacherService teacherService;
 
 	public void setAsText(String text) throws IllegalArgumentException {
-		System.err.println("Teacher Id : " + text);
 		this.setValue(teacherService.get(Integer.parseInt(text)));
 	}
 }

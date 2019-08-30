@@ -5,4 +5,5 @@ import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 
 public interface InvitationService extends CRUDService<Invitation, InvitationSearchParam, Integer> {
 
+	Invitation registDomain(Invitation domain);
 }

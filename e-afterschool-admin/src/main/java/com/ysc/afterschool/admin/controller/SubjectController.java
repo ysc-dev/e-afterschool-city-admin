@@ -106,13 +106,14 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	}
 	
 	/**
-	 * 과목 그룹 수정
+	 * 과목 정보 수정
 	 * @param subject
 	 * @return
 	 */
 	@Override
 	public ResponseEntity<?> update(Subject subject) {
 		Subject result = subjectService.get(subject.getId());
+		result.setName(subject.getName());
 		result.setInvitation(subject.getInvitation());
 		result.setSubjectGroup(subject.getSubjectGroup());
 		result.setTeacher(subject.getTeacher());

@@ -83,7 +83,7 @@
 				</h5>
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-			<form id="updateForm" class="form-horizontal" enctype="multipart/form-data" role="form" method="PUT"
+			<form id="updateForm" class="form-horizontal" enctype="multipart/form-data" role="form"
 				action="${pageContext.request.contextPath}/invitation/update/file">
 				<div class="modal-body">
 					<input type="hidden" name="id">
@@ -269,10 +269,11 @@ var InvitationManager = function() {
 		        type: "GET",
 		        data: {"id" : id},
 		        success : function(response) {
-			        response.uploadedFiles.forEach(function(file, index) {
-						var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
+			        $.each(response, function(index, file){ 
+			        	var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
 				        $("#image-viewer").append(imageContent);
-                    });
+			        });
+
 		        	$("#imageModal").modal();
 		        }
 		    });

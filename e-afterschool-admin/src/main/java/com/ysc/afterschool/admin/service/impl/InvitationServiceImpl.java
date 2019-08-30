@@ -66,4 +66,9 @@ public class InvitationServiceImpl implements InvitationService {
 	private boolean isNew(Invitation domain) {
 		return !invitationRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public Invitation registDomain(Invitation domain) {
+		return invitationRepository.save(domain);
+	}
 }

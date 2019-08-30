@@ -23,6 +23,7 @@ import com.ysc.afterschool.admin.domain.AbstractDomain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * 안내장 목록 테이블 도메인
@@ -34,6 +35,7 @@ import lombok.Getter;
 @Table(name = "tb_invitation")
 @Data
 @EqualsAndHashCode(callSuper = false)
+//@ToString(exclude = { "uploadedFiles" })
 public class Invitation extends AbstractDomain {
 
 	@Column(nullable = false, length = 255)
@@ -55,9 +57,9 @@ public class Invitation extends AbstractDomain {
     @JoinColumn(name = "city_id")
 	private City city;
 	
-	@OneToMany(mappedBy = "invitation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@Fetch(FetchMode.SUBSELECT)
-	private List<InvitationUploadedFile> uploadedFiles;
+//	@OneToMany(mappedBy = "invitation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@Fetch(FetchMode.SELECT)
+//	private List<InvitationUploadedFile> uploadedFiles;
 	
 	@Transient
 	private MultipartFile[] images;

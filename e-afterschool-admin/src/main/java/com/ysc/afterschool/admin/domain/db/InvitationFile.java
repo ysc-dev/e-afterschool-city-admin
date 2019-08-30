@@ -25,9 +25,9 @@ import lombok.Data;
  *
  */
 @Entity
-@Table(name = "tb_invitation_uploaded_file")
+@Table(name = "tb_invitation_file")
 @Data
-public class InvitationUploadedFile implements Domain {
+public class InvitationFile implements Domain {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,8 +48,10 @@ public class InvitationUploadedFile implements Domain {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
-	@ManyToOne
-	@JoinColumn(name = "invitation_id")
-    @JsonIgnore
-    private Invitation invitation;
+	private int invitationId;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "invitation_id")
+//    @JsonIgnore
+//    private Invitation invitation;
 }

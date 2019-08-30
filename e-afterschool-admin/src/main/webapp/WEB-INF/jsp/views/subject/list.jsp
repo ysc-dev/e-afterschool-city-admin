@@ -15,10 +15,10 @@
 				<label class="col-form-label font-weight-bold mr-3">검색조건 <i class="icon-arrow-right13"></i></label>
 				<label class="col-form-label mr-2">안내장 :</label>
 				<div class="mr-3">
-					<select class="form-control form-control-select2" name="invitation" data-width="280">
+					<select class="form-control form-control-select2" name="invitation" data-width="320">
 						<option value="0">- 전 체 -</option>  
 						<c:forEach var="invitation" items="${invitations}" varStatus="status">
-							<option value="${invitation.id}">${invitation.name}</option>
+							<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -31,7 +31,7 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div class="mr-3" style="width: 300px;">
+				<div class="mr-3" style="width: 250px;">
 					<input type="search" class="form-control" placeholder="수강 과목 이름" name="name" autocomplete="off"> 
 				</div>
 				<button id="searchBtn" class="btn bg-teal-400"><i class="icon-search4 mr-2"></i>조 회</button>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="form-group">
 								<label class="font-weight-bold">이 름 :</label>
-								<input type="text" class="form-control" name="name" placeholder="과목 이름" readonly>
+								<input type="text" class="form-control" name="name" placeholder="과목 이름" required>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
@@ -122,7 +122,7 @@
 							</div>
 							<div class="form-group">
 								<label class="font-weight-bold">수업 장소 :</label>
-								<textarea rows="3" class="form-control" name="location" placeholder="지명(주소)" required></textarea>
+								<textarea rows="3" class="form-control" name="location" placeholder="지명(주소)"></textarea>
 							</div>
 						</div>
 						<div class="col-md-6 mr-auto px-3">
@@ -158,7 +158,7 @@
 							</div>
 							<div class="form-group">
 								<label class="font-weight-bold">재료비 및 교구비 :</label>
-								<input type="text" class="form-control" name="cost" placeholder="예) 무료 또는 1만원" required>
+								<input type="text" class="form-control" name="cost" placeholder="예) 무료 또는 1만원">
 							</div>
 							<div class="form-group">
 								<label class="font-weight-bold">과목 특징 :</label>

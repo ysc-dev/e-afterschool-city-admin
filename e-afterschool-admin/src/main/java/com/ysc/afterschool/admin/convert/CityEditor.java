@@ -16,7 +16,6 @@ public class CityEditor extends PropertyEditorSupport {
 	private CityRepository cityRepository;
 
 	public void setAsText(String text) throws IllegalArgumentException {
-		System.err.println("Invitation Id : " + text);
 		this.setValue(cityRepository.findById(Integer.parseInt(text)).get());
 	}
 }

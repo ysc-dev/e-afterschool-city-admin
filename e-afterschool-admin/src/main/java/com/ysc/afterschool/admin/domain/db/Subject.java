@@ -60,7 +60,7 @@ public class Subject extends AbstractDomain {
 	private String time;
 	
 	/** 장소 */
-	@Column(nullable = false, length = 255)
+	@Column(length = 255)
 	private String location;
 	
 	/** 재료비 및 교구비 부가적인 설명 */

@@ -16,7 +16,6 @@ public class InvitationEditor extends PropertyEditorSupport {
 	private InvitationService invitationService;
 
 	public void setAsText(String text) throws IllegalArgumentException {
-		System.err.println("Invitation Id : " + text);
 		this.setValue(invitationService.get(Integer.parseInt(text)));
 	}
 }

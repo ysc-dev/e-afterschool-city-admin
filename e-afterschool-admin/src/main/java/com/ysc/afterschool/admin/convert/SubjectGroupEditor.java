@@ -16,7 +16,6 @@ public class SubjectGroupEditor extends PropertyEditorSupport {
 	private SubjectGroupService subjectGroupService;
 
 	public void setAsText(String text) throws IllegalArgumentException {
-		System.err.println("SubjectGroup Id : " + text);
 		this.setValue(subjectGroupService.get(Integer.parseInt(text)));
 	}
 }

@@ -40,8 +40,6 @@ public class UserController {
 	 */
 	@PutMapping("update")
 	public ResponseEntity<?> update(User user) {
-		System.err.println(user);
-		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
