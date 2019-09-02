@@ -178,7 +178,17 @@ var InvitationManager = function() {
 		    }, 
 		    { data: "name" }, 
 		    { data: "deadlineDate" },
-		    { data: "typeContent" },
+		    {
+		    	render: function(data, type, row, meta) {
+			    	if (row.type == "마감") {
+			    		return '<label class="col-form-label text-warning">' + row.typeContent + '</label>';
+			    	} else if (row.type == "수강신청") {
+			    		return '<label class="col-form-label text-info-600">' + row.typeContent + '</label>';
+			    	} else {
+			    		return row.typeContent;
+			    	}
+		    	}
+		    },
 		    { data: "city.name" },
 		    { 
 		    	width: "10%",

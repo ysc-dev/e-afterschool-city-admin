@@ -50,6 +50,7 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 		Teacher result = teacherService.get(teacher.getId());
 		result.setTel(teacher.getTel());
 		result.setEmail(teacher.getEmail());
+		result.setContent(teacher.getContent());
 		
 		if (teacherService.update(result)) {
 			return new ResponseEntity<>(HttpStatus.OK);

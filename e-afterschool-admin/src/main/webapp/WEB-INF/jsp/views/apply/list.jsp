@@ -15,9 +15,9 @@
 				<label class="col-form-label font-weight-bold mr-3">검색조건 <i class="icon-arrow-right13"></i></label>
 				<label class="col-form-label mr-2">안내장 :</label>
 				<div class="mr-3">
-					<select class="form-control form-control-select2" name="invitation" data-width="280" id="invitationSelect">
+					<select class="form-control form-control-select2" name="invitation" data-width="320" id="invitationSelect">
 						<c:forEach var="invitation" items="${invitations}" varStatus="status">
-							<option value="${invitation.id}">${invitation.name}</option>
+							<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -26,9 +26,7 @@
 					<select class="form-control select-search" name="subject" data-width="300" id="subjectSelect">
 						<option value="">- 전 체 -</option>
 						<c:forEach var="subject" items="${subjects}" varStatus="status">
-							<option value="${subject.id}">
-								${subject.name} - ${subject.week}
-							</option>
+							<option value="${subject.id}">${subject.name}</option>
 						</c:forEach>
 					</select>
 				</div>

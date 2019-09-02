@@ -1,21 +1,14 @@
 package com.ysc.afterschool.admin.domain.db;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ysc.afterschool.admin.domain.AbstractDomain;
@@ -23,7 +16,6 @@ import com.ysc.afterschool.admin.domain.AbstractDomain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
 
 /**
  * 안내장 목록 테이블 도메인

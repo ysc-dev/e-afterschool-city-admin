@@ -172,7 +172,7 @@ var TeacherManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.order(this.ele, this.option, [1]);
+			this.table = Datatables.order(this.ele, this.option, [1], " _TOTAL_ 명의 강사가 있습니다.");
 			this.search();
 		},
 		search: function() {
