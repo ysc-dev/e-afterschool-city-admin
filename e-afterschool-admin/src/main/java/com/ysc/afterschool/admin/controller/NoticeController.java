@@ -2,6 +2,8 @@ package com.ysc.afterschool.admin.controller;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -86,24 +88,33 @@ public class NoticeController {
 	 */
 	@PostMapping("regist")
 	@ResponseBody
-	public ResponseEntity<?> regist(Notice notice, MultipartFile file, Authentication authentication) {
+	public ResponseEntity<?> regist(Notice notice, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		notice.setUserId(user.getUserId());
 		notice.setUserName(user.getName());
 		notice.setStatus(PostStatus.Y);
 		
-		try {
-			UploadedFile uploadedFile = new UploadedFile();
-			uploadedFile.setFileName(file.getOriginalFilename());
-			uploadedFile.setContent(file.getBytes());
-			uploadedFile.setContentType(file.getContentType());
-			uploadedFileService.regist(uploadedFile);
-			
-			notice.setUploadedFile(uploadedFile);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		List<UploadedFile> uploadedFiles = new ArrayList<>();
+		
+		for (MultipartFile file : notice.getImages()) {
+			String fileName = file.getOriginalFilename();
+			if (!fileName.isEmpty()) {
+				try {
+					UploadedFile uploadedFile = new UploadedFile();
+					uploadedFile.setFileName(fileName);
+					uploadedFile.setContent(file.getBytes());
+					uploadedFile.setContentType(file.getContentType());
+					uploadedFile.setNotice(notice);
+					
+					uploadedFiles.add(uploadedFile);
+				} catch (IOException e) {
+					e.printStackTrace();
+					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				}
+			}
 		}
+		
+		notice.setUploadedFiles(uploadedFiles);
 		
 		if (noticeService.regist(notice)) {
 			return new ResponseEntity<>(HttpStatus.OK);
@@ -143,7 +154,7 @@ public class NoticeController {
 	}
 	
 	/**
-	 * 공지사항 등록
+	 * 공지사항 정보 수정
 	 * @param notice
 	 * @param file
 	 * @param authentication
@@ -151,25 +162,34 @@ public class NoticeController {
 	 */
 	@PutMapping("update")
 	@ResponseBody
-	public ResponseEntity<?> update(Notice notice, MultipartFile file) {
+	public ResponseEntity<?> update(Notice notice) {
 		Notice temp = noticeService.get(notice.getId());
 		temp.setTitle(notice.getTitle());
 		temp.setContent(notice.getContent());
 		
-		if (!file.getOriginalFilename().isEmpty()) {
-			try {
-				UploadedFile uploadedFile = new UploadedFile();
-				uploadedFile.setFileName(file.getOriginalFilename());
-				uploadedFile.setContent(file.getBytes());
-				uploadedFile.setContentType(file.getContentType());
-				uploadedFileService.regist(uploadedFile);
-				
-				uploadedFileService.delete(notice.getUploadedFile().getId());
-				
-				temp.setUploadedFile(uploadedFile);
-			} catch (IOException e) {
-				e.printStackTrace();
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		List<UploadedFile> uploadedFiles = new ArrayList<>();
+		
+		for (MultipartFile file : notice.getImages()) {
+			String fileName = file.getOriginalFilename();
+			if (!fileName.isEmpty()) {
+				try {
+					UploadedFile uploadedFile = new UploadedFile();
+					uploadedFile.setFileName(fileName);
+					uploadedFile.setContent(file.getBytes());
+					uploadedFile.setContentType(file.getContentType());
+					uploadedFile.setNotice(notice);
+					
+					uploadedFiles.add(uploadedFile);
+				} catch (IOException e) {
+					e.printStackTrace();
+					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				}
+			}
+		}
+		
+		if (uploadedFiles.size() > 0) {
+			if (uploadedFileService.delete(temp.getUploadedFiles())) {
+				temp.setUploadedFiles(uploadedFiles);
 			}
 		}
 		
@@ -179,7 +199,6 @@ public class NoticeController {
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
 	
 	/**
 	 * 정보 삭제
@@ -194,5 +213,15 @@ public class NoticeController {
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 공지사항 첨부파일 가져오기
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("file/get")
+	public ResponseEntity<?> getFile(int id) {
+		return new ResponseEntity<>(noticeService.get(id), HttpStatus.OK);
 	}
 }

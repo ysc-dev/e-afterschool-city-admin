@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-md-10 mx-md-auto">
 			<div class="card notice-detail">
-				<div class="card-header bg-transparent">
+				<div class="card-header bg-primary-400">
 					<h3 class="card-title">${notice.title}</h3>
 				</div>
 				<div class="card-body">
@@ -31,11 +31,11 @@
 						<label class="font-weight-bold ml-4">조회수 :</label>
 						<label class="ml-1">${notice.hit}</label>
 					</div>
-					<div class="file">
+					<%-- <div class="file">
 						<i class="icon-file-text2 mr-1"></i>
 						<label class="font-weight-bold mr-2">첨부파일 :</label>
 						<a href="#" class=" ">${notice.uploadedFile.fileName}</a>
-					</div>
+					</div> --%>
 					<div class="content">
 						<p>${notice.content}</p>
 					</div>

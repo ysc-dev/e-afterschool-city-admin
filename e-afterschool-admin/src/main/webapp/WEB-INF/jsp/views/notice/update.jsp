@@ -42,7 +42,9 @@
 						<div class="form-group row mt-4">
 							<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>
 							<div class="col-md-7">
-								<input type="file" class="file-input" data-show-upload="false" name="file">
+								<input type="file" class="file-input" data-show-upload="false" name="images" 
+									accept="image/*" multiple="multiple" data-fouc>
+								<span class="form-text text-muted">※ 이미지 파일만 업로드 가능합니다.</span>
 							</div>
 						</div>
 					</div>

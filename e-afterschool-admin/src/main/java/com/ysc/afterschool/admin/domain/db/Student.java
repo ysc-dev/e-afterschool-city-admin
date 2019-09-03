@@ -64,9 +64,7 @@ public class Student extends AbstractDomain {
 	public enum TargetType {
 		전체("전체"),
 		초등("초등"),
-		중등("중등"),
-		기초("기초"),
-		심화("심화");
+		중등("중등");
 		
 		private String name;
 		

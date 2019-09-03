@@ -1,5 +1,7 @@
 package com.ysc.afterschool.admin.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,8 +24,8 @@ public class UploadedFileService {
 		}	
 	}
 	
-	public boolean delete(int id) {
-		uploadedFileRepository.deleteById(id);
+	public boolean delete(List<UploadedFile> files) {
+		uploadedFileRepository.deleteInBatch(files);
 		return true;
 	}
 	

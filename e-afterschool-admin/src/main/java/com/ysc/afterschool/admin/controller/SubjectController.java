@@ -69,9 +69,13 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	public ResponseEntity<?> search(@RequestBody SubjectSearchParam param) {
 		return new ResponseEntity<>(subjectService.getList(param).stream().map(data -> {
 			if (data.getTargetType() == TargetType.전체) {
-				data.setTarget("전체 (" + data.getFixedNumber() + ")");
+				if (data.getGradeType() == GradeType.초_3_6_중등) {
+					data.setTarget(data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
+				} else {
+					data.setTarget("전체 (" + data.getFixedNumber() + ")");
+				}
 			} else {
-				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + "(" + data.getFixedNumber() + ")");
+				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
 			}
 			return data;
 		}).collect(Collectors.toList()), HttpStatus.OK);
