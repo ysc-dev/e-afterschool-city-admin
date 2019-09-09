@@ -66,4 +66,9 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 	private boolean isNew(ClassContents domain) {
 		return !classContentsRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public ClassContents registDomain(ClassContents domain) {
+		return classContentsRepository.save(domain);
+	}
 }

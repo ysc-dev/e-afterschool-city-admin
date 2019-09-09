@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
+import lombok.Getter;
 
 /**
  * 과목 관련 첨부파일 관리 도메인
@@ -48,8 +51,31 @@ public class SubjectUploadedFile implements Domain {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
-	@ManyToOne
-	@JoinColumn(name = "class_contents_id")
-    @JsonIgnore
-    private ClassContents classContents;
+    private int classContentsId;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private FileType fileType;
+	
+	@Getter
+	public enum FileType {
+		IMAGE("image"),
+		VIDEO("video");
+		
+		private String name;
+		
+		private FileType(String name) {
+			this.name = name;
+		}
+		
+		public static FileType stringToType(String value) {
+			for (FileType type : FileType.values()) {
+				if (value.contains(type.name)) {
+					return type;
+				}
+			}
+			
+			return null;
+		}
+	}
 }

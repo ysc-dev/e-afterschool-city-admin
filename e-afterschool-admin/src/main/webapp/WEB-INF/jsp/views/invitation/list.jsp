@@ -280,7 +280,7 @@ var InvitationManager = function() {
 		        data: {"id" : id},
 		        success : function(response) {
 			        $.each(response, function(index, file){ 
-			        	var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
+			        	var imageContent = `<img src="data:\${file.contentType};base64,\${file.content}" class="img-fluid"/>`;
 				        $("#image-viewer").append(imageContent);
 			        });
 

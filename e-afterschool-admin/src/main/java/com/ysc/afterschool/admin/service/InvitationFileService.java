@@ -10,4 +10,6 @@ public interface InvitationFileService extends CRUDService<InvitationFile, Searc
 	List<InvitationFile> getList(int invitationId);
 	
 	boolean delete(List<InvitationFile> list);
+
+	boolean deleteByFlie(int invitationId);
 }

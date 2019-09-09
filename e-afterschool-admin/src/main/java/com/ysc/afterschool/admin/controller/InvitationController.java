@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,7 +24,6 @@ import com.ysc.afterschool.admin.domain.db.Invitation.InvitationType;
 import com.ysc.afterschool.admin.domain.db.InvitationFile;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.CityRepository;
-import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.InvitationFileService;
 import com.ysc.afterschool.admin.service.InvitationService;
 
@@ -35,7 +35,7 @@ import com.ysc.afterschool.admin.service.InvitationService;
  */
 @Controller
 @RequestMapping("invitation")
-public class InvitationController extends AbstractController<Invitation, InvitationSearchParam, Integer> {
+public class InvitationController {
 	
 	@Autowired
 	private InvitationService invitationService;
@@ -45,9 +45,16 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 	
 	@Autowired
 	private CityRepository cityRepository;
-
-	public InvitationController(CRUDService<Invitation, InvitationSearchParam, Integer> crudService) {
-		super(crudService);
+	
+	/**
+	 * 정보 불러오기
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("get")
+	@ResponseBody
+	public Invitation get(int id) {
+		return invitationService.get(id);
 	}
 
 	/**
@@ -157,6 +164,23 @@ public class InvitationController extends AbstractController<Invitation, Invitat
 					}
 				}
 				
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 정보 삭제
+	 * @param id
+	 * @return
+	 */
+	@DeleteMapping("delete")
+	@ResponseBody
+	public ResponseEntity<?> delete(int id) {
+		if (invitationService.delete(id)) {
+			if (invitationFileService.deleteByFlie(id)) {
 				return new ResponseEntity<>(HttpStatus.OK);
 			}
 		}

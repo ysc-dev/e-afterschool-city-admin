@@ -71,4 +71,10 @@ public class InvitationFileServiceImpl implements InvitationFileService {
 		invitationFileRepository.deleteInBatch(list);
 		return true;
 	}
+
+	@Override
+	public boolean deleteByFlie(int invitationId) {
+		invitationFileRepository.deleteByInvitationId(invitationId);
+		return true;
+	}
 }

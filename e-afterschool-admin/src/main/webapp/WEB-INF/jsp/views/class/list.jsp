@@ -79,9 +79,9 @@
 	</div>
 </div>
 
-<!-- 이미지 모달창 -->
-<div id="imageModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+<!-- 이미지 및 비디오 모달창 -->
+<div id="fileModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h5 class="modal-title">
@@ -89,8 +89,9 @@
                 </h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
-               <div id="image-viewer"></div>
+            <div class="modal-body text-center">
+               <div id="file-viewer">
+               </div>
             </div>
         </div>
     </div>
@@ -187,18 +188,26 @@ var ClassManager = function() {
 			Control();
 		},
 		imageModal: function(id) {
-			$("#image-viewer").empty();
+			$("#file-viewer").empty();
 			
 			$.ajax({
 		        url: contextPath + "/class/file/get",
 		        type: "GET",
 		        data: {"id" : id},
 		        success : function(response) {
-			        response.uploadedFiles.forEach(function(file, index) {
-						var imageContent = `<img src="data:\${file.fileContentType};base64,\${file.content}" class="img-fluid"/>`;
-				        $("#image-viewer").append(imageContent);
+			        response.forEach(function(file, index) {
+				        var fileContent;
+				        if (file.fileType == 'IMAGE') {
+				        	fileContent = `<img src="data:\${file.contentType};base64,\${file.content}" class="img-fluid"/>`;
+				        } else {
+							fileContent = `<div class="card-img embed-responsive embed-responsive-16by9">`
+								+ `<video class="embed-responsive-item" src="data:\${file.contentType};base64,\${file.content}" controls></video>`
+								+ `</div>`;
+				        }
+						
+				        $("#file-viewer").append(fileContent);
                     });
-		        	$("#imageModal").modal();
+		        	$("#fileModal").modal();
 		        }
 		    });
 		},

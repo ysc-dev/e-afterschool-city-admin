@@ -5,4 +5,6 @@ import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
 
 public interface ClassContentsService extends CRUDService<ClassContents, ClassContentsSearchParam, Integer> {
 
+	ClassContents registDomain(ClassContents classContents);
+
 }

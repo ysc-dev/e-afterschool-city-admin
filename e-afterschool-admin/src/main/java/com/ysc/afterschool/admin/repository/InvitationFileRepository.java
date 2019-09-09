@@ -8,4 +8,6 @@ public interface InvitationFileRepository extends DefaultRepository<InvitationFi
 
 	List<InvitationFile> findByInvitationId(int invitationId);
 
+	void deleteByInvitationId(int invitationId);
+
 }

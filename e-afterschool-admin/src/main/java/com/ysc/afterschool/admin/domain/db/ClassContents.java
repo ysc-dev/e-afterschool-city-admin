@@ -55,10 +55,6 @@ public class ClassContents implements Domain {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
-	@OneToMany(mappedBy = "classContents", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@Fetch(FetchMode.SUBSELECT)
-	private List<SubjectUploadedFile> uploadedFiles;
-	
 	@Transient
-	private MultipartFile[] images;
+	private MultipartFile[] files;
 }
