@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-md-10 mx-md-auto">
 			<div class="card">
-				<form id="updateForm" role="form" method="POST" action="${pageContext.request.contextPath}/notice/update" 
+				<form id="updateForm" role="form" action="${pageContext.request.contextPath}/notice/update" 
 					enctype="multipart/form-data">
 					<div class="card-body">
 						<input type="hidden" value="${notice.id}" name="id" />

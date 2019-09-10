@@ -43,13 +43,13 @@ public class DashboardController {
 
 	@GetMapping("home")
 	public void home(Model model) {
-//		model.addAttribute("invitations", invitationService.getList().size());
-//		model.addAttribute("schools", schoolService.getList().size());
-//		model.addAttribute("students", studentService.getList().size());
-//		model.addAttribute("teachers", teacherService.getList().size());
-//		model.addAttribute("subjectGroups", subjectGroupService.getList().size());
-//		model.addAttribute("subjects", subjectService.getList().size());
-//		model.addAttribute("applies", applyService.getList().size());
-//		model.addAttribute("notices", noticeService.getList().size());
+		model.addAttribute("invitations", invitationService.getList().size());
+		model.addAttribute("schools", schoolService.getList().size());
+		model.addAttribute("students", studentService.getList().size());
+		model.addAttribute("teachers", teacherService.getList().size());
+		model.addAttribute("subjectGroups", subjectGroupService.getList().size());
+		model.addAttribute("subjects", subjectService.getList().size());
+		model.addAttribute("applies", applyService.getList().size());
+		model.addAttribute("notices", noticeService.getList().size());
 	}
 }

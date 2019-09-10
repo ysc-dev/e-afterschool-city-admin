@@ -90,8 +90,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body text-center">
-               <div id="file-viewer">
-               </div>
+               <div id="file-viewer"></div>
             </div>
         </div>
     </div>
@@ -126,7 +125,7 @@ $("#invitationSelect").change(function() {
 $("#classRegistBtn").click(function() {
 	var subjectId = $("#subjectSelect option:selected").val();
 	if (subjectId && subjectId != 0) {
-		location.replace(contextPath + "/class/regist?subjectId=" + subjectId);
+		location.replace(contextPath + "/classContent/regist?subjectId=" + subjectId);
 	} else {
 		swal({title: "과목을 선택하세요.<br>없을 경우 먼저 등록하세요.", type: "warning"})
 	}
@@ -152,8 +151,8 @@ var ClassManager = function() {
 		    { 
 		    	width: "12%",
 			    render: function(data, type, row, meta) {
-				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
-				    	+ 'onClick="ClassManager.imageModal(' + row.id + ')"><i class="icon-images2"></i></button>';
+				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm font-weight-bold"'
+				    	+ 'onClick="ClassManager.imageModal(' + row.id + ')">사진/동영상</button>';
 			    }
 			},
 		    {
@@ -172,7 +171,7 @@ var ClassManager = function() {
 			var param = new Object();
 			param.invitationId = $("select[name=invitation]").val();
 			param.subjectId = $("select[name=subject]").val();
-			Datatables.rowsAdd(this.table, contextPath + "/class/search", param);
+			Datatables.rowsAdd(this.table, contextPath + "/classContent/search", param);
 		}
 	}
 
@@ -191,18 +190,18 @@ var ClassManager = function() {
 			$("#file-viewer").empty();
 			
 			$.ajax({
-		        url: contextPath + "/class/file/get",
+		        url: contextPath + "/classContent/file/get",
 		        type: "GET",
 		        data: {"id" : id},
 		        success : function(response) {
-			        response.forEach(function(file, index) {
+			        response.uploadedFiles.forEach(function(file, index) {
 				        var fileContent;
 				        if (file.fileType == 'IMAGE') {
-				        	fileContent = `<img src="data:\${file.contentType};base64,\${file.content}" class="img-fluid"/>`;
+				        	fileContent = '<img src="' + contextPath + '/uploads/class/' + file.fileName + '" class="img-fluid"/>';
 				        } else {
-							fileContent = `<div class="card-img embed-responsive embed-responsive-16by9">`
-								+ `<video class="embed-responsive-item" src="data:\${file.contentType};base64,\${file.content}" controls></video>`
-								+ `</div>`;
+				        	fileContent = '<div class="card-img embed-responsive embed-responsive-16by9">'
+					        	+ '<video class="embed-responsive-item" src="' + contextPath + '/uploads/ ' + file.fileName + '" controls></video>'
+					        	+ '</div>';
 				        }
 						
 				        $("#file-viewer").append(fileContent);
@@ -212,7 +211,7 @@ var ClassManager = function() {
 		    });
 		},
 		_delete: function(id) {
-			deleteCommon(contextPath + "/class/delete", id, "수업 내용", DataTable);
+			deleteCommon(contextPath + "/classContent/delete", id, "수업 내용", DataTable);
 		}
 	}
 }();

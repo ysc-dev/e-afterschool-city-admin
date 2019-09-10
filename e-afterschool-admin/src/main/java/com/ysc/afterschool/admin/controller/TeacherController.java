@@ -47,6 +47,7 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	 */
 	@Override
 	public ResponseEntity<?> update(Teacher teacher) {
+		System.err.println(teacher);
 		Teacher result = teacherService.get(teacher.getId());
 		result.setTel(teacher.getTel());
 		result.setEmail(teacher.getEmail());

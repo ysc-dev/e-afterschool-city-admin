@@ -58,7 +58,7 @@ public class Notice extends AbstractDomain {
 	@Column(nullable = false, length = 100)
 	private String userName;
 	
-	@OneToMany(mappedBy = "notice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "notice", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<UploadedFile> uploadedFiles;
 	

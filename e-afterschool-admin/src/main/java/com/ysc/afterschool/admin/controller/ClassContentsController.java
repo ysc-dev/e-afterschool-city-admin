@@ -1,7 +1,9 @@
 package com.ysc.afterschool.admin.controller;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +22,12 @@ import com.ysc.afterschool.admin.domain.db.ClassContents;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile;
-import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile.FileType;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
 import com.ysc.afterschool.admin.service.ClassContentsService;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
-import com.ysc.afterschool.admin.service.SubjectUploadedFileService;
+import com.ysc.afterschool.admin.service.impl.FileUploadService;
 
 /**
  * 횟수별 수업 관리 컨트롤러 클래스
@@ -36,7 +36,7 @@ import com.ysc.afterschool.admin.service.SubjectUploadedFileService;
  *
  */
 @Controller
-@RequestMapping("class")
+@RequestMapping("classContent")
 public class ClassContentsController {
 	
 	@Autowired
@@ -46,10 +46,10 @@ public class ClassContentsController {
 	private InvitationService invitationService;
 	
 	@Autowired
-	private SubjectUploadedFileService subjectUploadedFileService;
+	private SubjectService subjectService;
 	
 	@Autowired
-	private SubjectService subjectService;
+	private FileUploadService fileUploadService;
 
 	/**
 	 * 수업 목록 화면
@@ -101,32 +101,23 @@ public class ClassContentsController {
 	 */
 	@PostMapping("regist")
 	@ResponseBody 
-	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication) {
+	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication, HttpServletRequest request) {
 		User user = (User) authentication.getPrincipal();
 		classContents.setUserId(user.getUserId());
 		classContents.setUserName(user.getName());
 		
-		ClassContents result = classContentsService.registDomain(classContents);
-		if (result != null) {
-			for (MultipartFile file : classContents.getFiles()) {
-				String fileName = file.getOriginalFilename();
-				if (!fileName.isEmpty()) {
-					try {
-						SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
-						uploadedFile.setFileName(fileName);
-						uploadedFile.setContent(file.getBytes());
-						uploadedFile.setContentType(file.getContentType());
-						uploadedFile.setClassContentsId(result.getId());
-						uploadedFile.setFileType(FileType.stringToType(uploadedFile.getContentType()));
-						
-						subjectUploadedFileService.regist(uploadedFile);
-					} catch (IOException e) {
-						e.printStackTrace();
-						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-					}
-				}
-			}
+		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
+		
+		for (MultipartFile file : classContents.getFiles()) {
+			SubjectUploadedFile uploadedFile = fileUploadService.restore(file, "class");
+			uploadedFile.setClassContents(classContents);
 			
+			uploadedFiles.add(uploadedFile);
+		}
+		
+		classContents.setUploadedFiles(uploadedFiles);
+		
+		if (classContentsService.regist(classContents)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
@@ -135,7 +126,7 @@ public class ClassContentsController {
 	
 	@GetMapping("file/get")
 	public ResponseEntity<?> getFile(int id) {
-		return new ResponseEntity<>(subjectUploadedFileService.getList(id), HttpStatus.OK);
+		return new ResponseEntity<>(classContentsService.get(id), HttpStatus.OK);
 	}
 
 	/**
@@ -143,13 +134,12 @@ public class ClassContentsController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping("delete")
+	@PostMapping("delete")
 	@ResponseBody
-	public ResponseEntity<?> delete(int id) {
+	public ResponseEntity<?> delete(Integer id) {
+		System.err.println("delete id : " + id);
 		if (classContentsService.delete(id)) {
-			if (subjectUploadedFileService.deleteByFile(id)) {
-				return new ResponseEntity<>(HttpStatus.OK);
-			}
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

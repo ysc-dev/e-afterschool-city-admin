@@ -60,7 +60,7 @@
 					</ul>
 				</li>
 				<li id="class" class="nav-item">
-					<a href="${pageContext.request.contextPath}/class/list" class="nav-link">
+					<a href="${pageContext.request.contextPath}/classContent/list" class="nav-link">
 						<i class="icon-stack"></i><span>횟수별 수업 관리</span>
 					</a>
 				</li>

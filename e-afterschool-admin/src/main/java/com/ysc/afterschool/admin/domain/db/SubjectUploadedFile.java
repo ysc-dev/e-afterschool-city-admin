@@ -40,22 +40,24 @@ public class SubjectUploadedFile implements Domain {
 	@Column(nullable = false, length = 100)
 	private String fileName;
 
-	/** 파일 데이터 */
-	@Column(columnDefinition = "longblob")
-	private byte[] content;
-
 	/** 파일 확장자 */
 	@Column(nullable = false, length = 100)
 	private String contentType;
 	
+	/** 파일 사이즈 */
+	private Long size;
+	
 	@CreationTimestamp
 	private LocalDateTime createDate;
-	
-    private int classContentsId;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private FileType fileType;
+	
+	@ManyToOne
+	@JoinColumn(name = "class_contents_id")
+    @JsonIgnore
+    private ClassContents classContents;
 	
 	@Getter
 	public enum FileType {

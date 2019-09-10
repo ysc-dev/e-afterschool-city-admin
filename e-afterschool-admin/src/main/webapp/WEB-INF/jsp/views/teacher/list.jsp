@@ -121,13 +121,13 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">연락처 : </label>
 						<div class="col-md-6">
-							<input type="tel" class="form-control" name="tel" placeholder="핸드폰 번호" autocomplete="off" required> 
+							<input type="tel" class="form-control" name="tel" placeholder="핸드폰 번호" autocomplete="off"> 
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">이메일 : </label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="email" placeholder="이메일" required>
+							<input type="text" class="form-control" name="email" placeholder="이메일">
 						</div>
 					</div>
 				</div>

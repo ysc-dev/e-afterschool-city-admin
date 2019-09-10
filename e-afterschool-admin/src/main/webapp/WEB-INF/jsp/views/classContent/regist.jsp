@@ -67,7 +67,7 @@ $('#registForm').submit(function(e) {
    				title: "수업 내용 등록이 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
-   				location.replace(contextPath + "/class/list");
+   				location.replace(contextPath + "/classContent/list");
    			});
        	},
         error: function(response) {
