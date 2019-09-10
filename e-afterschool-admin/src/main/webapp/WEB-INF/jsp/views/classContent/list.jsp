@@ -200,7 +200,7 @@ var ClassManager = function() {
 				        	fileContent = '<img src="' + contextPath + '/uploads/class/' + file.fileName + '" class="img-fluid"/>';
 				        } else {
 				        	fileContent = '<div class="card-img embed-responsive embed-responsive-16by9">'
-					        	+ '<video class="embed-responsive-item" src="' + contextPath + '/uploads/ ' + file.fileName + '" controls></video>'
+					        	+ '<video class="embed-responsive-item" src="' + contextPath + '/uploads/class/' + file.fileName + '" controls></video>'
 					        	+ '</div>';
 				        }
 						

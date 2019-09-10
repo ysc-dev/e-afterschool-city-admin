@@ -1,5 +1,6 @@
 package com.ysc.afterschool.admin.service.impl;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
@@ -8,8 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile;
-import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile.FileType;
+import com.ysc.afterschool.admin.domain.CommonFile;
+import com.ysc.afterschool.admin.domain.CommonFile.FileType;
 
 @Service
 public class FileUploadService {
@@ -23,8 +24,8 @@ public class FileUploadService {
 	 * @param path
 	 * @return
 	 */
-	public SubjectUploadedFile restore(MultipartFile multipartFile, String path) {
-		SubjectUploadedFile uploadedFile = new SubjectUploadedFile();
+	public CommonFile restore(MultipartFile multipartFile, String path) {
+		CommonFile uploadedFile = new CommonFile();
 		
 		try {
 			// 파일 정보
@@ -53,6 +54,17 @@ public class FileUploadService {
 			throw new RuntimeException(e);
 		}
 		return uploadedFile;
+	}
+	
+	/**
+	 * 파일 삭제
+	 */
+	public boolean fileDelete(String path, String fileName) {
+		File file = new File(uploadsRoot + "/" + path + "/" + fileName);
+		if (file.exists()) {
+			return file.delete();
+		}
+		return false;
 	}
 
 	// 현재 시간을 기준으로 파일 이름 생성

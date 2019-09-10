@@ -275,12 +275,13 @@ var InvitationManager = function() {
 			$("#image-viewer").empty();
 			
 			$.ajax({
-		        url: contextPath + "/invitation/file/get",
+		        url: contextPath + "/invitation/get",
 		        type: "GET",
 		        data: {"id" : id},
 		        success : function(response) {
-			        $.each(response, function(index, file){ 
-			        	var imageContent = `<img src="data:\${file.contentType};base64,\${file.content}" class="img-fluid"/>`;
+			        $.each(response.uploadedFiles, function(index, file){ 
+			        	var imageContent = '<img src="' + contextPath + '/uploads/invitation/' + file.fileName + '" class="img-fluid"/>';
+			        	//var imageContent = `<img src="data:\${file.contentType};base64,\${file.content}" class="img-fluid"/>`;
 				        $("#image-viewer").append(imageContent);
 			        });
 

@@ -94,6 +94,7 @@
 </div>
 
 <script>
+/** 댓글 추가 버튼 클릭 시 */
 $("#commentRegistBtn").click(function() {
 	var content = $("#commentInput").val();
 	var noticeId = $("#noticeId").val();
@@ -135,12 +136,12 @@ function updateBtnClick(id) {
 }
 
 function updateComment(id) {
-	var content = $("#updateInput").val();
+	var content = $("#updateInput_" + id).val();
 	if (content) {
 		$.ajax({
       		url: contextPath + "/comment/update",
       		data: {"id": id, "content": content},
-      		type: "POST",
+      		type: "PUT",
       		success: function(response) {
       			location.reload();
      		},
@@ -156,7 +157,7 @@ function updateComment(id) {
 function cancel(id) {
 	$("#content_" + id).removeClass("d-none");
 	$("#update_" + id).addClass("d-none");
-	$("#updateInput").val("")
+	$("#updateInput_" + id).val("")l
 }
 
 /** 댓글 삭제 버튼 클릭시 */

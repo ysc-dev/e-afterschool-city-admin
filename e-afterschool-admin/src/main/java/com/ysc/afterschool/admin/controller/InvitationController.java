@@ -1,6 +1,5 @@
 package com.ysc.afterschool.admin.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,20 +9,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ysc.afterschool.admin.domain.CommonFile;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Invitation.InvitationType;
 import com.ysc.afterschool.admin.domain.db.InvitationFile;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.CityRepository;
-import com.ysc.afterschool.admin.service.InvitationFileService;
+import com.ysc.afterschool.admin.repository.InvitationFileRepository;
 import com.ysc.afterschool.admin.service.InvitationService;
+import com.ysc.afterschool.admin.service.impl.FileUploadService;
 
 /**
  * 안내장 관리 컨트롤러 클래스
@@ -39,10 +42,13 @@ public class InvitationController {
 	private InvitationService invitationService;
 	
 	@Autowired
-	private InvitationFileService invitationFileService;
+	private CityRepository cityRepository;
 	
 	@Autowired
-	private CityRepository cityRepository;
+	private FileUploadService fileUploadService;
+	
+	@Autowired
+	private InvitationFileRepository invitationFileRepository;
 	
 	/**
 	 * 정보 불러오기
@@ -98,26 +104,18 @@ public class InvitationController {
 	public ResponseEntity<?> regist(Invitation invitation) {
 		invitation.setType(InvitationType.대기);
 		
-		Invitation result = invitationService.registDomain(invitation);
-		if (result != null) {
-			for (MultipartFile file : invitation.getImages()) {
-				String fileName = file.getOriginalFilename();
-				if (!fileName.isEmpty()) {
-					try {
-						InvitationFile uploadedFile = new InvitationFile();
-						uploadedFile.setFileName(fileName);
-						uploadedFile.setContent(file.getBytes());
-						uploadedFile.setContentType(file.getContentType());
-						uploadedFile.setInvitationId(result.getId());
-						
-						invitationFileService.regist(uploadedFile);
-					} catch (IOException e) {
-						e.printStackTrace();
-						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-					}
-				}
-			}
+		List<InvitationFile> uploadedFiles = new ArrayList<>();
+		for (MultipartFile file : invitation.getImages()) {
+			CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
+			InvitationFile uploadedFile = new InvitationFile(commonFile);
+			uploadedFile.setInvitation(invitation);
 			
+			uploadedFiles.add(uploadedFile);
+		}
+		
+		invitation.setUploadedFiles(uploadedFiles);
+		
+		if (invitationService.regist(invitation)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
@@ -129,7 +127,7 @@ public class InvitationController {
 	 * @param subject
 	 * @return
 	 */
-	@PostMapping("update/file")
+	@PutMapping("update/file")
 	@ResponseBody 
 	public ResponseEntity<?> update(Invitation invitation) {
 		Invitation result = invitationService.get(invitation.getId());
@@ -139,31 +137,28 @@ public class InvitationController {
 		result.setDescription(invitation.getDescription());
 		result.setType(invitation.getType());
 		
-		if (invitationService.update(result)) {
-			if (invitationFileService.delete(invitationFileService.getList(result.getId()))) {
-				List<InvitationFile> uploadedFiles = new ArrayList<>();
-				for (MultipartFile file : invitation.getImages()) {
-					String fileName = file.getOriginalFilename();
-					if (!fileName.isEmpty()) {
-						try {
-							InvitationFile uploadedFile = new InvitationFile();
-							uploadedFile.setFileName(fileName);
-							uploadedFile.setContent(file.getBytes());
-							uploadedFile.setContentType(file.getContentType());
-							uploadedFile.setInvitationId(result.getId());
-							
-							invitationFileService.regist(uploadedFile);
-							
-							uploadedFiles.add(uploadedFile);
-						} catch (IOException e) {
-							e.printStackTrace();
-							return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-						}
-					}
-				}
+		List<InvitationFile> invitationFiles = null;
+		
+		if (invitation.getImages().length > 0) {
+			invitationFiles = invitationFileRepository.findByInvitationId(invitation.getId());
+			
+			List<InvitationFile> uploadedFiles = new ArrayList<>();
+			for (MultipartFile file : invitation.getImages()) {
+				CommonFile commonFile = fileUploadService.restore(file, CommonFile.INVITATION_PATH);
+				InvitationFile uploadedFile = new InvitationFile(commonFile);
+				uploadedFile.setInvitation(result);
 				
-				return new ResponseEntity<>(HttpStatus.OK);
+				uploadedFiles.add(uploadedFile);
 			}
+			
+			result.setUploadedFiles(uploadedFiles);
+		}
+		
+		if (invitationService.update(result)) {
+			if (invitationFiles != null) {
+				invitationFileRepository.deleteInBatch(invitationFiles);
+			}
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -174,26 +169,13 @@ public class InvitationController {
 	 * @param id
 	 * @return
 	 */
-	@PostMapping("delete")
+	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
 		if (invitationService.delete(id)) {
-			if (invitationFileService.deleteByFlie(id)) {
-				return new ResponseEntity<>(HttpStatus.OK);
-			}
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
-	/**
-	 * 안내장 첨부파일 가져오기
-	 * @param id
-	 * @return
-	 */
-	@GetMapping("file/get")
-	public ResponseEntity<?> getFile(int id) {
-		return new ResponseEntity<>(invitationFileService.getList(id), HttpStatus.OK);
-	}
-
 }

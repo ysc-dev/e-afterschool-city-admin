@@ -56,10 +56,9 @@ function registToMove(form, name, href) {
  * @returns
  */
 function updateModalCommon(url, object, name, Datatable, modalId) {
-	console.log(object);
 	$.ajax({
        	url: url,
-		type: "POST",
+		type: "PUT",
        	data: object,
        	success: function(response) {
        		$("#" + modalId).modal('hide');
@@ -93,7 +92,7 @@ function deleteCommon(url, id, name, Datatable, title) {
     	if (e.value) {
     		$.ajax({
 	    		url: url,
-	    		type: "POST",
+	    		type: "DELETE",
 	    		data: {"id": id},
 	    		success: function(response) {
 	    			Datatable.search();

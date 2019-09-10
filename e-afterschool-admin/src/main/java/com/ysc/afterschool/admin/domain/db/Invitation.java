@@ -1,14 +1,21 @@
 package com.ysc.afterschool.admin.domain.db;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ysc.afterschool.admin.domain.AbstractDomain;
@@ -49,9 +56,9 @@ public class Invitation extends AbstractDomain {
     @JoinColumn(name = "city_id")
 	private City city;
 	
-//	@OneToMany(mappedBy = "invitation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@Fetch(FetchMode.SELECT)
-//	private List<InvitationUploadedFile> uploadedFiles;
+	@OneToMany(mappedBy = "invitation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
+	private List<InvitationFile> uploadedFiles;
 	
 	@Transient
 	private MultipartFile[] images;

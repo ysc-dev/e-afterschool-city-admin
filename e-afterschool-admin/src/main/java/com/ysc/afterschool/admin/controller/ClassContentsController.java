@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ysc.afterschool.admin.domain.CommonFile;
 import com.ysc.afterschool.admin.domain.db.ClassContents;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.db.SubjectUploadedFile;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
+import com.ysc.afterschool.admin.repository.SubjectUploadedFileRepository;
 import com.ysc.afterschool.admin.service.ClassContentsService;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
@@ -50,6 +53,9 @@ public class ClassContentsController {
 	
 	@Autowired
 	private FileUploadService fileUploadService;
+	
+	@Autowired
+	private SubjectUploadedFileRepository subjectUploadedFileRepository;
 
 	/**
 	 * 수업 목록 화면
@@ -102,19 +108,19 @@ public class ClassContentsController {
 	@PostMapping("regist")
 	@ResponseBody 
 	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication, HttpServletRequest request) {
-		User user = (User) authentication.getPrincipal();
-		classContents.setUserId(user.getUserId());
-		classContents.setUserName(user.getName());
-		
 		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
 		
 		for (MultipartFile file : classContents.getFiles()) {
-			SubjectUploadedFile uploadedFile = fileUploadService.restore(file, "class");
+			CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
+			SubjectUploadedFile uploadedFile = new SubjectUploadedFile(commonFile);
 			uploadedFile.setClassContents(classContents);
 			
 			uploadedFiles.add(uploadedFile);
 		}
 		
+		User user = (User) authentication.getPrincipal();
+		classContents.setUserId(user.getUserId());
+		classContents.setUserName(user.getName());
 		classContents.setUploadedFiles(uploadedFiles);
 		
 		if (classContentsService.regist(classContents)) {
@@ -134,11 +140,15 @@ public class ClassContentsController {
 	 * @param id
 	 * @return
 	 */
-	@PostMapping("delete")
+	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(Integer id) {
-		System.err.println("delete id : " + id);
+		List<SubjectUploadedFile> files = subjectUploadedFileRepository.findByClassContentsId(id);
+		
 		if (classContentsService.delete(id)) {
+			for (SubjectUploadedFile file : files) {
+				fileUploadService.fileDelete(CommonFile.CLASS_PATH, file.getFileName());
+			}
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		

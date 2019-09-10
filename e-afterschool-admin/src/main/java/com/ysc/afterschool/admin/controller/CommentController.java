@@ -5,14 +5,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Comment;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.service.CommentService;
+import com.ysc.afterschool.admin.service.SubjectNoticeService;
 
 /**
  * 댓글 관리 컨트롤러 클래스
@@ -26,6 +29,9 @@ public class CommentController {
 	
 	@Autowired
 	private CommentService commentService;
+	
+	@Autowired
+	private SubjectNoticeService subjectNoticeService;
 
 	/**
 	 * 한개의 댓글 정보 불러오기
@@ -46,10 +52,11 @@ public class CommentController {
 	 */
 	@PostMapping(value = "regist")
 	@ResponseBody
-	public ResponseEntity<?> regist(Comment comment, Authentication authentication) {
+	public ResponseEntity<?> regist(Comment comment, int subjectNoticeId, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		comment.setUserId(user.getId());
 		comment.setUserName(user.getName());
+		comment.setSubjectNotice(subjectNoticeService.get(subjectNoticeId));
 		
 		if (commentService.regist(comment)) {
 			return new ResponseEntity<>(HttpStatus.OK);
@@ -64,7 +71,7 @@ public class CommentController {
 	 * @param content
 	 * @return
 	 */
-	@PostMapping(value = "update")
+	@PutMapping(value = "update")
 	@ResponseBody
 	public ResponseEntity<?> update(int id, String content) {
 		Comment comment = commentService.get(id);
@@ -82,7 +89,7 @@ public class CommentController {
 	 * @param id
 	 * @return
 	 */
-	@PostMapping(value = "delete")
+	@DeleteMapping(value = "delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
 		if (commentService.delete(id)) {

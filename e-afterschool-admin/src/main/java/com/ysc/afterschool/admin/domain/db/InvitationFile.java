@@ -14,9 +14,11 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ysc.afterschool.admin.domain.CommonFile;
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 과목 관련 첨부파일 관리 도메인
@@ -27,6 +29,7 @@ import lombok.Data;
 @Entity
 @Table(name = "tb_invitation_file")
 @Data
+@NoArgsConstructor
 public class InvitationFile implements Domain {
 
 	@Id
@@ -37,21 +40,24 @@ public class InvitationFile implements Domain {
 	@Column(nullable = false, length = 100)
 	private String fileName;
 
-	/** 파일 데이터 */
-	@Column(columnDefinition = "longblob")
-	private byte[] content;
-
 	/** 파일 확장자 */
 	@Column(nullable = false, length = 100)
 	private String contentType;
 	
+	/** 파일 사이즈 */
+	private Long size;
+	
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
-	private int invitationId;
+	@ManyToOne
+	@JoinColumn(name = "invitation_id")
+    @JsonIgnore
+    private Invitation invitation;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "invitation_id")
-//    @JsonIgnore
-//    private Invitation invitation;
+	public InvitationFile(CommonFile commonFile) {
+		this.fileName = commonFile.getFileName();
+		this.contentType = commonFile.getContentType();
+		this.size = commonFile.getSize();
+	}
 }

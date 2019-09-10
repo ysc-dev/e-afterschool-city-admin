@@ -16,10 +16,12 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ysc.afterschool.admin.domain.CommonFile;
+import com.ysc.afterschool.admin.domain.CommonFile.FileType;
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * 과목 관련 첨부파일 관리 도메인
@@ -30,6 +32,7 @@ import lombok.Getter;
 @Entity
 @Table(name = "tb_subject_uploaded_file")
 @Data
+@NoArgsConstructor
 public class SubjectUploadedFile implements Domain {
 
 	@Id
@@ -59,25 +62,10 @@ public class SubjectUploadedFile implements Domain {
     @JsonIgnore
     private ClassContents classContents;
 	
-	@Getter
-	public enum FileType {
-		IMAGE("image"),
-		VIDEO("video");
-		
-		private String name;
-		
-		private FileType(String name) {
-			this.name = name;
-		}
-		
-		public static FileType stringToType(String value) {
-			for (FileType type : FileType.values()) {
-				if (value.contains(type.name)) {
-					return type;
-				}
-			}
-			
-			return null;
-		}
+	public SubjectUploadedFile(CommonFile commonFile) {
+		this.fileName = commonFile.getFileName();
+		this.contentType = commonFile.getContentType();
+		this.size = commonFile.getSize();
+		this.fileType = commonFile.getFileType();
 	}
 }
