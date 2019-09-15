@@ -111,11 +111,14 @@ public class ClassContentsController {
 		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
 		
 		for (MultipartFile file : classContents.getFiles()) {
-			CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
-			SubjectUploadedFile uploadedFile = new SubjectUploadedFile(commonFile);
-			uploadedFile.setClassContents(classContents);
-			
-			uploadedFiles.add(uploadedFile);
+			String fileName = file.getOriginalFilename();
+			if (!fileName.isEmpty()) {
+				CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
+				SubjectUploadedFile uploadedFile = new SubjectUploadedFile(commonFile);
+				uploadedFile.setClassContents(classContents);
+				
+				uploadedFiles.add(uploadedFile);
+			}
 		}
 		
 		User user = (User) authentication.getPrincipal();

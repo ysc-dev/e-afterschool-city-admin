@@ -106,11 +106,14 @@ public class InvitationController {
 		
 		List<InvitationFile> uploadedFiles = new ArrayList<>();
 		for (MultipartFile file : invitation.getImages()) {
-			CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
-			InvitationFile uploadedFile = new InvitationFile(commonFile);
-			uploadedFile.setInvitation(invitation);
-			
-			uploadedFiles.add(uploadedFile);
+			String fileName = file.getOriginalFilename();
+			if (!fileName.isEmpty()) {
+				CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
+				InvitationFile uploadedFile = new InvitationFile(commonFile);
+				uploadedFile.setInvitation(invitation);
+				
+				uploadedFiles.add(uploadedFile);
+			}
 		}
 		
 		invitation.setUploadedFiles(uploadedFiles);
@@ -137,21 +140,22 @@ public class InvitationController {
 		result.setDescription(invitation.getDescription());
 		result.setType(invitation.getType());
 		
-		List<InvitationFile> invitationFiles = null;
-		
-		if (invitation.getImages().length > 0) {
-			invitationFiles = invitationFileRepository.findByInvitationId(invitation.getId());
-			
-			List<InvitationFile> uploadedFiles = new ArrayList<>();
-			for (MultipartFile file : invitation.getImages()) {
+		List<InvitationFile> uploadedFiles = new ArrayList<>();
+		for (MultipartFile file : invitation.getImages()) {
+			String fileName = file.getOriginalFilename();
+			if (!fileName.isEmpty()) {
 				CommonFile commonFile = fileUploadService.restore(file, CommonFile.INVITATION_PATH);
 				InvitationFile uploadedFile = new InvitationFile(commonFile);
 				uploadedFile.setInvitation(result);
 				
 				uploadedFiles.add(uploadedFile);
 			}
-			
+		}
+		
+		List<InvitationFile> invitationFiles = null;
+		if (uploadedFiles.size() > 0) {
 			result.setUploadedFiles(uploadedFiles);
+			invitationFiles = invitationFileRepository.findByInvitationId(invitation.getId());
 		}
 		
 		if (invitationService.update(result)) {
