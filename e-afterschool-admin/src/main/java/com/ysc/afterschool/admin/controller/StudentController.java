@@ -1,5 +1,7 @@
 package com.ysc.afterschool.admin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,9 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ysc.afterschool.admin.domain.db.Apply;
 import com.ysc.afterschool.admin.domain.db.Student;
 import com.ysc.afterschool.admin.domain.db.Student.TargetType;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
+import com.ysc.afterschool.admin.service.ApplyService;
 import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.SchoolService;
 import com.ysc.afterschool.admin.service.StudentService;
@@ -30,6 +34,9 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private ApplyService applyService;
 	
 	public StudentController(CRUDService<Student, StudentSearchParam, Integer> crudService) {
 		super(crudService);
@@ -72,6 +79,25 @@ public class StudentController extends AbstractController<Student, StudentSearch
 		
 		if (studentService.update(temp)) {
 			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 학생 정보 삭제
+	 * @param student
+	 * @return
+	 */
+	@Override
+	public ResponseEntity<?> delete(Integer id) {
+		List<Apply> applies = applyService.getList(id);
+		if (applies.size() > 0) {
+			return new ResponseEntity<>("수강신청 되어있는 학생입니다.<br>삭제하려면 수강신청 취소를 하세요.", HttpStatus.BAD_REQUEST);
+		} else {
+			if (studentService.delete(id)) {
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

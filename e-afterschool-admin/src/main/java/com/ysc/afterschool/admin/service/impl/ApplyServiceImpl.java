@@ -90,4 +90,15 @@ public class ApplyServiceImpl implements ApplyService {
 	private boolean isNew(Apply domain) {
 		return !applyRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public List<Apply> getList(int studentId) {
+		return applyRepository.findByStudentId(studentId);
+	}
+
+	@Override
+	public boolean delete(List<Apply> applies) {
+		applyRepository.deleteInBatch(applies);
+		return true;
+	}
 }

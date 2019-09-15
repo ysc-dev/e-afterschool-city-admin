@@ -10,4 +10,6 @@ public interface ApplyRepository extends DefaultRepository<Apply, Integer> {
 
 	List<Apply> findByInvitationId(int invitationId);
 
+	List<Apply> findByStudentId(int studentId);
+
 }

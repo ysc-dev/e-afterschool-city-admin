@@ -98,9 +98,18 @@ function deleteCommon(url, id, name, Datatable, title) {
 	    			Datatable.search();
 	           	},
 	            error: function(response) {
-	            	swal({title: name + " 삭제를 실패하였습니다.", type: "error"})
+	            	if (isEmpty(response.responseText)) {
+	            		swal({title: name + " 삭제를 실패하였습니다.", type: "error"});
+	            	} else {
+	            		swal({title: response.responseText, type: "error"});
+	            	}
+	            	
 	            }
 	    	}); 
     	}
     });
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
 }
