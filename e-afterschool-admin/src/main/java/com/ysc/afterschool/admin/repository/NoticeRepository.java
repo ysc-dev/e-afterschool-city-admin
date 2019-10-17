@@ -6,10 +6,12 @@ import com.ysc.afterschool.admin.domain.db.Notice;
 
 public interface NoticeRepository extends DefaultRepository<Notice, Integer> {
 
-	List<Notice> findByTitleContaining(String title);
+	List<Notice> findByTitleContainingOrderByCreateDateDesc(String title);
 
-	List<Notice> findByUserNameContaining(String userName);
+	List<Notice> findByUserNameContainingOrderByCreateDateDesc(String userName);
 
-	List<Notice> findByContentContaining(String content);
+	List<Notice> findByContentContainingOrderByCreateDateDesc(String content);
+
+	List<Notice> OrderByCreateDateDesc();
 
 }

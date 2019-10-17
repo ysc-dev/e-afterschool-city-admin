@@ -23,7 +23,7 @@
 						<label class="font-weight-bold">작성자 :</label>
 						<label class="ml-1">${notice.userName}</label>
 
-						<fmt:formatDate var="createDate" value="${localDateTimeFormat.parse(notice.createDate)}" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate var="createDate" value="${localDateTimeFormat.parse(notice.createDate)}" pattern="yyyy-MM-dd HH:mm"/>
 						
 						<label class="font-weight-bold ml-4">날짜 :</label>
 						<label class="ml-1">${createDate}</label> 

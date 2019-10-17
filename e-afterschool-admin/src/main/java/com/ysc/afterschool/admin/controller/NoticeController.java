@@ -133,7 +133,7 @@ public class NoticeController {
 	public String detail(@PathVariable int id, Model model) {
 		Notice notice = noticeService.get(id);
 		model.addAttribute("notice", notice);
-		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss"));
+		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
 		
 		notice.setHit(notice.getHit() + 1);
 		noticeService.update(notice);

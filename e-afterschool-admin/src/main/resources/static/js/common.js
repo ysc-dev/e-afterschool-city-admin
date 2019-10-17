@@ -64,7 +64,7 @@ var CommonWidget = function() {
 		}
     };
     
- // Bootstrap file upload
+    // Bootstrap file upload
     var _componentFileUpload = function() {
     	if (!$().fileinput) {
             console.warn('Warning - fileinput.min.js is not loaded.');

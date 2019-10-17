@@ -60,15 +60,15 @@ public class NoticeServiceImpl implements NoticeService {
 	public List<Notice> getList(NoticeSearchParam param) {
 		NoticeSearchType searchType = param.getSearchType();
 		if (searchType == NoticeSearchType.전체) {
-			return getList();
+			return noticeRepository.OrderByCreateDateDesc();
 		} else {
 			if (!param.getContent().isEmpty()) {
 				if (searchType == NoticeSearchType.제목) {
-					return noticeRepository.findByTitleContaining(param.getContent());
+					return noticeRepository.findByTitleContainingOrderByCreateDateDesc(param.getContent());
 				} else if (searchType == NoticeSearchType.작성자) {
-					return noticeRepository.findByUserNameContaining(param.getContent());
+					return noticeRepository.findByUserNameContainingOrderByCreateDateDesc(param.getContent());
 				} else if (searchType == NoticeSearchType.내용) {
-					return noticeRepository.findByContentContaining(param.getContent());
+					return noticeRepository.findByContentContainingOrderByCreateDateDesc(param.getContent());
 				}
 			}
 		}
