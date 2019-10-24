@@ -8,6 +8,7 @@ public class CommonFile {
 	
 	public static final String CLASS_PATH = "class";
 	public static final String INVITATION_PATH = "invitation";
+	public static final String COMMUNITY_PATH = "community";
 
 
 	private String fileName;

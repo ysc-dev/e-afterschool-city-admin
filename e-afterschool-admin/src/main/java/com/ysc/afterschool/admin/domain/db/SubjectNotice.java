@@ -9,10 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ysc.afterschool.admin.domain.AbstractDomain;
 
@@ -55,4 +57,11 @@ public class SubjectNotice extends AbstractDomain {
 	@OneToMany(mappedBy = "subjectNotice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Comment> comments;
+	
+	@OneToMany(mappedBy = "subjectNotice", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SUBSELECT)
+	private List<SubjectNoticeFile> uploadedFiles;
+	
+	@Transient
+	private MultipartFile[] files;
 }

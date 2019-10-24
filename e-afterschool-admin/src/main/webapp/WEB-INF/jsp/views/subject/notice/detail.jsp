@@ -157,7 +157,7 @@ function updateComment(id) {
 function cancel(id) {
 	$("#content_" + id).removeClass("d-none");
 	$("#update_" + id).addClass("d-none");
-	$("#updateInput_" + id).val("")l
+	$("#updateInput_" + id).val("")
 }
 
 /** 댓글 삭제 버튼 클릭시 */

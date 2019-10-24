@@ -75,6 +75,7 @@
 								<th>글쓴이</th>
 								<th>날 짜</th>
 								<th>조 회</th>
+								<th>첨부파일</th>
 							</tr>
 						</thead>
 						<tbody class="text-center"></tbody>
@@ -83,6 +84,23 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- 이미지 모달창 -->
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">
+                    <i class="icon-images2 mr-2"></i>과목 공지사항 첨부파일
+                </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body text-center">
+               <div id="image-viewer"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -117,7 +135,13 @@ var NoticeManager = function() {
 		    }, {
 		    	width: "10%",
 		    	data: "hit"
-		    }]
+		    }, { 
+		    	width: "10%",
+			    render: function(data, type, row, meta) {
+				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
+				    	+ 'onClick="NoticeManager.imageModal(' + row.id + ')"><i class="icon-images2"></i></button>';
+			    }
+			}]
 		},
 		init: function() {
 			this.table = Datatables.order(this.ele, this.option, [1, 3]);
@@ -142,6 +166,23 @@ var NoticeManager = function() {
 		init: function() {
 			DataTable.init();
 			searchControl();
+		},
+		imageModal: function(id) {
+			$("#image-viewer").empty();
+			
+			$.ajax({
+		        url: contextPath + "/subject/notice/file/get",
+		        type: "GET",
+		        data: {"id" : id},
+		        success : function(response) {
+			        $.each(response.uploadedFiles, function(index, file){ 
+			        	var imageContent = '<img src="' + contextPath + '/uploads/community/' + file.fileName + '" class="img-fluid"/>';
+				        $("#image-viewer").append(imageContent);
+			        });
+
+		        	$("#imageModal").modal();
+		        }
+		    });
 		}
 	}
 }();
