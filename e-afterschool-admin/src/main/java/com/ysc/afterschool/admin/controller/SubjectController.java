@@ -53,7 +53,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	 */
 	@GetMapping("list")
 	public void list(Model model) {
-		model.addAttribute("invitations", invitationService.getList());
+		model.addAttribute("invitations", invitationService.getOrderbyList());
 		model.addAttribute("subjectGroups", subjectGroupService.getList());
 		model.addAttribute("teachers", teacherService.getList());
 		model.addAttribute("targetTypes", TargetType.values());
@@ -69,11 +69,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	public ResponseEntity<?> search(@RequestBody SubjectSearchParam param) {
 		return new ResponseEntity<>(subjectService.getList(param).stream().map(data -> {
 			if (data.getTargetType() == TargetType.전체) {
-				if (data.getGradeType() == GradeType.초_3_6_중등) {
-					data.setTarget(data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
-				} else {
-					data.setTarget("전체 (" + data.getFixedNumber() + ")");
-				}
+				data.setTarget("전체 (" + data.getFixedNumber() + ")");
 			} else {
 				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
 			}
@@ -87,7 +83,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	 */
 	@GetMapping("regist")
 	public void regist(Model model) {
-		model.addAttribute("invitations", invitationService.getList());
+		model.addAttribute("invitations", invitationService.getOrderbyList());
 		model.addAttribute("subjectGroups", subjectGroupService.getList());
 		model.addAttribute("teachers", teacherService.getList());
 		model.addAttribute("targetTypes", TargetType.values());

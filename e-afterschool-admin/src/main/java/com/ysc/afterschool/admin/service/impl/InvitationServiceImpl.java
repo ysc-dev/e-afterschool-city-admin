@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,4 +72,13 @@ public class InvitationServiceImpl implements InvitationService {
 	public Invitation registDomain(Invitation domain) {
 		return invitationRepository.save(domain);
 	}
+
+	@Override
+	public List<Invitation> getOrderbyList() {
+		return invitationRepository.findAll(sortByIdDesc());
+	}
+	
+	private Sort sortByIdDesc() {
+        return new Sort(Sort.Direction.DESC, "id");
+    }
 }

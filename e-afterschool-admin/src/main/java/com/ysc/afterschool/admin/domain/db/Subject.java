@@ -101,9 +101,11 @@ public class Subject extends AbstractDomain {
 		NONE("전학년", 0, 0),
 		GRADE_1_2("1-2학년", 1, 2),
 		GRADE_1_3("1-3학년", 1, 3),
+		GRADE_1_4("1-4학년", 1, 4),
+		GRADE_3_4("3-4학년", 3, 4),
+		GRADE_3_6("3-6학년", 3, 6),
 		GRADE_4_6("4-6학년", 4, 6),
-		GRADE_5_6("5-6학년", 5, 6),
-		초_3_6_중등("초등 3-6학년, 중등", 3, 6);
+		GRADE_5_6("5-6학년", 5, 6);
 		
 		private String name;
 		
