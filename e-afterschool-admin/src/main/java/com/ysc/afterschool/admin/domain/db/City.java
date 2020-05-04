@@ -32,4 +32,18 @@ public class City implements Domain {
 	
 	@Column(nullable = false, length = 20)
 	private String link;
+	
+	@Column(nullable = false, length = 20)
+	private String content;
+	
+	@Column(length = 20)
+	private String logo;
+	
+	// 수강신청문의
+	@Column(length = 20)
+	private String tel1;
+	
+	// 기타운영문의
+	@Column(length = 20)
+	private String tel2;
 }
