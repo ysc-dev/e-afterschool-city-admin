@@ -101,7 +101,7 @@ $("#invitationSelect").change(function() {
 	$("#subjectSelect").empty();
 	
 	$.ajax({
-		url: contextPath + "/class/subject/list",
+		url: contextPath + "/classContent/subject/list",
 		type: "GET",
 		data: {"invitationId": $(this).val()},
 		success: function(response) {

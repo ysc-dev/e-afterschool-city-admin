@@ -66,6 +66,7 @@ public class ClassContentsController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
+			System.err.println(invitations.get(0).getId());
 			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
 		}
 	}
