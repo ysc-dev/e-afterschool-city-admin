@@ -127,7 +127,7 @@ $("#classRegistBtn").click(function() {
 	if (subjectId && subjectId != 0) {
 		location.replace(contextPath + "/classContent/regist?subjectId=" + subjectId);
 	} else {
-		swal({title: "과목을 선택하세요.<br>없을 경우 먼저 등록하세요.", type: "warning"})
+		swalInit.fire({title: "과목을 선택하세요.<br>없을 경우 먼저 등록하세요.", type: "warning"});
 	}
 });
 

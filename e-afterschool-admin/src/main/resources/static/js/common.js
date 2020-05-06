@@ -37,11 +37,11 @@ var CommonWidget = function() {
     };
     
     var _componentSwal = function() {
-    	swal.setDefaults({
+    	/*swal.setDefaults({
 	        buttonsStyling: false,
 	        confirmButtonClass: 'btn btn-primary',
 	        cancelButtonClass: 'btn btn-light'
-	    });
+	    });*/
     };
     
     var _componentJQuery = function() {
@@ -150,4 +150,10 @@ var CommonWidget = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
 	CommonWidget.init();
+});
+
+var swalInit = swal.mixin({
+    buttonsStyling: false,
+    confirmButtonClass: 'btn btn-primary',
+    cancelButtonClass: 'btn btn-light'
 });
