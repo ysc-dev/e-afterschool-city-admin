@@ -19,7 +19,7 @@ function registCommon(url, object, name, SettingManager) {
 		type: "POST",
        	data: object, // serializes the form's elements.
        	success: function(response) {
-       		swal({
+       		swalInit.fire({
    				title: name + " 등록이 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
@@ -27,7 +27,7 @@ function registCommon(url, object, name, SettingManager) {
    			});
        	},
         error: function(response) {
-        	swal({title: name + " 등록을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: name + " 등록을 실패하였습니다.", type: "error"})
         }
 	});
 }
@@ -38,7 +38,7 @@ function registToMove(form, name, href) {
 		type: "POST",
        	data: form.serializeObject(),
        	success: function(response) {
-       		swal({
+       		swalInit.fire({
    				title: name + " 등록이 되었습니다.",
    				type: "success"
    			}).then(function(e) {
@@ -46,7 +46,7 @@ function registToMove(form, name, href) {
    			});
        	},
         error: function(response) {
-        	swal({title: name + " 등록을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: name + " 등록을 실패하였습니다.", type: "error"})
         }
 	});
 }
@@ -63,7 +63,7 @@ function updateModalCommon(url, object, name, Datatable, modalId) {
        	success: function(response) {
        		$("#" + modalId).modal('hide');
        		
-       		swal({
+       		swalInit.fire({
    				title: name + " 수정 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
@@ -71,7 +71,7 @@ function updateModalCommon(url, object, name, Datatable, modalId) {
    			});
        	},
         error: function(response) {
-        	swal({title: name + " 수정을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: name + " 수정을 실패하였습니다.", type: "error"})
         }
 	});
 }
@@ -81,7 +81,7 @@ function updateModalCommon(url, object, name, Datatable, modalId) {
  * @returns
  */
 function deleteCommon(url, id, name, Datatable, title) {
-	swal({
+	swalInit.fire({
         title: title ? title : "선택된 " + name + "을 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
@@ -99,9 +99,9 @@ function deleteCommon(url, id, name, Datatable, title) {
 	           	},
 	            error: function(response) {
 	            	if (isEmpty(response.responseText)) {
-	            		swal({title: name + " 삭제를 실패하였습니다.", type: "error"});
+	            		swalInit.fire({title: name + " 삭제를 실패하였습니다.", type: "error"});
 	            	} else {
-	            		swal({title: response.responseText, type: "error"});
+	            		swalInit.fire({title: response.responseText, type: "error"});
 	            	}
 	            	
 	            }

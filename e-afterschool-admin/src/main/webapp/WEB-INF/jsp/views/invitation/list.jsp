@@ -236,7 +236,7 @@ var InvitationManager = function() {
 		       	success: function(response) {
 		       		$("#updateInvitationModal").modal('hide');
 		       		
-		       		swal({
+		       		swalInit.fire({
 		   				title: "안내장 수정 되었습니다.", 
 		   				type: "success"
 		   			}).then(function(e) {
@@ -244,7 +244,7 @@ var InvitationManager = function() {
 		   			});
 		       	},
 		        error: function(response) {
-		        	swal({title: "안내장 수정을 실패하였습니다.", type: "error"})
+		        	swalInit.fire({title: "안내장 수정을 실패하였습니다.", type: "error"})
 		        }
 			});
 		}); 

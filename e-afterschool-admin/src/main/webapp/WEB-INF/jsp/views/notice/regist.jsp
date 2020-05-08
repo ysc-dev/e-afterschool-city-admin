@@ -73,7 +73,7 @@ $('#registForm').submit(function(e) {
        	processData: false,
        	contentType: false,
        	success: function(response) {
-       		swal({
+       		swalInit.fire({
    				title: "공지사항 등록이 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
@@ -81,7 +81,7 @@ $('#registForm').submit(function(e) {
    			});
        	},
         error: function(response) {
-        	swal({title: "공지사항 등록을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: "공지사항 등록을 실패하였습니다.", type: "error"})
         }
 	});
 });

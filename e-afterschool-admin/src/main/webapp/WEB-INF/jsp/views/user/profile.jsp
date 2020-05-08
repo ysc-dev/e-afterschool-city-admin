@@ -74,13 +74,13 @@ $('#updateForm').submit(function(e) {
 		type: "PUT",
        	data: form.serializeObject(),
        	success: function(response) {
-       		swal({
+       		swalInit.fire({
    				title: "사용자 정보가 수정 되었습니다.", 
    				type: "success"
    			});
        	},
         error: function(response) {
-        	swal({title: "사용자 정보 수정을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: "사용자 정보 수정을 실패하였습니다.", type: "error"})
         }
 	});
 });

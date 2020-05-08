@@ -60,7 +60,7 @@
 
 <script>
 function deleteNotice(id) {
-	swal({
+	swalInit.fire({
         title: "공지사항을 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
@@ -74,7 +74,7 @@ function deleteNotice(id) {
 	    		type: "DELETE",
 	    		data: {"id": id},
 	    		success: function(response) {
-	    			swal({
+	    			swalInit.fire({
 	       				title: "공지사항이 삭제 되었습니다.", 
 	       				type: "success"
 	       			}).then(function(e) {
@@ -82,7 +82,7 @@ function deleteNotice(id) {
 	       			});
 	           	},
 	            error: function(response) {
-	            	swal({title: "공지사항 삭제를 실패하였습니다.", type: "error"})
+	            	swalInit.fire({title: "공지사항 삭제를 실패하였습니다.", type: "error"})
 	            }
 	    	}); 
     	}

@@ -73,7 +73,7 @@ $('#updateForm').submit(function(e) {
        	processData: false,
        	contentType: false,
        	success: function(response) {
-       		swal({
+       		swalInit.fire({
    				title: "공지사항 수정이 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
@@ -81,7 +81,7 @@ $('#updateForm').submit(function(e) {
    			});
        	},
         error: function(response) {
-        	swal({title: "공지사항 수정을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: "공지사항 수정을 실패하였습니다.", type: "error"})
         }
 	});
 });

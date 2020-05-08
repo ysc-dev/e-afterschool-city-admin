@@ -104,7 +104,7 @@ $("#commentRegistBtn").click(function() {
     		type: "POST",
     		data: {"subjectNoticeId": noticeId, "content": content},
     		success: function(response) {
-    			swal({
+    			swalInit.fire({
            			title: "댓글이 추가되었습니다.",
        				type: "success"
        			}).then(function(e) {
@@ -112,11 +112,11 @@ $("#commentRegistBtn").click(function() {
        			});
     		},
     		error: function(response) {
-            	swal({title: "댓글 추가을 실패하였습니다.", type: "error"})
+    			swalInit.fire({title: "댓글 추가을 실패하였습니다.", type: "error"})
             }
     	});
 	} else {
-		swal({title: "댓글 내용을 입력하세요.", type: "warning"});
+		swalInit.fire({title: "댓글 내용을 입력하세요.", type: "warning"});
 	}
 });
 
@@ -146,11 +146,11 @@ function updateComment(id) {
       			location.reload();
      		},
             error: function(response) {
-            	swal({title: "댓글 수정을 실패하였습니다.", type: "error"})
+            	swalInit.fire({title: "댓글 수정을 실패하였습니다.", type: "error"})
             }
 		});
 	} else {
-		swal({title: "댓글 내용을 입력하세요.", type: "warning"});
+		swalInit.fire({title: "댓글 내용을 입력하세요.", type: "warning"});
 	}
 }
 
@@ -162,7 +162,7 @@ function cancel(id) {
 
 /** 댓글 삭제 버튼 클릭시 */
 function deleteComment(id) {
-	swal({
+	swalInit.fire({
         title: "삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
@@ -179,7 +179,7 @@ function deleteComment(id) {
 	    			location.reload();
 	           	},
 	            error: function(response) {
-	            	swal({title: "댓글 삭제를 실패하였습니다.", type: "error"})
+	            	swalInit.fire({title: "댓글 삭제를 실패하였습니다.", type: "error"})
 	            }
 	    	}); 
     	}
@@ -187,7 +187,7 @@ function deleteComment(id) {
 }
 
 function deleteNotice(id) {
-	swal({
+	swalInit.fire({
         title: "공지사항을 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
@@ -201,7 +201,7 @@ function deleteNotice(id) {
 	    		type: "DELETE",
 	    		data: {"id": id},
 	    		success: function(response) {
-	    			swal({
+	    			swalInit.fire({
 	       				title: "과목별 공지사항이 삭제 되었습니다.", 
 	       				type: "success"
 	       			}).then(function(e) {
@@ -209,7 +209,7 @@ function deleteNotice(id) {
 	       			});
 	           	},
 	            error: function(response) {
-	            	swal({title: "과목별  공지사항 삭제를 실패하였습니다.", type: "error"})
+	            	swalInit.fire({title: "과목별  공지사항 삭제를 실패하였습니다.", type: "error"})
 	            }
 	    	}); 
     	}
