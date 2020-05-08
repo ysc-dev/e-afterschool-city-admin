@@ -97,7 +97,7 @@ public class Subject extends AbstractDomain {
 	private String target;
 	
 	@Getter
-	public enum GradeType {
+	public enum GradeType { 
 		NONE("전학년", 0, 0),
 		GRADE_1_2("1-2학년", 1, 2),
 		GRADE_1_3("1-3학년", 1, 3),
