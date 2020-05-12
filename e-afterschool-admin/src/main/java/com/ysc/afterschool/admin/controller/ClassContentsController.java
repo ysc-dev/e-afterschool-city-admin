@@ -94,6 +94,8 @@ public class ClassContentsController {
 	
 	/**
 	 * 수업 내용 등록 화면
+	 * @param model
+	 * @param subjectId
 	 */
 	@GetMapping("regist")
 	public void regist(Model model, int subjectId) {
@@ -103,6 +105,8 @@ public class ClassContentsController {
 	/**
 	 * 수업 내용 등록 기능
 	 * @param classContents
+	 * @param authentication
+	 * @param request
 	 * @return
 	 */
 	@PostMapping("regist")

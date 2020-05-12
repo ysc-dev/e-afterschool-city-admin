@@ -82,7 +82,6 @@ public class NoticeController {
 	/**
 	 * 공지사항 등록
 	 * @param notice
-	 * @param file
 	 * @param authentication
 	 * @return
 	 */
@@ -156,8 +155,6 @@ public class NoticeController {
 	/**
 	 * 공지사항 정보 수정
 	 * @param notice
-	 * @param file
-	 * @param authentication
 	 * @return
 	 */
 	@PutMapping("update")

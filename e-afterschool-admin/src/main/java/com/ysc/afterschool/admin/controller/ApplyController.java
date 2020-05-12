@@ -69,6 +69,7 @@ public class ApplyController {
 	
 	/**
 	 * 과목 조회
+	 * @param param
 	 * @return
 	 */
 	@PostMapping("search")

@@ -47,7 +47,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 
 	/**
 	 * 학교 정보 수정
-	 * @param subject
+	 * @param school
 	 * @return
 	 */
 	@Override

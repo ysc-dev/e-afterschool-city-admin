@@ -86,7 +86,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 학생 정보 삭제
-	 * @param student
+	 * @param id
 	 * @return
 	 */
 	@Override

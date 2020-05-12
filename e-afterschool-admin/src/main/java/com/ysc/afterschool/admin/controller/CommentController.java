@@ -47,6 +47,7 @@ public class CommentController {
 	/**
 	 * 댓글 등록
 	 * @param comment
+	 * @param subjectNoticeId
 	 * @param authentication
 	 * @return
 	 */

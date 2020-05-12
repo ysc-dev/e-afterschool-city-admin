@@ -42,7 +42,7 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	
 	/**
 	 * 강사 정보 수정
-	 * @param subject
+	 * @param teacher
 	 * @return
 	 */
 	@Override

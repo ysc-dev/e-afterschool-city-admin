@@ -88,6 +88,7 @@ public class InvitationController {
 	
 	/**
 	 * 안내장 등록 화면
+	 * @param model
 	 */
 	@GetMapping("regist")
 	public void regist(Model model) {
@@ -127,7 +128,7 @@ public class InvitationController {
 	
 	/**
 	 * 안내장 수정
-	 * @param subject
+	 * @param invitation
 	 * @return
 	 */
 	@PutMapping("update/file")

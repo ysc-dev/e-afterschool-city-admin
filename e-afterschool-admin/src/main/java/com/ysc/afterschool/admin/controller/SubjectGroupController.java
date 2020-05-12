@@ -25,7 +25,5 @@ public class SubjectGroupController extends AbstractController<SubjectGroup, Sea
 
 	@GetMapping("list")
 	public void list(Model model) {
-		
 	}
-
 }
