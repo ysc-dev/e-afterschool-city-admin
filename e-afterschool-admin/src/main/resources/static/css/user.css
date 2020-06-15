@@ -1,8 +1,16 @@
 @charset "EUC-KR";
 
-.layout-boxed-bg {
-    /* background-image: url(../images/main.png);
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background: url(../images/boxed_bg.png) repeat;
+body {
+	font-family: sans-serif;
+	background: url(../images/bg.png) no-repeat;
+	background-size: cover;
+}
+
+.select2-selection--single .select2-selection__rendered {
+	padding-left: 2.75rem;
+}
+
+.card.bg-authentication {
+    box-shadow: -8px 20px 25px 0 rgba(25,42,70,.3);
+    background-color: #F2F4F4;
 }

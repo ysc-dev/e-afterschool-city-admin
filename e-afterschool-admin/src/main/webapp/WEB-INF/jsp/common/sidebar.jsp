@@ -22,7 +22,7 @@
 				</li>
 				<li id="home" class="nav-item">
 					<a href="${pageContext.request.contextPath}/home" class="nav-link">
-						<i class="icon-home4"></i><span>Dashboard</span>
+						<i class="icon-home4"></i><span>대시보드</span>
 					</a>
 				</li>
 				<li id="invitation" class="nav-item">
