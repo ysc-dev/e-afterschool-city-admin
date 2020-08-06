@@ -21,6 +21,8 @@ import com.ysc.afterschool.admin.service.SubjectGroupService;
 import com.ysc.afterschool.admin.service.SubjectService;
 import com.ysc.afterschool.admin.service.TeacherService;
 
+import reactor.core.publisher.Mono;
+
 /**
  * 수강 과목 관리 컨트롤러 클래스
  * 
@@ -66,8 +68,8 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	 * @return
 	 */
 	@Override
-	public ResponseEntity<?> search(@RequestBody SubjectSearchParam param) {
-		return new ResponseEntity<>(subjectService.getList(param).stream().map(data -> {
+	public Mono<ResponseEntity<?>> search(@RequestBody SubjectSearchParam param) {
+		return Mono.just(new ResponseEntity<>(subjectService.getList(param).stream().map(data -> {
 			if (data.getTargetType() == TargetType.전체) {
 				if (data.getGradeType() == GradeType.초_3_6_중등) {
 					data.setTarget(data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
@@ -78,7 +80,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
 			}
 			return data;
-		}).collect(Collectors.toList()), HttpStatus.OK);
+		}).collect(Collectors.toList()), HttpStatus.OK));
 	}
 	
 	/**
@@ -100,14 +102,14 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	 * @return
 	 */
 	@Override
-	public ResponseEntity<?> regist(Subject subject) {
+	public Mono<ResponseEntity<?>> regist(Subject subject) {
 //		subject.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
 		subject.setWaitFixedNumber(subject.getFixedNumber());
 		if (subjectService.regist(subject)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
 		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 	
 	/**
@@ -116,7 +118,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	 * @return
 	 */
 	@Override
-	public ResponseEntity<?> update(Subject subject) {
+	public Mono<ResponseEntity<?>> update(Subject subject) {
 		Subject result = subjectService.get(subject.getId());
 		result.setName(subject.getName());
 		result.setInvitation(subject.getInvitation());
@@ -134,9 +136,9 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		result.setDescription(subject.getDescription());
 		
 		if (subjectService.update(result)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
 		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 }

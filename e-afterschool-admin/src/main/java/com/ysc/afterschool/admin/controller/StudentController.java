@@ -19,6 +19,8 @@ import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.SchoolService;
 import com.ysc.afterschool.admin.service.StudentService;
 
+import reactor.core.publisher.Mono;
+
 /**
  * 학생 관리 컨트롤러 클래스
  * 
@@ -57,7 +59,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	 * @return
 	 */
 	@Override
-	public ResponseEntity<?> update(Student student) {
+	public Mono<ResponseEntity<?>> update(Student student) {
 		Student temp = studentService.get(student.getId());
 		temp.setSchool(student.getSchool());
 		temp.setGrade(student.getGrade());
@@ -78,10 +80,10 @@ public class StudentController extends AbstractController<Student, StudentSearch
 		}
 		
 		if (studentService.update(temp)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
 		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 	
 	/**

@@ -23,7 +23,7 @@ import lombok.Data;
 /**
  * 과목별 공지사항에 대한 댓글 - 커뮤니티 댓글
  * 
- * @author inspace
+ * @author hgko
  *
  */
 @Entity

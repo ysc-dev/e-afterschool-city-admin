@@ -27,6 +27,7 @@ import com.ysc.afterschool.admin.domain.db.Teacher;
 import com.ysc.afterschool.admin.service.CRUDService;
 
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Mono;
 
 /**
  * 
@@ -84,9 +85,9 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	 */
 	@PostMapping("search")
 	@ResponseBody 
-	public ResponseEntity<?> search(@RequestBody P param) {
+	public Mono<ResponseEntity<?>> search(@RequestBody P param) {
 		log.debug("AbstractController.search");
-		return new ResponseEntity<>(crudService.getList(param), HttpStatus.OK);
+		return Mono.just(new ResponseEntity<>(crudService.getList(param), HttpStatus.OK));
 	}
 	
 	/**
@@ -96,12 +97,12 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	 */
 	@PostMapping("regist")
 	@ResponseBody
-	public ResponseEntity<?> regist(T domain) {
+	public Mono<ResponseEntity<?>> regist(T domain) {
 		if (crudService.regist(domain)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
 		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 
 	/**
@@ -111,12 +112,11 @@ public abstract class AbstractController<T extends Domain, P extends DomainParam
 	 */
 	@PutMapping("update")
 	@ResponseBody
-	public ResponseEntity<?> update(T domain) {
+	public Mono<ResponseEntity<?>> update(T domain) {
 		if (crudService.update(domain)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 	
 	/**

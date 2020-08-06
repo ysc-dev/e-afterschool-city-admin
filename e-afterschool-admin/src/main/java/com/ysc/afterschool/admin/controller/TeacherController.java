@@ -14,6 +14,8 @@ import com.ysc.afterschool.admin.domain.param.TeacherSearchParam;
 import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.TeacherService;
 
+import reactor.core.publisher.Mono;
+
 /**
  * 강사 관리 컨트롤러 클래스
  * 
@@ -46,16 +48,16 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	 * @return
 	 */
 	@Override
-	public ResponseEntity<?> update(Teacher teacher) {
+	public Mono<ResponseEntity<?>> update(Teacher teacher) {
 		Teacher result = teacherService.get(teacher.getId());
 		result.setTel(teacher.getTel());
 		result.setEmail(teacher.getEmail());
 		result.setContent(teacher.getContent());
 		
 		if (teacherService.update(result)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
 		
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 }
