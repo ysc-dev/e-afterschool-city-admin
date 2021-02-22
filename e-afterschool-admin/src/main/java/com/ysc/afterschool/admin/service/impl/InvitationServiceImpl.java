@@ -3,7 +3,6 @@ package com.ysc.afterschool.admin.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +25,6 @@ public class InvitationServiceImpl implements InvitationService {
 	}
 
 	@Transactional(readOnly = true)
-	@Cacheable("invitation.list")
 	@Override
 	public List<Invitation> getList() {
 		return invitationRepository.findAll();
@@ -56,11 +54,13 @@ public class InvitationServiceImpl implements InvitationService {
 		return true;
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Invitation> getList(InvitationSearchParam param) {
 		if (param.getCityId() != 0) {
 			return invitationRepository.findByCityId(param.getCityId());
 		}
+		
 		return getList();
 	}
 

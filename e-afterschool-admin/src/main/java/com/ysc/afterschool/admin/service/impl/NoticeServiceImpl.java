@@ -3,7 +3,6 @@ package com.ysc.afterschool.admin.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +25,6 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Transactional(readOnly = true)
-	@Cacheable("notice.list")
 	@Override
 	public List<Notice> getList() {
 		return noticeRepository.findAll();
@@ -56,6 +54,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return true;
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Notice> getList(NoticeSearchParam param) {
 		NoticeSearchType searchType = param.getSearchType();

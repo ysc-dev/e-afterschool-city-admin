@@ -3,7 +3,6 @@ package com.ysc.afterschool.admin.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +24,6 @@ public class TeacherServiceImpl implements TeacherService {
 	}
 
 	@Transactional(readOnly = true)
-	@Cacheable("teacher.list")
 	@Override
 	public List<Teacher> getList() {
 		return teacherRepository.findAll();
@@ -55,6 +53,7 @@ public class TeacherServiceImpl implements TeacherService {
 		return true;
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Teacher> getList(TeacherSearchParam param) {
 		if (!param.getName().isEmpty()) {
