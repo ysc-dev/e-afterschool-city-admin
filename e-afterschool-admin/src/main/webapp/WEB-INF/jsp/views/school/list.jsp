@@ -20,6 +20,15 @@
 	          		</div>
 				</div>
 				<div class="card-body">
+					<div class="font-size-xs text-muted mb-2">캠퍼스 선택</div>
+					<div class="form-group">
+						<select class="form-control form-control-select2" name="city">
+							<option value="NONE">- 전 체 -</option>
+							<c:forEach var="city" items="${cities}" varStatus="status">
+								<option value="${city.name}">${city.name}</option>
+							</c:forEach>
+						</select>
+					</div>
 					<div class="font-size-xs text-muted mb-2">타입 선택</div>
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="school">
@@ -48,7 +57,7 @@
 	          		</div>
 				</div>
 				<div class="card-body">
-					<form id="registForm" action="${pageContext.request.contextPath}/school/regist" method="post">
+					<%-- <form id="registForm" action="${pageContext.request.contextPath}/school/regist" method="post">
 						<div class="form-group">
 							<label>학교 이름:</label>
 							<input type="text" name="name" class="form-control" placeholder="예) 가고파초등학교" required>
@@ -74,7 +83,11 @@
 							</select>
 						</div>
 						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>학교 추가</button>
-					</form>
+					</form> --%>
+					
+					<button type="button" class="btn bg-blue-400 btn-block" onClick="SchoolManager.regist()">
+						<i class="icon-pencil5 mr-2"></i>학교 등록
+					</button>
 				</div>
 			</div>
 		</div>
@@ -97,6 +110,59 @@
 					<tbody class="text-center"></tbody>
 				</table>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div id="registSchoolModal" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<h5 class="modal-title">
+					<i class="icon-pencil6 mr-2"></i>학교 정보 등록
+				</h5>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<form id="registForm" action="${pageContext.request.contextPath}/school/regist" class="form-horizontal">
+				<div class="modal-body">
+					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">학교 명 : </label>
+						<div class="col-md-6">
+							<input type="text" name="name" class="form-control" placeholder="예) 가고파초등학교" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">학생 수 : </label>
+						<div class="col-md-6">
+							<input type="number" name="number" class="form-control" placeholder="학생 수" required>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">지 역 : </label>
+						<div class="col-md-6">
+							<select class="form-control form-control-select2" name="city">
+								<c:forEach var="city" items="${cities}" varStatus="status">
+									<option value="${city.name}">${city.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">학교 타입 : </label>
+						<div class="col-md-6">
+							<select class="form-control form-control-select2" name="schoolType">
+								<c:forEach var="type" items="${schoolTypes}" varStatus="status">
+									<option value="${type}">${type.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary mr-2 px-3"><i class="icon-pencil5 mr-2"></i>등 록</button>
+					<button type="button" class="btn btn-light px-3" data-dismiss="modal"><i class="icon-cross2 mr-2"></i>닫 기</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -160,7 +226,7 @@ var SchoolManager = function() {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
-    				 + 'onClick="SchoolManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>'
+    				 + 'onClick="SchoolManager.update(' + row.id + ')"><i class="icon-pencil7"></i></button>'
     				 + '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm" '
     				 + 'onClick="SchoolManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
 		    	}
@@ -172,6 +238,7 @@ var SchoolManager = function() {
 		},
 		search: function() {
 			var param = new Object();
+			param.city = $("select[name=city]").val();
 			param.schoolType = $("select[name=school]").val();
 			param.name = $("input[name=name]").val();
 			Datatables.rowsAdd(this.table, contextPath + "/school/search", param);
@@ -187,8 +254,8 @@ var SchoolManager = function() {
 			e.preventDefault();
 			var form = $(this);
 			var url = form.attr('action');
-			
-		    registCommon(url, form.serializeObject(), "학교", SchoolManager);
+
+		    registModalCommon(url, form.serializeObject(), "학교", DataTable, "registSchoolModal");
 		});
 
 		$('#updateForm').submit(function(e) {
@@ -208,7 +275,10 @@ var SchoolManager = function() {
 		_delete: function(id) {
 			deleteCommon(contextPath + "/school/delete", id, "학교", DataTable);
 		},
-		modal: function(id) {
+		regist: function() {
+			$("#registSchoolModal").modal();
+		},
+		update: function(id) {
 			$.ajax({
 	    		url: contextPath + "/school/get",
 	    		type: "GET",
@@ -221,11 +291,6 @@ var SchoolManager = function() {
 	    			$("#updateSchoolModal").modal();
 	           	}
 	    	}); 
-		},
-		success: function() {
-			DataTable.search();
-			$('#registForm input[name="name"]').val("");
-        	$('#registForm input[name="number"]').val("");
 		}
 	}
 }();

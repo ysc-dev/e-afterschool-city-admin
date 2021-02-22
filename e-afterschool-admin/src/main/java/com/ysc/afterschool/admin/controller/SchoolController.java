@@ -13,6 +13,7 @@ import com.ysc.afterschool.admin.domain.db.School.SchoolType;
 import com.ysc.afterschool.admin.domain.param.SchoolSearchParam;
 import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.CRUDService;
+import com.ysc.afterschool.admin.service.CityService;
 import com.ysc.afterschool.admin.service.SchoolService;
 
 import reactor.core.publisher.Mono;
@@ -31,7 +32,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	private SchoolService schoolService;
 	
 	@Autowired
-	private CityRepository cityRepository;
+	private CityService cityService;
 
 	public SchoolController(CRUDService<School, SchoolSearchParam, Integer> crudService) {
 		super(crudService);
@@ -44,7 +45,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	@GetMapping("list")
 	public void list(Model model) {
 		model.addAttribute("schoolTypes", SchoolType.values());
-		model.addAttribute("cities", cityRepository.findAll());
+		model.addAttribute("cities", cityService.getList());
 	}
 
 	/**

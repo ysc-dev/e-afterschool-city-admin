@@ -17,7 +17,7 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Autowired
 	private StudentRepository studentRepository;
-
+	
 	@Override
 	public Student get(Integer id) {
 		return studentRepository.findById(id).get();
@@ -56,16 +56,31 @@ public class StudentServiceImpl implements StudentService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Student> getList(StudentSearchParam param) {
-		if (!param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-			return studentRepository.findBySchoolAndGradeAndNameContaining(param.getSchool(), 
-					Integer.parseInt(param.getGrade()), param.getName());
-		} else if (param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-			return studentRepository.findByGradeAndNameContaining(Integer.parseInt(param.getGrade()), param.getName());
-		} else if (!param.getSchool().isEmpty() && param.getGrade().equals("0")) {
-			return studentRepository.findBySchoolAndNameContaining(param.getSchool(), param.getName());
-		} else {
-			return studentRepository.findByNameContaining(param.getName());
+		if (param.getCity().equals("NONE")) {
+			if (!param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
+				return studentRepository.findBySchoolAndGradeAndNameContaining(param.getSchool(), 
+						Integer.parseInt(param.getGrade()), param.getName());
+			} else if (param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
+				return studentRepository.findByGradeAndNameContaining(Integer.parseInt(param.getGrade()), param.getName());
+			} else if (!param.getSchool().isEmpty() && param.getGrade().equals("0")) {
+				return studentRepository.findBySchoolAndNameContaining(param.getSchool(), param.getName());
+			} else {
+				return studentRepository.findByNameContaining(param.getName());
+			}
+		} else if (!param.getCity().equals("NONE")) {
+			if (!param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
+				return studentRepository.findByCityAndSchoolAndGradeAndNameContaining(param.getCity(), param.getSchool(), 
+						Integer.parseInt(param.getGrade()), param.getName());
+			} else if (param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
+				return studentRepository.findByCityAndGradeAndNameContaining(param.getCity(), Integer.parseInt(param.getGrade()), param.getName());
+			} else if (!param.getSchool().isEmpty() && param.getGrade().equals("0")) {
+				return studentRepository.findByCityAndSchoolAndNameContaining(param.getCity(), param.getSchool(), param.getName());
+			} else {
+				return studentRepository.findByCityAndNameContaining(param.getCity(), param.getName());
+			}
 		}
+		
+		return getList();
 	}
 
 	private boolean isNew(Student domain) {

@@ -60,6 +60,10 @@ public class Student extends AbstractDomain {
 	@Column(nullable = false)
 	private TargetType targetType;
 	
+	/** 캠퍼스 */
+	@Column(length = 20)
+	private String city;
+	
 	@Getter
 	public enum TargetType {
 		전체("전체"),

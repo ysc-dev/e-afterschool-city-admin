@@ -57,12 +57,25 @@ public class SchoolServiceImpl implements SchoolService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<School> getList(SchoolSearchParam param) {
-		if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
-			return schoolRepository.findBySchoolType(SchoolType.valueOf(param.getSchoolType()));
-		} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
-			return schoolRepository.findBySchoolTypeAndNameContaining(SchoolType.valueOf(param.getSchoolType()), param.getName());
-		} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
-			return schoolRepository.findByNameContaining(param.getName());
+		System.err.println(param);
+		if (param.getCity().equals("NONE")) {
+			if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
+				return schoolRepository.findBySchoolType(SchoolType.valueOf(param.getSchoolType()));
+			} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+				return schoolRepository.findBySchoolTypeAndNameContaining(SchoolType.valueOf(param.getSchoolType()), param.getName());
+			} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+				return schoolRepository.findByNameContaining(param.getName());
+			}
+		} else if (!param.getCity().equals("NONE")) {
+			if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
+				return schoolRepository.findByCityAndSchoolType(param.getCity(), SchoolType.valueOf(param.getSchoolType()));
+			} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+				return schoolRepository.findByCityAndSchoolTypeAndNameContaining(param.getCity(), SchoolType.valueOf(param.getSchoolType()), param.getName());
+			} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
+				return schoolRepository.findByCityAndNameContaining(param.getCity(), param.getName());
+			} else {
+				return schoolRepository.findByCity(param.getCity());
+			}
 		}
 		return getList();
 	}

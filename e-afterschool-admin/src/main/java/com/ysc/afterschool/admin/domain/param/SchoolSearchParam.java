@@ -13,6 +13,8 @@ import lombok.Data;
 @Data
 public class SchoolSearchParam implements DomainParam {
 
+	private String city;
+	
 	private String schoolType;
 	
 	private String name;

@@ -12,6 +12,8 @@ import lombok.Data;
  */
 @Data
 public class StudentSearchParam implements DomainParam {
+	
+	private String city;
 
 	private String school;
 	

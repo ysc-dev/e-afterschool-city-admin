@@ -20,7 +20,7 @@ function registCommon(url, object, name, SettingManager) {
        	data: object, // serializes the form's elements.
        	success: function(response) {
        		swalInit.fire({
-   				title: name + " 등록이 되었습니다.", 
+   				title: name + " 등록 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
    				SettingManager.success();
@@ -32,6 +32,35 @@ function registCommon(url, object, name, SettingManager) {
 	});
 }
 
+/**
+ * 모달에서 등록 공통 기능
+ * @returns
+ */
+function registModalCommon(url, object, name, Datatable, modalId) {
+	$.ajax({
+       	url: url,
+		type: "POST",
+       	data: object,
+       	success: function(response) {
+       		$("#" + modalId).modal('hide');
+       		
+       		swalInit.fire({
+   				title: name + " 등록 되었습니다.", 
+   				type: "success"
+   			}).then(function(e) {
+   				Datatable.search();
+   			});
+       	},
+        error: function(response) {
+        	swalInit.fire({title: name + " 등록을 실패하였습니다.", type: "error"})
+        }
+	});
+}
+
+/**
+ * 등록 후 목록화면으로 이동
+ * @returns
+ */
 function registToMove(form, name, href) {
 	$.ajax({
        	url: form.attr('action'),
@@ -39,7 +68,7 @@ function registToMove(form, name, href) {
        	data: form.serializeObject(),
        	success: function(response) {
        		swalInit.fire({
-   				title: name + " 등록이 되었습니다.",
+   				title: name + "가(이) 등록 되었습니다.",
    				type: "success"
    			}).then(function(e) {
    				location.href = href;
@@ -64,7 +93,7 @@ function updateModalCommon(url, object, name, Datatable, modalId) {
        		$("#" + modalId).modal('hide');
        		
        		swalInit.fire({
-   				title: name + " 수정 되었습니다.", 
+   				title: name + "가(이) 수정 되었습니다.", 
    				type: "success"
    			}).then(function(e) {
    				Datatable.search();
@@ -95,7 +124,12 @@ function deleteCommon(url, id, name, Datatable, title) {
 	    		type: "DELETE",
 	    		data: {"id": id},
 	    		success: function(response) {
-	    			Datatable.search();
+	    			swalInit.fire({
+	       				title: name + "가(이) 삭제 되었습니다.", 
+	       				type: "success"
+	       			}).then(function(e) {
+	       				Datatable.search();
+	       			});
 	           	},
 	            error: function(response) {
 	            	if (isEmpty(response.responseText)) {

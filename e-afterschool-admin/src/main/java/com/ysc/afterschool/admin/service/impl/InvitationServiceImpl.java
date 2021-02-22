@@ -27,7 +27,7 @@ public class InvitationServiceImpl implements InvitationService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Invitation> getList() {
-		return invitationRepository.findAll();
+		return invitationRepository.OrderByCreateDateDesc();
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class InvitationServiceImpl implements InvitationService {
 	@Override
 	public List<Invitation> getList(InvitationSearchParam param) {
 		if (param.getCityId() != 0) {
-			return invitationRepository.findByCityId(param.getCityId());
+			return invitationRepository.findByCityIdOrderByCreateDateDesc(param.getCityId());
 		}
 		
 		return getList();

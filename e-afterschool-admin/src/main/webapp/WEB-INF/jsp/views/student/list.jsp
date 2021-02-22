@@ -20,6 +20,15 @@
 	          		</div>
 				</div>
 				<div class="card-body">
+					<div class="font-size-xs text-muted mb-2">캠퍼스 선택</div>
+					<div class="form-group">
+						<select class="form-control form-control-select2" name="city">
+							<option value="NONE">- 전 체 -</option>
+							<c:forEach var="city" items="${cities}" varStatus="status">
+								<option value="${city.name}">${city.name}</option>
+							</c:forEach>
+						</select>
+					</div>
 					<div class="font-size-xs text-muted mb-2">학교 선택</div>
 					<div class="form-group">
 						<select class="form-control select-search" name="school">
@@ -203,6 +212,7 @@ var StudentManager = function() {
 		},
 		search: function() {
 			var param = new Object();
+			param.city = $("select[name=city]").val();
 			param.school = $("select[name=school]").val();
 			param.grade = $("select[name=grade]").val();
 			param.name = $("input[name=name]").val();

@@ -43,7 +43,7 @@
 					<h6 class="mb-2 font-weight-bold">댓글 ${fn:length(comments)}개</h6>
 					<div class="d-flex mt-2">
 						<textarea class="form-control m-input" id="commentInput" rows="1"></textarea>
-						<button type="button" id="commentRegistBtn" class="btn btn-info px-3 ml-3">댓글 추가</button>
+						<button type="button" id="commentRegistBtn" class="btn btn-info px-3 ml-3">추 가</button>
 					</div>
 				</div>
 				<c:if test="${fn:length(comments) > 0}">
@@ -112,7 +112,7 @@ $("#commentRegistBtn").click(function() {
        			});
     		},
     		error: function(response) {
-    			swalInit.fire({title: "댓글 추가을 실패하였습니다.", type: "error"})
+    			swalInit.fire({title: "댓글 추가를 실패하였습니다.", type: "error"})
             }
     	});
 	} else {
