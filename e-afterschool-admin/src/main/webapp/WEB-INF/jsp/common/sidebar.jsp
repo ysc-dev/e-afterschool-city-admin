@@ -49,7 +49,7 @@
 					<a href="#" class="nav-link"><i class="icon-archive"></i> <span>과목 관리</span></a>
 					<ul class="nav nav-group-sub" data-submenu-title="Layouts">
 						<li id="subject_group_list" class="nav-item"><a href="${pageContext.request.contextPath}/subject/group/list" class="nav-link">
-							<i class="icon-list"></i><span>과목 그룹 관리</span></a>
+							<i class="icon-make-group"></i><span>과목 그룹 관리</span></a>
 						</li>
 						<li id="subject_list" class="nav-item"><a href="${pageContext.request.contextPath}/subject/list" class="nav-link">
 							<i class="icon-list"></i><span>수강 과목 조회</span></a>
@@ -59,14 +59,20 @@
 						</li>
 					</ul>
 				</li>
+				<li id="apply" class="nav-item nav-item-submenu">
+					<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>수강 관리</span></a>
+					<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+						<li id="apply_list" class="nav-item"><a href="${pageContext.request.contextPath}/apply/list" class="nav-link">
+							<i class="icon-paperplane"></i><span>수강 신청 관리</span></a>
+						</li>
+						<li id="apply_wait" class="nav-item"><a href="${pageContext.request.contextPath}/apply/wait" class="nav-link">
+							<i class="icon-blocked"></i><span>수강 대기 관리</span></a>
+						</li>
+					</ul>
+				</li>
 				<li id="classContent" class="nav-item">
 					<a href="${pageContext.request.contextPath}/classContent/list" class="nav-link">
 						<i class="icon-stack"></i><span>횟수별 수업 관리</span>
-					</a>
-				</li>
-				<li id="apply" class="nav-item">
-					<a href="${pageContext.request.contextPath}/apply/list" class="nav-link">
-						<i class="icon-list"></i><span>수강 관리</span>
 					</a>
 				</li>
 				<li id="notice" class="nav-item">

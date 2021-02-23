@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp" >
-  	<c:param name="icon" value="icon-display4" />
+  	<c:param name="icon" value="icon-make-group" />
   	<c:param name="title" value="과목 그룹 관리" />
   	<c:param name="firstname" value="과목 관리" />
   	<c:param name="lastname" value="과목 그룹 관리" />

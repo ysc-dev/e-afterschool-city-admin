@@ -2,10 +2,10 @@
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
-  	<c:param name="icon" value="icon-paperplane"/>
-  	<c:param name="title" value="수강 신청 관리"/>
-  	<c:param name="content" value="신청된 수강 목록"/>
-  	<c:param name="lastname" value="수강 신청 관리"/>
+  	<c:param name="icon" value="icon-blocked"/>
+  	<c:param name="title" value="수강 대기 관리"/>
+  	<c:param name="content" value="수강 대기 중 목록"/>
+  	<c:param name="lastname" value="수강 대기 관리"/>
 </c:import>
 
 <div class="content">
@@ -51,7 +51,7 @@
 				<button id="searchBtn" class="btn bg-teal-400"><i class="icon-search4 mr-2"></i> 조 회</button>
 			</div>
 			
-			<table class="table table-bordered" id="applyTable">
+			<table class="table table-bordered" id="applyWaitTable">
 				<thead class="text-center">
 					<tr class="table-active">
 						<th>번호</th>
@@ -100,7 +100,7 @@ $("#invitationSelect").change(function() {
 
 var ApplyManager = function() {
 	var DataTable = {
-		ele: "#applyTable",
+		ele: "#applyWaitTable",
 		table: null,
 		option: {
 			columns: [{
@@ -124,7 +124,7 @@ var ApplyManager = function() {
 		    { data: "student.tel" }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9]);
 			this.search();
 		},
 		search: function() {
@@ -133,7 +133,7 @@ var ApplyManager = function() {
 			param.subjectId = $("select[name=subject]").val();
 			param.school = $("select[name=school]").val();
 			param.grade = $("select[name=grade]").val();
-			Datatables.rowsAdd(this.table, contextPath + "/apply/search", param);
+			Datatables.rowsAdd(this.table, contextPath + "/apply/wait/search", param);
 		}
 	}
 	

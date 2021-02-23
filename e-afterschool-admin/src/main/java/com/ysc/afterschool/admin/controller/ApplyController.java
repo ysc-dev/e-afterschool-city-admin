@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Apply;
+import com.ysc.afterschool.admin.domain.db.ApplyWait;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
 import com.ysc.afterschool.admin.service.ApplyService;
+import com.ysc.afterschool.admin.service.ApplyWaitService;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SchoolService;
 import com.ysc.afterschool.admin.service.SubjectService;
@@ -42,8 +44,11 @@ public class ApplyController {
 	@Autowired
 	private ApplyService applyService;
 	
+	@Autowired
+	private ApplyWaitService applyWaitService;
+	
 	/**
-	 * 수강 목록 화면
+	 * 수강 신청 목록 화면
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -76,5 +81,30 @@ public class ApplyController {
 	@ResponseBody 
 	public List<Apply> search(@RequestBody ApplySearchParam param) {
 		return applyService.getList(param);
+	}
+	
+	/**
+	 * 수강 대기 목록 화면
+	 * @param model
+	 */
+	@GetMapping("wait")
+	public void wait(Model model) {
+		List<Invitation> invitations = invitationService.getList();
+		model.addAttribute("invitations", invitations);
+		if (invitations.size() > 0) {
+			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+		}
+		model.addAttribute("schools", schoolService.getList());
+	}
+	
+	/**
+	 * 과목 조회
+	 * @param param
+	 * @return
+	 */
+	@PostMapping("wait/search")
+	@ResponseBody 
+	public List<ApplyWait> searchWait(@RequestBody ApplySearchParam param) {
+		return applyWaitService.getList(param);
 	}
 }

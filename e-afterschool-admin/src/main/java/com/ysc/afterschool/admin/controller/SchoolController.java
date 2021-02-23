@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ysc.afterschool.admin.domain.db.School;
 import com.ysc.afterschool.admin.domain.db.School.SchoolType;
 import com.ysc.afterschool.admin.domain.param.SchoolSearchParam;
-import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.CRUDService;
 import com.ysc.afterschool.admin.service.CityService;
 import com.ysc.afterschool.admin.service.SchoolService;
