@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ysc.afterschool.admin.domain.db.Apply;
 import com.ysc.afterschool.admin.domain.db.ApplyWait;
 import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
 import com.ysc.afterschool.admin.repository.ApplyWaitRepository;

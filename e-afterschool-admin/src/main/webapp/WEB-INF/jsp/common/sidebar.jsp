@@ -35,15 +35,21 @@
 						<i class="icon-office"></i><span>학교 관리</span>
 					</a>
 				</li>
-				<li id="student" class="nav-item">
-					<a href="${pageContext.request.contextPath}/student/list" class="nav-link">
-						<i class="icon-users"></i><span>학생 관리</span>
-					</a>
-				</li>
 				<li id="teacher" class="nav-item">
 					<a href="${pageContext.request.contextPath}/teacher/list" class="nav-link">
 						<i class="icon-user-tie"></i><span>강사 관리</span>
 					</a>
+				</li>
+				<li id="student" class="nav-item nav-item-submenu">
+					<a href="#" class="nav-link"><i class="icon-users"></i> <span>학생 관리</span></a>
+					<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+						<li id="student_list" class="nav-item"><a href="${pageContext.request.contextPath}/student/list" class="nav-link">
+							<i class="icon-users"></i><span>학생 조회</span></a>
+						</li>
+						<li id="student_apply" class="nav-item"><a href="${pageContext.request.contextPath}/student/apply" class="nav-link">
+							<i class="icon-books"></i><span>수강 이력 조회</span></a>
+						</li>
+					</ul>
 				</li>
 				<li id="subject" class="nav-item nav-item-submenu">
 					<a href="#" class="nav-link"><i class="icon-archive"></i> <span>과목 관리</span></a>
@@ -63,10 +69,10 @@
 					<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>수강 관리</span></a>
 					<ul class="nav nav-group-sub" data-submenu-title="Layouts">
 						<li id="apply_list" class="nav-item"><a href="${pageContext.request.contextPath}/apply/list" class="nav-link">
-							<i class="icon-paperplane"></i><span>수강 신청 관리</span></a>
+							<i class="icon-paperplane"></i><span>수강 신청 조회</span></a>
 						</li>
 						<li id="apply_wait" class="nav-item"><a href="${pageContext.request.contextPath}/apply/wait" class="nav-link">
-							<i class="icon-blocked"></i><span>수강 대기 관리</span></a>
+							<i class="icon-blocked"></i><span>수강 대기 조회</span></a>
 						</li>
 					</ul>
 				</li>

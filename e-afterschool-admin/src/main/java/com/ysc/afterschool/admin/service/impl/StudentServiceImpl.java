@@ -86,4 +86,9 @@ public class StudentServiceImpl implements StudentService {
 	private boolean isNew(Student domain) {
 		return !studentRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public List<Student> get(String name) {
+		return studentRepository.findByName(name);
+	}
 }

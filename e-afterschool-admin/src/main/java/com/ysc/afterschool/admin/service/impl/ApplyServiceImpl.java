@@ -1,5 +1,6 @@
 package com.ysc.afterschool.admin.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,9 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ysc.afterschool.admin.domain.db.Apply;
+import com.ysc.afterschool.admin.domain.db.Student;
 import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
+import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyRepository;
 import com.ysc.afterschool.admin.service.ApplyService;
+import com.ysc.afterschool.admin.service.StudentService;
 
 @Transactional
 @Service
@@ -18,6 +22,9 @@ public class ApplyServiceImpl implements ApplyService {
 	
 	@Autowired
 	private ApplyRepository applyRepository;
+	
+	@Autowired
+	private StudentService studentService;
 
 	@Override
 	public Apply get(Integer id) {
@@ -99,5 +106,19 @@ public class ApplyServiceImpl implements ApplyService {
 	public boolean delete(List<Apply> applies) {
 		applyRepository.deleteInBatch(applies);
 		return true;
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Apply> getListFromStudent(StudentSearchParam param) {
+		List<Apply> applies = new ArrayList<>();
+		if (!param.getName().isEmpty()) {
+			for (Student student : studentService.get(param.getName())) {
+				for (Apply apply : applyRepository.findByStudentId(student.getId())) {
+					applies.add(apply);
+				}
+			}
+		}
+		return applies;
 	}
 }

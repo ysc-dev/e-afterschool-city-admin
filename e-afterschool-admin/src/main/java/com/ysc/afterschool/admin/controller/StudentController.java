@@ -8,7 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Apply;
 import com.ysc.afterschool.admin.domain.db.Student;
@@ -108,5 +111,24 @@ public class StudentController extends AbstractController<Student, StudentSearch
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 수강 이력 화면
+	 * @param model
+	 */
+	@GetMapping("apply")
+	public void apply(Model model) {
+	}
+	
+	/**
+	 * 수강 이력 조회
+	 * @param param
+	 * @return
+	 */
+	@PostMapping("apply/search")
+	@ResponseBody 
+	public List<Apply> searchApply(@RequestBody StudentSearchParam param) {
+		return applyService.getListFromStudent(param);
 	}
 }

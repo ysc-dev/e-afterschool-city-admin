@@ -22,5 +22,7 @@ public interface StudentRepository extends DefaultRepository<Student, Integer> {
 
 	List<Student> findByCityAndNameContaining(String city, String name);
 
+	List<Student> findByName(String name);
+
 
 }

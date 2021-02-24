@@ -3,9 +3,9 @@
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-blocked"/>
-  	<c:param name="title" value="수강 대기 관리"/>
+  	<c:param name="title" value="수강 대기 조회"/>
   	<c:param name="content" value="수강 대기 중 목록"/>
-  	<c:param name="lastname" value="수강 대기 관리"/>
+  	<c:param name="lastname" value="수강 대기 조회"/>
 </c:import>
 
 <div class="content">
@@ -54,16 +54,17 @@
 			<table class="table table-bordered" id="applyWaitTable">
 				<thead class="text-center">
 					<tr class="table-active">
-						<th>번호</th>
+						<th>순번</th>
 						<th>과목</th>
 						<th>수강기간</th>
 						<th>운영시간</th>
 						<th>유형</th>
 						<th>강사명</th>
 						<th>학생명</th>
-						<th>소속(학교 명)</th>
+						<th>소속(학교명)</th>
 						<th>학년 반 번호</th>
 						<th>연락처</th>
+						<th>신청시간</th>
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -121,10 +122,15 @@ var ApplyManager = function() {
 		    		return row.student.grade + "학년 " + row.student.classType + "반 " + row.student.number + "번";
 		    	}
 		    },
-		    { data: "student.tel" }]
+		    { data: "student.tel" },
+		    { 
+			    render: function(data, type, row, meta) {
+	    			return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
+	    		}
+		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
 			this.search();
 		},
 		search: function() {

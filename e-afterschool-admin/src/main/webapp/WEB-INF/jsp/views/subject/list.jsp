@@ -43,12 +43,13 @@
 						<th>번호</th>
 						<th>과목그룹</th>
 						<th>과목명</th>
-						<th>대상,<br>정원(명)</th>
-						<th>수강기간</th>
-						<th>운영시간</th>
+						<th>대상</th>
+						<th>수강기간,<br>운영시간</th>
 						<th>유형</th>
 						<th>강사명</th>
-						<th>재료비 및<br>교구비</th>
+						<th>신청인원</th>
+						<th>수강상태</th>
+						<th>대기인원</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -183,36 +184,38 @@ var SubjectManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "5%",
+		    	width: "6%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
 		    },{ 
-		    	width: "8%",
 		    	data: "subjectGroup.name" 
 		    },{ 
-		    	width: "24%",
 		    	data: "name" 
 		    },{
-		    	width: "8%",
 		    	data: "target" 
 		    },{
-		    	width: "8%",
-		    	data: "period" 
+		    	render: function(data, type, row, meta) {
+			    	return row.period + "<br/>" + row.time;
+		    	}
 		    },{
-		    	width: "8%",
-		    	data: "time" 
+		    	data: "week"
 		    },{ 
-		    	width: "9%",
-		    	data: "week" 
-		    },{ 
-		    	width: "10%",
 		    	data: "teacher.name"
-		    },{ 
-		    	width: "9%",
-		    	data: "cost" 
 		    },{
-		    	width: "10%",
+	    		data: "applyNumber"
+		    },{
+		    	render: function(data, type, row, meta) {
+			    	if (row.fixedNumber == row.applyNumber) {
+			    		return '<label class="col-form-label text-warning">마감</label>';
+			    	} else {
+			    		return '<label class="col-form-label text-info-600">신청가능</label>';
+			    	}
+		    	}
+			},{
+			    data: "waitingNumber"
+		    },{
+			    width: '10%',
 		    	render: function(data, type, row, meta) {
     				return '<a href="' + contextPath + '/subject/notice/list/' + row.id + '" ' +
     						 'class="btn btn-outline bg-teal-600 text-teal-600 btn-sm" title="수강 과목 공지사항">' +

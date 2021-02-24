@@ -3,8 +3,8 @@
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-users"/>
-  	<c:param name="title" value="학생 관리"/>
-  	<c:param name="lastname" value="학생 관리"/>
+  	<c:param name="title" value="학생 조회"/>
+  	<c:param name="lastname" value="학생 조회"/>
 </c:import>
 
 <div class="content">
