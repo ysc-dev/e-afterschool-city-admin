@@ -16,6 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 수강 신청 관리 테이블 도메인
@@ -26,6 +27,7 @@ import lombok.Data;
 @Entity
 @Table(name = "tb_apply")
 @Data
+@NoArgsConstructor
 public class Apply implements Domain {
 
 	@Id
@@ -56,4 +58,12 @@ public class Apply implements Domain {
 	
 	@CreationTimestamp
 	private LocalDateTime createDate;
+	
+	public Apply(ApplyCancel applyCancel) {
+		this.student = applyCancel.getStudent();
+		this.subject = applyCancel.getSubject();
+		this.invitation = applyCancel.getInvitation();
+		this.school = applyCancel.getSchool();
+		this.grade = applyCancel.getGrade();
+	}
 }
