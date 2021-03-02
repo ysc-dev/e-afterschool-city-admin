@@ -103,7 +103,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	public ResponseEntity<?> delete(Integer id) {
 		List<Apply> applies = applyService.getList(id);
 		if (applies.size() > 0) {
-			return new ResponseEntity<>("수강신청 되어있는 학생입니다.<br>삭제하려면 수강신청 취소를 하세요.", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("수강신청 되어있는 학생입니다.<br>삭제하려면 먼저 수강신청 취소를 하세요.", HttpStatus.BAD_REQUEST);
 		} else {
 			if (studentService.delete(id)) {
 				return new ResponseEntity<>(HttpStatus.OK);

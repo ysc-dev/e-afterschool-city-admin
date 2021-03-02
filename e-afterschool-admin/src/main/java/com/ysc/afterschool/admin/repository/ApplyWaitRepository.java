@@ -10,4 +10,6 @@ public interface ApplyWaitRepository extends DefaultRepository<ApplyWait, Intege
 
 	List<ApplyWait> findByInvitationId(int invitationId);
 
+	void deleteByStudentId(int studentId);
+
 }

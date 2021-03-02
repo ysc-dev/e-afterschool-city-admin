@@ -2,10 +2,10 @@
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
-  	<c:param name="icon" value="icon-paperplane"/>
-  	<c:param name="title" value="수강 신청 조회"/>
-  	<c:param name="content" value="신청된 수강 목록"/>
-  	<c:param name="lastname" value="수강 신청 조회"/>
+  	<c:param name="icon" value="icon-history"/>
+  	<c:param name="title" value="수강 취소 조회"/>
+  	<c:param name="content" value="수강 취소 목록"/>
+  	<c:param name="lastname" value="수강 취소 조회"/>
 </c:import>
 
 <div class="content">
@@ -51,7 +51,7 @@
 				<button id="searchBtn" class="btn bg-teal-400"><i class="icon-search4 mr-2"></i> 조 회</button>
 			</div>
 			
-			<table class="table table-bordered" id="applyTable">
+			<table class="table table-bordered" id="applyCancelTable">
 				<thead class="text-center">
 					<tr class="table-active">
 						<th>순번</th>
@@ -64,7 +64,7 @@
 						<th>소속(학교명)</th>
 						<th>학년 반 번호</th>
 						<th>연락처</th>
-						<th>신청시간</th>
+						<th>취소시간</th>
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -104,9 +104,9 @@ $("#invitationSelect").change(function() {
 	}); 
 });
 
-var ApplyManager = function() {
+var ApplyCancelManager = function() {
 	var DataTable = {
-		ele: "#applyTable",
+		ele: "#applyCancelTable",
 		table: null,
 		option: {
 			columns: [{
@@ -135,7 +135,7 @@ var ApplyManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강취소가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
 			this.search();
 		},
 		search: function() {
@@ -144,7 +144,7 @@ var ApplyManager = function() {
 			param.subjectId = $("select[name=subject]").val();
 			param.school = $("select[name=school]").val();
 			param.grade = $("select[name=grade]").val();
-			Datatables.rowsAdd(this.table, contextPath + "/apply/search", param);
+			Datatables.rowsAdd(this.table, contextPath + "/apply/cancel/search", param);
 		}
 	}
 	
@@ -163,6 +163,6 @@ var ApplyManager = function() {
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	ApplyManager.init();
+	ApplyCancelManager.init();
 });
 </script>

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Apply;
+import com.ysc.afterschool.admin.domain.db.ApplyCancel;
 import com.ysc.afterschool.admin.domain.db.ApplyWait;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
+import com.ysc.afterschool.admin.service.ApplyCancelService;
 import com.ysc.afterschool.admin.service.ApplyService;
 import com.ysc.afterschool.admin.service.ApplyWaitService;
 import com.ysc.afterschool.admin.service.InvitationService;
@@ -46,6 +48,9 @@ public class ApplyController {
 	
 	@Autowired
 	private ApplyWaitService applyWaitService;
+	
+	@Autowired
+	private ApplyCancelService applyCancelService;
 	
 	/**
 	 * 수강 신청 목록 화면
@@ -98,7 +103,7 @@ public class ApplyController {
 	}
 	
 	/**
-	 * 과목 조회
+	 * 수강대기 조회
 	 * @param param
 	 * @return
 	 */
@@ -106,5 +111,30 @@ public class ApplyController {
 	@ResponseBody 
 	public List<ApplyWait> searchWait(@RequestBody ApplySearchParam param) {
 		return applyWaitService.getList(param);
+	}
+	
+	/**
+	 * 수강 취소 목록 화면
+	 * @param model
+	 */
+	@GetMapping("cancel")
+	public void cancel(Model model) {
+		List<Invitation> invitations = invitationService.getList();
+		model.addAttribute("invitations", invitations);
+		if (invitations.size() > 0) {
+			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+		}
+		model.addAttribute("schools", schoolService.getList());
+	}
+	
+	/**
+	 * 수강취소 조회
+	 * @param param
+	 * @return
+	 */
+	@PostMapping("cancel/search")
+	@ResponseBody 
+	public List<ApplyCancel> searchCancel(@RequestBody ApplySearchParam param) {
+		return applyCancelService.getList(param);
 	}
 }

@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ysc.afterschool.admin.domain.db.Student;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
+import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
+import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.StudentRepository;
 import com.ysc.afterschool.admin.service.StudentService;
 
@@ -17,6 +19,12 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private ApplyWaitRepository applyWaitRepository;
+	
+	@Autowired
+	private ApplyCancelRepository applyCancelRepository;
 	
 	@Override
 	public Student get(Integer id) {
@@ -49,6 +57,8 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public boolean delete(Integer id) {
+		applyWaitRepository.deleteByStudentId(id);
+		applyCancelRepository.deleteByStudentId(id);
 		studentRepository.deleteById(id);
 		return true;
 	}

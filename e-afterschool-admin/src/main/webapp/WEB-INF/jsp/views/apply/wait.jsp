@@ -83,6 +83,11 @@ $("#invitationSelect").change(function() {
 		data: {"invitationId": $(this).val()},
 		success: function(response) {
 			if (response.length > 0) {
+				$('#subjectSelect').append($('<option>', {
+				    value: "",
+				    text: "- 전 체 -"
+				}));
+				
 				$.each(response, function (i, item) {
 					$('#subjectSelect').append($('<option>', {
 					    value: item.id,

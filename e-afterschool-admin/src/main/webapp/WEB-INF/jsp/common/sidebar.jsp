@@ -72,7 +72,10 @@
 							<i class="icon-paperplane"></i><span>수강 신청 조회</span></a>
 						</li>
 						<li id="apply_wait" class="nav-item"><a href="${pageContext.request.contextPath}/apply/wait" class="nav-link">
-							<i class="icon-blocked"></i><span>수강 대기 조회</span></a>
+							<i class="icon-history"></i><span>수강 대기 조회</span></a>
+						</li>
+						<li id="apply_cancel" class="nav-item"><a href="${pageContext.request.contextPath}/apply/cancel" class="nav-link">
+							<i class="icon-blocked"></i><span>수강 취소 조회</span></a>
 						</li>
 					</ul>
 				</li>
@@ -84,6 +87,11 @@
 				<li id="notice" class="nav-item">
 					<a href="${pageContext.request.contextPath}/notice/list" class="nav-link">
 						<i class="icon-bubble-notification"></i><span>공지사항</span>
+					</a>
+				</li>
+				<li id="sms" class="nav-item">
+					<a href="${pageContext.request.contextPath}/sms/send" class="nav-link">
+						<i class="icon-envelop2"></i><span>SMS 발송</span>
 					</a>
 				</li>
 			</ul>
