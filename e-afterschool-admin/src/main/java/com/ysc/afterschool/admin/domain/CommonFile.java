@@ -10,7 +10,6 @@ public class CommonFile {
 	public static final String INVITATION_PATH = "invitation";
 	public static final String COMMUNITY_PATH = "community";
 
-
 	private String fileName;
 
 	private String contentType;
@@ -22,7 +21,9 @@ public class CommonFile {
 	@Getter
 	public enum FileType {
 		IMAGE("image"),
-		VIDEO("video");
+		VIDEO("video"),
+		PDF("pdf"),
+		HWP("hwp");
 		
 		private String name;
 		

@@ -27,12 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests() // 요청을 어떻게 보안을 할 것인지 설정
 			.antMatchers("/home").access("hasRole('ROLE_USER')")
 			.antMatchers("/invitation/**").access("hasRole('ROLE_USER')")
-			.antMatchers("/teacher/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/school/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/teacher/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/student/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/subject/**").access("hasRole('ROLE_USER')")
-			.antMatchers("/notice/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/apply/**").access("hasRole('ROLE_USER')")
 			.antMatchers("/classContent/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/notice/**").access("hasRole('ROLE_USER')")
+			.antMatchers("/sms/**").access("hasRole('ROLE_USER')")
 		.and()
 			// 로그인 페이지 및 성공 url, handler 그리고 로그인 시 사용되는 id, password 파라미터 정의
 			.formLogin()

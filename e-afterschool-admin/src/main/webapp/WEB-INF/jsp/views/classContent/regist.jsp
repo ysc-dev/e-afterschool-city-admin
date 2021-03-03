@@ -30,10 +30,12 @@
 							<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>
 							<div class="col-md-7">
 								<input type="file" class="file-input" data-show-upload="false" name="files" 
-									accept="video/mp4, image/*" multiple="multiple" data-fouc required>
+									accept="video/mp4, image/*, .pdf, .hwp" multiple="multiple" data-fouc required>
 								<span class="form-text text-muted">
 									※ 이미지 파일 업로드 가능합니다.<br>
-									※ 동영상은 최대 20Mb, 영상확장자가 MP4일 때 업로드 가능합니다.
+									※ 동영상은 최대 20Mb, 영상확장자가 MP4일 때 업로드 가능합니다.<br>
+									※ PDF 파일 업로드 가능합니다.<br>
+									※ 한글 파일 업로드 가능합니다.
 								</span> 
 							</div>
 						</div>

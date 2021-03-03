@@ -68,6 +68,7 @@
 							<th>번호</th>
 							<th>등록일</th>
 							<th>사업내용</th>
+							<th>미리보기</th>
 							<th>첨부파일</th>
 							<th>Action</th>
 						</tr>
@@ -85,7 +86,7 @@
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h5 class="modal-title">
-                    <i class="icon-images2 mr-2"></i>수업내용 첨부파일
+                    <i class="icon-images2 mr-2"></i>수업내용 파일 미리보기
                 </h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -137,26 +138,45 @@ var ClassManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "10%",
+		    	width: "8%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
 		    }, 
 		    { 
+		    	width: "16%",
 		    	render: function(data, type, row, meta) {
-				    return moment(row.createDate).format('YYYY-MM-DD');
+				    return moment(row.createDate).format('YYYY-MM-DD HH:mm:ss');
 			    }
 			}, 
 		    { data: "content" },
 		    { 
-		    	width: "12%",
+		    	width: "10%",
 			    render: function(data, type, row, meta) {
-				    return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm font-weight-bold"'
-				    	+ 'onClick="ClassManager.imageModal(' + row.id + ')">사진/동영상</button>';
+				    var type = '';
+				    row.uploadedFiles.forEach(function(file, index) {
+					    if (file.fileType == 'IMAGE') {
+					    	type = file.fileType;
+					    }
+				    });
+
+				    if (type == 'IMAGE') {
+				    	return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm font-weight-bold"'
+				    	+ 'onClick="ClassManager.imageModal(' + row.id + ')">미리보기</button>';
+				    } else {
+					    return '없음';
+				    }
+			    }
+			},
+		    { 
+		    	width: "10%",
+			    render: function(data, type, row, meta) {
+			    	return '<button type="button" class="btn btn-outline bg-info text-info-600 btn-sm font-weight-bold"'
+			    		+ 'onClick="ClassManager.download(' + row.id + ')">다운로드</button>';
 			    }
 			},
 		    {
-		    	width: "12%",
+		    	width: "6%",
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm"'
     					+ 'onClick="ClassManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
@@ -198,7 +218,7 @@ var ClassManager = function() {
 				        var fileContent;
 				        if (file.fileType == 'IMAGE') {
 				        	fileContent = '<img src="' + contextPath + '/uploads/class/' + file.fileName + '" class="img-fluid"/>';
-				        } else {
+				        } else if (file.fileType == 'VIDEO') {
 				        	fileContent = '<div class="card-img embed-responsive embed-responsive-16by9">'
 					        	+ '<video class="embed-responsive-item" src="' + contextPath + '/uploads/class/' + file.fileName + '" controls></video>'
 					        	+ '</div>';
@@ -207,6 +227,27 @@ var ClassManager = function() {
 				        $("#file-viewer").append(fileContent);
                     });
 		        	$("#fileModal").modal();
+		        }
+		    });
+		},
+		download: function(id) {
+			$.ajax({
+		        url: contextPath + "/classContent/file/get",
+		        type: "GET",
+		        data: {"id" : id},
+		        success : function(response) {
+			        response.uploadedFiles.forEach(function(file, index) {
+				        var url = contextPath + '/uploads/class/' + file.fileName;
+				        
+				        const a = document.createElement('a');
+				        a.style.display = 'none';
+				        a.href = url;
+				        a.download = file.fileName;
+				        document.body.appendChild(a);
+				        a.click();
+				        
+				        window.URL.revokeObjectURL(url);
+                    });
 		        }
 		    });
 		},

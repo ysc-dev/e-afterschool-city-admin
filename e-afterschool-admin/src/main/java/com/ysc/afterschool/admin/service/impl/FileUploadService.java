@@ -12,6 +12,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ysc.afterschool.admin.domain.CommonFile;
 import com.ysc.afterschool.admin.domain.CommonFile.FileType;
 
+/**
+ * 파일 업로드 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Service
 public class FileUploadService {
 	
@@ -33,18 +39,24 @@ public class FileUploadService {
 			String extName = originFilename.substring(originFilename.lastIndexOf("."), originFilename.length());
 			Long size = multipartFile.getSize();
 
+			System.err.println(multipartFile.getContentType());
 			// 서버에서 저장 할 파일 이름
-			String saveFileName = getSaveFileName(extName);
+			FileType fileType = FileType.stringToType(multipartFile.getContentType());
+			String saveFileName = getSaveFileName(extName, fileType);
 			
 			uploadedFile.setFileName(saveFileName);
 			uploadedFile.setSize(size);
 			uploadedFile.setContentType(multipartFile.getContentType());
-			uploadedFile.setFileType(FileType.stringToType(uploadedFile.getContentType()));
+			uploadedFile.setFileType(fileType);
 
 //			System.out.println("originFilename : " + originFilename);
 //			System.out.println("extensionName : " + extName);
 //			System.out.println("size : " + size);
 //			System.out.println("saveFileName : " + saveFileName);
+			
+			File folder = new File(path);
+			if (!folder.exists())
+				folder.mkdir();
 
 			writeFile(multipartFile, path + "/" + saveFileName);
 		} catch (IOException e) {
@@ -59,6 +71,9 @@ public class FileUploadService {
 	
 	/**
 	 * 파일 삭제
+	 * @param path
+	 * @param fileName
+	 * @return
 	 */
 	public boolean fileDelete(String path, String fileName) {
 		File file = new File(uploadsRoot + "/" + path + "/" + fileName);
@@ -68,11 +83,18 @@ public class FileUploadService {
 		return false;
 	}
 
-	// 현재 시간을 기준으로 파일 이름 생성
-	private String getSaveFileName(String extName) {
+	/**
+	 * 현재 시간을 기준으로 파일 이름 생성
+	 * @param extName
+	 * @param contentType
+	 * @return
+	 */
+	private String getSaveFileName(String extName, FileType fileType) {
 		String fileName = "";
 
 		Calendar calendar = Calendar.getInstance();
+		fileName += fileType.getName();
+		fileName += "_";
 		fileName += calendar.get(Calendar.YEAR);
 		fileName += calendar.get(Calendar.MONTH);
 		fileName += calendar.get(Calendar.DATE);
@@ -85,7 +107,12 @@ public class FileUploadService {
 		return fileName;
 	}
 
-	// 파일을 실제로 write 하는 메서드
+	/**
+	 * 파일을 실제로 write 하는 메서드
+	 * @param multipartFile
+	 * @param saveFileName
+	 * @throws IOException
+	 */
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException {
 		FileOutputStream fos = new FileOutputStream(uploadsRoot + "/" + saveFileName);
 		fos.write(multipartFile.getBytes());
