@@ -121,4 +121,9 @@ public class ApplyServiceImpl implements ApplyService {
 		}
 		return applies;
 	}
+
+	@Override
+	public List<Apply> getListFromSubject(int subjectId) {
+		return applyRepository.findBySubjectId(subjectId);
+	}
 }

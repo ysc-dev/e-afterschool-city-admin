@@ -46,6 +46,6 @@ public class User extends AbstractDomain {
 	private UserRole role;
 	
 	public enum UserRole {
-		ADMIN, GUEST;
+		ADMIN, GUEST, TEACHER;
 	}
 }

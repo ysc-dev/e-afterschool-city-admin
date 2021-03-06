@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.param.SubjectSearchParam;
+import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
+import com.ysc.afterschool.admin.repository.ApplyRepository;
+import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.ClassContentsRepository;
 import com.ysc.afterschool.admin.repository.SubjectNoticeRepository;
 import com.ysc.afterschool.admin.repository.SubjectRepository;
@@ -25,6 +28,15 @@ public class SubjectServiceImpl implements SubjectService {
 	
 	@Autowired
 	private ClassContentsRepository classContentsRepository;
+	
+	@Autowired
+	private ApplyRepository applyRepository;
+	
+	@Autowired
+	private ApplyWaitRepository applyWaitRepository;
+	
+	@Autowired
+	private ApplyCancelRepository applyCancelRepository;
 
 	@Override
 	public Subject get(Integer id) {
@@ -59,6 +71,9 @@ public class SubjectServiceImpl implements SubjectService {
 	public boolean delete(Integer id) {
 		subjectNoticeRepository.deleteBySubjectId(id);
 		classContentsRepository.deleteBySubjectId(id);
+		applyRepository.deleteBySubjectId(id);
+		applyWaitRepository.deleteBySubjectId(id);
+		applyCancelRepository.deleteBySubjectId(id);
 		
 		subjectRepository.deleteById(id);
 		return true;

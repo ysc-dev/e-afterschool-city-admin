@@ -12,4 +12,6 @@ public interface ApplyRepository extends DefaultRepository<Apply, Integer> {
 
 	List<Apply> findByStudentId(int studentId);
 
+	void deleteBySubjectId(int subjectId);
+
 }

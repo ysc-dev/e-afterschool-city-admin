@@ -46,4 +46,8 @@ public class City implements Domain {
 	// 기타운영문의
 	@Column(length = 20)
 	private String tel2;
+	
+	// SMS연락처
+	@Column(length = 20)
+	private String sms;
 }

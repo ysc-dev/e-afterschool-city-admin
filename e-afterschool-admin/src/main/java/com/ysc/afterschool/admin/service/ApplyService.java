@@ -13,4 +13,6 @@ public interface ApplyService extends CRUDService<Apply, ApplySearchParam, Integ
 	boolean delete(List<Apply> applies);
 
 	List<Apply> getListFromStudent(StudentSearchParam param);
+
+	List<Apply> getListFromSubject(int subjectId);
 }

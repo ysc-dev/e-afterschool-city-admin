@@ -191,6 +191,7 @@ var StudentManager = function() {
 		    },
 		    { data: "tel" },
 		    { 
+		    	width: "10%",
 		    	render: function(data, type, row, meta) {
 	    			return row.agree ? "동의" : "미동의";
 	    		} 
@@ -207,7 +208,7 @@ var StudentManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 학생이 있습니다.", [7, 8], [1,2,3,4,5,6,7,8]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 학생이 있습니다.", [8], [1,2,3,4,5,6,7,8]);
 			this.search();
 		},
 		search: function() {

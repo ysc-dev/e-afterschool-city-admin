@@ -24,5 +24,4 @@ public interface StudentRepository extends DefaultRepository<Student, Integer> {
 
 	List<Student> findByName(String name);
 
-
 }

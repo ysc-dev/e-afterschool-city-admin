@@ -12,4 +12,6 @@ public interface ApplyCancelRepository extends DefaultRepository<ApplyCancel, In
 
 	void deleteByStudentId(int studentId);
 
+	void deleteBySubjectId(int subjectId);
+
 }
