@@ -127,7 +127,8 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		result.setTargetType(subject.getTargetType());
 		result.setGradeType(subject.getGradeType());
 		result.setFixedNumber(subject.getFixedNumber());
-		result.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
+//		result.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
+		result.setWaitFixedNumber(subject.getFixedNumber());
 		result.setPeriod(subject.getPeriod());
 		result.setTime(subject.getTime());
 		result.setWeek(subject.getWeek());
