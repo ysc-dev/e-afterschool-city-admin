@@ -46,7 +46,7 @@
 						</div>
 						<div class="form-group">
 							<label>강사 이름:</label>
-							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요." required>
+							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요.">
 						</div>
 						<div class="form-group">
 							<label>연락처:</label>
@@ -64,7 +64,7 @@
 								</c:forEach>
 							</select>
 						</div> --%>
-						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 추가</button>
+						<button type="submit" class="btn bg-blue-400 btn-block"><i class="icon-paperplane mr-2"></i>강사 등록</button>
 					</form>
 				</div>
 			</div>
@@ -115,7 +115,7 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">전체 강사 이름 : </label>
 						<div class="col-md-6">
-							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요." required>
+							<input type="text" name="content" class="form-control" autocomplete="off" placeholder="강사 전부 입력하세요.">
 						</div>
 					</div>
 					<div class="form-group row">

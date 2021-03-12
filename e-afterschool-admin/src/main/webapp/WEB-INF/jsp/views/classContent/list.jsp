@@ -24,7 +24,7 @@
 					<div class="form-group">
 						<select class="form-control form-control-select2" name="invitation" id="invitationSelect">
 							<c:forEach var="invitation" items="${invitations}" varStatus="status">
-								<option value="${invitation.id}">${invitation.name}</option>
+								<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
 							</c:forEach>
 						</select>
 					</div>

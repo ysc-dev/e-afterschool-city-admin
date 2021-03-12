@@ -2,10 +2,9 @@
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
-  	<c:param name="icon" value="icon-blocked"/>
-  	<c:param name="title" value="수강 대기 조회"/>
-  	<c:param name="content" value="수강 대기 중 목록"/>
-  	<c:param name="lastname" value="수강 대기 조회"/>
+  	<c:param name="icon" value="icon-clipboard3"/>
+  	<c:param name="title" value="만족도 및 설문 조사 조회"/>
+  	<c:param name="lastname" value="만족도 및 설문 조사 조회"/>
 </c:import>
 
 <div class="content">
@@ -29,41 +28,17 @@
 						</c:forEach>
 					</select>
 				</div>
-				<label class="col-form-label mr-2">학교 :</label>
-				<div class="mr-3">
-					<select class="form-control select-search" name="school" data-width="160">
-						<option value="">- 전 체 -</option>
-						<c:forEach var="school" items="${schools}" varStatus="status">
-							<option value="${school.name}">${school.name}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<label class="col-form-label mr-2">학년 :</label>
-				<div class="mr-3">
-					<select class="form-control form-control-select2" name="grade" data-width="100">
-						<option value="0">- 전 체 -</option>
-						<c:forEach var="item" begin="1" end="6" step="1">
-							<option value="${item}">${item} 학년</option>
-						</c:forEach>
-					</select>
-				</div>
 				<button id="searchBtn" class="btn bg-teal-400"><i class="icon-search4 mr-2"></i> 조 회</button>
 			</div>
 			
-			<table class="table table-bordered" id="applyWaitTable">
+			<table class="table table-bordered" id="surveyTable">
 				<thead class="text-center">
 					<tr class="table-active">
 						<th>순번</th>
 						<th>과목</th>
-						<th>수강기간</th>
-						<th>운영시간</th>
-						<th>유형</th>
-						<th>강사명</th>
-						<th>학생명</th>
-						<th>소속(학교명)</th>
-						<th>학년 반 번호</th>
-						<th>연락처</th>
-						<th>신청시간</th>
+						<th>강사</th>
+						<th>점수</th>
+						<th>등록시간</th>
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -103,9 +78,9 @@ $("#invitationSelect").change(function() {
 	}); 
 });
 
-var ApplyManager = function() {
+var SurveyManager = function() {
 	var DataTable = {
-		ele: "#applyWaitTable",
+		ele: "#surveyTable",
 		table: null,
 		option: {
 			columns: [{
@@ -115,18 +90,8 @@ var ApplyManager = function() {
 		    	}
 		    },
 		    { data: "subject.name" },
-		    { data: "subject.period" },
-		    { data: "subject.time" },
-		    { data: "subject.week" },
 		    { data: "subject.teacher.name" },
-		    { data: "student.name" },
-		    { data: "student.school" },
-		    { 
-		    	render: function(data, type, row, meta) {
-		    		return row.student.grade + "학년 " + row.student.classType + "반 " + row.student.number + "번";
-		    	}
-		    },
-		    { data: "student.tel" },
+		    { data: "subject.score" },
 		    { 
 			    render: function(data, type, row, meta) {
 	    			return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
@@ -134,16 +99,13 @@ var ApplyManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
 			this.search();
 		},
 		search: function() {
 			var param = new Object();
-			param.invitationId = $("select[name=invitation]").val();
 			param.subjectId = $("select[name=subject]").val();
-			param.school = $("select[name=school]").val();
-			param.grade = $("select[name=grade]").val();
-			Datatables.rowsAdd(this.table, contextPath + "/apply/wait/search", param);
+			Datatables.rowsAdd(this.table, contextPath + "/survey/search", param);
 		}
 	}
 	
@@ -162,6 +124,6 @@ var ApplyManager = function() {
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	ApplyManager.init();
+	SurveyManager.init();
 });
 </script>
