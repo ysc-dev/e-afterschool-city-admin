@@ -97,6 +97,7 @@ public class StudentServiceImpl implements StudentService {
 		return !studentRepository.existsById(domain.getId());
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Student> get(String name) {
 		return studentRepository.findByName(name);

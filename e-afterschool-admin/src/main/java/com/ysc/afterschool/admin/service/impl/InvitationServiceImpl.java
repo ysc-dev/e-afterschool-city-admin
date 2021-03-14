@@ -73,6 +73,7 @@ public class InvitationServiceImpl implements InvitationService {
 		return invitationRepository.save(domain);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Invitation> getOrderbyList() {
 		return invitationRepository.findAll(sortByIdDesc());

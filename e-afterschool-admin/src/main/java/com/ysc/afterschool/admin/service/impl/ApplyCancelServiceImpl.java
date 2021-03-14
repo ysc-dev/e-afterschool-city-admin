@@ -59,6 +59,7 @@ public class ApplyCancelServiceImpl implements ApplyCancelService {
 		return !applyCancelRepository.existsById(domain.getId());
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<ApplyCancel> getList(ApplySearchParam param) {
 		String subjectId = param.getSubjectId();

@@ -57,7 +57,6 @@ public class SchoolServiceImpl implements SchoolService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<School> getList(SchoolSearchParam param) {
-		System.err.println(param);
 		if (param.getCity().equals("NONE")) {
 			if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
 				return schoolRepository.findBySchoolType(SchoolType.valueOf(param.getSchoolType()));

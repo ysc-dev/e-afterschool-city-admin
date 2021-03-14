@@ -63,6 +63,7 @@ public class CommentServiceImpl implements CommentService {
 		return !commentRepository.existsById(domain.getId());
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Comment> getList(int subjectNoticeId) {
 		return commentRepository.findBySubjectNoticeId(subjectNoticeId);

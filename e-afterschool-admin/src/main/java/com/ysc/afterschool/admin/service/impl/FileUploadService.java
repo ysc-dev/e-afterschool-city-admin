@@ -39,7 +39,6 @@ public class FileUploadService {
 			String extName = originFilename.substring(originFilename.lastIndexOf("."), originFilename.length());
 			Long size = multipartFile.getSize();
 
-			System.err.println(multipartFile.getContentType());
 			// 서버에서 저장 할 파일 이름
 			FileType fileType = FileType.stringToType(multipartFile.getContentType());
 			String saveFileName = getSaveFileName(extName, fileType);

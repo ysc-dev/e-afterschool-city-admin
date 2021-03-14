@@ -110,6 +110,7 @@ public class SubjectServiceImpl implements SubjectService {
 		return !subjectRepository.existsById(domain.getId());
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Subject> getList(int invitationId) {
 		return subjectRepository.findByInvitationId(invitationId);

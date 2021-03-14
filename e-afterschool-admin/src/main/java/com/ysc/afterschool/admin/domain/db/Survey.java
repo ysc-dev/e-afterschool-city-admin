@@ -77,6 +77,9 @@ public class Survey implements Domain {
 	@Column(nullable = false)
 	private ScoreType value10;
 	
+	/** 총 점수 */
+	private int totalScore;
+	
 	/** 등록시간 */
 	@CreationTimestamp
 	private LocalDateTime createDate;

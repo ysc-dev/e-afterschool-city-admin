@@ -67,6 +67,7 @@ public class SurveyServiceImpl implements SurveyService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Survey> getList(SurveySearchParam param) {
-		return null;
+		System.err.println(param);
+		return getList();
 	}
 }

@@ -60,6 +60,16 @@ public class ApplyServiceImpl implements ApplyService {
 		applyRepository.deleteById(id);
 		return true;
 	}
+	
+	@Override
+	public boolean delete(List<Apply> applies) {
+		applyRepository.deleteInBatch(applies);
+		return true;
+	}
+	
+	private boolean isNew(Apply domain) {
+		return !applyRepository.existsById(domain.getId());
+	}
 
 	@Transactional(readOnly = true)
 	@Override
@@ -93,19 +103,10 @@ public class ApplyServiceImpl implements ApplyService {
 		}
 	}
 
-	private boolean isNew(Apply domain) {
-		return !applyRepository.existsById(domain.getId());
-	}
-
+	@Transactional(readOnly = true)
 	@Override
 	public List<Apply> getList(int studentId) {
 		return applyRepository.findByStudentId(studentId);
-	}
-
-	@Override
-	public boolean delete(List<Apply> applies) {
-		applyRepository.deleteInBatch(applies);
-		return true;
 	}
 
 	@Transactional(readOnly = true)
@@ -122,6 +123,7 @@ public class ApplyServiceImpl implements ApplyService {
 		return applies;
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Apply> getListFromSubject(int subjectId) {
 		return applyRepository.findBySubjectId(subjectId);
