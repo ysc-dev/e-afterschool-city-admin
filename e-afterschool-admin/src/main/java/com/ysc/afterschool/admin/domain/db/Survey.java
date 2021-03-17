@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,7 +37,10 @@ public class Survey implements Domain {
 	
 	private int cityId;
 	
-	private int subjectId;
+	/** 과목 */
+	@OneToOne
+    @JoinColumn(name = "subject_id")
+	private Subject subject;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)

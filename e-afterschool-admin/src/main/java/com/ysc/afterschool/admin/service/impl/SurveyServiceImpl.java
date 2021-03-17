@@ -67,7 +67,12 @@ public class SurveyServiceImpl implements SurveyService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Survey> getList(SurveySearchParam param) {
-		System.err.println(param);
+		
+		String subjectId = param.getSubjectId();
+		if (!subjectId.isEmpty()) {
+			return surveyRepository.findBySubjectId(Integer.parseInt(subjectId));
+		}
+		
 		return getList();
 	}
 }
