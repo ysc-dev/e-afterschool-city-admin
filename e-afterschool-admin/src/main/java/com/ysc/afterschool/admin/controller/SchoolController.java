@@ -39,6 +39,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 	
 	/**
 	 * 학교 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -49,6 +50,7 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 
 	/**
 	 * 학교 정보 수정
+	 * 
 	 * @param school
 	 * @return
 	 */

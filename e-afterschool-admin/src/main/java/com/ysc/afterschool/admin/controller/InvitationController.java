@@ -52,6 +52,7 @@ public class InvitationController {
 	
 	/**
 	 * 정보 불러오기
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -63,6 +64,7 @@ public class InvitationController {
 
 	/**
 	 * 안내장 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -72,7 +74,8 @@ public class InvitationController {
 	}
 	
 	/**
-	 * 조회
+	 * 안내장 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -88,6 +91,7 @@ public class InvitationController {
 	
 	/**
 	 * 안내장 등록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("regist")
@@ -97,12 +101,14 @@ public class InvitationController {
 	
 	/**
 	 * 안내장 등록 기능
+	 * 
 	 * @param invitation
 	 * @return
 	 */
 	@PostMapping("regist/file")
 	@ResponseBody 
 	public ResponseEntity<?> regist(Invitation invitation) {
+		
 		invitation.setType(InvitationType.대기);
 		
 		List<InvitationFile> uploadedFiles = new ArrayList<>();
@@ -128,6 +134,7 @@ public class InvitationController {
 	
 	/**
 	 * 안내장 수정
+	 * 
 	 * @param invitation
 	 * @return
 	 */
@@ -170,13 +177,15 @@ public class InvitationController {
 	}
 	
 	/**
-	 * 정보 삭제
+	 * 안내장 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
+		
 		if (invitationService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}

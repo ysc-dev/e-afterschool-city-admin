@@ -30,7 +30,6 @@ import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
 /**
- * 
  * GenericController - 컨트롤러의 공통 기능 추상화(CRUD)
  * 
  * @author hgko

@@ -35,6 +35,7 @@ public class CommentController {
 
 	/**
 	 * 한개의 댓글 정보 불러오기
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -46,6 +47,7 @@ public class CommentController {
 	
 	/**
 	 * 댓글 등록
+	 * 
 	 * @param comment
 	 * @param subjectNoticeId
 	 * @param authentication
@@ -68,6 +70,7 @@ public class CommentController {
 	
 	/**
 	 * 댓글 수정
+	 * 
 	 * @param id
 	 * @param content
 	 * @return
@@ -87,6 +90,7 @@ public class CommentController {
 	
 	/**
 	 * 댓글 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */

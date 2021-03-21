@@ -11,6 +11,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import com.ysc.afterschool.admin.provider.SaveIdLoginSuccessHandler;
 import com.ysc.afterschool.admin.provider.UserAuthenticationProvider;
 
+/**
+ * Spring Security 설정
+ * 
+ * @author hgko
+ *
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -66,6 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	public SaveIdLoginSuccessHandler saveIdLoginSuccessHandler() {
+		
 		SaveIdLoginSuccessHandler handler = new SaveIdLoginSuccessHandler();
 		handler.setDefaultTargetUrl("/home");
 		handler.setAlwaysUseDefaultTargetUrl(true);

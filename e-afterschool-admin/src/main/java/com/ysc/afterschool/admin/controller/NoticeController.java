@@ -52,6 +52,7 @@ public class NoticeController {
 
 	/**
 	 * 공지사항 조회 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -62,6 +63,7 @@ public class NoticeController {
 	
 	/**
 	 * 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -73,6 +75,8 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 등록 화면
+	 * 
+	 * @param model
 	 */
 	@GetMapping("regist")
 	public void regist(Model model) {
@@ -81,6 +85,7 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 등록
+	 * 
 	 * @param notice
 	 * @param authentication
 	 * @return
@@ -124,6 +129,7 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 상세보기 화면
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -142,6 +148,7 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 수정 화면
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -154,6 +161,7 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 정보 수정
+	 * 
 	 * @param notice
 	 * @return
 	 */
@@ -199,6 +207,7 @@ public class NoticeController {
 	
 	/**
 	 * 정보 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -214,6 +223,7 @@ public class NoticeController {
 	
 	/**
 	 * 공지사항 첨부파일 가져오기
+	 * 
 	 * @param id
 	 * @return
 	 */
