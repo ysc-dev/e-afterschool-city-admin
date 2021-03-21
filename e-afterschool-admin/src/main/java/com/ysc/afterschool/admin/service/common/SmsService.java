@@ -44,6 +44,7 @@ public class SmsService {
 
 	/**
 	 * 초기화
+	 * 
 	 * @throws IOException
 	 */
 	public boolean init() throws IOException {
@@ -63,8 +64,10 @@ public class SmsService {
 		OkHttpClient client = new OkHttpClient();
 		Response response = client.newCall(request).execute();
 		log.debug("init response : " + response.toString());
+		
 		if (response.isSuccessful()) {
 			RealResponseBody result = (RealResponseBody) response.body();
+			
 			try {
 				JSONParser jsonParser = new JSONParser();
 				JSONObject jsonObject = (JSONObject) jsonParser.parse(result.string());
@@ -87,7 +90,9 @@ public class SmsService {
 
 	/**
 	 * 메시지 전송
-	 * @param phone
+	 * 
+	 * @param subjectId
+	 * @param message
 	 * @throws IOException
 	 */
 	public void send(int subjectId, String message) throws IOException {
@@ -122,6 +127,13 @@ public class SmsService {
 		}
 	}
 	
+	/**
+	 * 테스트 전송
+	 * 
+	 * @param subjectId
+	 * @param message
+	 * @throws IOException
+	 */
 	public void test(int subjectId, String message) throws IOException {
 		
 		Subject subject = subjectService.get(subjectId);

@@ -55,7 +55,7 @@ public class SmsController {
 	public ResponseEntity<?> regist(SmsInfo smsInfo) {
 		
 		try {
-			//smsService.test(smsInfo.getSubjectId(), smsInfo.getContent());
+			smsService.send(smsInfo.getSubjectId(), smsInfo.getContent());
 			
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
