@@ -39,6 +39,7 @@ public class SmsController {
 	
 	/**
 	 * 발송 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("send")
@@ -50,6 +51,12 @@ public class SmsController {
 		}
 	}
 	
+	/**
+	 * SMS 전송
+	 * 
+	 * @param smsInfo
+	 * @return
+	 */
 	@PostMapping("regist")
 	@ResponseBody
 	public ResponseEntity<?> regist(SmsInfo smsInfo) {

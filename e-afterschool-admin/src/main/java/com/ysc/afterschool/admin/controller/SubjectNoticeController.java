@@ -50,6 +50,7 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 과목별 공지사항 조회 화면
+	 * 
 	 * @param model
 	 * @param id
 	 * @return
@@ -62,7 +63,8 @@ public class SubjectNoticeController {
 	}
 	
 	/**
-	 * 조회
+	 * 과목별 공지사항 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -74,6 +76,7 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 과목별 공지사항 등록 화면
+	 * 
 	 * @param model
 	 * @param id
 	 * @return
@@ -86,6 +89,7 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 과목별 공지사항 등록 기능
+	 * 
 	 * @param subjectNotice
 	 * @param authentication
 	 * @return
@@ -95,6 +99,7 @@ public class SubjectNoticeController {
 	public ResponseEntity<?> notice(SubjectNotice subjectNotice, Authentication authentication) {
 		
 		List<SubjectNoticeFile> uploadedFiles = new ArrayList<>();
+		
 		for (MultipartFile file : subjectNotice.getFiles()) {
 			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
@@ -120,12 +125,14 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 공지사항 상세보기 화면
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
 	@GetMapping("detail/{id}")
 	public String detail(@PathVariable int id, Model model) {
+		
 		SubjectNotice notice = subjectNoticeService.get(id);
 		model.addAttribute("subjectNotice", notice);
 		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss"));
@@ -139,12 +146,14 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 정보 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
 	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
+		
 		if (subjectNoticeService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
@@ -154,6 +163,7 @@ public class SubjectNoticeController {
 	
 	/**
 	 * 공지사항 첨부파일 가져오기
+	 * 
 	 * @param id
 	 * @return
 	 */

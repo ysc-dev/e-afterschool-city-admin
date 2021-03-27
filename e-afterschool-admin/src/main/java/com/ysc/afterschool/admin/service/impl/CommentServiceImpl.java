@@ -11,6 +11,12 @@ import com.ysc.afterschool.admin.domain.param.SearchParam;
 import com.ysc.afterschool.admin.repository.CommentRepository;
 import com.ysc.afterschool.admin.service.CommentService;
 
+/**
+ * 댓글 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -18,6 +24,7 @@ public class CommentServiceImpl implements CommentService {
 	@Autowired
 	private CommentRepository commentRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Comment get(Integer id) {
 		return commentRepository.findById(id).get();

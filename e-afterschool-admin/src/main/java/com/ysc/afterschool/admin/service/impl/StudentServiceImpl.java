@@ -13,6 +13,12 @@ import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.StudentRepository;
 import com.ysc.afterschool.admin.service.StudentService;
 
+/**
+ * 학생 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -26,6 +32,7 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
 	
+	@Transactional(readOnly = true)
 	@Override
 	public Student get(Integer id) {
 		return studentRepository.findById(id).get();

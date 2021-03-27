@@ -36,13 +36,16 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 	}
 
 	/**
-	 * 조회 화면
+	 * 만족도 및 설문 조사 조회 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
 	public void list(Model model) {
+		
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
+		
 		if (invitations.size() > 0) {
 			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
 		}

@@ -56,6 +56,7 @@ public class Apply implements Domain {
 	/** 학년 */
 	private int grade;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	

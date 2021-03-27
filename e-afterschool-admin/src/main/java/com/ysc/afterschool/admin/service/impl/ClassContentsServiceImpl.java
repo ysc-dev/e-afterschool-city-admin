@@ -11,6 +11,12 @@ import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
 import com.ysc.afterschool.admin.repository.ClassContentsRepository;
 import com.ysc.afterschool.admin.service.ClassContentsService;
 
+/**
+ * 횟부별 수업 관리
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class ClassContentsServiceImpl implements ClassContentsService {
@@ -18,6 +24,7 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 	@Autowired
 	private ClassContentsRepository classContentsRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public ClassContents get(Integer id) {
 		return classContentsRepository.findById(id).get();

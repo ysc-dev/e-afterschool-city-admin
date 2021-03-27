@@ -56,6 +56,7 @@ public class Student extends AbstractDomain {
 	@Column(length = 15)
 	private String residentNumber;
 	
+	/** 대상학년 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private TargetType targetType;

@@ -40,21 +40,27 @@ public class ClassContents implements Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	/** 과목 ID */
 	private int subjectId;
 	
+	/** 사용자 ID */
 	@Column(nullable = false, length = 45)
 	private String userId;
 	
+	/** 사용자이름 */
 	@Column(nullable = false, length = 100)
 	private String userName;
 	
+	/** 수업내용 */
 	@Lob
 	@NotNull
 	private String content;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	/** 첨부파일 */
 	@OneToMany(mappedBy = "classContents", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<SubjectUploadedFile> uploadedFiles;

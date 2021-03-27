@@ -47,9 +47,11 @@ public class InvitationFile implements Domain {
 	/** 파일 사이즈 */
 	private Long size;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	/** 안내장 */
 	@ManyToOne
 	@JoinColumn(name = "invitation_id")
     @JsonIgnore

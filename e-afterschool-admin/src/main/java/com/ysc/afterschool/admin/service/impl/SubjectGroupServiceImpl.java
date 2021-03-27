@@ -11,6 +11,12 @@ import com.ysc.afterschool.admin.domain.param.SearchParam;
 import com.ysc.afterschool.admin.repository.SubjectGroupRepository;
 import com.ysc.afterschool.admin.service.SubjectGroupService;
 
+/**
+ * 과목 그룹 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class SubjectGroupServiceImpl implements SubjectGroupService {
@@ -18,6 +24,7 @@ public class SubjectGroupServiceImpl implements SubjectGroupService {
 	@Autowired
 	private SubjectGroupRepository subjectGroupRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public SubjectGroup get(Integer id) {
 		return subjectGroupRepository.findById(id).get();

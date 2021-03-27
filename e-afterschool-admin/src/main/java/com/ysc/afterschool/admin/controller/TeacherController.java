@@ -35,6 +35,7 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 
 	/**
 	 * 강사 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -44,11 +45,13 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	
 	/**
 	 * 강사 정보 수정
+	 * 
 	 * @param teacher
 	 * @return
 	 */
 	@Override
 	public Mono<ResponseEntity<?>> update(Teacher teacher) {
+		
 		Teacher result = teacherService.get(teacher.getId());
 		result.setTel(teacher.getTel());
 		result.setEmail(teacher.getEmail());

@@ -43,6 +43,7 @@ public class Teacher extends AbstractDomain {
 	@Enumerated(EnumType.ORDINAL)
 	private Sex sex;
 	
+	/** 과목 ID */
 	private int subjectId;
 	
 	public enum Sex {

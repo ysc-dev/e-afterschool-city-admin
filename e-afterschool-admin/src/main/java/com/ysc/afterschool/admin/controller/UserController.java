@@ -24,10 +24,13 @@ public class UserController {
 
 	/**
 	 * 사용자 정보 화면
+	 * 
 	 * @param model
+	 * @param authentication
 	 */
 	@GetMapping("profile")
 	public void profile(Model model, Authentication authentication) {
+		
 		User user = (User) authentication.getPrincipal();
 		model.addAttribute("user", user);
 		model.addAttribute("userRoles", UserRole.values());
@@ -35,6 +38,7 @@ public class UserController {
 	
 	/**
 	 * 사용자 정보 수정
+	 * 
 	 * @param user
 	 * @return
 	 */

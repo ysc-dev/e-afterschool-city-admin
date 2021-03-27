@@ -13,7 +13,9 @@ import lombok.Data;
 @Data
 public class SmsInfo implements Domain {
 
+	/** 내용 */
 	private String content;
 	
+	/** 과목 ID */
 	private int subjectId;
 }

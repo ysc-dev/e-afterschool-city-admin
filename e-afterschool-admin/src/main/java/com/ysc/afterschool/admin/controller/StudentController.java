@@ -53,6 +53,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 학생 조회 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -63,6 +64,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 학생 정보 수정
+	 * 
 	 * @param student
 	 * @return
 	 */
@@ -96,6 +98,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 학생 정보 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -115,6 +118,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 수강 이력 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("apply")
@@ -123,6 +127,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	
 	/**
 	 * 수강 이력 조회
+	 * 
 	 * @param param
 	 * @return
 	 */

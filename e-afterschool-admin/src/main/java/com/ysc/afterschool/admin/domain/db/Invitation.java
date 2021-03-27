@@ -34,9 +34,9 @@ import lombok.Getter;
 @Table(name = "tb_invitation")
 @Data
 @EqualsAndHashCode(callSuper = false)
-//@ToString(exclude = { "uploadedFiles" })
 public class Invitation extends AbstractDomain {
 
+	/** 안내장명 */
 	@Column(nullable = false, length = 255)
 	private String name;
 	
@@ -44,9 +44,11 @@ public class Invitation extends AbstractDomain {
 	@Column(nullable = false, length = 45)
 	private String deadlineDate;
 	
+	/** 설명 */
 	@Column(length = 255)
 	private String description;
 	
+	/** 안내장 타입 */
 	@Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
 	private InvitationType type;
@@ -56,6 +58,7 @@ public class Invitation extends AbstractDomain {
     @JoinColumn(name = "city_id")
 	private City city;
 	
+	/** 첨부파일 */
 	@OneToMany(mappedBy = "invitation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Fetch(FetchMode.SELECT)
 	private List<InvitationFile> uploadedFiles;

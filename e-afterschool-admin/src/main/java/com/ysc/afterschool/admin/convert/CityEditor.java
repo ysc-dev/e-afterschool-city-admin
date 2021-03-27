@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 
 import com.ysc.afterschool.admin.repository.CityRepository;
 
+/**
+ * 도시 컬럼 변환
+ * 
+ * @author hgko
+ *
+ */
 @Component
 @Scope("prototype")
 public class CityEditor extends PropertyEditorSupport {

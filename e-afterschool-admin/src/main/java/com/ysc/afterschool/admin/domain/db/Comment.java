@@ -48,10 +48,12 @@ public class Comment implements Domain {
 	@Column(nullable = false, length = 100)
 	private String userName;
 	
+	/** 댓글내용 */
 	@Lob
 	@NotNull
 	private String content;
 
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 }

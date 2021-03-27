@@ -12,6 +12,12 @@ import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.InvitationRepository;
 import com.ysc.afterschool.admin.service.InvitationService;
 
+/**
+ * 안내장 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class InvitationServiceImpl implements InvitationService {
@@ -19,6 +25,7 @@ public class InvitationServiceImpl implements InvitationService {
 	@Autowired
 	private InvitationRepository invitationRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Invitation get(Integer id) {
 		return invitationRepository.findById(id).get();

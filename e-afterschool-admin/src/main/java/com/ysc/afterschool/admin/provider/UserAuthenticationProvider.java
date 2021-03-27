@@ -15,6 +15,12 @@ import org.springframework.stereotype.Component;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.service.UserService;
 
+/**
+ * 사용자 인증 관리
+ * 
+ * @author hgko
+ *
+ */
 @Component
 public class UserAuthenticationProvider implements AuthenticationProvider {
 

@@ -50,9 +50,11 @@ public class SubjectUploadedFile implements Domain {
 	/** 파일 사이즈 */
 	private Long size;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	/** 파일타입 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private FileType fileType;

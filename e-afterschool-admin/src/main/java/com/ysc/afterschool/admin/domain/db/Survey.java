@@ -35,6 +35,7 @@ public class Survey implements Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	/** 도시 ID */
 	private int cityId;
 	
 	/** 과목 */

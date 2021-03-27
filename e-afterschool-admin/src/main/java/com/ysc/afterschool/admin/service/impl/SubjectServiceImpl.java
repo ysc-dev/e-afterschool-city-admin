@@ -16,6 +16,12 @@ import com.ysc.afterschool.admin.repository.SubjectNoticeRepository;
 import com.ysc.afterschool.admin.repository.SubjectRepository;
 import com.ysc.afterschool.admin.service.SubjectService;
 
+/**
+ * 과목 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class SubjectServiceImpl implements SubjectService {
@@ -38,6 +44,7 @@ public class SubjectServiceImpl implements SubjectService {
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Subject get(Integer id) {
 		return subjectRepository.findById(id).get();

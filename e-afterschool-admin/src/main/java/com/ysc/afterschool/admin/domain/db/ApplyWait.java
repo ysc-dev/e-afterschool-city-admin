@@ -49,6 +49,7 @@ public class ApplyWait implements Domain {
 	/** 대기 순서 */
 	private int orderNumber;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 }

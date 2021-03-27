@@ -16,6 +16,12 @@ import com.ysc.afterschool.admin.repository.ApplyRepository;
 import com.ysc.afterschool.admin.service.ApplyService;
 import com.ysc.afterschool.admin.service.StudentService;
 
+/**
+ * 수강 신청 관리
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class ApplyServiceImpl implements ApplyService {
@@ -26,6 +32,7 @@ public class ApplyServiceImpl implements ApplyService {
 	@Autowired
 	private StudentService studentService;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Apply get(Integer id) {
 		return applyRepository.findById(id).get();

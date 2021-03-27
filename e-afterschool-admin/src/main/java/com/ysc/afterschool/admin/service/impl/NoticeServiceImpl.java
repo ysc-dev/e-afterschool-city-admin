@@ -12,6 +12,12 @@ import com.ysc.afterschool.admin.domain.param.NoticeSearchParam.NoticeSearchType
 import com.ysc.afterschool.admin.repository.NoticeRepository;
 import com.ysc.afterschool.admin.service.NoticeService;
 
+/**
+ * 공지사항 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -19,6 +25,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	private NoticeRepository noticeRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Notice get(Integer id) {
 		return noticeRepository.findById(id).get();

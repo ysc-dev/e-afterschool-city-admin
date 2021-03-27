@@ -23,6 +23,11 @@ public class SubjectGroupController extends AbstractController<SubjectGroup, Sea
 		super(crudService);
 	}
 
+	/**
+	 * 과목 그룹 조회 화면
+	 * 
+	 * @param model
+	 */
 	@GetMapping("list")
 	public void list(Model model) {
 	}

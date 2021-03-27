@@ -14,6 +14,12 @@ import com.ysc.afterschool.admin.domain.db.User;
 
 import lombok.Setter;
 
+/**
+ * 로그인 성공 관리
+ * 
+ * @author hgko
+ *
+ */
 @Setter
 public class SaveIdLoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 

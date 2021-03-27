@@ -45,9 +45,11 @@ public class UploadedFile implements Domain {
 	@Column(nullable = false, length = 100)
 	private String contentType;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	/** 공지사항 */
 	@ManyToOne
 	@JoinColumn(name = "notice_id")
     @JsonIgnore

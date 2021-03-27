@@ -35,27 +35,35 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class Notice extends AbstractDomain {
 
+	/** 제목 */
 	@NotNull
 	private String title;
 
+	/** 내용 */
 	@Lob
 	@NotNull
 	private String content;
 
+	/** 중요도 */
 	@Enumerated(EnumType.STRING)
 	private PostStatus status;
 	
+	/** 도시명 */
 	@Column(nullable = false, length = 20)
 	private String city;
 	
+	/** 조회수 */
 	private int hit;
 	
+	/** 등록사용자ID */
 	@Column(nullable = false, length = 20)
 	private String userId;
 	
+	/** 등록사용자명 */
 	@Column(nullable = false, length = 100)
 	private String userName;
 	
+	/** 첨부파일 */
 	@OneToMany(mappedBy = "notice", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<UploadedFile> uploadedFiles;

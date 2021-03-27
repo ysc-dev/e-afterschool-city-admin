@@ -33,13 +33,16 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class SubjectNotice extends AbstractDomain {
 
+	/** 제목 */
 	@NotNull
 	private String title;
 
+	/** 내용 */
 	@Lob
 	@NotNull
 	private String content;
 	
+	/** 조회수 */
 	private int hit;
 	
 	/** 공지사항일 경우 또는 중요할 공지일 경우 */
@@ -52,12 +55,15 @@ public class SubjectNotice extends AbstractDomain {
 	@Column(nullable = false, length = 100)
 	private String userName;
 	
+	/** 과목 ID */
 	private int subjectId;
 	
+	/** 댓글 */
 	@OneToMany(mappedBy = "subjectNotice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Comment> comments;
 	
+	/** 첨부파일 */
 	@OneToMany(mappedBy = "subjectNotice", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<SubjectNoticeFile> uploadedFiles;

@@ -12,6 +12,12 @@ import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
 import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
 import com.ysc.afterschool.admin.service.ApplyCancelService;
 
+/**
+ * 수강 취소 관리
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class ApplyCancelServiceImpl implements ApplyCancelService {

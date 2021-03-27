@@ -47,6 +47,7 @@ public class SubjectNoticeFile implements Domain {
 	/** 파일 사이즈 */
 	private Long size;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	

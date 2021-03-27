@@ -51,6 +51,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 
 	/**
 	 * 과목 조회 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -64,6 +65,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	
 	/**
 	 * 과목 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
@@ -85,6 +87,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	
 	/**
 	 * 과목 등록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("regist")
@@ -98,6 +101,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	
 	/**
 	 * 과목 등록
+	 * 
 	 * @param subject
 	 * @return
 	 */
@@ -114,6 +118,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	
 	/**
 	 * 과목 정보 수정
+	 * 
 	 * @param subject
 	 * @return
 	 */

@@ -11,6 +11,12 @@ import com.ysc.afterschool.admin.domain.param.TeacherSearchParam;
 import com.ysc.afterschool.admin.repository.TeacherRepository;
 import com.ysc.afterschool.admin.service.TeacherService;
 
+/**
+ * 강사 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class TeacherServiceImpl implements TeacherService {

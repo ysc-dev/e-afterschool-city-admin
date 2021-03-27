@@ -12,17 +12,26 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
+/**
+ * 공통 도메인
+ * 
+ * @author hgko
+ *
+ */
 @MappedSuperclass
 @Data
 public abstract class AbstractDomain implements Domain {
 
+	/** ID */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	/** 수정일시 */
 	@UpdateTimestamp
 	private LocalDateTime updateDate;
 }

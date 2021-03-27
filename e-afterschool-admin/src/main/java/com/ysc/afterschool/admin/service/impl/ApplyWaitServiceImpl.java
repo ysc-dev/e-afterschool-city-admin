@@ -12,6 +12,12 @@ import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
 import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.service.ApplyWaitService;
 
+/**
+ * 수강 대기 관리
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class ApplyWaitServiceImpl implements ApplyWaitService {
@@ -19,6 +25,7 @@ public class ApplyWaitServiceImpl implements ApplyWaitService {
 	@Autowired
 	private ApplyWaitRepository applyWaitRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public ApplyWait get(Integer id) {
 		return applyWaitRepository.findById(id).get();

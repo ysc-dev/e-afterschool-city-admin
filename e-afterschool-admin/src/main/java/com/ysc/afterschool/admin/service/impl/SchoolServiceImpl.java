@@ -12,6 +12,12 @@ import com.ysc.afterschool.admin.domain.param.SchoolSearchParam;
 import com.ysc.afterschool.admin.repository.SchoolRepository;
 import com.ysc.afterschool.admin.service.SchoolService;
 
+/**
+ * 학교 관리 서비스
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class SchoolServiceImpl implements SchoolService {
@@ -19,6 +25,7 @@ public class SchoolServiceImpl implements SchoolService {
 	@Autowired
 	private SchoolRepository schoolRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public School get(Integer id) {
 		return schoolRepository.findById(id).get();

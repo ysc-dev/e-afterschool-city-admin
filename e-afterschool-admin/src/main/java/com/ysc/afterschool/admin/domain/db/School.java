@@ -31,10 +31,12 @@ public class School extends AbstractDomain {
 	/** 학생 수 */
 	private int number;
 	
+	/** 학교타입 */
 	@Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
 	private SchoolType schoolType;
 	
+	/** 도시 */
 	@Column(length = 45)
 	private String city;
 	

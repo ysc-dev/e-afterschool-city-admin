@@ -35,12 +35,15 @@ public class User extends AbstractDomain {
 	@Column(nullable = false, length = 100)
 	private String password;
 	
+	/** 이메일 */
 	@Column(length = 45)
 	private String email;
 	
+	/** 연락처 */
 	@Column(length = 20)
 	private String tel;
 	
+	/** 권한 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private UserRole role;

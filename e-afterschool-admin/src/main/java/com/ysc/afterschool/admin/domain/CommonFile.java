@@ -3,6 +3,12 @@ package com.ysc.afterschool.admin.domain;
 import lombok.Data;
 import lombok.Getter;
 
+/**
+ * 공통 파일 형식
+ * 
+ * @author hgko
+ *
+ */
 @Data
 public class CommonFile {
 	

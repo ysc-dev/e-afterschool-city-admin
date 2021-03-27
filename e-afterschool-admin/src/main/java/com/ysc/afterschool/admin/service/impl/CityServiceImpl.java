@@ -11,6 +11,12 @@ import com.ysc.afterschool.admin.domain.db.City;
 import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.service.CityService;
 
+/**
+ * 도시 관리
+ * 
+ * @author hgko
+ *
+ */
 @Transactional
 @Service
 public class CityServiceImpl implements CityService {
@@ -18,6 +24,7 @@ public class CityServiceImpl implements CityService {
 	@Autowired
 	private CityRepository cityRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public City get(Integer id) {
 		return cityRepository.findById(id).get();
