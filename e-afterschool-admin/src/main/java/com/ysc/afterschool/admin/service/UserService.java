@@ -1,18 +1,11 @@
 package com.ysc.afterschool.admin.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.ysc.afterschool.admin.domain.db.User;
-import com.ysc.afterschool.admin.repository.UserRepository;
+import com.ysc.afterschool.admin.domain.param.SearchParam;
 
-@Service
-public class UserService {
+public interface UserService extends CRUDService<User, SearchParam, Integer> {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	public User login(String userId, String password) {
-		return userRepository.findByUserIdAndPassword(userId, password);
-	}
+	User login(String userId, String password);
+
+	User get(String userId);
 }

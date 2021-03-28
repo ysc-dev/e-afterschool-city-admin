@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
-	<title>방과후학교 관리시스템</title>
+	<title>방과후학교 관리시스템 로그인</title>
 	
 	<c:set var="contextName">${pageContext.request.contextPath}</c:set>
 	
@@ -37,13 +37,15 @@
 	<script src="limitless/js/app.js"></script>
 	<!-- /theme JS files -->
 	
+	<!-- Custom JS files -->
 	<script src="js/login.js"></script>
+	<!-- /Custom JS files -->
 </head>
 <body>
 	<div class="page-content">
 		<div class="content-wrapper">
 			<div class="content d-flex justify-content-center align-items-center">
-				<form class="form-validate col-xl-7 col-11" action="${pageContext.request.contextPath}/login" method="POST">
+				<form class="form-validate col-xl-7 col-11" action="${contextName}/login" method="POST">
 					<div class="card bg-authentication mb-0">
 						<div class="row m-0">
 							<div class="col-md-6 col-12 bg-white">
@@ -87,6 +89,16 @@
 									
 									<div class="form-group mt-4">
 										<button type="submit" class="btn btn-primary btn-block">로그인<i class="icon-circle-right2 ml-2"></i></button>
+									</div>
+									
+									<div class="form-group text-center text-muted content-divider">
+										<span class="px-2">계정이 없습니까?</span>
+									</div>
+									
+									<div class="form-group">
+										<a href="${pageContext.request.contextPath}/signup" class="btn btn-light btn-block">
+											회원가입<i class="icon-circle-right2 ml-2"></i>
+										</a>
 									</div>
 								</div>
 							</div>

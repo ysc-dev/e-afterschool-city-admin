@@ -6,4 +6,6 @@ public interface UserRepository extends DefaultRepository<User, Integer> {
 
 	User findByUserIdAndPassword(String userId, String password);
 
+	User findByUserId(String userId);
+
 }
