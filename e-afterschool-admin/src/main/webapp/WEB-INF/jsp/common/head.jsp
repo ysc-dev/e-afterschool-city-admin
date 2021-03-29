@@ -9,7 +9,7 @@
 	<title>방과후학교 관리시스템</title>
 	
 	<script>
-		var contextPath = "${pageContext.request.contextPath}";
+		const contextPath = "${pageContext.request.contextPath}";
 	</script>
 	
 	<c:set var="contextName">${pageContext.request.contextPath}</c:set>

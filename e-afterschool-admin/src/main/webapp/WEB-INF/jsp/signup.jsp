@@ -10,6 +10,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
 	<title>방과후학교 관리시스템 회원가입</title>
 	
+	<script>
+		const contextPath = "${pageContext.request.contextPath}";
+	</script>
+	
 	<c:set var="contextName">${pageContext.request.contextPath}</c:set>
 	
 	<!-- Global stylesheets -->
@@ -23,6 +27,7 @@
 	<!-- /global stylesheets -->
 	
 	<!-- Custom stylesheets -->
+	<link href="${contextName}/css/common.css" rel="stylesheet" type="text/css">
 	<link href="${contextName}/css/user.css" rel="stylesheet" type="text/css">
 	<!-- /Custom stylesheets -->
 	
@@ -36,10 +41,13 @@
 	<script src="limitless/js/plugins/forms/validation/validate.min.js"></script>
 	<script src="limitless/js/plugins/forms/styling/uniform.min.js"></script>
 	
+	<script src="limitless/js/plugins/notifications/sweet_alert.min.js"></script>
+	
 	<script src="limitless/js/app.js"></script>
 	<!-- /theme JS files -->
 	
 	<!-- Custom JS files -->
+	<script src="${contextName}/js/common.js"></script>
 	<script src="${contextName}/js/signup.js"></script>
 	<!-- /Custom JS files -->
 </head>
@@ -47,7 +55,8 @@
     <div class="page-content">
         <div class="content-wrapper">
             <div class="content d-flex justify-content-center align-items-center">
-                 <form:form modelAttribute="user" cssClass="form-validate col-xl-4 col-11" action="${contextName}/signup" method="post">
+                 <form:form id="registForm" modelAttribute="user" cssClass="form-validate col-xl-4 col-11" 
+                 	action="${contextName}/user/signup" method="post">
                 	<div class="card mb-0">
                 		<div class="card-body px-md-5 py-md-4">
                 			<div class="text-center mb-3">
@@ -61,14 +70,14 @@
                             </div>
                             
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <form:input path="userId" type="text" cssClass="form-control" placeholder="강사 ID" required="required" />
+                                <form:input path="userId" type="text" cssClass="form-control" placeholder="사용자 ID" required="required" />
                                 <div class="form-control-feedback">
                                     <i class="icon-user-check text-muted"></i>
                                 </div>
                             </div>
                             
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <form:input path="name" type="text" cssClass="form-control" placeholder="강사명" required="required" />
+                                <form:input path="name" type="text" cssClass="form-control" placeholder="사용자명" required="required" />
                                 <div class="form-control-feedback">
                                     <i class="icon-user-check text-muted"></i>
                                 </div>
@@ -99,16 +108,12 @@
                             </div>
 
                             <button type="submit" class="btn bg-primary btn-block">회원 등록<i class="icon-circle-right2 ml-2"></i></button>
-                            <a href="javascript:history.back(-1);" class="btn btn-light btn-block mt-2">취 소<i class="icon-circle-right2 ml-2"></i></a>
+                            <a href="javascript:history.back(-1);" class="btn btn-light btn-block mt-2">취 소<i class="icon-circle-left2 ml-2"></i></a>
                 		</div>
                 	</div>
                 </form:form>
             </div>
         </div>
     </div>
-    
-    <script type="text/javascript">
-
-    </script>
 </body>
 </html>

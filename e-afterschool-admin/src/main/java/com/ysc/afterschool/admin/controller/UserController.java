@@ -69,4 +69,23 @@ public class UserController {
 		
 		return false;
 	}
+	
+	/**
+	 * 회원가입
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@PostMapping("signup")
+	public ResponseEntity<?> regist(User user) {
+		user.setRole(UserRole.GUEST);
+		
+		System.err.println(user);
+		
+		if (userService.regist(user)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 }

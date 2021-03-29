@@ -101,6 +101,26 @@ const SignupValidation = function() {
                     minlength: "{0}자 이상 입력하세요.",
                     equalTo: "위와 동일한 비밀번호를 입력하세요."
                 }
+            },
+            submitHandler: function(form) {
+            	$.ajax({
+    				url: form.action,
+    				type: 'POST',
+    				data: $(form).serialize(),
+    				success: function(response) {
+    		       		swalInit.fire({
+    		   				title: "회원가입 완료되었습니다.", 
+    		   				type: "success"
+    		   			}).then(function(e) {
+    		   				location.href = contextPath + "/login";
+    		   			});
+    		       	},
+    		       	error: function(response) {
+    		        	swalInit.fire({title: "회원가입을 실패하였습니다.", type: "error"})
+    		        }
+    			});
+    			
+    			return false;
             }
         });
     }

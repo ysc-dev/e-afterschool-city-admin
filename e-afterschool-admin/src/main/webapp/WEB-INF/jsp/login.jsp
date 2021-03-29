@@ -91,7 +91,7 @@
 										<button type="submit" class="btn btn-primary btn-block">로그인<i class="icon-circle-right2 ml-2"></i></button>
 									</div>
 									
-									<div class="form-group text-center text-muted content-divider">
+									<%-- <div class="form-group text-center text-muted content-divider">
 										<span class="px-2">계정이 없습니까?</span>
 									</div>
 									
@@ -99,7 +99,7 @@
 										<a href="${pageContext.request.contextPath}/signup" class="btn btn-light btn-block">
 											회원가입<i class="icon-circle-right2 ml-2"></i>
 										</a>
-									</div>
+									</div> --%>
 								</div>
 							</div>
 							<div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
