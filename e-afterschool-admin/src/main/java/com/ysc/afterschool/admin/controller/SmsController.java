@@ -1,5 +1,6 @@
 package com.ysc.afterschool.admin.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.SmsInfo;
+import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
 import com.ysc.afterschool.admin.service.common.SmsService;
@@ -47,7 +49,11 @@ public class SmsController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
-			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
+			if (subjects.size() > 0)
+				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			else 
+				model.addAttribute("subjects", Arrays.asList(new Subject(0, "등록된 과목 없음")));
 		}
 	}
 	

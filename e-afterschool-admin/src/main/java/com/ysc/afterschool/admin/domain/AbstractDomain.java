@@ -25,7 +25,7 @@ public abstract class AbstractDomain implements Domain {
 	/** ID */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	protected int id;
 	
 	/** 생성일시 */
 	@CreationTimestamp

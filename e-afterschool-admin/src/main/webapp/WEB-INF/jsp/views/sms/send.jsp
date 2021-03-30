@@ -64,14 +64,37 @@
 
 <script>
 $(document).ready(function() {
+	$("#invitationSelect").change(function() {
+		$("#subjectSelect").empty();
+		
+		$.ajax({
+			url: contextPath + "/classContent/subject/list",
+			type: "GET",
+			data: {"invitationId": $(this).val()},
+			success: function(response) {
+				if (response.length > 0) {
+					$.each(response, function (i, item) {
+						$('#subjectSelect').append($('<option>', {
+						    value: item.id,
+						    text: item.name
+						}));
+					});
+				} else {
+					$('#subjectSelect').append($('<option>', {
+					    value: 0,
+					    text: "등록된 과목 없음"
+					}));
+				}
+	       	}
+		}); 
+	});
+	
 	String.prototype.getBytes = function() {
 	    var contents = this;
 	    var str_character;
-	    var int_char_count;
-	    var int_contents_length;
 	 
-	    int_char_count = 0;
-	    int_contents_length = contents.length;
+	    var int_char_count = 0;
+	    var int_contents_length = contents.length;
 	 
 	    for (k = 0; k < int_contents_length; k++) {
 	        str_character = contents.charAt(k);
@@ -86,13 +109,11 @@ $(document).ready(function() {
 	String.prototype.getStringFromByteLength = function( byteLength ) {
 	    var contents = this;
 	    var str_character;
-	    var int_char_count;
-	    var int_contents_length;
 	     
 	    var returnValue = "";
 	     
-	    int_char_count = 0;
-	    int_contents_length = contents.length;
+	    var int_char_count = 0;
+	    var int_contents_length = contents.length;
 	     
 	    for (k = 0; k < int_contents_length; k++) {
 	        str_character = contents.charAt(k);
@@ -101,7 +122,7 @@ $(document).ready(function() {
 	        else
 	            int_char_count++;
 	         
-	        if ( int_char_count > byteLength ) {
+	        if (int_char_count > byteLength) {
 	            break;
 	        }
 	        returnValue += str_character;
@@ -131,6 +152,13 @@ $(document).ready(function() {
 	
 	$("#registForm").submit(function(e) {
 		e.preventDefault();
+
+		const subject = $("#subjectSelect").val();
+		if (subject == null || subject == 0) {
+			swalInit.fire({title: "과목을 선택하세요.", type: "warning", position: 'top'});
+			return;
+		}
+		
 		var form = $(this);
 		var url = form.attr('action');
 		var data = form.serializeObject();

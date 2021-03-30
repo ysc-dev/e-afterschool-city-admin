@@ -15,6 +15,7 @@ import com.ysc.afterschool.admin.domain.db.Student.TargetType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * 수강 과목 관리 도메인
@@ -26,6 +27,7 @@ import lombok.Getter;
 @Table(name = "tb_subject")
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public class Subject extends AbstractDomain {
 
 	/** 이름 */
@@ -95,6 +97,11 @@ public class Subject extends AbstractDomain {
 	
 	@Transient
 	private String target;
+	
+	public Subject(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 	
 	@Getter
 	public enum GradeType { 

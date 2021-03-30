@@ -1,5 +1,6 @@
 package com.ysc.afterschool.admin.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,11 @@ public class ApplyController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
-			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
+			if (subjects.size() > 0)
+				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			else 
+				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 신청 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
@@ -97,7 +102,11 @@ public class ApplyController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
-			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
+			if (subjects.size() > 0)
+				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			else 
+				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 대기 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
@@ -122,7 +131,11 @@ public class ApplyController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
-			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
+			if (subjects.size() > 0)
+				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
+			else 
+				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 취소 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
