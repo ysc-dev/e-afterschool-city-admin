@@ -104,6 +104,7 @@
 							<th>학교 명</th>
 							<th>학생 수</th>
 							<th>지역</th>
+							<th>수정일시</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -221,7 +222,13 @@ var SchoolManager = function() {
 		    }, 
 		    { data: "name" }, 
 		    { data: "number" }, 
-		    { data: "city" }, 
+		    { data: "city" },
+		    {
+		    	width: "15%",
+		    	render: function(data, type, row, meta) {
+		    		return moment(new Date(row.updateDate)).format("YYYY-MM-DD HH:mm:ss");
+		    	}
+		    },
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {

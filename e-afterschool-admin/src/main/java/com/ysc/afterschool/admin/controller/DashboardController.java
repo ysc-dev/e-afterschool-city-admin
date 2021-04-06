@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.ysc.afterschool.admin.service.ApplyCancelService;
 import com.ysc.afterschool.admin.service.ApplyService;
+import com.ysc.afterschool.admin.service.ApplyWaitService;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.NoticeService;
 import com.ysc.afterschool.admin.service.SchoolService;
@@ -46,6 +48,12 @@ public class DashboardController {
 	private ApplyService applyService;
 	
 	@Autowired
+	private ApplyWaitService applyWaitService;
+	
+	@Autowired
+	private ApplyCancelService applyCancelService;
+	
+	@Autowired
 	private NoticeService noticeService;
 	
 	@Autowired
@@ -65,6 +73,8 @@ public class DashboardController {
 		model.addAttribute("subjectGroups", subjectGroupService.getList().size());
 		model.addAttribute("subjects", subjectService.getList().size());
 		model.addAttribute("applies", applyService.getList().size());
+		model.addAttribute("applyWaits", applyWaitService.getList().size());
+		model.addAttribute("applyCancels", applyCancelService.getList().size());
 		model.addAttribute("notices", noticeService.getList().size());
 		model.addAttribute("surveyList", surveyService.getList().size());
 	}

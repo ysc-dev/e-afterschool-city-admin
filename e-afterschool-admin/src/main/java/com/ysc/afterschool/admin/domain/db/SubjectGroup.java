@@ -28,4 +28,7 @@ public class SubjectGroup extends AbstractDomain {
 	/** 설명 */
 	@Column(nullable = false, length = 255)
 	private String description;
+	
+	/** 순서 */
+	private int sequence;
 }

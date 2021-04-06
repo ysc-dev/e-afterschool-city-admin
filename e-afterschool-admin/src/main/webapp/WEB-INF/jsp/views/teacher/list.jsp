@@ -84,6 +84,7 @@
 							<th>연락처</th>
 							<th>이메일</th>
 							<!-- <th>성별</th> -->
+							<th>등록일시</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -151,7 +152,7 @@ var TeacherManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "10%",
+		    	width: "8%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
@@ -161,6 +162,12 @@ var TeacherManager = function() {
 		    { data: "tel" }, 
 		    { data: "email" }, 
 		    /* { data: "sex" }, */ 
+		    {
+		    	width: "15%",
+		    	render: function(data, type, row, meta) {
+		    		return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
+		    	}
+		    },
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {

@@ -74,6 +74,7 @@
 							<th>연락처</th>
 							<th>개인정보동의</th>
 							<th>주민번호</th>
+							<th>등록일시</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -197,6 +198,12 @@ var StudentManager = function() {
 	    		} 
 		 	},
 		    { data: "residentNumber" },
+		    {
+		    	width: "12%",
+		    	render: function(data, type, row, meta) {
+		    		return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
+		    	}
+		    },
 		    {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {

@@ -47,13 +47,13 @@
 						<input type="text" class="form-control" name="tel" value="${user.tel}" placeholder="'-' 없이 입력하세요.">
 					</div>
 				</div>
-				<div class="form-group row">
+				<%-- <div class="form-group row">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">권한 :</label>
 					<div class="col-lg-4">
 						<form:select class="form-control form-control-select2" path="role" items="${userRoles}">
 						</form:select> 
 					</div>
-				</div>
+				</div> --%>
 			</div>
 			<div class="card-footer bg-white d-flex justify-content-center align-items-center py-3">
 				<button type="submit" class="btn bg-blue mr-3 px-4"><i class="icon-pencil5 mr-2"></i>수 정</button>

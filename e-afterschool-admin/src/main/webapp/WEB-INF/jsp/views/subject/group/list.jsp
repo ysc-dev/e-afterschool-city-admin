@@ -23,9 +23,13 @@
 							<label>그룹 이름:</label>
 							<input type="text" class="form-control" name="name" placeholder="과목 그룹 이름" autocomplete="off" required>
 						</div>
-						<div class="form-group mb-2">
+						<div class="form-group">
 							<label>설명 :</label>
 							<textarea rows="5" class="form-control" name="description" placeholder="과목 그룹에 대한 설명" required></textarea>
+						</div>
+						<div class="form-group mb-2">
+							<label>수강신청 시 과목 그룹 정렬 순서 : </label>
+							<input type="number" class="form-control" name="sequence" value="0">
 						</div>
 					</div>
 					<div class="card-footer bg-white d-flex justify-content-center align-items-center">
@@ -48,6 +52,8 @@
 								<th>번호</th>
 								<th>이름</th>
 								<th>설명</th>
+								<th>순서</th>
+								<th>수정일시</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -84,6 +90,12 @@
 							<textarea rows="5" class="form-control" name="description" placeholder="과목 그룹에 대한 설명" required></textarea>
 						</div>
 					</div>
+					<div class="form-group row mb-2">
+						<label class="col-form-label col-md-3 text-md-right">정렬순서 : </label>
+						<div class="col-md-8">
+							<input type="number" class="form-control" name="sequence">
+						</div>
+					</div>
 				</div>
 				
 				<div class="modal-footer">
@@ -102,7 +114,7 @@ var SettingManager = function() {
 		table: null,
 		option: {
 			columns: [{
-		    	width: "10%",
+		    	width: "8%",
 		    	render: function(data, type, row, meta) {
 		    		return meta.row + 1
 		    	}
@@ -111,9 +123,19 @@ var SettingManager = function() {
 		    	width: "15%",
 		    	data: "name" 
 		    }, 
-		    { data: "description" }, 
+		    { data: "description" },
+		    { 
+		    	width: "6%",
+			    data: "sequence"
+			},
 		    {
-		    	width: "12%",
+		    	width: "15%",
+		    	render: function(data, type, row, meta) {
+		    		return moment(new Date(row.updateDate)).format("YYYY-MM-DD HH:mm:ss");
+		    	}
+		    },
+		    {
+		    	width: "10%",
 		    	render: function(data, type, row, meta) {
 		    		return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm" ' +
 		    			'onClick="SettingManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>' +
@@ -167,6 +189,7 @@ var SettingManager = function() {
 	    			$('#updateGroupForm input[name="id"]').val(response.id);
 	    			$('#updateGroupForm input[name="name"]').val(response.name);
 	    			$('#updateGroupForm textarea[name="description"]').val(response.description);
+	    			$('#updateGroupForm input[name="sequence"]').val(response.sequence);
 	    			$("#updateGroupModal").modal();
 	           	}
 	    	}); 
