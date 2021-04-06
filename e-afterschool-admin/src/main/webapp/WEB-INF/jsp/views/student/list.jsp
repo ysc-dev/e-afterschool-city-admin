@@ -127,7 +127,7 @@
 						<label class="col-form-label col-md-4 text-md-right">반 :</label>
 						<div class="col-md-6">
 							<select class="form-control form-control-select2" name="classType">
-								<c:forEach var="item" begin="1" end="10" step="1">
+								<c:forEach var="item" begin="1" end="15" step="1">
 									<option value="${item}">${item} 반</option>
 								</c:forEach>
 							</select>

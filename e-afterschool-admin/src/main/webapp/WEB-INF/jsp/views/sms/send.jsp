@@ -63,7 +63,7 @@
 </div>
 
 <script>
-$(document).ready(function() {
+$(function() {
 	$("#invitationSelect").change(function() {
 		$("#subjectSelect").empty();
 		

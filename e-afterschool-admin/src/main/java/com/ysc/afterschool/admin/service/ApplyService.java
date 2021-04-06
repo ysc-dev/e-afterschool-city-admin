@@ -15,4 +15,6 @@ public interface ApplyService extends CRUDService<Apply, ApplySearchParam, Integ
 	List<Apply> getListFromStudent(StudentSearchParam param);
 
 	List<Apply> getListFromSubject(int subjectId);
+
+	List<Apply> getList(int invitationId, int studentId);
 }

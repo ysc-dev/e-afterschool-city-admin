@@ -96,7 +96,7 @@ $("#invitationSelect").change(function() {
 			} else {
 				$('#subjectSelect').append($('<option>', {
 				    value: 0,
-				    text: "데이터 없음"
+				    text: "수강 대기 없음"
 				}));
 			}
        	}

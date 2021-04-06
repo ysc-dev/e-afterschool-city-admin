@@ -96,4 +96,9 @@ public class ApplyWaitServiceImpl implements ApplyWaitService {
 	private boolean isNew(ApplyWait domain) {
 		return !applyWaitRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public List<ApplyWait> getList(int subjectId) {
+		return applyWaitRepository.findBySubjectId(subjectId);
+	}
 }

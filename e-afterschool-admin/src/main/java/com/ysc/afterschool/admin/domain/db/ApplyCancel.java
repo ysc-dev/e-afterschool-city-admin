@@ -59,4 +59,12 @@ public class ApplyCancel implements Domain {
 	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
+	
+	public ApplyCancel(Apply apply) {
+		this.invitation = apply.getInvitation();
+		this.student = apply.getStudent();
+		this.subject = apply.getSubject();
+		this.school = student.getSchool();
+		this.grade = student.getGrade();
+	}
 }

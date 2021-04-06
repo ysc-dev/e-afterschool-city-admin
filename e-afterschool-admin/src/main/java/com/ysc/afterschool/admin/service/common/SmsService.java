@@ -16,8 +16,10 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import com.ysc.afterschool.admin.domain.db.Apply;
+import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.service.ApplyService;
+import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -38,9 +40,14 @@ public class SmsService {
 	@Autowired
 	private SubjectService subjectService;
 	
+	@Autowired
+	private InvitationService invitationService;
+	
 	private String token;
 	
 	private String tokenType;
+	
+	private final String message = "대기 중인 강좌의 수강 승인이 완료되었습니다. 사이트에서 확인해주세요.";
 
 	/**
 	 * 초기화
@@ -159,6 +166,33 @@ public class SmsService {
 				Response response = client.newCall(request).execute();
 				response.body().close();
 				
+				log.debug("send response : " + response.toString());
+			}
+		}
+	}
+
+	public void send(String phone, int invitationId) throws IOException {
+		Invitation invitation = invitationService.get(invitationId);
+		if (invitation != null) {
+			if (init()) {
+				String callback = invitation.getCity().getSms();
+				phone = phone.replaceAll("-", "");
+				
+				String sendType = message.getBytes("euc-kr").length > 90 ? "lms" : "sms";
+				
+				MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+				RequestBody body = RequestBody.create(mediaType, "phone=" + phone + "&callback=" + callback + "&message=" + message + "&refkey=12132214");
+				Request request = new Request.Builder()
+						.url("https://sms.gabia.com/api/send/" + sendType)
+						.post(body)
+						.addHeader("Content-Type", "application/x-www-form-urlencoded")
+						.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
+						.addHeader("cache-control", "no-cache")
+						.build();
+				
+				OkHttpClient client = new OkHttpClient();
+				Response response = client.newCall(request).execute();
+				response.body().close();
 				log.debug("send response : " + response.toString());
 			}
 		}

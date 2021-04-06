@@ -64,6 +64,7 @@
 						<th>학년 반 번호</th>
 						<th>연락처</th>
 						<th>신청시간</th>
+						<!-- <th>수강취소</th> -->
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -96,7 +97,7 @@ $("#invitationSelect").change(function() {
 			} else {
 				$('#subjectSelect').append($('<option>', {
 				    value: 0,
-				    text: "데이터 없음"
+				    text: "수강 신청 없음"
 				}));
 			}
        	}
@@ -131,7 +132,14 @@ var ApplyManager = function() {
 			    render: function(data, type, row, meta) {
 	    			return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
 	    		}
-		    }]
+		    },
+		    /* {
+		    	render: function(data, type, row, meta) {
+    				return '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm"'
+    				 + 'onClick="ApplyManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
+		    	}
+		    } */
+		    ]
 		},
 		init: function() {
 			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
@@ -157,7 +165,10 @@ var ApplyManager = function() {
 		init: function() {
 			DataTable.init();
 			searchControl();
-		}
+		},
+		_delete: function(id) {
+			deleteCommon(contextPath + "/apply/delete", id, "수강 신청", DataTable);
+		},
 	}
 }();
 

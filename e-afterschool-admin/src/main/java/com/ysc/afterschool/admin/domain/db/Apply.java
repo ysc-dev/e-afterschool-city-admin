@@ -67,4 +67,12 @@ public class Apply implements Domain {
 		this.school = applyCancel.getSchool();
 		this.grade = applyCancel.getGrade();
 	}
+	
+	public Apply(Invitation invitation, Student student, Subject subject) {
+		this.invitation = invitation;
+		this.student = student;
+		this.subject = subject;
+		this.school = student.getSchool();
+		this.grade = student.getGrade();
+	}
 }
