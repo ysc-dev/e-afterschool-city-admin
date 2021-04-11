@@ -5,6 +5,7 @@
   	<c:param name="icon" value="icon-blocked"/>
   	<c:param name="title" value="수강 대기 조회"/>
   	<c:param name="content" value="수강 대기 중 목록"/>
+  	<c:param name="middlename" value="수강 관리"/>
   	<c:param name="lastname" value="수강 대기 조회"/>
 </c:import>
 

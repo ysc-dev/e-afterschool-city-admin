@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	public List<User> getList() {
 		return userRepository.findAll();
 	}
-
+	
 	@Override
 	public boolean regist(User domain) {
 		if (isNew(domain)) {

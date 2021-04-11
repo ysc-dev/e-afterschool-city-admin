@@ -5,6 +5,7 @@
   	<c:param name="icon" value="icon-paperplane"/>
   	<c:param name="title" value="수강 신청 조회"/>
   	<c:param name="content" value="신청된 수강 목록"/>
+  	<c:param name="middlename" value="수강 관리"/>
   	<c:param name="lastname" value="수강 신청 조회"/>
 </c:import>
 

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ysc.afterschool.admin.domain.db.Teacher;
 import com.ysc.afterschool.admin.domain.db.User;
 import com.ysc.afterschool.admin.domain.db.User.UserRole;
+import com.ysc.afterschool.admin.service.TeacherService;
 import com.ysc.afterschool.admin.service.UserService;
 
 /**
@@ -28,6 +30,55 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private TeacherService teacherService;
+	
+	/**
+	 * 사용자ID 중복 확인
+	 * @param userId
+	 * @return
+	 */
+	@PostMapping("checkDuplicateId")
+	@ResponseBody
+	public boolean chkDuplicateEmail(String userId) {
+		
+		if (userService.get(userId) == null) {
+			return true;
+		};
+		
+		return false;
+	}
+	
+	/**
+	 * 강사 회원가입
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@PostMapping("signup")
+	public ResponseEntity<?> regist(User user) {
+		user.setRole(UserRole.TEACHER);
+		user.setPending(false);
+		
+		if (userService.regist(user)) {
+			if (teacherService.regist(new Teacher(user))) {
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 사용자 승인 대기 중 화면
+	 * 
+	 * @param model
+	 */
+	@GetMapping("pending")
+	public void pending(Model model) {
+		
+	}
 
 	/**
 	 * 사용자 정보 화면
@@ -51,41 +102,13 @@ public class UserController {
 	 */
 	@PutMapping("update")
 	public ResponseEntity<?> update(User user) {
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	/**
-	 * 사용자ID 중복 확인
-	 * @param userId
-	 * @return
-	 */
-	@PostMapping("checkDuplicateId")
-	@ResponseBody
-	public boolean chkDuplicateEmail(String userId) {
+		user.setRole(UserRole.TEACHER);
 		
-		if (userService.get(userId) == null) {
-			return true;
-		};
-		
-		return false;
-	}
-	
-	/**
-	 * 회원가입
-	 * 
-	 * @param user
-	 * @return
-	 */
-	@PostMapping("signup")
-	public ResponseEntity<?> regist(User user) {
-		user.setRole(UserRole.GUEST);
-		
-		System.err.println(user);
-		
-		if (userService.regist(user)) {
+		if (userService.update(user)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
+	
 }

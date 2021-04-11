@@ -4,6 +4,7 @@
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-books"/>
   	<c:param name="title" value="수강 이력 조회"/>
+  	<c:param name="middlename" value="학생 관리"/>
   	<c:param name="lastname" value="수강 이력 조회"/>
 </c:import>
 

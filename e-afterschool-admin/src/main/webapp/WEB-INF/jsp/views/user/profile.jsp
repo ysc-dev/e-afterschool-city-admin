@@ -11,6 +11,7 @@
 	<div class="card mt-2">
 		<form:form id="updateForm" modelAttribute="user" action="${pageContext.request.contextPath}/user/update">
 			<div class="card-body">
+				<input type="hidden" class="form-control" name="id" value="${user.id}" readonly>
 				<div class="form-group row mt-3">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">사용자 이름 :</label>
 					<div class="col-lg-4">
@@ -26,27 +27,27 @@
 				<div class="form-group row">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">비밀번호 :</label>
 					<div class="col-lg-4">
-						<input type="password" class="form-control" name="password">
+						<input type="password" class="form-control" name="password" required>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">비밀번호 확인 :</label>
 					<div class="col-lg-4">
-						<input type="password" class="form-control" name="passwordCheck">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-lg-4 col-form-label text-right font-weight-bold">이메일 :</label>
-					<div class="col-lg-4">
-						<input type="text" class="form-control" name="email" value="${user.email}" placeholder="예) example@gmail.com">
+						<input type="password" class="form-control" name="passwordCheck" required>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">전화번호 :</label>
 					<div class="col-lg-4">
-						<input type="text" class="form-control" name="tel" value="${user.tel}" placeholder="'-' 없이 입력하세요.">
+						<input type="text" class="form-control" name="tel" value="${user.tel}" placeholder="'-' 포함 입력하세요.">
 					</div>
 				</div>
+				<%-- <div class="form-group row">
+					<label class="col-lg-4 col-form-label text-right font-weight-bold">이메일 :</label>
+					<div class="col-lg-4">
+						<input type="text" class="form-control" name="email" value="${user.email}" placeholder="예) example@gmail.com">
+					</div>
+				</div> --%>
 				<%-- <div class="form-group row">
 					<label class="col-lg-4 col-form-label text-right font-weight-bold">권한 :</label>
 					<div class="col-lg-4">
@@ -65,6 +66,14 @@
 <script>
 $('#updateForm').submit(function(e) {
 	e.preventDefault();
+
+	const password = $('input[name="password"]').val();
+	const passwordCheck = $('input[name="passwordCheck"]').val();
+
+	if (password !== passwordCheck) {
+		swalInit.fire({title: "위와 동일한 비밀번호를 입력하세요.", type: "warning"});
+		return;
+	}
 	
 	var form = $(this);
 	var url = form.attr('action');
@@ -78,9 +87,12 @@ $('#updateForm').submit(function(e) {
    				title: "사용자 정보가 수정 되었습니다.", 
    				type: "success"
    			});
+
+       		$('input[name="password"]').val('');
+       		$('input[name="passwordCheck"]').val('');
        	},
         error: function(response) {
-        	swalInit.fire({title: "사용자 정보 수정을 실패하였습니다.", type: "error"})
+        	swalInit.fire({title: "사용자 정보 수정을 실패하였습니다.", type: "error"});
         }
 	});
 });

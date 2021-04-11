@@ -55,13 +55,13 @@
     <div class="page-content">
         <div class="content-wrapper">
             <div class="content d-flex justify-content-center align-items-center">
-                 <form:form id="registForm" modelAttribute="user" cssClass="form-validate col-xl-4 col-11" 
-                 	action="${contextName}/user/signup" method="post">
+                 <form:form modelAttribute="user" cssClass="form-validate col-xl-4 col-11" action="${contextName}/user/signup" 
+                 		method="post">
                 	<div class="card mb-0">
                 		<div class="card-body px-md-5 py-md-4">
                 			<div class="text-center mb-3">
                                 <i class="icon-plus3 icon-2x text-success border-success border-3 rounded-round p-3 mb-3 mt-1"></i>
-                                <h3 class="mb-0">회원가입</h3>
+                                <h3 class="mb-0">강사 회원가입</h3>
                                 <span class="d-block text-muted">모든 항목을 채워야합니다</span>
                             </div>
                             
@@ -77,7 +77,7 @@
                             </div>
                             
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <form:input path="name" type="text" cssClass="form-control" placeholder="사용자명" required="required" />
+                                <form:input path="name" type="text" cssClass="form-control" placeholder="이름" required="required" />
                                 <div class="form-control-feedback">
                                     <i class="icon-user-check text-muted"></i>
                                 </div>
@@ -97,7 +97,7 @@
                             </div>
                             
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <form:input path="tel" type="tel" cssClass="form-control" placeholder="전화번호" required="required" />
+                                <form:input path="tel" type="tel" cssClass="form-control" placeholder="'-' 포함 입력하세요." required="required" />
                                 <div class="form-control-feedback">
                                     <i class="icon-phone text-muted"></i>
                                 </div>

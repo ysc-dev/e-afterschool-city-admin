@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
+<sec:authentication property="principal" var="user"></sec:authentication>
+
 <!-- Main navbar -->
 <div class="navbar navbar-expand-md navbar-dark">
 	<div class="navbar-brand">
@@ -37,7 +39,7 @@
 			<li class="nav-item dropdown dropdown-user">
 				<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
 					<img src="${pageContext.request.contextPath}/images/user.png" class="rounded-circle mr-3" height="30" alt=""> 
-					<span>관리자</span>
+					<span>${user.name}</span>
 				</a>
 
 				<div class="dropdown-menu dropdown-menu-right">

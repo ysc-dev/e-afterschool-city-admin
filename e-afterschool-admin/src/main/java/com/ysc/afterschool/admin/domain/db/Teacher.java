@@ -10,6 +10,7 @@ import com.ysc.afterschool.admin.domain.AbstractDomain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 강사 관리 도메인
@@ -21,8 +22,9 @@ import lombok.EqualsAndHashCode;
 @Table(name = "tb_teacher")
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public class Teacher extends AbstractDomain {
-
+	
 	/** 대표강사 */
 	@Column(nullable = false, length = 255)
 	private String name;
@@ -49,4 +51,10 @@ public class Teacher extends AbstractDomain {
 	public enum Sex {
 		남성, 여성;
 	}
+	
+	public Teacher(User user) {
+		this.name = user.getName();
+		this.tel = user.getTel();
+	}
+
 }

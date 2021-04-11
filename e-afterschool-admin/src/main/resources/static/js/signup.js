@@ -1,4 +1,3 @@
-
 const SignupValidation = function() {
 	// Validation config
 	const _componentValidation = function() {
@@ -78,18 +77,18 @@ const SignupValidation = function() {
                 },
                 tel: {
                     required: true,
-                    validPhone:true
+                    validPhone: true
                 }
             },
             messages: {
             	userId: {
-                    required: "강사 ID를 입력하세요.",
+                    required: "사용자 ID를 입력하세요.",
                     minlength: jQuery.validator.format("{0}자 이상 입력하세요."),
                     maxlength: jQuery.validator.format("{0}자 이하로 입력하세요."),
-                    remote: "강사 ID가 이미 존재합니다.",
+                    remote: "사용자 ID가 이미 존재합니다.",
                 },
             	name: {
-            		required: "강사 이름을 입력하세요.",
+            		required: "이름을 입력하세요.",
             		minlength: jQuery.validator.format("{0} 자 이상 입력하세요.")
             	},
                 password: {
@@ -103,6 +102,7 @@ const SignupValidation = function() {
                 }
             },
             submitHandler: function(form) {
+            	console.log(form);
             	$.ajax({
     				url: form.action,
     				type: 'POST',

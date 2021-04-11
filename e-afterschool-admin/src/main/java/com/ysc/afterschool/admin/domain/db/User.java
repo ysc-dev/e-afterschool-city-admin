@@ -24,7 +24,7 @@ import lombok.EqualsAndHashCode;
 public class User extends AbstractDomain {
 
 	/** 사용자ID */
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 45)
 	private String userId;
 	
 	/** 사용자명 */
@@ -47,6 +47,9 @@ public class User extends AbstractDomain {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private UserRole role;
+	
+	/** 승인 대기 중 */ 
+	private boolean pending;
 	
 	public enum UserRole {
 		ADMIN, GUEST, TEACHER;

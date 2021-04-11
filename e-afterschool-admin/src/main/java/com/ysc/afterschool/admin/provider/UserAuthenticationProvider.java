@@ -34,12 +34,16 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         
         User user = userService.login(username, password);
         if (user != null) {
-        	Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
-        	roles.add(new SimpleGrantedAuthority("ROLE_USER"));
-  
-            return new UsernamePasswordAuthenticationToken(user, password, roles);   
+        	if (user.isPending()) {
+        		Collection<SimpleGrantedAuthority> roles = new ArrayList<SimpleGrantedAuthority>();
+            	roles.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
+      
+                return new UsernamePasswordAuthenticationToken(user, password, roles);  
+        	} else {
+        		throw new BadCredentialsException("승인 대기 중입니다.");
+        	}
         } else {
-            throw new BadCredentialsException("Login Error !!");
+            throw new BadCredentialsException("사용자 정보가 일치하지 않습니다.");
         }
 	}
 
