@@ -9,6 +9,8 @@
   	<c:param name="lastname" value="수강 신청 조회"/>
 </c:import>
 
+<sec:authentication property="principal" var="user"></sec:authentication>
+
 <div class="content">
 	<div id="list_content" class="card mb-0">
 		<div class="card-body">
@@ -65,7 +67,8 @@
 						<th>학년 반 번호</th>
 						<th>연락처</th>
 						<th>신청시간</th>
-						<!-- <th>수강취소</th> -->
+						<th>개인정보동의</th>
+						<th>주민등록번호</th>
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -109,6 +112,7 @@ var ApplyManager = function() {
 	var DataTable = {
 		ele: "#applyTable",
 		table: null,
+		title: "수강 신청 명단",
 		option: {
 			columns: [{
 		    	width: "6%",
@@ -134,6 +138,12 @@ var ApplyManager = function() {
 	    			return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
 	    		}
 		    },
+		    { 
+		    	render: function(data, type, row, meta) {
+	    			return row.student.agree ? "동의" : "미동의";
+	    		} 
+		 	},
+		    { data: "student.residentNumber" },
 		    /* {
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm"'
@@ -142,8 +152,9 @@ var ApplyManager = function() {
 		    } */
 		    ]
 		},
-		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
+		init: function(isAdmin) {
+			const visible = isAdmin ? [1,2,3,4,5,6,7,8,9,10,11,12] : [1,2,3,4,5,6,7,8,9,10]
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", [11,12], visible, this.title);
 			this.search();
 		},
 		search: function() {
@@ -163,8 +174,8 @@ var ApplyManager = function() {
 	}
 	
 	return {
-		init: function() {
-			DataTable.init();
+		init: function(isAdmin) {
+			DataTable.init(isAdmin);
 			searchControl();
 		},
 		_delete: function(id) {
@@ -174,6 +185,7 @@ var ApplyManager = function() {
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	ApplyManager.init();
+	const role = "<c:out value='${user.role}' />";
+	ApplyManager.init(role == 'ADMIN' ? true : false);
 });
 </script>

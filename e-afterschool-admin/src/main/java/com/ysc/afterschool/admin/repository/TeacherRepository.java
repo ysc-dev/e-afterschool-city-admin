@@ -8,4 +8,6 @@ public interface TeacherRepository extends DefaultRepository<Teacher, Integer> {
 
 	List<Teacher> findByNameContaining(String name);
 
+	int deleteByUserId(int userId);
+
 }

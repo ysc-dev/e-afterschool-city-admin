@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -77,7 +78,7 @@ public class UserController {
 	 */
 	@GetMapping("pending")
 	public void pending(Model model) {
-		
+		model.addAttribute("users", userService.getList(false));
 	}
 
 	/**
@@ -111,4 +112,39 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
+	/**
+	 * 사용자 승인
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@PutMapping("pending")
+	public ResponseEntity<?> pending(int id) {
+		User user = userService.get(id);
+		user.setPending(true);
+		
+		if (userService.update(user)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * 사용자 승인 거부
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@DeleteMapping("pending/cancel")
+	public ResponseEntity<?> pendingCancel(int id) {
+		
+		if (userService.delete(id)) {
+			if (teacherService.deleteByUserId(id)) {
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
+		}
+		
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 }

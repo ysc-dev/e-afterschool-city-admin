@@ -108,6 +108,7 @@ var ApplyCancelManager = function() {
 	var DataTable = {
 		ele: "#applyCancelTable",
 		table: null,
+		title: "수강 취소 명단",
 		option: {
 			columns: [{
 		    	width: "6%",
@@ -135,7 +136,7 @@ var ApplyCancelManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강취소가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강취소가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10], this.title);
 			this.search();
 		},
 		search: function() {

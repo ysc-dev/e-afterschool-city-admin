@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public User get(Integer id) {
 		return userRepository.findById(id).get();
@@ -74,8 +75,15 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByUserIdAndPassword(userId, password);
 	}
 	
+	@Transactional(readOnly = true)
 	@Override
 	public User get(String userId) {
 		return userRepository.findByUserId(userId);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<User> getList(boolean pending) {
+		return userRepository.findByPending(pending);
 	}
 }

@@ -104,10 +104,11 @@ $("#invitationSelect").change(function() {
 	}); 
 });
 
-var ApplyManager = function() {
+var ApplyWaitManager = function() {
 	var DataTable = {
 		ele: "#applyWaitTable",
 		table: null,
+		title: "수강 대기 명단",
 		option: {
 			columns: [{
 		    	width: "6%",
@@ -135,7 +136,7 @@ var ApplyManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10], this.title);
 			this.search();
 		},
 		search: function() {
@@ -163,6 +164,6 @@ var ApplyManager = function() {
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	ApplyManager.init();
+	ApplyWaitManager.init();
 });
 </script>

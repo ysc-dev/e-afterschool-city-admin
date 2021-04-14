@@ -48,6 +48,9 @@ public class Teacher extends AbstractDomain {
 	/** 과목 ID */
 	private int subjectId;
 	
+	/** 사용자ID */
+	private int userId;
+	
 	public enum Sex {
 		남성, 여성;
 	}
@@ -55,6 +58,7 @@ public class Teacher extends AbstractDomain {
 	public Teacher(User user) {
 		this.name = user.getName();
 		this.tel = user.getTel();
+		this.userId = user.getId();
 	}
 
 }

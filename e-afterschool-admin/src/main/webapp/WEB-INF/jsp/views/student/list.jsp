@@ -167,6 +167,7 @@ var StudentManager = function() {
 	var DataTable = {
 		ele: "#studentTable",
 		table: null,
+		title: "학생 명단",
 		option: {
 			columns: [{
 		    	width: "8%",
@@ -216,7 +217,7 @@ var StudentManager = function() {
 		    }]
 		},
 		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 학생이 있습니다.", [8], [1,2,3,4,5,6,7,8]);
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 학생이 있습니다.", [8], [1,2,3,4,5,6,7,8], this.title);
 			this.search();
 		},
 		search: function() {

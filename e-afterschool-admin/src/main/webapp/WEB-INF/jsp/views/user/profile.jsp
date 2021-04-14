@@ -70,6 +70,11 @@ $('#updateForm').submit(function(e) {
 	const password = $('input[name="password"]').val();
 	const passwordCheck = $('input[name="passwordCheck"]').val();
 
+	if (password.length <= 4) {
+		swalInit.fire({title: "비밀번호를 5자 이상 입력하세요.", type: "warning"});
+		return;
+	}
+	
 	if (password !== passwordCheck) {
 		swalInit.fire({title: "위와 동일한 비밀번호를 입력하세요.", type: "warning"});
 		return;

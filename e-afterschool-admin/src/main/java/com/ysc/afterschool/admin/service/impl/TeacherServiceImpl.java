@@ -72,4 +72,9 @@ public class TeacherServiceImpl implements TeacherService {
 	private boolean isNew(Teacher domain) {
 		return !teacherRepository.existsById(domain.getId());
 	}
+
+	@Override
+	public boolean deleteByUserId(int userId) {
+		return teacherRepository.deleteByUserId(userId) > 0;
+	}
 }

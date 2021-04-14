@@ -5,4 +5,6 @@ import com.ysc.afterschool.admin.domain.param.TeacherSearchParam;
 
 public interface TeacherService extends CRUDService<Teacher, TeacherSearchParam, Integer> {
 
+	boolean deleteByUserId(int userId);
+
 }

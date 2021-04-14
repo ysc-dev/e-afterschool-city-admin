@@ -42,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/notice/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/sms/**").access("hasRole('ROLE_ADMIN')")
 			.antMatchers("/survey/**").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/user/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_TEACHER')")
+			.antMatchers("/user/profile").access("hasAnyRole('ROLE_ADMIN', 'ROLE_TEACHER')")
+			.antMatchers("/user/pending").access("hasAnyRole('ROLE_ADMIN')")
 		.and()
 			// 로그인 페이지 및 성공 url, handler 그리고 로그인 시 사용되는 id, password 파라미터 정의
 			.formLogin()
