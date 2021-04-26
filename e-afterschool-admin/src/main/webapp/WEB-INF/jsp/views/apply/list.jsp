@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
+<sec:authentication property="principal" var="user"></sec:authentication>
+
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-paperplane"/>
   	<c:param name="title" value="수강 신청 조회"/>
@@ -8,8 +10,6 @@
   	<c:param name="middlename" value="수강 관리"/>
   	<c:param name="lastname" value="수강 신청 조회"/>
 </c:import>
-
-<sec:authentication property="principal" var="user"></sec:authentication>
 
 <div class="content">
 	<div id="list_content" class="card mb-0">
@@ -153,7 +153,7 @@ var ApplyManager = function() {
 		    ]
 		},
 		init: function(isAdmin) {
-			const visible = isAdmin ? [1,2,3,4,5,6,7,8,9,10,11,12] : [1,2,3,4,5,6,7,8,9,10]
+			const visible = isAdmin ? [1,2,3,4,5,6,7,8,9,10,11,12] : [1,2,3,4,5,6,7,8,9,10];
 			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 개의 수강 신청이 있습니다.", [11,12], visible, this.title);
 			this.search();
 		},

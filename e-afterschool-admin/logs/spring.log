@@ -1,6 +1,621 @@
-2021-04-14 22:18:16.246  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2021-04-14 22:18:16.293  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-04-14 22:18:16.294  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-04-14 22:18:16.297  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-04-14 22:18:16.305  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown initiated...
-2021-04-14 22:18:16.307  INFO 34260 --- [RMI TCP Connection(4925)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown completed.
+2021-04-26 17:09:42.383  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 2096 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-04-26 17:09:42.386 DEBUG 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-04-26 17:09:42.386  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-04-26 17:09:42.414  INFO 2096 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-26 17:09:42.415  INFO 2096 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-26 17:09:43.116  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-04-26 17:09:43.265  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143ms. Found 19 repository interfaces.
+2021-04-26 17:09:43.492  INFO 2096 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$79675076] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-26 17:09:43.762  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-26 17:09:43.779  INFO 2096 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-26 17:09:43.779  INFO 2096 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-04-26 17:09:43.784  INFO 2096 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_251\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_251/bin/server;C:/Program Files/Java/jre1.8.0_251/bin;C:/Program Files/Java/jre1.8.0_251/lib/amd64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_251\bin;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.2.0\;C:\Program Files\dotnet\;C:\Users\hgko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\hgko\AppData\Roaming\npm;C:\Users\hgko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hgko\.dotnet\tools;C:\Eclipse\sts-4.6.1.RELEASE;;.]
+2021-04-26 17:09:43.971  INFO 2096 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-26 17:09:43.975  INFO 2096 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-04-26 17:09:43.975  INFO 2096 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1560 ms
+2021-04-26 17:09:44.169  INFO 2096 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-04-26 17:09:44.224  INFO 2096 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2021-04-26 17:09:44.225  INFO 2096 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-04-26 17:09:44.335  INFO 2096 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-04-26 17:09:44.492  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-26 17:09:44.614  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-26 17:09:44.623  INFO 2096 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-04-26 17:09:45.989  INFO 2096 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 17:09:46.019  INFO 2096 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-26 17:09:46.274  INFO 2096 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-04-26 17:09:46.714  INFO 2096 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@449eadc, org.springframework.security.web.context.SecurityContextPersistenceFilter@7cf00755, org.springframework.security.web.header.HeaderWriterFilter@17ed97a8, org.springframework.security.web.authentication.logout.LogoutFilter@62c89f14, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1ac6d822, org.springframework.security.web.session.ConcurrentSessionFilter@5cb00a41, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@18a0ac77, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a295034, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9a1f595, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f1e59f, org.springframework.security.web.session.SessionManagementFilter@7095501f, org.springframework.security.web.access.ExceptionTranslationFilter@ebae4d4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39ee0e93]
+2021-04-26 17:09:46.752  INFO 2096 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-04-26 17:09:47.018  INFO 2096 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-26 17:09:47.044  WARN 2096 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-26 17:09:47.458  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-04-26 17:09:47.460  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 5.327 seconds (JVM running for 6.09)
+2021-04-26 17:23:10.112  INFO 2096 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-26 17:23:10.112  INFO 2096 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-26 17:23:10.118  INFO 2096 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2021-04-26 17:23:13.759 TRACE 2096 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
+2021-04-26 17:23:13.759 TRACE 2096 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
+2021-04-26 17:23:13.830 TRACE 2096 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-04-26 17:23:13.844 TRACE 2096 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-04-26 17:23:13.850 TRACE 2096 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2021-04-26 17:23:13.857 TRACE 2096 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2021-04-26 17:23:30.580 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-04-26 17:23:30.587 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-04-26 17:23:30.591 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2021-04-26 17:23:30.596 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2021-04-26 17:23:30.634 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-04-26 17:23:30.647 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-04-26 17:23:30.652 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [61]
+2021-04-26 17:23:30.657 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [48]
+2021-04-26 17:23:30.662 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [49]
+2021-04-26 17:23:30.666 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [50]
+2021-04-26 17:23:30.671 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [51]
+2021-04-26 17:23:30.676 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [52]
+2021-04-26 17:23:30.681 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [53]
+2021-04-26 17:23:30.686 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [54]
+2021-04-26 17:23:30.691 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [55]
+2021-04-26 17:23:30.696 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [56]
+2021-04-26 17:23:30.701 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [47]
+2021-04-26 17:23:30.705 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [57]
+2021-04-26 17:23:30.710 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [58]
+2021-04-26 17:23:30.716 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [59]
+2021-04-26 17:23:30.722 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [60]
+2021-04-26 17:23:30.728 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-04-26 17:23:30.733 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-04-26 17:23:30.738 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [43]
+2021-04-26 17:23:30.745 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [67]
+2021-04-26 17:23:30.750 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [45]
+2021-04-26 17:23:30.755 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [46]
+2021-04-26 17:23:30.788 TRACE 2096 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-04-26 17:23:31.276 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-04-26 17:23:31.287 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-04-26 17:23:31.293 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2112]
+2021-04-26 17:23:31.299 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [97]
+2021-04-26 17:23:31.306 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1839]
+2021-04-26 17:23:31.312 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [100]
+2021-04-26 17:23:31.317 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2866]
+2021-04-26 17:23:31.324 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [116]
+2021-04-26 17:23:31.329 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3066]
+2021-04-26 17:23:31.334 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2944]
+2021-04-26 17:23:31.339 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3137]
+2021-04-26 17:23:31.344 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2167]
+2021-04-26 17:23:31.349 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3093]
+2021-04-26 17:23:31.354 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3128]
+2021-04-26 17:23:31.359 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [117]
+2021-04-26 17:23:31.364 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3158]
+2021-04-26 17:23:31.370 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2864]
+2021-04-26 17:23:31.375 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2980]
+2021-04-26 17:23:31.381 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3186]
+2021-04-26 17:23:31.386 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2098]
+2021-04-26 17:23:31.391 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2570]
+2021-04-26 17:23:31.396 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2841]
+2021-04-26 17:23:31.401 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2378]
+2021-04-26 17:23:31.406 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2537]
+2021-04-26 17:23:31.410 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3010]
+2021-04-26 17:23:31.415 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2859]
+2021-04-26 17:23:31.420 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2116]
+2021-04-26 17:23:31.425 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [93]
+2021-04-26 17:23:31.431 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3041]
+2021-04-26 17:23:31.436 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3027]
+2021-04-26 17:23:31.441 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2797]
+2021-04-26 17:23:31.446 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3146]
+2021-04-26 17:23:31.451 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2938]
+2021-04-26 17:23:31.456 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2145]
+2021-04-26 17:23:31.460 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2382]
+2021-04-26 17:23:31.465 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [114]
+2021-04-26 17:23:31.471 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3545]
+2021-04-26 17:23:31.476 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3129]
+2021-04-26 17:23:31.482 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [124]
+2021-04-26 17:23:31.487 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [248]
+2021-04-26 17:23:31.493 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3152]
+2021-04-26 17:23:31.497 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3042]
+2021-04-26 17:23:31.502 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [106]
+2021-04-26 17:23:31.508 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2826]
+2021-04-26 17:23:31.513 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [89]
+2021-04-26 17:23:31.519 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1832]
+2021-04-26 17:23:31.524 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3067]
+2021-04-26 17:23:31.530 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [125]
+2021-04-26 17:23:31.536 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3046]
+2021-04-26 17:23:31.542 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2940]
+2021-04-26 17:23:31.547 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [113]
+2021-04-26 17:23:31.552 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2989]
+2021-04-26 17:23:31.558 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2256]
+2021-04-26 17:23:31.563 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2771]
+2021-04-26 17:23:31.567 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1767]
+2021-04-26 17:23:31.572 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2021-04-26 17:23:31.577 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [126]
+2021-04-26 17:23:31.582 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2719]
+2021-04-26 17:23:31.588 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3082]
+2021-04-26 17:23:31.593 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2821]
+2021-04-26 17:23:31.598 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2879]
+2021-04-26 17:23:31.603 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [121]
+2021-04-26 17:23:31.608 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2280]
+2021-04-26 17:23:31.614 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2984]
+2021-04-26 17:23:31.619 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1972]
+2021-04-26 17:23:31.624 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2121]
+2021-04-26 17:23:31.628 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2334]
+2021-04-26 17:23:31.633 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2080]
+2021-04-26 17:23:31.638 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3069]
+2021-04-26 17:23:31.643 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [120]
+2021-04-26 17:23:31.649 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2468]
+2021-04-26 17:23:31.654 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2544]
+2021-04-26 17:23:31.659 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2115]
+2021-04-26 17:23:31.664 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2966]
+2021-04-26 17:23:31.669 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3098]
+2021-04-26 17:23:31.674 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [142]
+2021-04-26 17:23:31.681 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1622]
+2021-04-26 17:23:31.686 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2500]
+2021-04-26 17:23:31.691 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [103]
+2021-04-26 17:23:31.697 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2967]
+2021-04-26 17:23:31.703 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3000]
+2021-04-26 17:23:31.708 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3139]
+2021-04-26 17:23:31.713 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3113]
+2021-04-26 17:23:31.718 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [127]
+2021-04-26 17:23:31.723 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2520]
+2021-04-26 17:23:31.729 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2525]
+2021-04-26 17:23:31.733 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1890]
+2021-04-26 17:23:31.738 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3197]
+2021-04-26 17:23:31.744 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2590]
+2021-04-26 17:23:31.749 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2686]
+2021-04-26 17:23:31.754 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1219]
+2021-04-26 17:23:31.759 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2198]
+2021-04-26 17:23:31.764 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2785]
+2021-04-26 17:23:31.769 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3160]
+2021-04-26 17:23:31.774 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2396]
+2021-04-26 17:23:31.778 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [118]
+2021-04-26 17:23:31.784 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2063]
+2021-04-26 17:23:31.789 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [143]
+2021-04-26 17:23:31.795 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2867]
+2021-04-26 17:23:31.801 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3126]
+2021-04-26 17:23:31.806 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3006]
+2021-04-26 17:23:31.811 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-04-26 17:23:31.816 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2557]
+2021-04-26 17:23:31.822 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [94]
+2021-04-26 17:23:31.827 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3059]
+2021-04-26 17:23:31.833 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2371]
+2021-04-26 17:23:31.838 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1962]
+2021-04-26 17:23:31.842 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2041]
+2021-04-26 17:23:31.848 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2861]
+2021-04-26 17:23:31.852 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1023]
+2021-04-26 17:23:31.857 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3057]
+2021-04-26 17:23:31.862 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1056]
+2021-04-26 17:23:31.867 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1838]
+2021-04-26 17:23:31.872 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3173]
+2021-04-26 17:23:31.877 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2209]
+2021-04-26 17:23:31.881 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2302]
+2021-04-26 17:23:31.886 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2827]
+2021-04-26 17:23:31.891 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2271]
+2021-04-26 17:23:31.896 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [102]
+2021-04-26 17:23:31.901 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2598]
+2021-04-26 17:23:31.907 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2501]
+2021-04-26 17:23:31.912 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2923]
+2021-04-26 17:23:31.917 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3011]
+2021-04-26 17:23:31.922 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2629]
+2021-04-26 17:23:31.927 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2834]
+2021-04-26 17:23:31.932 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3184]
+2021-04-26 17:23:31.936 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2510]
+2021-04-26 17:23:31.941 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2182]
+2021-04-26 17:23:31.946 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2390]
+2021-04-26 17:23:31.951 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2958]
+2021-04-26 17:23:31.956 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2898]
+2021-04-26 17:23:31.960 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2554]
+2021-04-26 17:23:31.966 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1057]
+2021-04-26 17:23:31.970 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2428]
+2021-04-26 17:23:31.975 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2287]
+2021-04-26 17:23:31.980 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2439]
+2021-04-26 17:23:31.985 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2552]
+2021-04-26 17:23:31.990 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3107]
+2021-04-26 17:23:31.994 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2819]
+2021-04-26 17:23:31.999 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [115]
+2021-04-26 17:23:32.005 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3140]
+2021-04-26 17:23:32.011 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2202]
+2021-04-26 17:23:32.015 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1970]
+2021-04-26 17:23:32.020 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [138]
+2021-04-26 17:23:32.026 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2285]
+2021-04-26 17:23:32.030 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2794]
+2021-04-26 17:23:32.035 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3103]
+2021-04-26 17:23:32.040 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3205]
+2021-04-26 17:23:32.045 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2755]
+2021-04-26 17:23:32.049 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2893]
+2021-04-26 17:23:32.054 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3225]
+2021-04-26 17:23:32.059 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3199]
+2021-04-26 17:23:32.064 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2913]
+2021-04-26 17:23:32.069 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3095]
+2021-04-26 17:23:32.074 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3188]
+2021-04-26 17:23:32.079 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [137]
+2021-04-26 17:23:32.084 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2146]
+2021-04-26 17:23:32.090 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2583]
+2021-04-26 17:23:32.095 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3062]
+2021-04-26 17:23:32.099 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1929]
+2021-04-26 17:23:32.104 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1713]
+2021-04-26 17:23:32.109 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1702]
+2021-04-26 17:23:32.114 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2682]
+2021-04-26 17:23:32.119 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3176]
+2021-04-26 17:23:32.124 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2791]
+2021-04-26 17:23:32.128 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3149]
+2021-04-26 17:23:32.133 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2832]
+2021-04-26 17:23:32.138 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2529]
+2021-04-26 17:23:32.143 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3264]
+2021-04-26 17:23:32.148 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [90]
+2021-04-26 17:23:32.153 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2288]
+2021-04-26 17:23:32.159 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [88]
+2021-04-26 17:23:32.166 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2909]
+2021-04-26 17:23:32.172 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3283]
+2021-04-26 17:23:32.177 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3194]
+2021-04-26 17:23:32.182 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2114]
+2021-04-26 17:23:32.186 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3209]
+2021-04-26 17:23:32.192 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3072]
+2021-04-26 17:23:32.196 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [95]
+2021-04-26 17:23:32.202 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3223]
+2021-04-26 17:23:32.208 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2385]
+2021-04-26 17:23:32.212 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3187]
+2021-04-26 17:23:32.217 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1815]
+2021-04-26 17:23:32.222 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3003]
+2021-04-26 17:23:32.227 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2076]
+2021-04-26 17:23:32.232 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [132]
+2021-04-26 17:23:32.237 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2580]
+2021-04-26 17:23:32.243 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [92]
+2021-04-26 17:23:32.249 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2953]
+2021-04-26 17:23:32.255 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1630]
+2021-04-26 17:23:32.260 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3219]
+2021-04-26 17:23:32.264 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2657]
+2021-04-26 17:23:32.269 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [101]
+2021-04-26 17:23:32.275 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3229]
+2021-04-26 17:23:32.281 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2475]
+2021-04-26 17:23:32.285 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2659]
+2021-04-26 17:23:32.291 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3121]
+2021-04-26 17:23:32.297 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [128]
+2021-04-26 17:23:32.302 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2880]
+2021-04-26 17:23:32.307 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2969]
+2021-04-26 17:23:32.311 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2863]
+2021-04-26 17:23:32.316 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2784]
+2021-04-26 17:23:32.321 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [104]
+2021-04-26 17:23:32.327 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2166]
+2021-04-26 17:23:32.332 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2125]
+2021-04-26 17:23:32.337 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2733]
+2021-04-26 17:23:32.342 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3116]
+2021-04-26 17:23:32.347 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [107]
+2021-04-26 17:23:32.352 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2875]
+2021-04-26 17:23:32.358 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2932]
+2021-04-26 17:23:32.364 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1861]
+2021-04-26 17:23:32.369 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2883]
+2021-04-26 17:23:32.374 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [642]
+2021-04-26 17:23:32.379 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2968]
+2021-04-26 17:23:32.383 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3233]
+2021-04-26 17:23:32.388 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3117]
+2021-04-26 17:23:32.393 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3196]
+2021-04-26 17:23:32.398 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [99]
+2021-04-26 17:23:32.403 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3058]
+2021-04-26 17:23:32.409 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [96]
+2021-04-26 17:23:32.415 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2369]
+2021-04-26 17:23:32.421 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3544]
+2021-04-26 17:23:32.427 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3185]
+2021-04-26 17:23:32.432 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3192]
+2021-04-26 17:23:32.437 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2994]
+2021-04-26 17:23:32.442 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3172]
+2021-04-26 17:23:32.446 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3090]
+2021-04-26 17:23:32.451 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1988]
+2021-04-26 17:23:32.456 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2460]
+2021-04-26 17:23:32.461 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [119]
+2021-04-26 17:23:32.466 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2461]
+2021-04-26 17:23:32.472 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1983]
+2021-04-26 17:23:32.477 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2208]
+2021-04-26 17:23:32.482 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3262]
+2021-04-26 17:23:32.486 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [123]
+2021-04-26 17:23:32.492 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3226]
+2021-04-26 17:23:32.498 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1507]
+2021-04-26 17:23:32.502 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3018]
+2021-04-26 17:23:32.507 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2976]
+2021-04-26 17:23:32.512 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [109]
+2021-04-26 17:23:32.517 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3254]
+2021-04-26 17:23:32.523 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [129]
+2021-04-26 17:23:32.529 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2716]
+2021-04-26 17:23:32.533 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2009]
+2021-04-26 17:23:32.538 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2109]
+2021-04-26 17:23:32.543 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3253]
+2021-04-26 17:23:32.548 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3267]
+2021-04-26 17:23:32.553 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2228]
+2021-04-26 17:23:32.557 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2712]
+2021-04-26 17:23:32.563 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3130]
+2021-04-26 17:23:32.567 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [131]
+2021-04-26 17:23:32.573 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3127]
+2021-04-26 17:23:32.579 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [130]
+2021-04-26 17:23:32.584 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [110]
+2021-04-26 17:23:32.589 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2887]
+2021-04-26 17:23:32.595 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2952]
+2021-04-26 17:23:32.600 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3250]
+2021-04-26 17:23:32.604 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [105]
+2021-04-26 17:23:32.610 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3230]
+2021-04-26 17:23:32.615 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3274]
+2021-04-26 17:23:32.620 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2595]
+2021-04-26 17:23:32.625 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2615]
+2021-04-26 17:23:32.630 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3329]
+2021-04-26 17:23:32.635 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3381]
+2021-04-26 17:23:32.640 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1015]
+2021-04-26 17:23:32.644 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [198]
+2021-04-26 17:23:32.649 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2905]
+2021-04-26 17:23:32.654 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3263]
+2021-04-26 17:23:32.659 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3181]
+2021-04-26 17:23:32.664 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2698]
+2021-04-26 17:23:32.668 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1849]
+2021-04-26 17:23:32.673 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2403]
+2021-04-26 17:23:32.678 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2169]
+2021-04-26 17:23:32.683 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2992]
+2021-04-26 17:23:32.688 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2120]
+2021-04-26 17:23:32.693 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2459]
+2021-04-26 17:23:32.697 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3085]
+2021-04-26 17:23:32.702 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3292]
+2021-04-26 17:23:32.707 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3259]
+2021-04-26 17:23:32.712 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3182]
+2021-04-26 17:23:32.717 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2761]
+2021-04-26 17:23:32.721 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3296]
+2021-04-26 17:23:32.726 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2155]
+2021-04-26 17:23:32.731 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2723]
+2021-04-26 17:23:32.736 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1837]
+2021-04-26 17:23:32.741 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3289]
+2021-04-26 17:23:32.746 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2329]
+2021-04-26 17:23:32.750 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3301]
+2021-04-26 17:23:32.755 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2330]
+2021-04-26 17:23:32.760 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3408]
+2021-04-26 17:23:32.765 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3281]
+2021-04-26 17:23:32.769 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2505]
+2021-04-26 17:23:32.774 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1909]
+2021-04-26 17:23:32.779 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2506]
+2021-04-26 17:23:32.784 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3307]
+2021-04-26 17:23:32.789 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2956]
+2021-04-26 17:23:32.794 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [122]
+2021-04-26 17:23:32.799 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2160]
+2021-04-26 17:23:32.805 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1881]
+2021-04-26 17:23:32.810 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2618]
+2021-04-26 17:23:32.814 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3024]
+2021-04-26 17:23:32.819 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1161]
+2021-04-26 17:23:32.824 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3314]
+2021-04-26 17:23:32.829 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3316]
+2021-04-26 17:23:32.834 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3318]
+2021-04-26 17:23:32.838 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2611]
+2021-04-26 17:23:32.843 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1981]
+2021-04-26 17:23:32.848 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3326]
+2021-04-26 17:23:32.853 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2142]
+2021-04-26 17:23:32.858 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2621]
+2021-04-26 17:23:32.862 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2415]
+2021-04-26 17:23:32.867 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1005]
+2021-04-26 17:23:32.872 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2884]
+2021-04-26 17:23:32.877 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2885]
+2021-04-26 17:23:32.882 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3523]
+2021-04-26 17:23:32.886 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3342]
+2021-04-26 17:23:32.891 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3345]
+2021-04-26 17:23:32.896 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3352]
+2021-04-26 17:23:32.901 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3358]
+2021-04-26 17:23:32.906 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2549]
+2021-04-26 17:23:32.910 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2229]
+2021-04-26 17:23:32.915 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3363]
+2021-04-26 17:23:32.920 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3367]
+2021-04-26 17:23:32.925 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2248]
+2021-04-26 17:23:32.930 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2335]
+2021-04-26 17:23:32.935 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3383]
+2021-04-26 17:23:32.940 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2924]
+2021-04-26 17:23:32.944 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2939]
+2021-04-26 17:23:32.949 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2564]
+2021-04-26 17:23:32.954 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3392]
+2021-04-26 17:23:32.959 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3395]
+2021-04-26 17:23:32.964 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1859]
+2021-04-26 17:23:32.968 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2983]
+2021-04-26 17:23:32.973 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1258]
+2021-04-26 17:23:32.978 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2722]
+2021-04-26 17:23:32.983 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3410]
+2021-04-26 17:23:32.988 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3426]
+2021-04-26 17:23:32.993 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3435]
+2021-04-26 17:23:32.999 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3441]
+2021-04-26 17:23:33.004 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3439]
+2021-04-26 17:23:33.008 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3452]
+2021-04-26 17:23:33.013 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3455]
+2021-04-26 17:23:33.018 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [98]
+2021-04-26 17:23:33.023 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1922]
+2021-04-26 17:23:33.029 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1923]
+2021-04-26 17:23:33.034 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3462]
+2021-04-26 17:23:33.039 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3470]
+2021-04-26 17:23:33.045 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2499]
+2021-04-26 17:23:33.049 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2420]
+2021-04-26 17:23:33.054 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2776]
+2021-04-26 17:23:33.059 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3493]
+2021-04-26 17:23:33.064 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3511]
+2021-04-26 17:23:33.069 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3513]
+2021-04-26 17:23:33.073 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3521]
+2021-04-26 17:23:33.078 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3522]
+2021-04-26 17:23:33.133 TRACE 2096 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-04-26 23:43:48.253  INFO 2096 --- [Thread-7] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:43:48.253  INFO 2096 --- [Thread-7] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-04-26 23:43:48.257  INFO 2096 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:43:48.259  INFO 2096 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-04-26 23:43:48.263  INFO 2096 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-04-26 23:43:48.568  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 2096 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-04-26 23:43:48.568 DEBUG 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-04-26 23:43:48.568  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-04-26 23:43:48.791  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-04-26 23:43:48.792  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0ms. Found 0 repository interfaces.
+2021-04-26 23:43:48.839  INFO 2096 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$79675076] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-26 23:43:48.982  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-26 23:43:48.982  INFO 2096 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-26 23:43:48.982  INFO 2096 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-04-26 23:43:49.079  INFO 2096 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-26 23:43:49.081  INFO 2096 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-04-26 23:43:49.081  INFO 2096 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 511 ms
+2021-04-26 23:43:49.127  INFO 2096 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-04-26 23:43:49.149  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-04-26 23:43:49.206  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-04-26 23:43:49.207  INFO 2096 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-04-26 23:43:49.336  INFO 2096 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:43:49.350  INFO 2096 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-26 23:43:49.414  INFO 2096 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:43:49.420  WARN 2096 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-26 23:43:49.510  INFO 2096 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 06dc0304-b4d9-47b3-9f3f-a8134d1aa6ff
+
+2021-04-26 23:43:49.533  INFO 2096 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fd1c63b, org.springframework.security.web.context.SecurityContextPersistenceFilter@5976efce, org.springframework.security.web.header.HeaderWriterFilter@128df0b3, org.springframework.security.web.csrf.CsrfFilter@3fd61480, org.springframework.security.web.authentication.logout.LogoutFilter@5e0314b5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7569833e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@306595e8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4b6d94b6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@51722dde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54da8dcf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29afe78f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72249e96, org.springframework.security.web.session.SessionManagementFilter@1df09476, org.springframework.security.web.access.ExceptionTranslationFilter@1a22e077, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6aa3dd7a]
+2021-04-26 23:43:49.580  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-04-26 23:43:49.581  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 1.049 seconds (JVM running for 23648.161)
+2021-04-26 23:43:49.584  INFO 2096 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration#inMemoryUserDetailsManager matched:
+      - @ConditionalOnMissingBean (types: org.springframework.security.oauth2.client.registration.ClientRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   WebSecurityEnablerConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found bean 'org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$DefaultConfigurerAdapter'; @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2021-04-26 23:43:53.587  INFO 2096 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:43:53.588  INFO 2096 --- [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:43:53.588  INFO 2096 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-04-26 23:43:53.591  INFO 2096 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-04-26 23:43:53.852  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 2096 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-04-26 23:43:53.852 DEBUG 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-04-26 23:43:53.852  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-04-26 23:43:54.244  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-04-26 23:43:54.362  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118ms. Found 19 repository interfaces.
+2021-04-26 23:43:54.413  INFO 2096 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$79675076] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-26 23:43:54.559  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-26 23:43:54.560  INFO 2096 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-26 23:43:54.560  INFO 2096 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-04-26 23:43:54.636  INFO 2096 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-26 23:43:54.638  INFO 2096 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-04-26 23:43:54.638  INFO 2096 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 783 ms
+2021-04-26 23:43:54.711  INFO 2096 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-04-26 23:43:54.786  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-04-26 23:43:54.843  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-04-26 23:43:54.843  INFO 2096 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-04-26 23:43:55.663  INFO 2096 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:43:55.674  INFO 2096 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-26 23:43:55.720  INFO 2096 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-04-26 23:43:55.985  INFO 2096 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@40247401, org.springframework.security.web.context.SecurityContextPersistenceFilter@3368c6e3, org.springframework.security.web.header.HeaderWriterFilter@211b18fc, org.springframework.security.web.authentication.logout.LogoutFilter@539b4001, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@59bbe6e2, org.springframework.security.web.session.ConcurrentSessionFilter@244cd72f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e8efe35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a4de48a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11ac08b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41ce504b, org.springframework.security.web.session.SessionManagementFilter@47c38f38, org.springframework.security.web.access.ExceptionTranslationFilter@36c42ef3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d978f89]
+2021-04-26 23:43:55.988  INFO 2096 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-04-26 23:43:56.036  INFO 2096 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:43:56.042  WARN 2096 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-26 23:43:56.194  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-04-26 23:43:56.195  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.37 seconds (JVM running for 23654.774)
+2021-04-26 23:43:56.197  INFO 2096 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found beans of type 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' securityConfig (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
+         - found 'session' scope (OnWebApplicationCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationProvider' userAuthenticationProvider (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+   WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2021-04-26 23:44:16.688  INFO 2096 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:44:16.689  INFO 2096 --- [Thread-24] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-04-26 23:44:16.690  INFO 2096 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:44:16.691  INFO 2096 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-04-26 23:44:16.694  INFO 2096 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-04-26 23:44:16.966  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 2096 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-04-26 23:44:16.966 DEBUG 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-04-26 23:44:16.966  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-04-26 23:44:17.261  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-04-26 23:44:17.358  INFO 2096 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97ms. Found 19 repository interfaces.
+2021-04-26 23:44:17.398  INFO 2096 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$79675076] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-04-26 23:44:17.509  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-26 23:44:17.510  INFO 2096 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-26 23:44:17.510  INFO 2096 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-04-26 23:44:17.571  INFO 2096 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-04-26 23:44:17.572  INFO 2096 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-04-26 23:44:17.572  INFO 2096 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 604 ms
+2021-04-26 23:44:17.631  INFO 2096 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-04-26 23:44:17.687  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-04-26 23:44:17.745  INFO 2096 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-04-26 23:44:17.745  INFO 2096 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-04-26 23:44:18.497  INFO 2096 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-26 23:44:18.506  INFO 2096 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-26 23:44:18.543  INFO 2096 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-04-26 23:44:18.771  INFO 2096 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@681c56ee, org.springframework.security.web.context.SecurityContextPersistenceFilter@553b1445, org.springframework.security.web.header.HeaderWriterFilter@4d05c0db, org.springframework.security.web.authentication.logout.LogoutFilter@7fecdb6a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4e67048d, org.springframework.security.web.session.ConcurrentSessionFilter@4509aeab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2e66205f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@365b0521, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77984fc4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c7cfe81, org.springframework.security.web.session.SessionManagementFilter@4b714e60, org.springframework.security.web.access.ExceptionTranslationFilter@336468df, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@400c991d]
+2021-04-26 23:44:18.775  INFO 2096 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-04-26 23:44:18.814  INFO 2096 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-26 23:44:18.819  WARN 2096 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-26 23:44:18.933  INFO 2096 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-04-26 23:44:18.933  INFO 2096 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 1.989 seconds (JVM running for 23677.513)
+2021-04-26 23:44:18.940  INFO 2096 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

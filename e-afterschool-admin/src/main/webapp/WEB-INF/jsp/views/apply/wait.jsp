@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/common/tagLib.jsp"%>
 
+<sec:authentication property="principal" var="user"></sec:authentication>
+
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-blocked"/>
   	<c:param name="title" value="수강 대기 조회"/>
@@ -65,6 +67,8 @@
 						<th>학년 반 번호</th>
 						<th>연락처</th>
 						<th>신청시간</th>
+						<th>개인정보동의</th>
+						<th>주민등록번호</th>
 					</tr>
 				</thead>
 				<tbody class="text-center"></tbody>
@@ -133,10 +137,17 @@ var ApplyWaitManager = function() {
 			    render: function(data, type, row, meta) {
 	    			return moment(new Date(row.createDate)).format("YYYY-MM-DD HH:mm:ss");
 	    		}
-		    }]
+		    },
+		    { 
+		    	render: function(data, type, row, meta) {
+	    			return row.student.agree ? "동의" : "미동의";
+	    		} 
+		 	},
+		    { data: "student.residentNumber" }]
 		},
-		init: function() {
-			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", null, [1,2,3,4,5,6,7,8,9,10], this.title);
+		init: function(isAdmin) {
+			const visible = isAdmin ? [1,2,3,4,5,6,7,8,9,10,11,12] : [1,2,3,4,5,6,7,8,9,10];
+			this.table = Datatables.download(this.ele, this.option, " _TOTAL_ 명의 수강대기자가 있습니다.", [11,12], visible, this.title);
 			this.search();
 		},
 		search: function() {
@@ -156,14 +167,15 @@ var ApplyWaitManager = function() {
 	}
 	
 	return {
-		init: function() {
-			DataTable.init();
+		init: function(isAdmin) {
+			DataTable.init(isAdmin);
 			searchControl();
 		}
 	}
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-	ApplyWaitManager.init();
+	const role = "<c:out value='${user.role}' />";
+	ApplyWaitManager.init(role == 'ADMIN' ? true : false);
 });
 </script>
