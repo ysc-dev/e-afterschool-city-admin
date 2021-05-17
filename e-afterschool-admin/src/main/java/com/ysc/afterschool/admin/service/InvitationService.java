@@ -10,4 +10,6 @@ public interface InvitationService extends CRUDService<Invitation, InvitationSea
 	Invitation registDomain(Invitation domain);
 
 	List<Invitation> getOrderbyList();
+
+	List<Invitation> getList(int cityId);
 }

@@ -89,4 +89,10 @@ public class InvitationServiceImpl implements InvitationService {
 	private Sort sortByIdDesc() {
         return new Sort(Sort.Direction.DESC, "id");
     }
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Invitation> getList(int cityId) {
+		return invitationRepository.findByCityIdOrderByCreateDateDesc(cityId);
+	}
 }

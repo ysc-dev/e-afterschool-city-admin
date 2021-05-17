@@ -3,17 +3,26 @@
 
 <c:import url="/WEB-INF/jsp/common/pageHeader.jsp">
   	<c:param name="icon" value="icon-clipboard3"/>
-  	<c:param name="title" value="만족도 및 설문 조사 조회"/>
-  	<c:param name="lastname" value="만족도 및 설문 조사 조회"/>
+  	<c:param name="title" value="만족도 및 설문 조사 조회(학부모용)"/>
+  	<c:param name="middlename" value="만족도 및 설문 조사 조회"/>
+  	<c:param name="lastname" value="학부모용"/>
 </c:import>
 
 <div class="content">
 	<div id="list_content" class="card mb-0">
 		<div class="card-body">
 			<div class="d-flex mt-1 mb-3">
+				<label class="col-form-label mr-2">도시 :</label>
+				<div class="mr-3">
+					<select class="form-control form-control-select2" name="city" data-width="120" id="citySelect">
+						<c:forEach var="city" items="${cities}" varStatus="status">
+							<option value="${city.id}">${city.name}</option>
+						</c:forEach>
+					</select>
+				</div>
 				<label class="col-form-label mr-2">안내장 :</label>
 				<div class="mr-3">
-					<select class="form-control form-control-select2" name="invitation" data-width="380" id="invitationSelect">
+					<select class="form-control form-control-select2" name="invitation" data-width="400" id="invitationSelect">
 						<c:forEach var="invitation" items="${invitations}" varStatus="status">
 							<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
 						</c:forEach>
@@ -22,7 +31,7 @@
 				<label class="col-form-label mr-2">과목 :</label>
 				<div class="mr-3">
 					<select class="form-control select-search" name="subject" data-width="300" id="subjectSelect">
-						<option value="">- 전 체 -</option>
+						<option value="0">- 전 체 -</option>
 						<c:forEach var="subject" items="${subjects}" varStatus="status">
 							<option value="${subject.id}">${subject.name}</option>
 						</c:forEach>
@@ -67,80 +76,108 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">2. 프로그램 운영 시간을 잘 지켰다.</label>
+					<label class="col-form-label">2. 프로그램 운영과 관련된 안내가 충분히 이루어졌다.</label>
 					<div class="ml-2">
 						<span id="value1" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">3. 사용된 도서(교재) 및 교구(재료)는 학습활동에 도움이 되었다.</label>
+					<label class="col-form-label">3. 프로그램 도서(교재) 및 교구(재료)의 수준이 알맞았다.</label>
 					<div class="ml-2">
 						<span id="value2" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">4. 프로그램을 운영하기 위한 준비는 잘 되었다.</label>
+					<label class="col-form-label">4. 학생의 개인별 활동 상황에 대한 통지가 적절히 이루어졌다.</label>
 					<div class="ml-2">
 						<span id="value3" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">5. 프로그램의 내용과 분량은 학습이나 활동하기에 적절하였다.</label>
+					<label class="col-form-label">5. 프로그램 구성이 잘 짜여졌다.</label>
 					<div class="ml-2">
 						<span id="value4" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">6. 강사는 프로그램 내용을 이해하기 쉽게 설명하였다.</label>
+					<label class="col-form-label">6. 프로그램의 내용과 분량은 학생들에게 적절하였다.</label>
 					<div class="ml-2">
 						<span id="value5" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">7. 수준별 개인 지도가 잘 이루어졌다.</label>
+					<label class="col-form-label">7. 프로그램 운영에 선택된 도서(교재)및 교구(재료)는 학생들에게 도움이 되었다.</label>
 					<div class="ml-2">
 						<span id="value6" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">8. 프로그램에 적극 참여할 수 있도록 관심을 가지고 지도하였다.</label>
+					<label class="col-form-label">8. 학생의 출결상황, 평가결과를 안내하였다.</label>
 					<div class="ml-2">
 						<span id="value7" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">9. 프로그램이 특기 계발 및 실력 향상에 도움이 되었다.</label>
+					<label class="col-form-label">9. 프로그램 운영을 통해 자녀의 소질 계발과 실력 향상에 많은 도움이 되었다.</label>
 					<div class="ml-2">
 						<span id="value8" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">10. 프로그램을 통해 학습하거나 활동한 내용은 진로탐색 및 진로체험에 도움이 되었다.</label>
+					<label class="col-form-label">10. 다른사람에게 이 프로그램을 권유하겠다.</label>
 					<div class="ml-2">
 						<span id="value9" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label class="col-form-label">11. 앞으로 이 프로그램에 계속 참여하거나 다른 친구에게 권유하겠다.</label>
 					<div class="ml-2">
 						<span id="value10" class="font-weight-bold"></span>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
 </div>
 	
 <script>
+$("#citySelect").change(function() {
+	$("#invitationSelect").empty();
+
+	$.ajax({
+		url: contextPath + "/survey/invitation/list",
+		type: "GET",
+		data: {"cityId": $(this).val()},
+		success: function(response) {
+			if (response.length > 0) {
+				$.each(response, function (i, item) {
+					$('#invitationSelect').append($('<option>', {
+					    value: item.id,
+					    text: item.name + '(' + item.city.name + ')'
+					}));
+				});
+
+				$('#invitationSelect').val(response[0].id).trigger('change');
+			} else {
+				$('#invitationSelect').append($('<option>', {
+				    value: -1,
+				    text: "데이터 없음"
+				}));
+				$('#invitationSelect').val(-1).trigger('change');
+			} 
+       	}
+	}); 
+});
+
 $("#invitationSelect").change(function() {
 	$("#subjectSelect").empty();
 	
@@ -151,7 +188,7 @@ $("#invitationSelect").change(function() {
 		success: function(response) {
 			if (response.length > 0) {
 				$('#subjectSelect').append($('<option>', {
-				    value: "",
+				    value: 0,
 				    text: "- 전 체 -"
 				}));
 				
@@ -163,7 +200,7 @@ $("#invitationSelect").change(function() {
 				});
 			} else {
 				$('#subjectSelect').append($('<option>', {
-				    value: 0,
+				    value: -1,
 				    text: "데이터 없음"
 				}));
 			}
@@ -204,7 +241,9 @@ const SurveyManager = function() {
 		},
 		search: function() {
 			var param = new Object();
+			param.cityId = $("select[name=city]").val();
 			param.subjectId = $("select[name=subject]").val();
+			param.surveyType = 'Parents';
 			Datatables.rowsAdd(this.table, contextPath + "/survey/search", param);
 		}
 	}
@@ -239,7 +278,6 @@ const SurveyManager = function() {
 	    		type: "GET",
 	    		data: {"id": id},
 	    		success: function(survey) {
-		    		console.log(survey);
 		    		$("#programName").html(survey.subject.name + " (" + survey.subject.teacher.name + ")");
 		    		$("#value1").html(selectScore(survey.value1));
 		    		$("#value2").html(selectScore(survey.value2));

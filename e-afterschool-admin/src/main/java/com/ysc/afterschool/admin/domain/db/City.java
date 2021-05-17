@@ -59,9 +59,9 @@ public class City implements Domain {
 	/** 설문조사 여부 */
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private SurveyType survey;
+	private SurveyUseType survey;
 	
-	public enum SurveyType {
+	public enum SurveyUseType {
 		ON, OFF;
 	}
 }

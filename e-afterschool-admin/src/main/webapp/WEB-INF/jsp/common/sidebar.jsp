@@ -97,10 +97,16 @@
 							<i class="icon-envelop2"></i><span>SMS 발송</span>
 						</a>
 					</li>
-					<li id="survey" class="nav-item">
-						<a href="${pageContext.request.contextPath}/survey/list" class="nav-link">
-							<i class="icon-clipboard3"></i><span>만족도 및 설문 조사</span>
-						</a>
+					<li id="survey" class="nav-item nav-item-submenu">
+						<a href="#" class="nav-link"><i class="icon-clipboard3"></i> <span>만족도 및 설문 조사</span></a>
+						<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+							<li id="survey_parents" class="nav-item"><a href="${pageContext.request.contextPath}/survey/parents" class="nav-link">
+								<i class="icon-users"></i><span>학부모용</span></a>
+							</li>
+							<li id="survey_student" class="nav-item"><a href="${pageContext.request.contextPath}/survey/student" class="nav-link">
+								<i class="icon-users"></i><span>학생용</span></a>
+							</li>
+						</ul>
 					</li>
 					<li id="user" class="nav-item nav-item-submenu">
 						<a href="#" class="nav-link"><i class="icon-stack2"></i> <span>사용자 관리</span></a>

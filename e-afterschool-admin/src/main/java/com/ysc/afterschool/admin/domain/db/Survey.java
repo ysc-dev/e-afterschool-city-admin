@@ -90,6 +90,10 @@ public class Survey implements Domain {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private SurveyType surveyType;
+	
 	@Getter
 	public enum ScoreType {
 		SCORE10(10, "매우만족"),
@@ -106,5 +110,10 @@ public class Survey implements Domain {
 			this.score = score;
 			this.name = name;
 		}
+	}
+	
+	@Getter
+	public enum SurveyType {
+		Parents, Student
 	}
 }

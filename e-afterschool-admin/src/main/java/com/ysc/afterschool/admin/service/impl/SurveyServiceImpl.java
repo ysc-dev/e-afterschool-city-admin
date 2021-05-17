@@ -1,5 +1,6 @@
 package com.ysc.afterschool.admin.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,12 +68,13 @@ public class SurveyServiceImpl implements SurveyService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Survey> getList(SurveySearchParam param) {
-		
-		String subjectId = param.getSubjectId();
-		if (!subjectId.isEmpty()) {
-			return surveyRepository.findBySubjectId(Integer.parseInt(subjectId));
+		int subjectId = param.getSubjectId();
+		if (subjectId == 0) {
+			return surveyRepository.findByCityIdAndSurveyType(param.getCityId(), param.getSurveyType());
+		} else if (subjectId == -1) {
+			return new ArrayList<Survey>();
 		}
 		
-		return getList();
+		return surveyRepository.findBySubjectIdAndSurveyType(subjectId, param.getSurveyType());
 	}
 }

@@ -1,6 +1,7 @@
 package com.ysc.afterschool.admin.domain.param;
 
 import com.ysc.afterschool.admin.domain.DomainParam;
+import com.ysc.afterschool.admin.domain.db.Survey.SurveyType;
 
 import lombok.Data;
 
@@ -13,5 +14,9 @@ import lombok.Data;
 @Data
 public class SurveySearchParam implements DomainParam {
 
-	private String subjectId;
+	private int cityId;
+	
+	private int subjectId;
+	
+	private SurveyType surveyType;
 }
