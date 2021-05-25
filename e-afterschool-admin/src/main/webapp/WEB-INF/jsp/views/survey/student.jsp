@@ -90,7 +90,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">4. 프로그램을 운영하기 위한 준비는 잘 되었다.</label>
+					<label class="col-form-label">4. 프로그램을 운영하기 위한 준비가 잘 되었다.</label>
 					<div class="ml-2">
 						<span id="value3" class="font-weight-bold"></span>
 					</div>

@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +39,12 @@ public class SmsController {
 	private SmsService smsService;
 	
 	/**
-	 * 발송 화면
+	 * 선택된 과목 발송 화면
 	 * 
 	 * @param model
 	 */
-	@GetMapping("send")
-	public void send(Model model) {
+	@GetMapping("subject")
+	public void subject(Model model) {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 		if (invitations.size() > 0) {
@@ -58,21 +57,37 @@ public class SmsController {
 	}
 	
 	/**
-	 * SMS 전송
+	 * 선택된 안내장 발송 화면
+	 * 
+	 * @param model
+	 */
+	@GetMapping("invitation")
+	public void invitation(Model model) {
+		List<Invitation> invitations = invitationService.getList();
+		model.addAttribute("invitations", invitations);
+	}
+	
+	/**
+	 * SMS 전송(과목별)
 	 * 
 	 * @param smsInfo
 	 * @return
 	 */
-	@PostMapping("regist")
+	@PostMapping("send/subject")
 	@ResponseBody
-	public ResponseEntity<?> regist(SmsInfo smsInfo) {
-		
-		try {
-			smsService.send(smsInfo.getSubjectId(), smsInfo.getContent());
-			
-			return new ResponseEntity<>(HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
+	public ResponseEntity<?> sendSubject(SmsInfo smsInfo) {
+		return smsService.sendBySubject(smsInfo.getSubjectId(), smsInfo.getContent());
+	}
+	
+	/**
+	 * SMS 전송(과목별)
+	 * 
+	 * @param smsInfo
+	 * @return
+	 */
+	@PostMapping("send/invitation")
+	@ResponseBody
+	public ResponseEntity<?> sendInvitation(SmsInfo smsInfo) {
+		return smsService.sendByInvitation(smsInfo.getInvitationId(), smsInfo.getContent());
 	}
 }

@@ -132,13 +132,7 @@ public class ApplyController {
 								subject.setWaitingNumber(subject.getWaitingNumber() - 1);
 								
 								if (subjectService.update(subject)) {
-									try {
-										smsService.send(applyWait.getStudent().getTel(), applyWait.getInvitation().getId());
-									} catch (IOException e) {
-										e.printStackTrace();
-									}
-									
-									return new ResponseEntity<>(HttpStatus.OK);
+									return smsService.send(applyWait.getStudent().getTel(), applyWait.getInvitation().getId());
 								}
 							}
 						}

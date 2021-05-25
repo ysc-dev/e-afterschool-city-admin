@@ -9,5 +9,7 @@ public interface InvitationRepository extends DefaultRepository<Invitation, Inte
 	List<Invitation> findByCityIdOrderByCreateDateDesc(int cityId);
 
 	List<Invitation> OrderByCreateDateDesc();
+
+	List<Invitation> findByCityIdAndAddTypeOrderByCreateDateDesc(int cityId, boolean addType);
 	
 }

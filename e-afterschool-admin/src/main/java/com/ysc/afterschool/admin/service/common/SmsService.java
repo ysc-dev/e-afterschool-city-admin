@@ -1,12 +1,16 @@
 package com.ysc.afterschool.admin.service.common;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.squareup.okhttp.MediaType;
@@ -96,42 +100,121 @@ public class SmsService {
 	}
 
 	/**
-	 * 메시지 전송
+	 * 과목별 메시지 전송
 	 * 
 	 * @param subjectId
 	 * @param message
 	 * @throws IOException
 	 */
-	public void send(int subjectId, String message) throws IOException {
+	public ResponseEntity<?> sendBySubject(int subjectId, String message) {
 		
-		Subject subject = subjectService.get(subjectId);
-		if (subject != null) {
-			if (init()) {
+		try {
+			Subject subject = subjectService.get(subjectId);
+			if (subject != null) {
 				String callback = subject.getInvitation().getCity().getSms();
 				String sendType = message.getBytes("euc-kr").length > 90 ? "lms" : "sms";
 				
-				for (Apply apply : applyService.getListFromSubject(subjectId)) {
-					String phone = apply.getStudent().getTel().replaceAll("-", "");
-					
-					MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-					RequestBody body = RequestBody.create(mediaType, "phone=" + phone + "&callback=" 
+				List<Apply> applies = applyService.getListFromSubject(subjectId);
+				if (applies.size() == 0) {
+					return new ResponseEntity<>("수강신청이 없습니다.", HttpStatus.BAD_REQUEST);
+				}
+				
+				for (Apply apply : applies) {
+					if (init()) {
+						String phone = apply.getStudent().getTel().replaceAll("-", "");
+						
+						MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+						RequestBody body = RequestBody.create(mediaType, "phone=" + phone + "&callback=" 
 								+ callback + "&message=" + message + "&refkey=12132214");
-					Request request = new Request.Builder()
-							.url("https://sms.gabia.com/api/send/" + sendType)
-							.post(body)
-							.addHeader("Content-Type", "application/x-www-form-urlencoded")
-							.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
-							.addHeader("cache-control", "no-cache")
-							.build();
-					
-					OkHttpClient client = new OkHttpClient();
-					Response response = client.newCall(request).execute();
-					response.body().close();
-					
-					log.debug("send response : " + response.toString());
+						Request request = new Request.Builder()
+								.url("https://sms.gabia.com/api/send/" + sendType)
+								.post(body)
+								.addHeader("Content-Type", "application/x-www-form-urlencoded")
+								.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
+								.addHeader("cache-control", "no-cache")
+								.build();
+						
+						OkHttpClient client = new OkHttpClient();
+						Response response = client.newCall(request).execute();
+						response.body().close();
+						
+//						log.debug("send response : " + response.toString());
+						
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("SMS 발송을 실패하였습니다.", HttpStatus.BAD_REQUEST);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("SMS 발송을 실패하였습니다.", HttpStatus.BAD_REQUEST);
 		}
+		
+		return new ResponseEntity<>("SMS 발송이 완료 되었습니다.", HttpStatus.OK);
+	}
+	
+	/**
+	 * 안내장별 메시지 전송
+	 * 
+	 * @param subjectId
+	 * @param message
+	 * @throws IOException
+	 */
+	public ResponseEntity<?> sendByInvitation(int invitationId, String message) {
+		
+		try {
+			Invitation invitation = invitationService.get(invitationId);
+			if (invitation != null) {
+				String callback = invitation.getCity().getSms();
+				String sendType = message.getBytes("euc-kr").length > 90 ? "lms" : "sms";
+				
+				List<Apply> applies = applyService.getListFromInvitation(invitationId);
+				if (applies.size() == 0) {
+					return new ResponseEntity<>("수강신청이 없습니다.", HttpStatus.BAD_REQUEST);
+				}
+				
+				for (Apply apply : applies) {
+					if (init()) {
+						String phone = apply.getStudent().getTel().replaceAll("-", "");
+						
+						MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+						RequestBody body = RequestBody.create(mediaType, "phone=" + phone + "&callback=" 
+								+ callback + "&message=" + message + "&refkey=12132214");
+						Request request = new Request.Builder()
+								.url("https://sms.gabia.com/api/send/" + sendType)
+								.post(body)
+								.addHeader("Content-Type", "application/x-www-form-urlencoded")
+								.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
+								.addHeader("cache-control", "no-cache")
+								.build();
+						
+						OkHttpClient client = new OkHttpClient();
+						Response response = client.newCall(request).execute();
+						response.body().close();
+						
+//						log.debug("send response : " + response.toString());
+						
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("SMS 발송을 실패하였습니다.", HttpStatus.BAD_REQUEST);
+		}
+		
+		
+		return new ResponseEntity<>("SMS 발송이 완료 되었습니다.", HttpStatus.OK);
 	}
 	
 	/**
@@ -171,30 +254,55 @@ public class SmsService {
 		}
 	}
 
-	public void send(String phone, int invitationId) throws IOException {
-		Invitation invitation = invitationService.get(invitationId);
-		if (invitation != null) {
-			if (init()) {
-				String callback = invitation.getCity().getSms();
-				phone = phone.replaceAll("-", "");
-				
-				String sendType = message.getBytes("euc-kr").length > 90 ? "lms" : "sms";
-				
-				MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-				RequestBody body = RequestBody.create(mediaType, "phone=" + phone + "&callback=" + callback + "&message=" + message + "&refkey=12132214");
-				Request request = new Request.Builder()
-						.url("https://sms.gabia.com/api/send/" + sendType)
-						.post(body)
-						.addHeader("Content-Type", "application/x-www-form-urlencoded")
-						.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
-						.addHeader("cache-control", "no-cache")
-						.build();
-				
-				OkHttpClient client = new OkHttpClient();
-				Response response = client.newCall(request).execute();
-				response.body().close();
-				log.debug("send response : " + response.toString());
+	/**
+	 * 문자 발송
+	 * @param phone
+	 * @param invitationId
+	 * @throws IOException
+	 */
+	public ResponseEntity<?> send(String phone, int invitationId) {
+		
+		try {
+			Invitation invitation = invitationService.get(invitationId);
+			if (invitation != null) {
+				if (init()) {
+					String callback = invitation.getCity().getSms();
+					phone = phone.replaceAll("-", "");
+					
+					String sendType = message.getBytes("euc-kr").length > 90 ? "lms" : "sms";
+					
+					MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+					RequestBody body = RequestBody.create(mediaType, "phone=" + phone 
+							+ "&callback=" + callback + "&message=" + message + "&refkey=12132214");
+					Request request = new Request.Builder()
+							.url("https://sms.gabia.com/api/send/" + sendType)
+							.post(body)
+							.addHeader("Content-Type", "application/x-www-form-urlencoded")
+							.addHeader("Authorization", tokenType + " " + new String(Base64.encodeBase64(token.getBytes())))
+							.addHeader("cache-control", "no-cache")
+							.build();
+					
+					OkHttpClient client = new OkHttpClient();
+					Response response = client.newCall(request).execute();
+					response.body().close();
+					
+					log.debug("send response : " + response.toString());
+					
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("SMS 발송을 실패하였습니다.", HttpStatus.BAD_REQUEST);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>("SMS 발송을 실패하였습니다.", HttpStatus.BAD_REQUEST);
 		}
+		
+		return new ResponseEntity<>("SMS 발송이 완료 되었습니다.", HttpStatus.OK);
 	}		
 }

@@ -16,6 +16,9 @@ public class SmsInfo implements Domain {
 	/** 내용 */
 	private String content;
 	
+	/** 안내장 ID */
+	private int invitationId;
+	
 	/** 과목 ID */
 	private int subjectId;
 }

@@ -141,4 +141,10 @@ public class ApplyServiceImpl implements ApplyService {
 	public List<Apply> getList(int infoId, int studentId) {
 		return applyRepository.findByInvitationIdAndStudentId(infoId, studentId);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Apply> getListFromInvitation(int invitationId) {
+		return applyRepository.findByInvitationId(invitationId);
+	}
 }

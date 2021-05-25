@@ -63,6 +63,9 @@ public class Invitation extends AbstractDomain {
 	@Fetch(FetchMode.SELECT)
 	private List<InvitationFile> uploadedFiles;
 	
+	/** 추가 모집 일 경우 */
+	private boolean addType;
+	
 	@Transient
 	private MultipartFile[] images;
 	

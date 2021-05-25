@@ -12,4 +12,6 @@ public interface InvitationService extends CRUDService<Invitation, InvitationSea
 	List<Invitation> getOrderbyList();
 
 	List<Invitation> getList(int cityId);
+
+	List<Invitation> getList(int cityId, boolean addType);
 }

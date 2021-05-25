@@ -92,10 +92,16 @@
 							<i class="icon-bubble-notification"></i><span>공지사항</span>
 						</a>
 					</li>
-					<li id="sms" class="nav-item">
-						<a href="${pageContext.request.contextPath}/sms/send" class="nav-link">
-							<i class="icon-envelop2"></i><span>SMS 발송</span>
-						</a>
+					<li id="sms" class="nav-item nav-item-submenu">
+						<a href="#" class="nav-link"><i class="icon-envelop2"></i> <span>SMS 발송</span></a>
+						<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+							<li id="sms_subject" class="nav-item"><a href="${pageContext.request.contextPath}/sms/subject" class="nav-link">
+								<i class="icon-paperplane"></i><span>과목별 발송</span></a>
+							</li>
+							<li id="sms_invitation" class="nav-item"><a href="${pageContext.request.contextPath}/sms/invitation" class="nav-link">
+								<i class="icon-paperplane"></i><span>안내장별 발송</span></a>
+							</li>
+						</ul>
 					</li>
 					<li id="survey" class="nav-item nav-item-submenu">
 						<a href="#" class="nav-link"><i class="icon-clipboard3"></i> <span>만족도 및 설문 조사</span></a>

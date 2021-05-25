@@ -83,14 +83,14 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">3. 프로그램 도서(교재) 및 교구(재료)의 수준이 알맞았다.</label>
+					<label class="col-form-label">3. 프로그램 운영시간이 잘 지켜졌다.</label>
 					<div class="ml-2">
 						<span id="value2" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">4. 학생의 개인별 활동 상황에 대한 통지가 적절히 이루어졌다.</label>
+					<label class="col-form-label">4. 프로그램을 운영하기 위한 준비가 잘 되었다.</label>
 					<div class="ml-2">
 						<span id="value3" class="font-weight-bold"></span>
 					</div>
@@ -111,14 +111,14 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">7. 프로그램 운영에 선택된 도서(교재)및 교구(재료)는 학생들에게 도움이 되었다.</label>
+					<label class="col-form-label">7. 프로그램 운영에 선택된 도서(교재)및 교구(재료)는 학생들의 수준에 맞고 도움이 되었다.</label>
 					<div class="ml-2">
 						<span id="value6" class="font-weight-bold"></span>
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-form-label">8. 학생의 출결상황, 평가결과를 안내하였다.</label>
+					<label class="col-form-label">8. 학생의 출결상황, 활동상황 결과에 대한 통지가 적절히 이루어졌다. </label>
 					<div class="ml-2">
 						<span id="value7" class="font-weight-bold"></span>
 					</div>
@@ -138,12 +138,12 @@
 					</div>
 				</div>
 				
-				<!-- <div class="form-group">
-					<label class="col-form-label">11. 앞으로 이 프로그램에 계속 참여하거나 다른 친구에게 권유하겠다.</label>
+				<div class="form-group">
+					<label class="col-form-label">11. 앞으로 이 프로그램에 계속 참여하고싶다.</label>
 					<div class="ml-2">
 						<span id="value10" class="font-weight-bold"></span>
 					</div>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</div>

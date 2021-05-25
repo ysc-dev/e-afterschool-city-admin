@@ -53,7 +53,7 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 		model.addAttribute("cities", cities);
 		
 		if (cities.size() > 0) {
-			List<Invitation> invitations = invitationService.getList(cities.get(0).getId());
+			List<Invitation> invitations = invitationService.getList(cities.get(0).getId(), false);
 			model.addAttribute("invitations", invitations);
 			
 			if (invitations.size() > 0) {
@@ -74,7 +74,7 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 		model.addAttribute("cities", cities);
 		
 		if (cities.size() > 0) {
-			List<Invitation> invitations = invitationService.getList(cities.get(0).getId());
+			List<Invitation> invitations = invitationService.getList(cities.get(0).getId(), false);
 			model.addAttribute("invitations", invitations);
 			
 			if (invitations.size() > 0) {
@@ -91,6 +91,6 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 	@GetMapping("invitation/list")
 	@ResponseBody
 	public List<Invitation> getSubjectList(int cityId) {
-		return invitationService.getList(cityId);
+		return invitationService.getList(cityId, false);
 	}
 }

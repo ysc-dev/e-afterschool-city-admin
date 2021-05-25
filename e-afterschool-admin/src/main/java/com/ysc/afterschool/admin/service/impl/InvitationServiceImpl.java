@@ -95,4 +95,10 @@ public class InvitationServiceImpl implements InvitationService {
 	public List<Invitation> getList(int cityId) {
 		return invitationRepository.findByCityIdOrderByCreateDateDesc(cityId);
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Invitation> getList(int cityId, boolean addType) {
+		return invitationRepository.findByCityIdAndAddTypeOrderByCreateDateDesc(cityId, addType);
+	}
 }
