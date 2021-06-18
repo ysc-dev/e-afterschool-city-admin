@@ -201,7 +201,9 @@ var InvitationManager = function() {
 		    	width: "10%",
 		    	render: function(data, type, row, meta) {
     				return '<button type="button" class="btn btn-outline bg-primary text-primary-600 btn-sm"'
-    				 + 'onClick="InvitationManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>';
+    				 + 'onClick="InvitationManager.modal(' + row.id + ')"><i class="icon-pencil7"></i></button>'
+    				 + '<button type="button" class="btn btn-outline bg-danger text-danger-600 btn-sm" '
+    				 + 'onClick="InvitationManager._delete(' + row.id + ')"><i class="icon-trash"></i></button>';
 		    	}
 		    }]
 		},
@@ -254,6 +256,9 @@ var InvitationManager = function() {
 		init: function() {
 			DataTable.init();
 			Control();
+		},
+		_delete: function(id) {
+			deleteCommon(contextPath + "/invitation/delete", id, "학교", DataTable);
 		},
 		modal: function(id) {
 			$.ajax({

@@ -22,10 +22,12 @@ import com.ysc.afterschool.admin.domain.CommonFile;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.db.Invitation.InvitationType;
 import com.ysc.afterschool.admin.domain.db.InvitationFile;
+import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.repository.InvitationFileRepository;
 import com.ysc.afterschool.admin.service.InvitationService;
+import com.ysc.afterschool.admin.service.SubjectService;
 import com.ysc.afterschool.admin.service.impl.FileUploadService;
 
 /**
@@ -40,6 +42,9 @@ public class InvitationController {
 	
 	@Autowired
 	private InvitationService invitationService;
+	
+	@Autowired
+	private SubjectService subjectService;
 	
 	@Autowired
 	private CityRepository cityRepository;
@@ -185,6 +190,11 @@ public class InvitationController {
 	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
+		
+		List<Subject> subjects = subjectService.getList(id);
+		if (subjects.size() > 0) {
+			return new ResponseEntity<>("먼저 안내장의 과목을 삭제해주세요.", HttpStatus.BAD_REQUEST);
+		}
 		
 		if (invitationService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);

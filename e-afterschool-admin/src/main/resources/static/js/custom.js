@@ -11,7 +11,6 @@ function maxLengthCheck(object){
 
 /**
  * 등록 공통 기능
- * @returns
  */
 function registCommon(url, object, name, SettingManager) {
     $.ajax({
@@ -34,7 +33,6 @@ function registCommon(url, object, name, SettingManager) {
 
 /**
  * 모달에서 등록 공통 기능
- * @returns
  */
 function registModalCommon(url, object, name, Datatable, modalId) {
 	$.ajax({
@@ -59,7 +57,6 @@ function registModalCommon(url, object, name, Datatable, modalId) {
 
 /**
  * 등록 후 목록화면으로 이동
- * @returns
  */
 function registToMove(form, name, href) {
 	$.ajax({
@@ -82,7 +79,6 @@ function registToMove(form, name, href) {
 
 /**
  * 모달에서 수정 공통 기능
- * @returns
  */
 function updateModalCommon(url, object, name, Datatable, modalId) {
 	$.ajax({
@@ -107,11 +103,10 @@ function updateModalCommon(url, object, name, Datatable, modalId) {
 
 /**
  * 삭제 공통 기능
- * @returns
  */
 function deleteCommon(url, id, name, Datatable, title) {
 	swalInit.fire({
-        title: title ? title : "선택된 " + name + "을 삭제하시겠습니까?",
+        title: title ? title : "선택된 " + name + "를(을) 삭제하시겠습니까?",
         type: "warning",
         confirmButtonText: "삭제",
         confirmButtonClass: "btn btn-danger",
@@ -125,19 +120,19 @@ function deleteCommon(url, id, name, Datatable, title) {
 	    		data: {"id": id},
 	    		success: function(response) {
 	    			swalInit.fire({
-	       				title: name + "가(이) 삭제 되었습니다.", 
+	       				title: name + "가(이) 삭제 되었습니다.",
 	       				type: "success"
 	       			}).then(function(e) {
 	       				Datatable.search();
 	       			});
 	           	},
 	            error: function(response) {
+	            	console.log(response);
 	            	if (isEmpty(response.responseText)) {
 	            		swalInit.fire({title: name + " 삭제를 실패하였습니다.", type: "error"});
 	            	} else {
-	            		swalInit.fire({title: response.responseText, type: "error"});
+	            		swalInit.fire({title: response.responseText, type: "warning"});
 	            	}
-	            	
 	            }
 	    	}); 
     	}
