@@ -89,21 +89,21 @@ public class FileUploadService {
 	 * @return
 	 */
 	private String getSaveFileName(String extName, FileType fileType) {
-		String fileName = "";
-
+		
+		StringBuffer fileName = new StringBuffer();
+		
 		Calendar calendar = Calendar.getInstance();
-		fileName += fileType.getName();
-		fileName += "_";
-		fileName += calendar.get(Calendar.YEAR);
-		fileName += calendar.get(Calendar.MONTH);
-		fileName += calendar.get(Calendar.DATE);
-		fileName += calendar.get(Calendar.HOUR);
-		fileName += calendar.get(Calendar.MINUTE);
-		fileName += calendar.get(Calendar.SECOND);
-		fileName += calendar.get(Calendar.MILLISECOND);
-		fileName += extName;
+		fileName.append(fileType.getName()).append("_");
+		fileName.append(calendar.get(Calendar.YEAR));
+		fileName.append((calendar.get(Calendar.MONTH) + 1));
+		fileName.append(calendar.get(Calendar.DATE));
+		fileName.append(calendar.get(Calendar.HOUR));
+		fileName.append(calendar.get(Calendar.MINUTE));
+		fileName.append(calendar.get(Calendar.SECOND));
+		fileName.append(calendar.get(Calendar.MILLISECOND));
+		fileName.append(extName);
 
-		return fileName;
+		return fileName.toString();
 	}
 
 	/**
