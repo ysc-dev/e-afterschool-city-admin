@@ -12,10 +12,9 @@
 	<div id="list_content" class="card mb-0">
 		<div class="card-body">
 			<div class="d-flex mt-1 mb-3">
-				<label class="col-form-label font-weight-bold mr-3">검색조건 <i class="icon-arrow-right13"></i></label>
 				<label class="col-form-label mr-2">안내장 :</label>
-				<div class="mr-3">
-					<select class="form-control form-control-select2" name="invitation" data-width="320">
+				<div class="mr-3"> 
+					<select class="form-control form-control-select2" name="invitation" data-width="360">
 						<option value="0">- 전 체 -</option>  
 						<c:forEach var="invitation" items="${invitations}" varStatus="status">
 							<option value="${invitation.id}">${invitation.name}(${invitation.city.name})</option>
@@ -24,14 +23,14 @@
 				</div>
 				<label class="col-form-label mr-2">캠퍼스 :</label>
 				<div class="mr-3">
-					<select class="form-control form-control-select2" name="subjectGroup" data-width="140">
+					<select class="form-control form-control-select2" name="subjectGroup" data-width="240">
 						<option value="0">- 전 체 -</option>
 						<c:forEach var="group" items="${subjectGroups}" varStatus="status">
 							<option value="${group.id}">${group.name}</option>
 						</c:forEach>
 					</select>
 				</div>
-				<div class="mr-3" style="width: 250px;">
+				<div class="mr-3" style="width: 280px;">
 					<input type="search" class="form-control" placeholder="수강 과목 이름" name="name" autocomplete="off"> 
 				</div>
 				<button id="searchBtn" class="btn bg-teal-400"><i class="icon-search4 mr-2"></i>조 회</button>

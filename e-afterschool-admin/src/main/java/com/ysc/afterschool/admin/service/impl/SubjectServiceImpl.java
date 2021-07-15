@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.querydsl.core.BooleanBuilder;
+import com.ysc.afterschool.admin.domain.db.QSubject;
 import com.ysc.afterschool.admin.domain.db.Subject;
 import com.ysc.afterschool.admin.domain.param.SubjectSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
@@ -89,28 +91,21 @@ public class SubjectServiceImpl implements SubjectService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Subject> getList(SubjectSearchParam param) {
-		if (param.getName().isEmpty()) {
-			if (param.getSubjectGroupId() != 0 && param.getInvitationId() != 0) {
-				return subjectRepository.findBySubjectGroupIdAndInvitationId(param.getSubjectGroupId(), param.getInvitationId());
-			} else if (param.getSubjectGroupId() != 0 && param.getInvitationId() == 0) {
-				return subjectRepository.findBySubjectGroupId(param.getInvitationId());
-			} else if (param.getSubjectGroupId() == 0 && param.getInvitationId() != 0) {
-				return subjectRepository.findByInvitationId(param.getInvitationId());
-			} else {
-				return getList();
-			}
-		} else {
-			if (param.getSubjectGroupId() != 0 && param.getInvitationId() != 0) {
-				return subjectRepository.findBySubjectGroupIdAndInvitationIdAndNameContaining(param.getSubjectGroupId(), 
-						param.getInvitationId(), param.getName());
-			} else if (param.getSubjectGroupId() != 0 && param.getInvitationId() == 0) {
-				return subjectRepository.findBySubjectGroupIdAndNameContaining(param.getInvitationId(), param.getName());
-			} else if (param.getSubjectGroupId() == 0 && param.getInvitationId() != 0) {
-				return subjectRepository.findByInvitationIdAndNameContaining(param.getInvitationId(), param.getName());
-			} else {
-				return subjectRepository.findByNameContaining(param.getName());
-			}
+		
+		QSubject subject = QSubject.subject;
+
+		BooleanBuilder builder = new BooleanBuilder();
+
+		if (param.getSubjectGroupId() != 0) {
+			builder.and(subject.subjectGroup.id.eq(param.getSubjectGroupId()));
 		}
+		if (param.getInvitationId() != 0) {
+			builder.and(subject.invitation.id.eq(param.getInvitationId()));
+		}
+		
+		builder.and(subject.name.contains(param.getName()));
+		
+		return (List<Subject>) subjectRepository.findAll(builder);
 	}
 
 	private boolean isNew(Subject domain) {

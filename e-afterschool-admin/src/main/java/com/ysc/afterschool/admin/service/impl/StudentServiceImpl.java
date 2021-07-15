@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.querydsl.core.BooleanBuilder;
+import com.ysc.afterschool.admin.domain.db.QStudent;
 import com.ysc.afterschool.admin.domain.db.Student;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
@@ -73,31 +75,25 @@ public class StudentServiceImpl implements StudentService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Student> getList(StudentSearchParam param) {
-		if (param.getCity().equals("NONE")) {
-			if (!param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-				return studentRepository.findBySchoolAndGradeAndNameContaining(param.getSchool(), 
-						Integer.parseInt(param.getGrade()), param.getName());
-			} else if (param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-				return studentRepository.findByGradeAndNameContaining(Integer.parseInt(param.getGrade()), param.getName());
-			} else if (!param.getSchool().isEmpty() && param.getGrade().equals("0")) {
-				return studentRepository.findBySchoolAndNameContaining(param.getSchool(), param.getName());
-			} else {
-				return studentRepository.findByNameContaining(param.getName());
-			}
-		} else if (!param.getCity().equals("NONE")) {
-			if (!param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-				return studentRepository.findByCityAndSchoolAndGradeAndNameContaining(param.getCity(), param.getSchool(), 
-						Integer.parseInt(param.getGrade()), param.getName());
-			} else if (param.getSchool().isEmpty() && !param.getGrade().equals("0")) {
-				return studentRepository.findByCityAndGradeAndNameContaining(param.getCity(), Integer.parseInt(param.getGrade()), param.getName());
-			} else if (!param.getSchool().isEmpty() && param.getGrade().equals("0")) {
-				return studentRepository.findByCityAndSchoolAndNameContaining(param.getCity(), param.getSchool(), param.getName());
-			} else {
-				return studentRepository.findByCityAndNameContaining(param.getCity(), param.getName());
-			}
+		
+		QStudent student = QStudent.student;
+
+		BooleanBuilder builder = new BooleanBuilder();
+
+		if (!param.getCity().equals("NONE")) {
+			builder.and(student.city.eq(param.getCity()));
+		}
+		if (!param.getSchool().isEmpty()) {
+			builder.and(student.school.eq(param.getSchool()));
+		}
+		if (!param.getGrade().equals("0")) {
+			builder.and(student.grade.eq(Integer.parseInt(param.getGrade())));
 		}
 		
-		return getList();
+		builder.and(student.name.contains(param.getName()));
+		builder.and(student.tel.contains(param.getTel()));
+		
+		return (List<Student>) studentRepository.findAll(builder);
 	}
 
 	private boolean isNew(Student domain) {

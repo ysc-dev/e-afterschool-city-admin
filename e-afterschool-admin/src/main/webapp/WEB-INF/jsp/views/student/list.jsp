@@ -51,6 +51,9 @@
 					<div class="form-group">
 						<input type="search" class="form-control" placeholder="학생 이름" name="name" autocomplete="off">
 					</div>
+					<div class="form-group">
+						<input type="search" class="form-control" placeholder="전화번호" name="tel" autocomplete="off">
+					</div>
 					<button type="button" id="searchBtn" class="btn bg-teal-400 btn-block">
 						<i class="icon-search4 mr-2"></i>검 색
 					</button>
@@ -226,6 +229,7 @@ var StudentManager = function() {
 			param.school = $("select[name=school]").val();
 			param.grade = $("select[name=grade]").val();
 			param.name = $("input[name=name]").val();
+			param.tel = $("input[name=tel]").val();
 			Datatables.rowsAdd(this.table, contextPath + "/student/search", param);
 		}
 	}

@@ -20,4 +20,6 @@ public class StudentSearchParam implements DomainParam {
 	private String grade;
 	
 	private String name;
+	
+	private String tel;
 }
