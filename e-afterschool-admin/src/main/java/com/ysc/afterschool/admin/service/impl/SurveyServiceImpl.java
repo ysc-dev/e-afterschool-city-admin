@@ -77,4 +77,10 @@ public class SurveyServiceImpl implements SurveyService {
 		
 		return surveyRepository.findBySubjectIdAndSurveyType(subjectId, param.getSurveyType());
 	}
+
+	@Override
+	public boolean deleteBySubjectId(Integer subjectId) {
+		surveyRepository.deleteBySubjectId(subjectId);
+		return true;
+	}
 }

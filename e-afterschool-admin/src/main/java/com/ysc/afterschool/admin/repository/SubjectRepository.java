@@ -8,4 +8,6 @@ public interface SubjectRepository extends DefaultRepository<Subject, Integer> {
 
 	List<Subject> findByInvitationId(int invitationId);
 
+	void deleteBySubjectGroupId(int subjectGroupId);
+
 }

@@ -10,6 +10,7 @@ import com.ysc.afterschool.admin.domain.db.SubjectGroup;
 import com.ysc.afterschool.admin.domain.param.SearchParam;
 import com.ysc.afterschool.admin.repository.SubjectGroupRepository;
 import com.ysc.afterschool.admin.service.SubjectGroupService;
+import com.ysc.afterschool.admin.service.SubjectService;
 
 /**
  * 과목 그룹 관리 서비스
@@ -23,6 +24,9 @@ public class SubjectGroupServiceImpl implements SubjectGroupService {
 	
 	@Autowired
 	private SubjectGroupRepository subjectGroupRepository;
+	
+	@Autowired
+	private SubjectService subjectService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -56,6 +60,7 @@ public class SubjectGroupServiceImpl implements SubjectGroupService {
 
 	@Override
 	public boolean delete(Integer id) {
+		subjectService.deleteBySubjectGroup(id);
 		subjectGroupRepository.deleteById(id);
 		return true;
 	}

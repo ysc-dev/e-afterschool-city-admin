@@ -13,4 +13,6 @@ public interface SurveyRepository extends DefaultRepository<Survey, Long> {
 
 	List<Survey> findByCityIdAndSurveyType(int cityId, SurveyType surveyType);
 
+	void deleteBySubjectId(Integer subjectId);
+
 }

@@ -17,6 +17,7 @@ import com.ysc.afterschool.admin.repository.ClassContentsRepository;
 import com.ysc.afterschool.admin.repository.SubjectNoticeRepository;
 import com.ysc.afterschool.admin.repository.SubjectRepository;
 import com.ysc.afterschool.admin.service.SubjectService;
+import com.ysc.afterschool.admin.service.SurveyService;
 
 /**
  * 과목 관리 서비스
@@ -45,6 +46,9 @@ public class SubjectServiceImpl implements SubjectService {
 	
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
+	
+	@Autowired
+	private SurveyService surveyService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -83,6 +87,7 @@ public class SubjectServiceImpl implements SubjectService {
 		applyRepository.deleteBySubjectId(id);
 		applyWaitRepository.deleteBySubjectId(id);
 		applyCancelRepository.deleteBySubjectId(id);
+		surveyService.deleteBySubjectId(id);
 		
 		subjectRepository.deleteById(id);
 		return true;
@@ -116,5 +121,11 @@ public class SubjectServiceImpl implements SubjectService {
 	@Override
 	public List<Subject> getList(int invitationId) {
 		return subjectRepository.findByInvitationId(invitationId);
+	}
+
+	@Override
+	public boolean deleteBySubjectGroup(int subjectGroupId) {
+		subjectRepository.deleteBySubjectGroupId(subjectGroupId);
+		return true;
 	}
 }
