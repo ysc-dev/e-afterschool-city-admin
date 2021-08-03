@@ -66,6 +66,9 @@ public class Invitation extends AbstractDomain {
 	/** 추가 모집 일 경우 */
 	private boolean addType;
 	
+	/** 수강신청제한 인원 */
+	private int applyNumber;
+	
 	@Transient
 	private MultipartFile[] images;
 	

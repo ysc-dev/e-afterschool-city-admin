@@ -38,12 +38,12 @@
 								<input type="text" class="form-control" name="deadlineDate" placeholder="예) 2019년 09월 30일" autocomplete="off" required>
 							</div>
 						</div>
-						<!-- <div class="form-group row">
-							<label class="col-md-3 col-form-label text-md-right">설&nbsp;&nbsp;&nbsp;&nbsp;명 :</label>
+						<div class="form-group row">
+							<label class="col-md-3 col-form-label text-md-right">수강신청제한인원 :</label>
 							<div class="col-md-7">
-								<textarea class="form-control" name="description" rows="7" placeholder="필수 입력 항목은 아닙니다."></textarea>
+								<input type="number" class="form-control" name="applyNumber" placeholder="예) 2" autocomplete="off" required>
 							</div>
-						</div> -->
+						</div>
 						
 						<div class="form-group row mt-4">
 							<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>

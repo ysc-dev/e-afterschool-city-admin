@@ -110,7 +110,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-form-label col-md-3 text-md-right">타 입 : </label>
+						<label class="col-form-label col-md-3 text-md-right">수강신청 타입 : </label>
 						<div class="col-md-8">
 							<select class="form-control form-control-select2" name="type">
 								<c:forEach var="type" items="${invitationTypes}" varStatus="status">
@@ -119,12 +119,12 @@
 							</select>
 						</div>
 					</div>
-					<!-- <div class="form-group row mb-2">
-						<label class="col-form-label col-md-3 text-md-right">설 명 : </label>
-						<div class="col-md-7">
-							<textarea rows="5" class="form-control" name="description"></textarea>
+					<div class="form-group row">
+						<label class="col-form-label col-md-3 text-md-right">수강신청제한인원 :</label>
+						<div class="col-md-8">
+							<input type="number" class="form-control" name="applyNumber" placeholder="예) 2" autocomplete="off" required>
 						</div>
-					</div> -->
+					</div>
 					<div class="form-group row mb-0">
 						<label class="col-md-3 col-form-label text-md-right">첨부파일 :</label>
 						<div class="col-md-8">
@@ -270,6 +270,7 @@ var InvitationManager = function() {
 	    			$('#updateForm select[name="city"]').val(response.city.id).trigger('change');
 	    			$('#updateForm input[name="name"]').val(response.name);
 	    			$('#updateForm input[name="deadlineDate"]').val(response.deadlineDate);
+	    			$('#updateForm input[name="applyNumber"]').val(response.applyNumber);
 	    			$('#updateForm select[name="type"]').val(response.type).trigger('change');
 	    			$('#updateForm textarea[name="description"]').val(response.description);
 	    			$("#updateInvitationModal").modal();
