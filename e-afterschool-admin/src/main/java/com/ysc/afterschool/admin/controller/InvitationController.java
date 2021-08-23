@@ -152,6 +152,7 @@ public class InvitationController {
 		result.setDeadlineDate(invitation.getDeadlineDate());
 		result.setDescription(invitation.getDescription());
 		result.setType(invitation.getType());
+		result.setApplyNumber(invitation.getApplyNumber());
 		
 		List<InvitationFile> uploadedFiles = new ArrayList<>();
 		for (MultipartFile file : invitation.getImages()) {
