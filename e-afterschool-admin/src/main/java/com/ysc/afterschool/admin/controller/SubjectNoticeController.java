@@ -38,16 +38,16 @@ import com.ysc.afterschool.admin.service.impl.FileUploadService;
 @Controller
 @RequestMapping("subject/notice")
 public class SubjectNoticeController {
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private SubjectNoticeService subjectNoticeService;
-	
+
 	@Autowired
 	private FileUploadService fileUploadService;
-	
+
 	/**
 	 * 과목별 공지사항 조회 화면
 	 * 
@@ -61,7 +61,7 @@ public class SubjectNoticeController {
 		model.addAttribute("searchTypes", NoticeSearchType.values());
 		return "subject/notice/list";
 	}
-	
+
 	/**
 	 * 과목별 공지사항 조회
 	 * 
@@ -69,11 +69,11 @@ public class SubjectNoticeController {
 	 * @return
 	 */
 	@PostMapping("search")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> search(@RequestBody NoticeSearchParam param) {
 		return new ResponseEntity<>(subjectNoticeService.getList(param), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * 과목별 공지사항 등록 화면
 	 * 
@@ -86,7 +86,7 @@ public class SubjectNoticeController {
 		model.addAttribute("subject", subjectService.get(id));
 		return "subject/notice/regist";
 	}
-	
+
 	/**
 	 * 과목별 공지사항 등록 기능
 	 * 
@@ -97,32 +97,32 @@ public class SubjectNoticeController {
 	@PostMapping("regist")
 	@ResponseBody
 	public ResponseEntity<?> notice(SubjectNotice subjectNotice, Authentication authentication) {
-		
+
 		List<SubjectNoticeFile> uploadedFiles = new ArrayList<>();
-		
+
 		for (MultipartFile file : subjectNotice.getFiles()) {
 			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
 				CommonFile commonFile = fileUploadService.restore(file, CommonFile.COMMUNITY_PATH);
 				SubjectNoticeFile uploadedFile = new SubjectNoticeFile(commonFile);
 				uploadedFile.setSubjectNotice(subjectNotice);
-				
+
 				uploadedFiles.add(uploadedFile);
 			}
 		}
-		
+
 		User user = (User) authentication.getPrincipal();
 		subjectNotice.setUserId(user.getId());
 		subjectNotice.setUserName(user.getName());
 		subjectNotice.setUploadedFiles(uploadedFiles);
-		
+
 		if (subjectNoticeService.regist(subjectNotice)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 공지사항 상세보기 화면
 	 * 
@@ -132,18 +132,18 @@ public class SubjectNoticeController {
 	 */
 	@GetMapping("detail/{id}")
 	public String detail(@PathVariable int id, Model model) {
-		
+
 		SubjectNotice notice = subjectNoticeService.get(id);
 		model.addAttribute("subjectNotice", notice);
 		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss"));
 		model.addAttribute("comments", notice.getComments());
-		
+
 		notice.setHit(notice.getHit() + 1);
 		subjectNoticeService.update(notice);
-		
+
 		return "subject/notice/detail";
 	}
-	
+
 	/**
 	 * 정보 삭제
 	 * 
@@ -153,14 +153,14 @@ public class SubjectNoticeController {
 	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
-		
+
 		if (subjectNoticeService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 공지사항 첨부파일 가져오기
 	 * 

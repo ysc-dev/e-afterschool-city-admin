@@ -41,24 +41,25 @@ import com.ysc.afterschool.admin.service.impl.FileUploadService;
 @Controller
 @RequestMapping("classContent")
 public class ClassContentsController {
-	
+
 	@Autowired
 	private ClassContentsService classContentsService;
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private FileUploadService fileUploadService;
-	
+
 	@Autowired
 	private SubjectUploadedFileRepository subjectUploadedFileRepository;
 
 	/**
 	 * 수업 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -69,9 +70,10 @@ public class ClassContentsController {
 			model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
 		}
 	}
-	
+
 	/**
 	 * 안내장을 통해 과목 리스트 불러오기
+	 * 
 	 * @param invitationId
 	 * @return
 	 */
@@ -80,20 +82,22 @@ public class ClassContentsController {
 	public List<Subject> subjectList(int invitationId) {
 		return subjectService.getList(invitationId);
 	}
-	
+
 	/**
-	 * 조회
+	 * 수업 내용 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
 	@PostMapping("search")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> search(@RequestBody ClassContentsSearchParam param) {
 		return new ResponseEntity<>(classContentsService.getList(param), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * 수업 내용 등록 화면
+	 * 
 	 * @param model
 	 * @param subjectId
 	 */
@@ -101,49 +105,58 @@ public class ClassContentsController {
 	public void regist(Model model, int subjectId) {
 		model.addAttribute("subject", subjectService.get(subjectId));
 	}
-	
+
 	/**
 	 * 수업 내용 등록 기능
+	 * 
 	 * @param classContents
 	 * @param authentication
 	 * @param request
 	 * @return
 	 */
 	@PostMapping("regist")
-	@ResponseBody 
-	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication, HttpServletRequest request) {
+	@ResponseBody
+	public ResponseEntity<?> regist(ClassContents classContents, Authentication authentication,
+			HttpServletRequest request) {
 		List<SubjectUploadedFile> uploadedFiles = new ArrayList<>();
-		
+
 		for (MultipartFile file : classContents.getFiles()) {
 			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
 				CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
 				SubjectUploadedFile uploadedFile = new SubjectUploadedFile(commonFile);
 				uploadedFile.setClassContents(classContents);
-				
+
 				uploadedFiles.add(uploadedFile);
 			}
 		}
-		
+
 		User user = (User) authentication.getPrincipal();
 		classContents.setUserId(user.getUserId());
 		classContents.setUserName(user.getName());
 		classContents.setUploadedFiles(uploadedFiles);
-		
+
 		if (classContentsService.regist(classContents)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
+	/**
+	 * 수업 내용 파일 불러오기
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("file/get")
 	public ResponseEntity<?> getFile(int id) {
 		return new ResponseEntity<>(classContentsService.get(id), HttpStatus.OK);
 	}
 
 	/**
-	 * 정보 삭제
+	 * 수업 내용 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -151,14 +164,14 @@ public class ClassContentsController {
 	@ResponseBody
 	public ResponseEntity<?> delete(Integer id) {
 		List<SubjectUploadedFile> files = subjectUploadedFileRepository.findByClassContentsId(id);
-		
+
 		if (classContentsService.delete(id)) {
 			for (SubjectUploadedFile file : files) {
 				fileUploadService.fileDelete(CommonFile.CLASS_PATH, file.getFileName());
 			}
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

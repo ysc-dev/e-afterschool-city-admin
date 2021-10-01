@@ -26,17 +26,17 @@ import reactor.core.publisher.Mono;
 @Controller
 @RequestMapping("school")
 public class SchoolController extends AbstractController<School, SchoolSearchParam, Integer> {
-	
+
 	@Autowired
 	private SchoolService schoolService;
-	
+
 	@Autowired
 	private CityService cityService;
 
 	public SchoolController(CRUDService<School, SchoolSearchParam, Integer> crudService) {
 		super(crudService);
 	}
-	
+
 	/**
 	 * 학교 목록 화면
 	 * 
@@ -59,11 +59,11 @@ public class SchoolController extends AbstractController<School, SchoolSearchPar
 		School result = schoolService.get(school.getId());
 		result.setNumber(school.getNumber());
 		result.setCity(school.getCity());
-		
+
 		if (schoolService.update(result)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
+
 		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 }

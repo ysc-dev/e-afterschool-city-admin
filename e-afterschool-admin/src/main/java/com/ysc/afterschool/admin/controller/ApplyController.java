@@ -38,30 +38,31 @@ import com.ysc.afterschool.admin.service.common.SmsService;
 @Controller
 @RequestMapping("apply")
 public class ApplyController {
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private SchoolService schoolService;
 
 	@Autowired
 	private ApplyService applyService;
-	
+
 	@Autowired
 	private ApplyWaitService applyWaitService;
-	
+
 	@Autowired
 	private ApplyCancelService applyCancelService;
-	
+
 	@Autowired
 	private SmsService smsService;
-	
+
 	/**
 	 * 수강 신청 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("list")
@@ -72,14 +73,15 @@ public class ApplyController {
 			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
 			if (subjects.size() > 0)
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
-			else 
+			else
 				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 신청 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
-	
+
 	/**
 	 * 안내장을 통해 과목 리스트 불러오기
+	 * 
 	 * @param invitationId
 	 * @return
 	 */
@@ -88,20 +90,22 @@ public class ApplyController {
 	public List<Subject> getSubjectList(int invitationId) {
 		return subjectService.getList(invitationId);
 	}
-	
+
 	/**
 	 * 수강 신청 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
 	@PostMapping("search")
-	@ResponseBody 
+	@ResponseBody
 	public List<Apply> searchApply(@RequestBody ApplySearchParam param) {
 		return applyService.getList(param);
 	}
-	
+
 	/**
 	 * 정보 삭제
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -110,48 +114,52 @@ public class ApplyController {
 	public ResponseEntity<?> delete(int id) {
 		Apply apply = applyService.get(id);
 		Subject subject = subjectService.get(apply.getSubject().getId());
-		
+
 		if (applyService.delete(id)) {
 			applyCancelService.regist(new ApplyCancel(apply));
-			
+
 			List<ApplyWait> applyWaits = applyWaitService.getList(subject.getId());
-			if (applyWaits.size() == 0) {  // 대기 인원이 없을 경우
+			if (applyWaits.size() == 0) { // 대기 인원이 없을 경우
 				subject.setApplyNumber(subject.getApplyNumber() - 1);
-				
+
 				if (subjectService.update(subject)) {
 					return new ResponseEntity<>(HttpStatus.OK);
 				}
 			} else { // 대기 인원이 있을 경우
 				for (ApplyWait applyWait : applyWaits) {
-					List<Apply> applies = applyService.getList(applyWait.getInvitation().getId(), applyWait.getStudent().getId());
-					
+					List<Apply> applies = applyService.getList(applyWait.getInvitation().getId(),
+							applyWait.getStudent().getId());
+
 					if (applies.size() < 2) { // 수강대기 첫번째 학생의 수강신청 한 과목이 두개가 아닐 경우
-						if (applyService.regist(new Apply(applyWait.getInvitation(), applyWait.getStudent(), subject))) {
+						if (applyService
+								.regist(new Apply(applyWait.getInvitation(), applyWait.getStudent(), subject))) {
 							if (applyWaitService.delete(applyWait.getId())) {
 								subject.setWaitingNumber(subject.getWaitingNumber() - 1);
-								
+
 								if (subjectService.update(subject)) {
-									return smsService.send(applyWait.getStudent().getTel(), applyWait.getInvitation().getId());
+									return smsService.send(applyWait.getStudent().getTel(),
+											applyWait.getInvitation().getId());
 								}
 							}
 						}
 					}
 				}
-				 
+
 				// 대기 인원은 있는데 수강대기 학생들이 최대로(2과목) 수강신청 한 경우
 				subject.setApplyNumber(subject.getApplyNumber() - 1);
-				
+
 				if (subjectService.update(subject)) {
 					return new ResponseEntity<>(HttpStatus.OK);
 				}
 			}
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 수강 대기 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("wait")
@@ -162,25 +170,27 @@ public class ApplyController {
 			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
 			if (subjects.size() > 0)
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
-			else 
+			else
 				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 대기 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
-	
+
 	/**
 	 * 수강대기 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
 	@PostMapping("wait/search")
-	@ResponseBody 
+	@ResponseBody
 	public List<ApplyWait> searchWait(@RequestBody ApplySearchParam param) {
 		return applyWaitService.getList(param);
 	}
-	
+
 	/**
 	 * 수강 취소 목록 화면
+	 * 
 	 * @param model
 	 */
 	@GetMapping("cancel")
@@ -191,19 +201,20 @@ public class ApplyController {
 			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
 			if (subjects.size() > 0)
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
-			else 
+			else
 				model.addAttribute("subjects", Arrays.asList(new Subject(0, "수강 취소 없음")));
 		}
 		model.addAttribute("schools", schoolService.getList());
 	}
-	
+
 	/**
 	 * 수강취소 조회
+	 * 
 	 * @param param
 	 * @return
 	 */
 	@PostMapping("cancel/search")
-	@ResponseBody 
+	@ResponseBody
 	public List<ApplyCancel> searchCancel(@RequestBody ApplySearchParam param) {
 		return applyCancelService.getList(param);
 	}

@@ -16,12 +16,12 @@ import com.ysc.afterschool.admin.domain.db.User;
  */
 @Controller
 public class MainController {
-	
+
 	@GetMapping("/")
-    public String index() throws Exception {
-        return "redirect:login";
-    }
-	
+	public String index() throws Exception {
+		return "redirect:login";
+	}
+
 	/**
 	 * 로그인 화면
 	 * 
@@ -30,17 +30,17 @@ public class MainController {
 	 * @param username
 	 */
 	@GetMapping("login")
-    public void login(Model model, @RequestParam(value = "error", required = false) String error,
-    		@CookieValue(value = "saved_username", defaultValue = "") String username) {
+	public void login(Model model, @RequestParam(value = "error", required = false) String error,
+			@CookieValue(value = "saved_username", defaultValue = "") String username) {
 		if (error != null) {
 			model.addAttribute("error", "falied");
 		}
-		
+
 		if (username != null) {
 			model.addAttribute("username", username);
 		}
 	}
-	
+
 	/**
 	 * 회원가입 화면
 	 * 

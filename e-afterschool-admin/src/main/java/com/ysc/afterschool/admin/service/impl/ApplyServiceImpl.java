@@ -37,7 +37,7 @@ public class ApplyServiceImpl implements ApplyService {
 	public Apply get(Integer id) {
 		return applyRepository.findById(id).get();
 	}
-
+	
 	@Transactional(readOnly = true)
 	@Override
 	public List<Apply> getList() {

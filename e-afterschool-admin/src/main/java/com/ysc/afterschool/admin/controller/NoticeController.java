@@ -40,13 +40,13 @@ import com.ysc.afterschool.admin.service.UploadedFileService;
 @Controller
 @RequestMapping("notice")
 public class NoticeController {
-	
+
 	@Autowired
 	private CityRepository cityRepository;
-	
+
 	@Autowired
 	private NoticeService noticeService;
-	
+
 	@Autowired
 	private UploadedFileService uploadedFileService;
 
@@ -60,7 +60,7 @@ public class NoticeController {
 		model.addAttribute("cities", cityRepository.findAll());
 		model.addAttribute("searchTypes", NoticeSearchType.values());
 	}
-	
+
 	/**
 	 * 조회
 	 * 
@@ -68,11 +68,11 @@ public class NoticeController {
 	 * @return
 	 */
 	@PostMapping("search")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> search(@RequestBody NoticeSearchParam param) {
 		return new ResponseEntity<>(noticeService.getList(param), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * 공지사항 등록 화면
 	 * 
@@ -82,7 +82,7 @@ public class NoticeController {
 	public void regist(Model model) {
 		model.addAttribute("cities", cityRepository.findAll());
 	}
-	
+
 	/**
 	 * 공지사항 등록
 	 * 
@@ -97,9 +97,9 @@ public class NoticeController {
 		notice.setUserId(user.getUserId());
 		notice.setUserName(user.getName());
 		notice.setStatus(PostStatus.Y);
-		
+
 		List<UploadedFile> uploadedFiles = new ArrayList<>();
-		
+
 		for (MultipartFile file : notice.getImages()) {
 			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
@@ -109,7 +109,7 @@ public class NoticeController {
 					uploadedFile.setContent(file.getBytes());
 					uploadedFile.setContentType(file.getContentType());
 					uploadedFile.setNotice(notice);
-					
+
 					uploadedFiles.add(uploadedFile);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -117,16 +117,16 @@ public class NoticeController {
 				}
 			}
 		}
-		
+
 		notice.setUploadedFiles(uploadedFiles);
-		
+
 		if (noticeService.regist(notice)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 공지사항 상세보기 화면
 	 * 
@@ -139,13 +139,13 @@ public class NoticeController {
 		Notice notice = noticeService.get(id);
 		model.addAttribute("notice", notice);
 		model.addAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
-		
+
 		notice.setHit(notice.getHit() + 1);
 		noticeService.update(notice);
-		
+
 		return "notice/detail";
 	}
-	
+
 	/**
 	 * 공지사항 수정 화면
 	 * 
@@ -158,7 +158,7 @@ public class NoticeController {
 		model.addAttribute("notice", noticeService.get(id));
 		return "notice/update";
 	}
-	
+
 	/**
 	 * 공지사항 정보 수정
 	 * 
@@ -171,9 +171,9 @@ public class NoticeController {
 		Notice temp = noticeService.get(notice.getId());
 		temp.setTitle(notice.getTitle());
 		temp.setContent(notice.getContent());
-		
+
 		List<UploadedFile> uploadedFiles = new ArrayList<>();
-		
+
 		for (MultipartFile file : notice.getImages()) {
 			String fileName = file.getOriginalFilename();
 			if (!fileName.isEmpty()) {
@@ -183,7 +183,7 @@ public class NoticeController {
 					uploadedFile.setContent(file.getBytes());
 					uploadedFile.setContentType(file.getContentType());
 					uploadedFile.setNotice(notice);
-					
+
 					uploadedFiles.add(uploadedFile);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -191,20 +191,20 @@ public class NoticeController {
 				}
 			}
 		}
-		
+
 		if (uploadedFiles.size() > 0) {
 			if (uploadedFileService.delete(temp.getUploadedFiles())) {
 				temp.setUploadedFiles(uploadedFiles);
 			}
 		}
-		
+
 		if (noticeService.update(temp)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 정보 삭제
 	 * 
@@ -217,10 +217,10 @@ public class NoticeController {
 		if (noticeService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 공지사항 첨부파일 가져오기
 	 * 

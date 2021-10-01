@@ -35,16 +35,16 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectGroupService subjectGroupService;
-	
+
 	@Autowired
 	private TeacherService teacherService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	public SubjectController(CRUDService<Subject, SubjectSearchParam, Integer> crudService) {
 		super(crudService);
 	}
@@ -62,7 +62,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		model.addAttribute("targetTypes", TargetType.values());
 		model.addAttribute("gradeTypes", GradeType.values());
 	}
-	
+
 	/**
 	 * 과목 조회
 	 * 
@@ -79,12 +79,13 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 					data.setTarget("전체 (" + data.getFixedNumber() + ")");
 				}
 			} else {
-				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
+				data.setTarget(data.getTargetType().getName() + ",<br>" + data.getGradeType().getName() + " ("
+						+ data.getFixedNumber() + ")");
 			}
 			return data;
 		}).collect(Collectors.toList()), HttpStatus.OK));
 	}
-	
+
 	/**
 	 * 과목 등록 화면
 	 * 
@@ -98,7 +99,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		model.addAttribute("targetTypes", TargetType.values());
 		model.addAttribute("gradeTypes", GradeType.values());
 	}
-	
+
 	/**
 	 * 과목 등록
 	 * 
@@ -112,10 +113,10 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		if (subjectService.regist(subject)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
+
 		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
-	
+
 	/**
 	 * 과목 정보 수정
 	 * 
@@ -140,11 +141,11 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 		result.setCost(subject.getCost());
 		result.setLocation(subject.getLocation());
 		result.setDescription(subject.getDescription());
-		
+
 		if (subjectService.update(result)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
+
 		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 }

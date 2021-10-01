@@ -34,23 +34,23 @@ import reactor.core.publisher.Mono;
 @Controller
 @RequestMapping("student")
 public class StudentController extends AbstractController<Student, StudentSearchParam, Integer> {
-	
+
 	@Autowired
 	private SchoolService schoolService;
-	
+
 	@Autowired
 	private StudentService studentService;
-	
+
 	@Autowired
 	private ApplyService applyService;
-	
+
 	@Autowired
 	private CityService cityService;
-	
+
 	public StudentController(CRUDService<Student, StudentSearchParam, Integer> crudService) {
 		super(crudService);
 	}
-	
+
 	/**
 	 * 학생 조회 화면
 	 * 
@@ -61,7 +61,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 		model.addAttribute("cities", cityService.getList());
 		model.addAttribute("schools", schoolService.getList());
 	}
-	
+
 	/**
 	 * 학생 정보 수정
 	 * 
@@ -76,26 +76,26 @@ public class StudentController extends AbstractController<Student, StudentSearch
 		temp.setClassType(student.getClassType());
 		temp.setNumber(student.getNumber());
 		temp.setTel(student.getTel());
-		
+
 		String school = student.getSchool();
 		temp.setTargetType(school.contains("초등학교") ? TargetType.초등 : TargetType.중등);
-		school = school.endsWith("초등학교") ? 
-				school.substring(0, school.length() - 4) : school.substring(0, school.length() - 3);
-				temp.setSchoolInfo(school);
-		
+		school = school.endsWith("초등학교") ? school.substring(0, school.length() - 4)
+				: school.substring(0, school.length() - 3);
+		temp.setSchoolInfo(school);
+
 		if (student.getSchool().contains("초등")) {
 			temp.setTargetType(TargetType.초등);
 		} else {
 			temp.setTargetType(TargetType.중등);
 		}
-		
+
 		if (studentService.update(temp)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
+
 		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
-	
+
 	/**
 	 * 학생 정보 삭제
 	 * 
@@ -112,10 +112,10 @@ public class StudentController extends AbstractController<Student, StudentSearch
 				return new ResponseEntity<>(HttpStatus.OK);
 			}
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 수강 이력 화면
 	 * 
@@ -124,7 +124,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	@GetMapping("apply")
 	public void apply(Model model) {
 	}
-	
+
 	/**
 	 * 수강 이력 조회
 	 * 
@@ -132,7 +132,7 @@ public class StudentController extends AbstractController<Student, StudentSearch
 	 * @return
 	 */
 	@PostMapping("apply/search")
-	@ResponseBody 
+	@ResponseBody
 	public List<Apply> searchApply(@RequestBody StudentSearchParam param) {
 		return applyService.getListFromStudent(param);
 	}

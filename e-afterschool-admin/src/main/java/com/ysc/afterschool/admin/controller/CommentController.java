@@ -26,10 +26,10 @@ import com.ysc.afterschool.admin.service.SubjectNoticeService;
 @Controller
 @RequestMapping("comment")
 public class CommentController {
-	
+
 	@Autowired
 	private CommentService commentService;
-	
+
 	@Autowired
 	private SubjectNoticeService subjectNoticeService;
 
@@ -44,7 +44,7 @@ public class CommentController {
 	public ResponseEntity<Comment> get(int id) {
 		return new ResponseEntity<>(commentService.get(id), HttpStatus.OK);
 	}
-	
+
 	/**
 	 * 댓글 등록
 	 * 
@@ -60,14 +60,14 @@ public class CommentController {
 		comment.setUserId(user.getId());
 		comment.setUserName(user.getName());
 		comment.setSubjectNotice(subjectNoticeService.get(subjectNoticeId));
-		
+
 		if (commentService.regist(comment)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-	
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 댓글 수정
 	 * 
@@ -80,14 +80,14 @@ public class CommentController {
 	public ResponseEntity<?> update(int id, String content) {
 		Comment comment = commentService.get(id);
 		comment.setContent(content);
-		
+
 		if (commentService.update(comment)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-	
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 댓글 삭제
 	 * 
@@ -100,7 +100,7 @@ public class CommentController {
 		if (commentService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

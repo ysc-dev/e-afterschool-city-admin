@@ -28,16 +28,16 @@ import com.ysc.afterschool.admin.service.common.SmsService;
 @Controller
 @RequestMapping("sms")
 public class SmsController {
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private SmsService smsService;
-	
+
 	/**
 	 * 선택된 과목 발송 화면
 	 * 
@@ -51,11 +51,11 @@ public class SmsController {
 			List<Subject> subjects = subjectService.getList(invitations.get(0).getId());
 			if (subjects.size() > 0)
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
-			else 
+			else
 				model.addAttribute("subjects", Arrays.asList(new Subject(0, "등록된 과목 없음")));
 		}
 	}
-	
+
 	/**
 	 * 선택된 안내장 발송 화면
 	 * 
@@ -66,7 +66,7 @@ public class SmsController {
 		List<Invitation> invitations = invitationService.getList();
 		model.addAttribute("invitations", invitations);
 	}
-	
+
 	/**
 	 * SMS 전송(과목별)
 	 * 
@@ -78,7 +78,7 @@ public class SmsController {
 	public ResponseEntity<?> sendSubject(SmsInfo smsInfo) {
 		return smsService.sendBySubject(smsInfo.getSubjectId(), smsInfo.getContent());
 	}
-	
+
 	/**
 	 * SMS 전송(과목별)
 	 * 

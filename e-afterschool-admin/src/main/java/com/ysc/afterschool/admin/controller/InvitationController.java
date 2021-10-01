@@ -39,22 +39,22 @@ import com.ysc.afterschool.admin.service.impl.FileUploadService;
 @Controller
 @RequestMapping("invitation")
 public class InvitationController {
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private CityRepository cityRepository;
-	
+
 	@Autowired
 	private FileUploadService fileUploadService;
-	
+
 	@Autowired
 	private InvitationFileRepository invitationFileRepository;
-	
+
 	/**
 	 * 정보 불러오기
 	 * 
@@ -77,7 +77,7 @@ public class InvitationController {
 		model.addAttribute("cities", cityRepository.findAll());
 		model.addAttribute("invitationTypes", InvitationType.values());
 	}
-	
+
 	/**
 	 * 안내장 조회
 	 * 
@@ -85,7 +85,7 @@ public class InvitationController {
 	 * @return
 	 */
 	@PostMapping("search")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> search(@RequestBody InvitationSearchParam param) {
 		List<Invitation> list = invitationService.getList(param).stream().map(data -> {
 			data.setTypeContent(data.getType().getContent());
@@ -93,7 +93,7 @@ public class InvitationController {
 		}).collect(Collectors.toList());
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
-	
+
 	/**
 	 * 안내장 등록 화면
 	 * 
@@ -103,7 +103,7 @@ public class InvitationController {
 	public void regist(Model model) {
 		model.addAttribute("cities", cityRepository.findAll());
 	}
-	
+
 	/**
 	 * 안내장 등록 기능
 	 * 
@@ -111,11 +111,11 @@ public class InvitationController {
 	 * @return
 	 */
 	@PostMapping("regist/file")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> regist(Invitation invitation) {
-		
+
 		invitation.setType(InvitationType.대기);
-		
+
 		List<InvitationFile> uploadedFiles = new ArrayList<>();
 		for (MultipartFile file : invitation.getImages()) {
 			String fileName = file.getOriginalFilename();
@@ -123,20 +123,20 @@ public class InvitationController {
 				CommonFile commonFile = fileUploadService.restore(file, CommonFile.CLASS_PATH);
 				InvitationFile uploadedFile = new InvitationFile(commonFile);
 				uploadedFile.setInvitation(invitation);
-				
+
 				uploadedFiles.add(uploadedFile);
 			}
 		}
-		
+
 		invitation.setUploadedFiles(uploadedFiles);
-		
+
 		if (invitationService.regist(invitation)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 안내장 수정
 	 * 
@@ -144,7 +144,7 @@ public class InvitationController {
 	 * @return
 	 */
 	@PutMapping("update/file")
-	@ResponseBody 
+	@ResponseBody
 	public ResponseEntity<?> update(Invitation invitation) {
 		Invitation result = invitationService.get(invitation.getId());
 		result.setName(invitation.getName());
@@ -153,7 +153,7 @@ public class InvitationController {
 		result.setDescription(invitation.getDescription());
 		result.setType(invitation.getType());
 		result.setApplyNumber(invitation.getApplyNumber());
-		
+
 		List<InvitationFile> uploadedFiles = new ArrayList<>();
 		for (MultipartFile file : invitation.getImages()) {
 			String fileName = file.getOriginalFilename();
@@ -161,27 +161,27 @@ public class InvitationController {
 				CommonFile commonFile = fileUploadService.restore(file, CommonFile.INVITATION_PATH);
 				InvitationFile uploadedFile = new InvitationFile(commonFile);
 				uploadedFile.setInvitation(result);
-				
+
 				uploadedFiles.add(uploadedFile);
 			}
 		}
-		
+
 		List<InvitationFile> invitationFiles = null;
 		if (uploadedFiles.size() > 0) {
 			result.setUploadedFiles(uploadedFiles);
 			invitationFiles = invitationFileRepository.findByInvitationId(invitation.getId());
 		}
-		
+
 		if (invitationService.update(result)) {
 			if (invitationFiles != null) {
 				invitationFileRepository.deleteInBatch(invitationFiles);
 			}
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * 안내장 삭제
 	 * 
@@ -191,16 +191,16 @@ public class InvitationController {
 	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
-		
+
 		List<Subject> subjects = subjectService.getList(id);
 		if (subjects.size() > 0) {
 			return new ResponseEntity<>("먼저 안내장의 과목을 삭제해주세요.", HttpStatus.BAD_REQUEST);
 		}
-		
+
 		if (invitationService.delete(id)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

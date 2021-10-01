@@ -25,37 +25,37 @@ import com.ysc.afterschool.admin.service.TeacherService;
  */
 @Controller
 public class DashboardController {
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SchoolService schoolService;
-	
+
 	@Autowired
 	private StudentService studentService;
-	
+
 	@Autowired
 	private TeacherService teacherService;
-	
+
 	@Autowired
 	private SubjectGroupService subjectGroupService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private ApplyService applyService;
-	
+
 	@Autowired
 	private ApplyWaitService applyWaitService;
-	
+
 	@Autowired
 	private ApplyCancelService applyCancelService;
-	
+
 	@Autowired
 	private NoticeService noticeService;
-	
+
 	@Autowired
 	private SurveyService surveyService;
 

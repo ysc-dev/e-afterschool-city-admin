@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
 @Controller
 @RequestMapping("teacher")
 public class TeacherController extends AbstractController<Teacher, TeacherSearchParam, Integer> {
-	
+
 	@Autowired
 	private TeacherService teacherService;
 
@@ -42,7 +42,7 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	public void list(Model model) {
 		model.addAttribute("sexList", Sex.values());
 	}
-	
+
 	/**
 	 * 강사 정보 수정
 	 * 
@@ -51,16 +51,16 @@ public class TeacherController extends AbstractController<Teacher, TeacherSearch
 	 */
 	@Override
 	public Mono<ResponseEntity<?>> update(Teacher teacher) {
-		
+
 		Teacher result = teacherService.get(teacher.getId());
 		result.setTel(teacher.getTel());
 		result.setEmail(teacher.getEmail());
 		result.setContent(teacher.getContent());
-		
+
 		if (teacherService.update(result)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
-		
+
 		return Mono.just(new ResponseEntity<>(HttpStatus.BAD_REQUEST));
 	}
 }

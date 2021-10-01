@@ -27,16 +27,16 @@ import com.ysc.afterschool.admin.service.SubjectService;
 @Controller
 @RequestMapping("survey")
 public class SurveyController extends AbstractController<Survey, SurveySearchParam, Long> {
-	
+
 	@Autowired
 	private CityService cityService;
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	public SurveyController(CRUDService<Survey, SurveySearchParam, Long> crudService) {
 		super(crudService);
 	}
@@ -48,20 +48,20 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 	 */
 	@GetMapping("student")
 	public void student(Model model) {
-		
+
 		List<City> cities = cityService.getList();
 		model.addAttribute("cities", cities);
-		
+
 		if (cities.size() > 0) {
 			List<Invitation> invitations = invitationService.getList(cities.get(0).getId(), false);
 			model.addAttribute("invitations", invitations);
-			
+
 			if (invitations.size() > 0) {
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
 			}
 		}
 	}
-	
+
 	/**
 	 * 만족도 및 설문 조사 조회 화면(학부모용)
 	 * 
@@ -69,22 +69,23 @@ public class SurveyController extends AbstractController<Survey, SurveySearchPar
 	 */
 	@GetMapping("parents")
 	public void parents(Model model) {
-		
+
 		List<City> cities = cityService.getList();
 		model.addAttribute("cities", cities);
-		
+
 		if (cities.size() > 0) {
 			List<Invitation> invitations = invitationService.getList(cities.get(0).getId(), false);
 			model.addAttribute("invitations", invitations);
-			
+
 			if (invitations.size() > 0) {
 				model.addAttribute("subjects", subjectService.getList(invitations.get(0).getId()));
 			}
 		}
 	}
-	
+
 	/**
 	 * 도시를 통해 안내장 불러오기
+	 * 
 	 * @param cityId
 	 * @return
 	 */
