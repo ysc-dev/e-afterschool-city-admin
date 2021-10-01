@@ -17,7 +17,7 @@ import com.ysc.afterschool.admin.repository.CityRepository;
 @Component
 @Scope("prototype")
 public class CityEditor extends PropertyEditorSupport {
-	
+
 	@Autowired
 	private CityRepository cityRepository;
 

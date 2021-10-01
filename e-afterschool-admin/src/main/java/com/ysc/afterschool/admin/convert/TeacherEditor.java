@@ -17,7 +17,7 @@ import com.ysc.afterschool.admin.service.TeacherService;
 @Component
 @Scope("prototype")
 public class TeacherEditor extends PropertyEditorSupport {
-	
+
 	@Autowired
 	private TeacherService teacherService;
 

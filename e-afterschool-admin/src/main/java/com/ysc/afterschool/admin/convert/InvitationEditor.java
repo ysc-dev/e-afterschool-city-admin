@@ -17,7 +17,7 @@ import com.ysc.afterschool.admin.service.InvitationService;
 @Component
 @Scope("prototype")
 public class InvitationEditor extends PropertyEditorSupport {
-	
+
 	@Autowired
 	private InvitationService invitationService;
 
