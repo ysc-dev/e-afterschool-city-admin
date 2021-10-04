@@ -20,19 +20,20 @@ import com.ysc.afterschool.admin.domain.CommonFile.FileType;
  */
 @Service
 public class FileUploadService {
-	
+
 	@Value("${resource.uploads.root}")
 	private String uploadsRoot;
 
 	/**
 	 * 파일 업로드
+	 * 
 	 * @param multipartFile
 	 * @param path
 	 * @return
 	 */
 	public CommonFile restore(MultipartFile multipartFile, String path) {
 		CommonFile uploadedFile = new CommonFile();
-		
+
 		try {
 			// 파일 정보
 			String originFilename = multipartFile.getOriginalFilename();
@@ -42,7 +43,7 @@ public class FileUploadService {
 			// 서버에서 저장 할 파일 이름
 			FileType fileType = FileType.stringToType(multipartFile.getContentType());
 			String saveFileName = getSaveFileName(extName, fileType);
-			
+
 			uploadedFile.setFileName(saveFileName);
 			uploadedFile.setSize(size);
 			uploadedFile.setContentType(multipartFile.getContentType());
@@ -52,7 +53,7 @@ public class FileUploadService {
 //			System.out.println("extensionName : " + extName);
 //			System.out.println("size : " + size);
 //			System.out.println("saveFileName : " + saveFileName);
-			
+
 			File folder = new File(path);
 			if (!folder.exists())
 				folder.mkdir();
@@ -64,12 +65,13 @@ public class FileUploadService {
 			// throw new FileUploadException();
 			throw new RuntimeException(e);
 		}
-		
+
 		return uploadedFile;
 	}
-	
+
 	/**
 	 * 파일 삭제
+	 * 
 	 * @param path
 	 * @param fileName
 	 * @return
@@ -84,14 +86,15 @@ public class FileUploadService {
 
 	/**
 	 * 현재 시간을 기준으로 파일 이름 생성
+	 * 
 	 * @param extName
 	 * @param contentType
 	 * @return
 	 */
 	private String getSaveFileName(String extName, FileType fileType) {
-		
+
 		StringBuffer fileName = new StringBuffer();
-		
+
 		Calendar calendar = Calendar.getInstance();
 		fileName.append(fileType.getName()).append("_");
 		fileName.append(calendar.get(Calendar.YEAR));
@@ -108,6 +111,7 @@ public class FileUploadService {
 
 	/**
 	 * 파일을 실제로 write 하는 메서드
+	 * 
 	 * @param multipartFile
 	 * @param saveFileName
 	 * @throws IOException

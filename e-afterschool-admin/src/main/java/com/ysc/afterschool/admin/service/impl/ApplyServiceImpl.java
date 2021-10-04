@@ -25,10 +25,10 @@ import com.ysc.afterschool.admin.service.StudentService;
 @Transactional
 @Service
 public class ApplyServiceImpl implements ApplyService {
-	
+
 	@Autowired
 	private ApplyRepository applyRepository;
-	
+
 	@Autowired
 	private StudentService studentService;
 
@@ -37,7 +37,7 @@ public class ApplyServiceImpl implements ApplyService {
 	public Apply get(Integer id) {
 		return applyRepository.findById(id).get();
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public List<Apply> getList() {
@@ -50,7 +50,7 @@ public class ApplyServiceImpl implements ApplyService {
 			return applyRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class ApplyServiceImpl implements ApplyService {
 			return applyRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -67,13 +67,13 @@ public class ApplyServiceImpl implements ApplyService {
 		applyRepository.deleteById(id);
 		return true;
 	}
-	
+
 	@Override
 	public boolean delete(List<Apply> applies) {
 		applyRepository.deleteInBatch(applies);
 		return true;
 	}
-	
+
 	private boolean isNew(Apply domain) {
 		return !applyRepository.existsById(domain.getId());
 	}
@@ -84,27 +84,27 @@ public class ApplyServiceImpl implements ApplyService {
 		String subjectId = param.getSubjectId();
 		String school = param.getSchool();
 		String grade = param.getGrade();
-		
+
 		List<Apply> applies = null;
 		if (!subjectId.isEmpty()) {
 			applies = applyRepository.findBySubjectId(Integer.parseInt(subjectId));
 		} else {
 			applies = applyRepository.findByInvitationId(param.getInvitationId());
 		}
-		
+
 		if (!school.isEmpty() && !grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool()) 
-							&& data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getSchool().equals(param.getSchool())
+						&& data.getStudent().getGrade() == Integer.parseInt(param.getGrade());
+			}).collect(Collectors.toList());
 		} else if (!school.isEmpty() && grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getSchool().equals(param.getSchool());
+			}).collect(Collectors.toList());
 		} else if (school.isEmpty() && !grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getGrade() == Integer.parseInt(param.getGrade());
+			}).collect(Collectors.toList());
 		} else {
 			return applies;
 		}

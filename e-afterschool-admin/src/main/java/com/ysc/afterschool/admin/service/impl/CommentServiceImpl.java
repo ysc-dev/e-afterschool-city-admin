@@ -20,7 +20,7 @@ import com.ysc.afterschool.admin.service.CommentService;
 @Transactional
 @Service
 public class CommentServiceImpl implements CommentService {
-	
+
 	@Autowired
 	private CommentRepository commentRepository;
 
@@ -42,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
 			return commentRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class CommentServiceImpl implements CommentService {
 			return commentRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override

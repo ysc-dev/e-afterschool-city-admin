@@ -21,7 +21,7 @@ import com.ysc.afterschool.admin.service.NoticeService;
 @Transactional
 @Service
 public class NoticeServiceImpl implements NoticeService {
-	
+
 	@Autowired
 	private NoticeRepository noticeRepository;
 
@@ -43,7 +43,7 @@ public class NoticeServiceImpl implements NoticeService {
 			return noticeRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class NoticeServiceImpl implements NoticeService {
 			return noticeRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class NoticeServiceImpl implements NoticeService {
 				}
 			}
 		}
-		
+
 		return null;
 	}
 

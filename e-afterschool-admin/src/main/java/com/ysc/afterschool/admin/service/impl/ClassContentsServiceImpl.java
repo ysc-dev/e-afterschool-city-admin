@@ -20,7 +20,7 @@ import com.ysc.afterschool.admin.service.ClassContentsService;
 @Transactional
 @Service
 public class ClassContentsServiceImpl implements ClassContentsService {
-	
+
 	@Autowired
 	private ClassContentsRepository classContentsRepository;
 
@@ -42,7 +42,7 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 			return classContentsRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 			return classContentsRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override

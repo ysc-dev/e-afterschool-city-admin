@@ -21,7 +21,7 @@ import com.ysc.afterschool.admin.service.InvitationService;
 @Transactional
 @Service
 public class InvitationServiceImpl implements InvitationService {
-	
+
 	@Autowired
 	private InvitationRepository invitationRepository;
 
@@ -43,7 +43,7 @@ public class InvitationServiceImpl implements InvitationService {
 			return invitationRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class InvitationServiceImpl implements InvitationService {
 			return invitationRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class InvitationServiceImpl implements InvitationService {
 		if (param.getCityId() != 0) {
 			return invitationRepository.findByCityIdOrderByCreateDateDesc(param.getCityId());
 		}
-		
+
 		return getList();
 	}
 
@@ -85,10 +85,10 @@ public class InvitationServiceImpl implements InvitationService {
 	public List<Invitation> getOrderbyList() {
 		return invitationRepository.findAll(sortByIdDesc());
 	}
-	
+
 	private Sort sortByIdDesc() {
-        return new Sort(Sort.Direction.DESC, "id");
-    }
+		return new Sort(Sort.Direction.DESC, "id");
+	}
 
 	@Transactional(readOnly = true)
 	@Override

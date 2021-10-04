@@ -30,7 +30,7 @@ public class ApplyCancelServiceImpl implements ApplyCancelService {
 	public ApplyCancel get(Integer id) {
 		return applyCancelRepository.findById(id).get();
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public List<ApplyCancel> getList() {
@@ -43,7 +43,7 @@ public class ApplyCancelServiceImpl implements ApplyCancelService {
 			return applyCancelRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class ApplyCancelServiceImpl implements ApplyCancelService {
 			return applyCancelRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -71,27 +71,27 @@ public class ApplyCancelServiceImpl implements ApplyCancelService {
 		String subjectId = param.getSubjectId();
 		String school = param.getSchool();
 		String grade = param.getGrade();
-		
+
 		List<ApplyCancel> applies = null;
 		if (!subjectId.isEmpty()) {
 			applies = applyCancelRepository.findBySubjectId(Integer.parseInt(subjectId));
 		} else {
 			applies = applyCancelRepository.findByInvitationId(param.getInvitationId());
 		}
-		
+
 		if (!school.isEmpty() && !grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool()) 
-							&& data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getSchool().equals(param.getSchool())
+						&& data.getStudent().getGrade() == Integer.parseInt(param.getGrade());
+			}).collect(Collectors.toList());
 		} else if (!school.isEmpty() && grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getSchool().equals(param.getSchool());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getSchool().equals(param.getSchool());
+			}).collect(Collectors.toList());
 		} else if (school.isEmpty() && !grade.equals("0")) {
-			return applies.stream()
-					.filter(data -> {return data.getStudent().getGrade() == Integer.parseInt(param.getGrade());})
-					.collect(Collectors.toList());
+			return applies.stream().filter(data -> {
+				return data.getStudent().getGrade() == Integer.parseInt(param.getGrade());
+			}).collect(Collectors.toList());
 		} else {
 			return applies;
 		}

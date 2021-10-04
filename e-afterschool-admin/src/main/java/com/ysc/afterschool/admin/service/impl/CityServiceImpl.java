@@ -20,7 +20,7 @@ import com.ysc.afterschool.admin.service.CityService;
 @Transactional
 @Service
 public class CityServiceImpl implements CityService {
-	
+
 	@Autowired
 	private CityRepository cityRepository;
 
@@ -42,7 +42,7 @@ public class CityServiceImpl implements CityService {
 			return cityRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class CityServiceImpl implements CityService {
 			return cityRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -64,6 +64,7 @@ public class CityServiceImpl implements CityService {
 		return !cityRepository.existsById(domain.getId());
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<City> getList(DomainParam param) {
 		return null;
