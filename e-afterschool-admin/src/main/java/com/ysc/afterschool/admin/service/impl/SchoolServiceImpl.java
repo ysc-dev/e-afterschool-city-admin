@@ -21,7 +21,7 @@ import com.ysc.afterschool.admin.service.SchoolService;
 @Transactional
 @Service
 public class SchoolServiceImpl implements SchoolService {
-	
+
 	@Autowired
 	private SchoolRepository schoolRepository;
 
@@ -43,7 +43,7 @@ public class SchoolServiceImpl implements SchoolService {
 			return schoolRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class SchoolServiceImpl implements SchoolService {
 			return schoolRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -68,15 +68,18 @@ public class SchoolServiceImpl implements SchoolService {
 			if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
 				return schoolRepository.findBySchoolType(SchoolType.valueOf(param.getSchoolType()));
 			} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
-				return schoolRepository.findBySchoolTypeAndNameContaining(SchoolType.valueOf(param.getSchoolType()), param.getName());
+				return schoolRepository.findBySchoolTypeAndNameContaining(SchoolType.valueOf(param.getSchoolType()),
+						param.getName());
 			} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
 				return schoolRepository.findByNameContaining(param.getName());
 			}
 		} else if (!param.getCity().equals("NONE")) {
 			if (!param.getSchoolType().equals("NONE") && param.getName().isEmpty()) {
-				return schoolRepository.findByCityAndSchoolType(param.getCity(), SchoolType.valueOf(param.getSchoolType()));
+				return schoolRepository.findByCityAndSchoolType(param.getCity(),
+						SchoolType.valueOf(param.getSchoolType()));
 			} else if (!param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
-				return schoolRepository.findByCityAndSchoolTypeAndNameContaining(param.getCity(), SchoolType.valueOf(param.getSchoolType()), param.getName());
+				return schoolRepository.findByCityAndSchoolTypeAndNameContaining(param.getCity(),
+						SchoolType.valueOf(param.getSchoolType()), param.getName());
 			} else if (param.getSchoolType().equals("NONE") && !param.getName().isEmpty()) {
 				return schoolRepository.findByCityAndNameContaining(param.getCity(), param.getName());
 			} else {

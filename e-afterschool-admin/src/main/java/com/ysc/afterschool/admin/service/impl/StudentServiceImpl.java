@@ -24,16 +24,16 @@ import com.ysc.afterschool.admin.service.StudentService;
 @Transactional
 @Service
 public class StudentServiceImpl implements StudentService {
-	
+
 	@Autowired
 	private StudentRepository studentRepository;
-	
+
 	@Autowired
 	private ApplyWaitRepository applyWaitRepository;
-	
+
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Student get(Integer id) {
@@ -52,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
 			return studentRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class StudentServiceImpl implements StudentService {
 			return studentRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class StudentServiceImpl implements StudentService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Student> getList(StudentSearchParam param) {
-		
+
 		QStudent student = QStudent.student;
 
 		BooleanBuilder builder = new BooleanBuilder();
@@ -89,10 +89,10 @@ public class StudentServiceImpl implements StudentService {
 		if (!param.getGrade().equals("0")) {
 			builder.and(student.grade.eq(Integer.parseInt(param.getGrade())));
 		}
-		
+
 		builder.and(student.name.contains(param.getName()));
 		builder.and(student.tel.contains(param.getTel()));
-		
+
 		return (List<Student>) studentRepository.findAll(builder);
 	}
 

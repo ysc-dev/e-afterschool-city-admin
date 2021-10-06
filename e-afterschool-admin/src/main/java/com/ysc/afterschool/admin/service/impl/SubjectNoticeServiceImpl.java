@@ -21,7 +21,7 @@ import com.ysc.afterschool.admin.service.SubjectNoticeService;
 @Transactional
 @Service
 public class SubjectNoticeServiceImpl implements SubjectNoticeService {
-	
+
 	@Autowired
 	private SubjectNoticeRepository subjectNoticeRepository;
 
@@ -43,7 +43,7 @@ public class SubjectNoticeServiceImpl implements SubjectNoticeService {
 			return subjectNoticeRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class SubjectNoticeServiceImpl implements SubjectNoticeService {
 			return subjectNoticeRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -70,18 +70,20 @@ public class SubjectNoticeServiceImpl implements SubjectNoticeService {
 		} else {
 			if (!param.getContent().isEmpty()) {
 				if (searchType == NoticeSearchType.제목) {
-					return subjectNoticeRepository.findBySubjectIdAndTitleContainingOrderByImportantDescCreateDateDesc
-							(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository.findBySubjectIdAndTitleContainingOrderByImportantDescCreateDateDesc(
+							param.getSubjectId(), param.getContent());
 				} else if (searchType == NoticeSearchType.작성자) {
-					return subjectNoticeRepository.findBySubjectIdAndUserNameContainingOrderByImportantDescCreateDateDesc
-							(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository
+							.findBySubjectIdAndUserNameContainingOrderByImportantDescCreateDateDesc(
+									param.getSubjectId(), param.getContent());
 				} else if (searchType == NoticeSearchType.내용) {
-					return subjectNoticeRepository.findBySubjectIdAndContentContainingOrderByImportantDescCreateDateDesc
-							(param.getSubjectId(), param.getContent());
+					return subjectNoticeRepository
+							.findBySubjectIdAndContentContainingOrderByImportantDescCreateDateDesc(param.getSubjectId(),
+									param.getContent());
 				}
 			}
 		}
-		
+
 		return null;
 	}
 

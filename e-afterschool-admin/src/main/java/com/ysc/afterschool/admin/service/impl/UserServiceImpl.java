@@ -20,7 +20,7 @@ import com.ysc.afterschool.admin.service.UserService;
 @Transactional
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
 
@@ -35,14 +35,14 @@ public class UserServiceImpl implements UserService {
 	public List<User> getList() {
 		return userRepository.findAll();
 	}
-	
+
 	@Override
 	public boolean regist(User domain) {
 		if (isNew(domain)) {
 			return userRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 			return userRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
 	public User login(String userId, String password) {
 		return userRepository.findByUserIdAndPassword(userId, password);
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public User get(String userId) {

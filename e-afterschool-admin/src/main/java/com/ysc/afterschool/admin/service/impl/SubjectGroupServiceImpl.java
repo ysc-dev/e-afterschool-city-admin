@@ -21,10 +21,10 @@ import com.ysc.afterschool.admin.service.SubjectService;
 @Transactional
 @Service
 public class SubjectGroupServiceImpl implements SubjectGroupService {
-	
+
 	@Autowired
 	private SubjectGroupRepository subjectGroupRepository;
-	
+
 	@Autowired
 	private SubjectService subjectService;
 
@@ -46,7 +46,7 @@ public class SubjectGroupServiceImpl implements SubjectGroupService {
 			return subjectGroupRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class SubjectGroupServiceImpl implements SubjectGroupService {
 			return subjectGroupRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override

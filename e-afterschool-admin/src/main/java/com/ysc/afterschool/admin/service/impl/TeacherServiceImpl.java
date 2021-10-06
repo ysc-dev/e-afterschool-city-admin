@@ -20,10 +20,11 @@ import com.ysc.afterschool.admin.service.TeacherService;
 @Transactional
 @Service
 public class TeacherServiceImpl implements TeacherService {
-	
+
 	@Autowired
 	private TeacherRepository teacherRepository;
 
+	@Transactional(readOnly = true)
 	@Override
 	public Teacher get(Integer id) {
 		return teacherRepository.findById(id).get();
@@ -41,7 +42,7 @@ public class TeacherServiceImpl implements TeacherService {
 			return teacherRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -50,7 +51,7 @@ public class TeacherServiceImpl implements TeacherService {
 			return teacherRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -65,7 +66,7 @@ public class TeacherServiceImpl implements TeacherService {
 		if (!param.getName().isEmpty()) {
 			return teacherRepository.findByNameContaining(param.getName());
 		}
-		
+
 		return getList();
 	}
 

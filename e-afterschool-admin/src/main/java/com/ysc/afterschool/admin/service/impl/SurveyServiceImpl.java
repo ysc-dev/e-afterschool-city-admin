@@ -24,13 +24,13 @@ public class SurveyServiceImpl implements SurveyService {
 
 	@Autowired
 	private SurveyRepository surveyRepository;
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public Survey get(Long id) {
 		return surveyRepository.findById(id).get();
 	}
-	
+
 	@Transactional(readOnly = true)
 	@Override
 	public List<Survey> getList() {
@@ -43,7 +43,7 @@ public class SurveyServiceImpl implements SurveyService {
 			return surveyRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class SurveyServiceImpl implements SurveyService {
 			return surveyRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class SurveyServiceImpl implements SurveyService {
 		} else if (subjectId == -1) {
 			return new ArrayList<Survey>();
 		}
-		
+
 		return surveyRepository.findBySubjectIdAndSurveyType(subjectId, param.getSurveyType());
 	}
 

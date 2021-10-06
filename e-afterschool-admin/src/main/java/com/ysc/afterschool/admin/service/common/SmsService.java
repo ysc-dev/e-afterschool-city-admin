@@ -40,17 +40,17 @@ public class SmsService {
 	
 	@Autowired
 	private ApplyService applyService;
-	
+
 	@Autowired
 	private SubjectService subjectService;
-	
+
 	@Autowired
 	private InvitationService invitationService;
-	
+
 	private String token;
-	
+
 	private String tokenType;
-	
+
 	private final String message = "대기 중인 강좌의 수강 승인이 완료되었습니다. 사이트에서 확인해주세요.";
 
 	/**

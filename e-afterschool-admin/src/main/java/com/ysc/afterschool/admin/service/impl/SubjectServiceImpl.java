@@ -28,25 +28,25 @@ import com.ysc.afterschool.admin.service.SurveyService;
 @Transactional
 @Service
 public class SubjectServiceImpl implements SubjectService {
-	
+
 	@Autowired
 	private SubjectRepository subjectRepository;
-	
+
 	@Autowired
 	private SubjectNoticeRepository subjectNoticeRepository;
-	
+
 	@Autowired
 	private ClassContentsRepository classContentsRepository;
-	
+
 	@Autowired
 	private ApplyRepository applyRepository;
-	
+
 	@Autowired
 	private ApplyWaitRepository applyWaitRepository;
-	
+
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
-	
+
 	@Autowired
 	private SurveyService surveyService;
 
@@ -68,7 +68,7 @@ public class SubjectServiceImpl implements SubjectService {
 			return subjectRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class SubjectServiceImpl implements SubjectService {
 			return subjectRepository.save(domain) != null;
 		} else {
 			return false;
-		}	
+		}
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class SubjectServiceImpl implements SubjectService {
 		applyWaitRepository.deleteBySubjectId(id);
 		applyCancelRepository.deleteBySubjectId(id);
 		surveyService.deleteBySubjectId(id);
-		
+
 		subjectRepository.deleteById(id);
 		return true;
 	}
@@ -96,7 +96,7 @@ public class SubjectServiceImpl implements SubjectService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Subject> getList(SubjectSearchParam param) {
-		
+
 		QSubject subject = QSubject.subject;
 
 		BooleanBuilder builder = new BooleanBuilder();
@@ -107,9 +107,9 @@ public class SubjectServiceImpl implements SubjectService {
 		if (param.getInvitationId() != 0) {
 			builder.and(subject.invitation.id.eq(param.getInvitationId()));
 		}
-		
+
 		builder.and(subject.name.contains(param.getName()));
-		
+
 		return (List<Subject>) subjectRepository.findAll(builder);
 	}
 
