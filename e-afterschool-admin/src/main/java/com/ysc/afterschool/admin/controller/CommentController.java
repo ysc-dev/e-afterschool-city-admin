@@ -39,7 +39,7 @@ public class CommentController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping(value = "get")
+	@GetMapping("get")
 	@ResponseBody
 	public ResponseEntity<Comment> get(int id) {
 		return new ResponseEntity<>(commentService.get(id), HttpStatus.OK);
@@ -53,7 +53,7 @@ public class CommentController {
 	 * @param authentication
 	 * @return
 	 */
-	@PostMapping(value = "regist")
+	@PostMapping("regist")
 	@ResponseBody
 	public ResponseEntity<?> regist(Comment comment, int subjectNoticeId, Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
@@ -75,7 +75,7 @@ public class CommentController {
 	 * @param content
 	 * @return
 	 */
-	@PutMapping(value = "update")
+	@PutMapping("update")
 	@ResponseBody
 	public ResponseEntity<?> update(int id, String content) {
 		Comment comment = commentService.get(id);
@@ -94,7 +94,7 @@ public class CommentController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping(value = "delete")
+	@DeleteMapping("delete")
 	@ResponseBody
 	public ResponseEntity<?> delete(int id) {
 		if (commentService.delete(id)) {
