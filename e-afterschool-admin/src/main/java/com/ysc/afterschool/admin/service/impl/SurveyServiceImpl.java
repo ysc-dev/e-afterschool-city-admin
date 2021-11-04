@@ -70,12 +70,12 @@ public class SurveyServiceImpl implements SurveyService {
 	public List<Survey> getList(SurveySearchParam param) {
 		int subjectId = param.getSubjectId();
 		if (subjectId == 0) {
-			return surveyRepository.findByCityIdAndSurveyType(param.getCityId(), param.getSurveyType());
+			return surveyRepository.findByCityIdAndSurveyTypeOrderByCreateDateDesc(param.getCityId(), param.getSurveyType());
 		} else if (subjectId == -1) {
 			return new ArrayList<Survey>();
 		}
 
-		return surveyRepository.findBySubjectIdAndSurveyType(subjectId, param.getSurveyType());
+		return surveyRepository.findBySubjectIdAndSurveyTypeOrderByCreateDateDesc(subjectId, param.getSurveyType());
 	}
 
 	@Override

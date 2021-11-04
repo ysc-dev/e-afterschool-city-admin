@@ -1,147 +1,721 @@
-2021-09-24 22:10:16.094  INFO 9912 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 9912 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-09-24 22:10:16.098 DEBUG 9912 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-09-24 22:10:16.098  INFO 9912 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-09-24 22:10:16.125  INFO 9912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-09-24 22:10:16.125  INFO 9912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-09-24 22:10:16.747  INFO 9912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-09-24 22:10:16.894  INFO 9912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142ms. Found 19 repository interfaces.
-2021-09-24 22:10:17.114  INFO 9912 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bfac8828] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-09-24 22:10:17.361  INFO 9912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-09-24 22:10:17.377  INFO 9912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-09-24 22:10:17.377  INFO 9912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-09-24 22:10:17.382  INFO 9912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_251\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.2.0\;C:\Program Files\Go\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\hgko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\hgko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hgko\go\bin;C:\Users\hgko\.dotnet\tools;C:\Users\hgko\AppData\Roaming\npm;.]
-2021-09-24 22:10:17.579  INFO 9912 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-09-24 22:10:17.582  INFO 9912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
-2021-09-24 22:10:17.583  INFO 9912 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1458 ms
-2021-09-24 22:10:17.760  INFO 9912 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2021-11-03 23:23:41.610  INFO 38648 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 38648 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:23:41.615 DEBUG 38648 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:23:41.616  INFO 38648 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:23:41.651  INFO 38648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-03 23:23:41.651  INFO 38648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-03 23:23:42.457  INFO 38648 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:23:42.629  INFO 38648 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 165ms. Found 19 repository interfaces.
+2021-11-03 23:23:42.867  INFO 38648 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1cd6362e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:23:43.152  INFO 38648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:23:43.168  INFO 38648 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:23:43.169  INFO 38648 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:23:43.174  INFO 38648 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_251\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.2.0\;C:\Program Files\Go\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\hgko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\hgko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hgko\go\bin;C:\Users\hgko\.dotnet\tools;C:\Users\hgko\AppData\Roaming\npm;.]
+2021-11-03 23:23:43.376  INFO 38648 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:23:43.380  INFO 38648 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:23:43.380  INFO 38648 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1729 ms
+2021-11-03 23:23:43.580  INFO 38648 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2021-09-24 22:10:17.801  INFO 9912 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2021-09-24 22:10:17.802  INFO 9912 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2021-09-24 22:10:17.879  INFO 9912 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2021-09-24 22:10:18.012  INFO 9912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-09-24 22:10:18.107  INFO 9912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-09-24 22:10:18.115  INFO 9912 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-09-24 22:10:19.252  INFO 9912 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-09-24 22:10:19.278  WARN 9912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-09-24 22:10:19.539  INFO 9912 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2021-09-24 22:10:20.154  INFO 9912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@136b89d, org.springframework.security.web.context.SecurityContextPersistenceFilter@333ba3c, org.springframework.security.web.header.HeaderWriterFilter@52300442, org.springframework.security.web.authentication.logout.LogoutFilter@1fb64125, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f605f75, org.springframework.security.web.session.ConcurrentSessionFilter@4b19501d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1ccfa18, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d25c1a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e1f9903, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7869fb62, org.springframework.security.web.session.SessionManagementFilter@1fde7061, org.springframework.security.web.access.ExceptionTranslationFilter@700b1930, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a2e237a]
-2021-09-24 22:10:20.194  INFO 9912 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-09-24 22:10:20.342  INFO 9912 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-09-24 22:10:20.366  WARN 9912 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-24 22:10:20.730  INFO 9912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-09-24 22:10:20.732  INFO 9912 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 4.856 seconds (JVM running for 5.471)
-2021-09-24 22:10:28.698  INFO 9912 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-09-24 22:10:28.698  INFO 9912 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-09-24 22:10:28.703  INFO 9912 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2021-09-24 22:10:33.031 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
-2021-09-24 22:10:33.032 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
-2021-09-24 22:10:33.095 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:33.106 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2021-09-24 22:10:33.110 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2021-09-24 22:10:39.365 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:39.365 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
-2021-09-24 22:10:39.390 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:39.397 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
-2021-09-24 22:10:39.401 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
-2021-09-24 22:10:39.405 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [22]
-2021-09-24 22:10:39.408 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [23]
-2021-09-24 22:10:39.412 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
-2021-09-24 22:10:39.415 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [92]
-2021-09-24 22:10:39.418 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
-2021-09-24 22:10:39.422 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [27]
-2021-09-24 22:10:39.426 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [84]
-2021-09-24 22:10:39.429 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
-2021-09-24 22:10:39.433 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
-2021-09-24 22:10:39.436 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [93]
-2021-09-24 22:10:39.440 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [29]
-2021-09-24 22:10:39.443 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
-2021-09-24 22:10:39.447 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:39.451 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
-2021-09-24 22:10:39.454 TRACE 9912 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [33]
-2021-09-24 22:10:39.774 DEBUG 9912 --- [http-nio-8081-exec-1] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:39.783 TRACE 9912 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:39.787 TRACE 9912 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [278]
-2021-09-24 22:10:39.851 TRACE 9912 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:44.015 TRACE 9912 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
-2021-09-24 22:10:44.649 DEBUG 9912 --- [http-nio-8081-exec-7] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:45.895 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:45.903 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:45.907 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
-2021-09-24 22:10:45.911 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
-2021-09-24 22:10:45.915 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [22]
-2021-09-24 22:10:45.919 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [23]
-2021-09-24 22:10:45.922 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
-2021-09-24 22:10:45.926 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [92]
-2021-09-24 22:10:45.929 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
-2021-09-24 22:10:45.933 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [27]
-2021-09-24 22:10:45.937 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [84]
-2021-09-24 22:10:45.941 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
-2021-09-24 22:10:45.945 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
-2021-09-24 22:10:45.948 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [93]
-2021-09-24 22:10:45.952 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [29]
-2021-09-24 22:10:45.956 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
-2021-09-24 22:10:45.960 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:45.963 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
-2021-09-24 22:10:45.967 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [33]
-2021-09-24 22:10:45.981 TRACE 9912 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:46.487 DEBUG 9912 --- [http-nio-8081-exec-5] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:46.493 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:46.498 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [278]
-2021-09-24 22:10:46.515 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:47.597 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:47.598 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
-2021-09-24 22:10:47.618 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:47.626 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
-2021-09-24 22:10:47.630 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
-2021-09-24 22:10:47.633 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [22]
-2021-09-24 22:10:47.637 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [23]
-2021-09-24 22:10:47.640 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
-2021-09-24 22:10:47.643 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [92]
-2021-09-24 22:10:47.647 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
-2021-09-24 22:10:47.650 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [27]
-2021-09-24 22:10:47.653 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [84]
-2021-09-24 22:10:47.657 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
-2021-09-24 22:10:47.660 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
-2021-09-24 22:10:47.663 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [93]
-2021-09-24 22:10:47.667 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [29]
-2021-09-24 22:10:47.670 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
-2021-09-24 22:10:47.674 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:47.677 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
-2021-09-24 22:10:47.681 TRACE 9912 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [33]
-2021-09-24 22:10:47.922 DEBUG 9912 --- [http-nio-8081-exec-1] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:47.928 TRACE 9912 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:49.206 DEBUG 9912 --- [http-nio-8081-exec-4] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:49.216 TRACE 9912 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:50.694 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:50.694 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
-2021-09-24 22:10:50.715 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:50.722 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
-2021-09-24 22:10:50.726 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
-2021-09-24 22:10:50.730 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [22]
-2021-09-24 22:10:50.734 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [23]
-2021-09-24 22:10:50.737 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
-2021-09-24 22:10:50.741 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [92]
-2021-09-24 22:10:50.744 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
-2021-09-24 22:10:50.748 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [27]
-2021-09-24 22:10:50.751 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [84]
-2021-09-24 22:10:50.754 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
-2021-09-24 22:10:50.758 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [30]
-2021-09-24 22:10:50.761 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [93]
-2021-09-24 22:10:50.764 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [29]
-2021-09-24 22:10:50.768 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
-2021-09-24 22:10:50.772 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:10:50.775 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
-2021-09-24 22:10:50.778 TRACE 9912 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [33]
-2021-09-24 22:10:50.951 DEBUG 9912 --- [http-nio-8081-exec-4] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:10:50.957 TRACE 9912 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:10:50.961 TRACE 9912 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [278]
-2021-09-24 22:10:50.979 TRACE 9912 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
-2021-09-24 22:11:05.098 DEBUG 9912 --- [http-nio-8081-exec-1] c.y.a.a.controller.AbstractController    : AbstractController.search
-2021-09-24 22:11:05.107 TRACE 9912 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-09-24 22:11:10.134  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2021-09-24 22:11:10.140  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-09-24 22:11:10.141  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-09-24 22:11:10.144  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-09-24 22:11:10.147  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-09-24 22:11:10.149  INFO 9912 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-03 23:23:43.638  INFO 38648 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2021-11-03 23:23:43.640  INFO 38648 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-11-03 23:23:43.756  INFO 38648 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-11-03 23:23:43.933  INFO 38648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-03 23:23:44.051  INFO 38648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-03 23:23:44.061  INFO 38648 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:23:45.354  INFO 38648 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:23:45.381  WARN 38648 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:23:45.686  INFO 38648 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:23:46.222  INFO 38648 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fd23542, org.springframework.security.web.context.SecurityContextPersistenceFilter@59a187ab, org.springframework.security.web.header.HeaderWriterFilter@32fdff28, org.springframework.security.web.authentication.logout.LogoutFilter@6945da8c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74516e85, org.springframework.security.web.session.ConcurrentSessionFilter@3504acec, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@42586989, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77f44c64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c6fef2d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e447a66, org.springframework.security.web.session.SessionManagementFilter@b8f6c59, org.springframework.security.web.access.ExceptionTranslationFilter@86ffc94, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c42a18f]
+2021-11-03 23:23:46.423  INFO 38648 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:23:46.583  INFO 38648 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:23:46.612  WARN 38648 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:23:47.005 ERROR 38648 --- [restartedMain] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8081]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1004) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) [spring-context-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at com.ysc.afterschool.admin.EAfterschoolAdminApplication.main(EAfterschoolAdminApplication.java:17) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_251]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_251]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_251]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_251]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_251]
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:236) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1085) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1171) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1001) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	... 19 common frames omitted
+
+2021-11-03 23:23:47.013  INFO 38648 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-11-03 23:23:47.019  INFO 38648 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-11-03 23:23:47.022 ERROR 38648 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8081 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8081, or configure this application to listen on another port.
+
+2021-11-03 23:23:47.039  INFO 38648 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:23:47.040  INFO 38648 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:23:47.043  INFO 38648 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:23:47.045  INFO 38648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-03 23:23:47.047  INFO 38648 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-03 23:24:22.177  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:24:22.178 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:24:22.178  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:24:22.206  INFO 47456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-03 23:24:22.206  INFO 47456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-03 23:24:23.057  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:24:23.229  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166ms. Found 19 repository interfaces.
+2021-11-03 23:24:23.475  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:24:23.753  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:24:23.771  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:24:23.771  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:24:23.777  INFO 47456 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_251\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.2.0\;C:\Program Files\Go\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\hgko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\hgko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hgko\go\bin;C:\Users\hgko\.dotnet\tools;C:\Users\hgko\AppData\Roaming\npm;.]
+2021-11-03 23:24:23.983  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:24:23.987  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:24:23.988  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1781 ms
+2021-11-03 23:24:24.208  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:24:24.254  INFO 47456 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2021-11-03 23:24:24.255  INFO 47456 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-11-03 23:24:24.341  INFO 47456 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-11-03 23:24:24.512  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-03 23:24:24.618  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-03 23:24:24.626  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:24:25.898  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:24:25.926  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:24:26.277  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:24:26.962  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@750fe5ff, org.springframework.security.web.context.SecurityContextPersistenceFilter@57aceef3, org.springframework.security.web.header.HeaderWriterFilter@34940f32, org.springframework.security.web.authentication.logout.LogoutFilter@7c311af5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55cc253f, org.springframework.security.web.session.ConcurrentSessionFilter@6b62043f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1687028, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69622502, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d287db3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cf2160c, org.springframework.security.web.session.SessionManagementFilter@19dd9a29, org.springframework.security.web.access.ExceptionTranslationFilter@342118cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59471d6c]
+2021-11-03 23:24:27.011  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:24:27.158  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:24:27.183  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:24:27.587  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:24:27.589  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 5.652 seconds (JVM running for 6.382)
+2021-11-03 23:24:30.449  INFO 47456 --- [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-03 23:24:30.449  INFO 47456 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-03 23:24:30.456  INFO 47456 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2021-11-03 23:24:37.088 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
+2021-11-03 23:24:37.088 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
+2021-11-03 23:24:37.148 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-11-03 23:24:37.160 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:24:37.164 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2021-11-03 23:24:37.167 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2021-11-03 23:24:42.748 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:24:42.748 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:24:42.774 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:24:42.778 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:24:42.783 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:24:42.786 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:24:42.790 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:24:43.163 DEBUG 47456 --- [http-nio-8081-exec-5] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:24:43.171 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:24:43.176 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:24:43.181 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:24:43.186 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:24:43.191 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:24:43.195 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:24:43.200 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:24:43.205 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:24:43.209 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:24:43.214 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:24:43.282 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:24:56.194 DEBUG 47456 --- [http-nio-8081-exec-6] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:24:56.208 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:24:56.213 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:24:56.244 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:26:52.247 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:26:52.248 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:26:52.275 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:26:52.279 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:26:52.284 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:26:52.288 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:26:52.291 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:26:52.627 DEBUG 47456 --- [http-nio-8081-exec-8] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:26:52.634 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:26:52.638 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:26:52.643 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:26:52.651 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:26:52.663 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:26:52.668 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:26:52.674 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:26:52.682 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:26:52.686 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:26:52.692 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:26:52.714 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:26:54.716 DEBUG 47456 --- [http-nio-8081-exec-1] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:26:54.726 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:26:54.730 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:26:54.746 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:03.556 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:03.557 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:03.580 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:03.585 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:03.589 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:03.593 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:03.597 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:03.803 DEBUG 47456 --- [http-nio-8081-exec-2] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:03.810 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:03.814 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:03.820 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:03.825 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:03.830 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:03.833 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:03.838 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:03.843 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:03.848 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:03.852 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:03.871 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:07.876 DEBUG 47456 --- [http-nio-8081-exec-3] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:27:07.884 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:27:07.889 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:07.906 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:13.632 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:13.632 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:13.655 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:13.660 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:13.663 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:13.666 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:13.670 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:13.997 DEBUG 47456 --- [http-nio-8081-exec-7] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:14.003 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:14.007 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:14.012 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:14.017 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:14.021 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:14.026 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:14.031 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:14.036 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:14.040 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:14.044 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:14.062 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:14.616 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:14.617 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:14.638 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:14.642 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:14.645 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:14.649 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:14.653 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:14.784 DEBUG 47456 --- [http-nio-8081-exec-3] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:14.789 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:14.794 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:14.799 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:14.804 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:14.809 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:14.812 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:14.818 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:14.822 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:14.827 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:14.832 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:14.850 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:17.108 DEBUG 47456 --- [http-nio-8081-exec-6] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:27:17.118 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:27:17.122 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:17.137 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:28.803 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:28.803 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:28.824 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:28.829 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:28.832 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:28.836 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:28.839 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:29.140 DEBUG 47456 --- [http-nio-8081-exec-7] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:29.145 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:29.150 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:29.155 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:29.160 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:29.165 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:29.170 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:29.174 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:29.179 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:29.182 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:29.187 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:29.207 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:33.669 DEBUG 47456 --- [http-nio-8081-exec-6] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:27:33.677 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:27:33.682 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:33.698 TRACE 47456 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:56.924 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:56.924 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:56.945 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:56.949 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:56.953 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:56.957 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:56.963 TRACE 47456 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:57.379 DEBUG 47456 --- [http-nio-8081-exec-9] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:57.387 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:57.392 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:57.398 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:57.402 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:57.407 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:57.412 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:57.417 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:57.421 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:57.426 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:57.431 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:57.451 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:27:58.130 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:58.130 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:27:58.151 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:27:58.155 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:27:58.158 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:27:58.162 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:27:58.164 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:27:58.415 DEBUG 47456 --- [http-nio-8081-exec-9] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:27:58.422 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:27:58.426 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:27:58.431 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:27:58.442 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:27:58.447 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:27:58.452 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:27:58.456 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:27:58.462 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:27:58.467 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:27:58.474 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:27:58.494 TRACE 47456 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:28:00.202 DEBUG 47456 --- [http-nio-8081-exec-1] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:28:00.211 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:28:00.216 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:28:00.232 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:31:25.973  INFO 47456 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:25.974  INFO 47456 --- [Thread-2] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:25.977  INFO 47456 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:25.979  INFO 47456 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-03 23:31:25.982  INFO 47456 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-03 23:31:26.277  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:31:26.278 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:31:26.278  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:31:26.642  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:31:26.760  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118ms. Found 19 repository interfaces.
+2021-11-03 23:31:26.808  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:31:26.951  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:31:26.952  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:31:26.952  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:31:27.025  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:31:27.027  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:31:27.027  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 748 ms
+2021-11-03 23:31:27.092  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:31:27.166  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-11-03 23:31:27.202  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-11-03 23:31:27.202  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:31:27.864  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:27.881  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:31:27.955  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:31:28.349  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1722daa1, org.springframework.security.web.context.SecurityContextPersistenceFilter@7aef5a05, org.springframework.security.web.header.HeaderWriterFilter@4baf43d4, org.springframework.security.web.authentication.logout.LogoutFilter@9ace8ee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37c66e87, org.springframework.security.web.session.ConcurrentSessionFilter@1275e9f3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@32961efc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bef176f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34abb5f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d6c0b3e, org.springframework.security.web.session.SessionManagementFilter@19fcc8fb, org.springframework.security.web.access.ExceptionTranslationFilter@ad0beb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27bda73c]
+2021-11-03 23:31:28.354  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:28.460  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:28.469  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:31:28.608  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:31:28.608  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.358 seconds (JVM running for 427.4)
+2021-11-03 23:31:28.611  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:31:30.125  INFO 47456 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:30.125  INFO 47456 --- [Thread-16] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:30.127  INFO 47456 --- [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:30.127  INFO 47456 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-11-03 23:31:30.130  INFO 47456 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2021-11-03 23:31:30.399  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:31:30.399 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:31:30.399  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:31:30.723  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:31:30.852  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129ms. Found 19 repository interfaces.
+2021-11-03 23:31:30.894  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:31:31.027  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:31:31.028  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:31:31.028  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:31:31.099  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:31:31.101  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:31:31.101  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 701 ms
+2021-11-03 23:31:31.165  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:31:31.237  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-11-03 23:31:31.282  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-11-03 23:31:31.282  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:31:31.924  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:31.936  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:31:31.987  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:31:32.264  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@182c3377, org.springframework.security.web.context.SecurityContextPersistenceFilter@12b8aca6, org.springframework.security.web.header.HeaderWriterFilter@50505ecf, org.springframework.security.web.authentication.logout.LogoutFilter@188b3bf0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3df64880, org.springframework.security.web.session.ConcurrentSessionFilter@3a656d3f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1ff5bc87, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@404c3e18, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@996b368, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8017678, org.springframework.security.web.session.SessionManagementFilter@4e60fe7f, org.springframework.security.web.access.ExceptionTranslationFilter@5c6e8366, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23266361]
+2021-11-03 23:31:32.267  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:32.339  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:32.345  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:31:32.491  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:31:32.492  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.12 seconds (JVM running for 431.283)
+2021-11-03 23:31:32.494  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:31:42.383  INFO 47456 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:42.385  INFO 47456 --- [Thread-24] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:42.387  INFO 47456 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:42.387  INFO 47456 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-11-03 23:31:42.393  INFO 47456 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-11-03 23:31:42.765  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:31:42.765 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:31:42.765  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:31:43.151  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:31:43.264  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113ms. Found 19 repository interfaces.
+2021-11-03 23:31:43.305  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:31:43.444  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:31:43.445  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:31:43.445  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:31:43.516  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:31:43.517  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:31:43.517  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 750 ms
+2021-11-03 23:31:43.584  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:31:43.653  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-11-03 23:31:43.693  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-11-03 23:31:43.694  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:31:44.351  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:31:44.363  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:31:44.407  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:31:44.682  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d8a2a97, org.springframework.security.web.context.SecurityContextPersistenceFilter@2579e203, org.springframework.security.web.header.HeaderWriterFilter@5014920a, org.springframework.security.web.authentication.logout.LogoutFilter@4d531756, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@116a6d94, org.springframework.security.web.session.ConcurrentSessionFilter@41cdc5d1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@40cb42a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5109b064, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@621fa589, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@124ea494, org.springframework.security.web.session.SessionManagementFilter@3f60a76, org.springframework.security.web.access.ExceptionTranslationFilter@22a8cf04, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7079e042]
+2021-11-03 23:31:44.686  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:31:44.752  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:31:44.757  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:31:44.875  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:31:44.875  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.136 seconds (JVM running for 443.667)
+2021-11-03 23:31:44.877  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:31:46.490  INFO 47456 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-03 23:31:46.491  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-03 23:31:46.494  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-11-03 23:31:46.533 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:31:46.534 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:31:46.563 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:31:46.567 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:31:46.571 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:31:46.575 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:31:46.579 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:31:47.464 DEBUG 47456 --- [http-nio-8081-exec-3] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:31:47.497 ERROR 47456 --- [http-nio-8081-exec-3] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/admin] threw exception [Handler dispatch failed; nested exception is java.lang.Error: Unresolved compilation problem: 
+	The method findBySubjectIdAndSurveyType(int, Survey.SurveyType) is undefined for the type SurveyRepository
+] with root cause
+
+java.lang.Error: Unresolved compilation problem: 
+	The method findBySubjectIdAndSurveyType(int, Survey.SurveyType) is undefined for the type SurveyRepository
+
+	at com.ysc.afterschool.admin.service.impl.SurveyServiceImpl.getList(SurveyServiceImpl.java:78) ~[classes/:na]
+	at com.ysc.afterschool.admin.service.impl.SurveyServiceImpl.getList(SurveyServiceImpl.java:1) ~[classes/:na]
+	at com.ysc.afterschool.admin.service.impl.SurveyServiceImpl$$FastClassBySpringCGLIB$$5a194815.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294) ~[spring-tx-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98) ~[spring-tx-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at com.ysc.afterschool.admin.service.impl.SurveyServiceImpl$$EnhancerBySpringCGLIB$$ba460589.getList(<generated>) ~[classes/:na]
+	at com.ysc.afterschool.admin.controller.AbstractController.search(AbstractController.java:89) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_251]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_251]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_251]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_251]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.4.RELEASE.jar:5.1.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_251]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_251]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.14.jar:9.0.14]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_251]
+
+2021-11-03 23:32:29.511  INFO 47456 --- [Thread-32] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:29.511  INFO 47456 --- [Thread-32] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:29.512  INFO 47456 --- [Thread-32] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:29.513  INFO 47456 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-11-03 23:32:29.516  INFO 47456 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-11-03 23:32:29.830  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:32:29.830 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:32:29.830  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:32:30.204  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:32:30.317  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112ms. Found 19 repository interfaces.
+2021-11-03 23:32:30.359  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:32:30.495  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:32:30.496  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:32:30.496  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:32:30.561  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:32:30.563  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:32:30.563  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 731 ms
+2021-11-03 23:32:30.623  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:32:30.689  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-11-03 23:32:30.724  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-11-03 23:32:30.724  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:32:31.330  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:31.339  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:32:31.386  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:32:31.657  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2338c6d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@6121a389, org.springframework.security.web.header.HeaderWriterFilter@a6b06bb, org.springframework.security.web.authentication.logout.LogoutFilter@53be4e68, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6a623614, org.springframework.security.web.session.ConcurrentSessionFilter@11f11e16, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7496492b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@332d3fc8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4aa6e884, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cdc0285, org.springframework.security.web.session.SessionManagementFilter@a6e639a, org.springframework.security.web.access.ExceptionTranslationFilter@1b5d7fae, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@36772391]
+2021-11-03 23:32:31.660  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:31.727  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:31.733  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:32:31.853  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:32:31.853  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.047 seconds (JVM running for 490.644)
+2021-11-03 23:32:31.854  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:32:33.268  INFO 47456 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-03 23:32:33.268  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-03 23:32:33.271  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-03 23:32:33.312 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:33.312 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:32:33.351 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:32:33.355 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:32:33.358 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:32:33.362 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:32:33.366 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:32:34.247 DEBUG 47456 --- [http-nio-8081-exec-3] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:32:34.258 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:34.265 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:32:34.270 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:32:34.276 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:32:34.281 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:32:34.284 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:32:34.289 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:32:34.294 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:32:34.299 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:32:34.304 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:32:34.330 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:32:45.376  INFO 47456 --- [Thread-40] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:45.376  INFO 47456 --- [Thread-40] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:45.377  INFO 47456 --- [Thread-40] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:45.377  INFO 47456 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-11-03 23:32:45.380  INFO 47456 --- [Thread-40] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-11-03 23:32:45.704  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:32:45.704 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:32:45.704  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:32:46.066  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:32:46.187  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121ms. Found 19 repository interfaces.
+2021-11-03 23:32:46.228  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:32:46.361  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:32:46.362  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:32:46.362  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:32:46.432  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:32:46.435  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:32:46.435  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 730 ms
+2021-11-03 23:32:46.531  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:32:46.659  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-11-03 23:32:46.703  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-11-03 23:32:46.704  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:32:47.377  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:47.391  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:32:47.444  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:32:47.733  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cc8604d, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c06be22, org.springframework.security.web.header.HeaderWriterFilter@2012e1b6, org.springframework.security.web.authentication.logout.LogoutFilter@11d2f34d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3c3ccd10, org.springframework.security.web.session.ConcurrentSessionFilter@e05979a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5c937cf9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b2eeb45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33491bf9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a196c85, org.springframework.security.web.session.SessionManagementFilter@246f8a0b, org.springframework.security.web.access.ExceptionTranslationFilter@3d5df181, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@47f43861]
+2021-11-03 23:32:47.736  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:47.809  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:47.818  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:32:47.960  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:32:47.960  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.279 seconds (JVM running for 506.752)
+2021-11-03 23:32:47.963  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:32:49.443  INFO 47456 --- [Thread-48] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:49.444  INFO 47456 --- [Thread-48] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:49.446  INFO 47456 --- [Thread-48] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:49.446  INFO 47456 --- [Thread-48] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-11-03 23:32:49.450  INFO 47456 --- [Thread-48] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-11-03 23:32:49.743  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 47456 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-11-03 23:32:49.743 DEBUG 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-11-03 23:32:49.743  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-11-03 23:32:50.083  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-03 23:32:50.195  INFO 47456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112ms. Found 19 repository interfaces.
+2021-11-03 23:32:50.235  INFO 47456 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7ac6a390] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-03 23:32:50.389  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-11-03 23:32:50.390  INFO 47456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-03 23:32:50.390  INFO 47456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-11-03 23:32:50.464  INFO 47456 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-11-03 23:32:50.466  INFO 47456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-11-03 23:32:50.466  INFO 47456 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 721 ms
+2021-11-03 23:32:50.533  INFO 47456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 23:32:50.605  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-11-03 23:32:50.643  INFO 47456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-11-03 23:32:50.644  INFO 47456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 23:32:51.277  INFO 47456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:32:51.287  WARN 47456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-11-03 23:32:51.334  INFO 47456 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 23:32:51.612  INFO 47456 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7080d44e, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b73acf4, org.springframework.security.web.header.HeaderWriterFilter@4ce4310c, org.springframework.security.web.authentication.logout.LogoutFilter@4d870a5f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4d763013, org.springframework.security.web.session.ConcurrentSessionFilter@5ebf0a36, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2e9101e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36f29ac7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b4f43ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39824f3e, org.springframework.security.web.session.SessionManagementFilter@3f9c4f8c, org.springframework.security.web.access.ExceptionTranslationFilter@72aefce1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@383e2ebe]
+2021-11-03 23:32:51.616  INFO 47456 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:32:51.684  INFO 47456 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:32:51.690  WARN 47456 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 23:32:51.811  INFO 47456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
+2021-11-03 23:32:51.812  INFO 47456 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.095 seconds (JVM running for 510.604)
+2021-11-03 23:32:51.814  INFO 47456 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-11-03 23:32:51.846  INFO 47456 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-03 23:32:51.846  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-03 23:32:51.849  INFO 47456 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-03 23:32:51.891 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:51.891 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:32:51.917 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:32:51.921 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:32:51.925 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:32:51.928 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:32:51.932 TRACE 47456 --- [http-nio-8081-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:32:52.780 DEBUG 47456 --- [http-nio-8081-exec-5] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:32:52.790 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:52.795 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:32:52.802 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:32:52.807 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:32:52.814 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:32:52.819 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:32:52.824 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:32:52.828 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:32:52.833 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:32:52.838 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:32:52.860 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:32:54.297 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:54.297 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:32:54.319 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:32:54.323 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:32:54.326 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:32:54.329 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:32:54.333 TRACE 47456 --- [http-nio-8081-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:32:54.692 DEBUG 47456 --- [http-nio-8081-exec-8] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:32:54.699 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:54.705 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:32:54.710 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:32:54.715 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:32:54.719 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:32:54.724 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:32:54.743 TRACE 47456 --- [http-nio-8081-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:32:57.699 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:57.700 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [false]
+2021-11-03 23:32:57.721 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [34]
+2021-11-03 23:32:57.726 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-11-03 23:32:57.729 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [21]
+2021-11-03 23:32:57.733 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [26]
+2021-11-03 23:32:57.737 TRACE 47456 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [91]
+2021-11-03 23:32:58.051 DEBUG 47456 --- [http-nio-8081-exec-5] c.y.a.a.controller.AbstractController    : AbstractController.search
+2021-11-03 23:32:58.058 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:32:58.063 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [277]
+2021-11-03 23:32:58.068 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [280]
+2021-11-03 23:32:58.074 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [297]
+2021-11-03 23:32:58.079 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [303]
+2021-11-03 23:32:58.084 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [304]
+2021-11-03 23:32:58.088 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [300]
+2021-11-03 23:32:58.092 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [301]
+2021-11-03 23:32:58.097 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [302]
+2021-11-03 23:32:58.104 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [299]
+2021-11-03 23:32:58.123 TRACE 47456 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:33:01.077 DEBUG 47456 --- [http-nio-8081-exec-10] c.y.a.a.controller.AbstractController    : AbstractController.get - 347
+2021-11-03 23:33:01.089 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [347]
+2021-11-03 23:33:01.094 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:33:01.109 TRACE 47456 --- [http-nio-8081-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:33:04.657 DEBUG 47456 --- [http-nio-8081-exec-2] c.y.a.a.controller.AbstractController    : AbstractController.get - 346
+2021-11-03 23:33:04.665 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [346]
+2021-11-03 23:33:04.670 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-11-03 23:33:04.685 TRACE 47456 --- [http-nio-8081-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [32]
+2021-11-03 23:41:34.195  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-11-03 23:41:34.196  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-03 23:41:34.197  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-11-03 23:41:34.199  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-03 23:41:34.200  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-11-03 23:41:34.203  INFO 47456 --- [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.

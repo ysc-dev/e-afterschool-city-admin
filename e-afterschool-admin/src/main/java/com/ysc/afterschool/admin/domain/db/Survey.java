@@ -83,6 +83,9 @@ public class Survey implements Domain {
 	@Column(nullable = false)
 	private ScoreType value10;
 	
+	@Column(length = 255)
+	private String subjects;
+	
 	/** 총 점수 */
 	private int totalScore;
 	

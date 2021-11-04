@@ -74,74 +74,70 @@
 						<span id="programName" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">2. 프로그램 운영 시간을 잘 지켰다.</label>
+					<label class="col-form-label">2. 수업 시간을 정확하게 잘 지킵니까?</label>
 					<div class="ml-2">
 						<span id="value1" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">3. 사용된 도서(교재) 및 교구(재료)는 학습활동에 도움이 되었다.</label>
+					<label class="col-form-label">3. 학생의 질문에 성실하게 응답해 줍니까?</label>
 					<div class="ml-2">
 						<span id="value2" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">4. 프로그램을 운영하기 위한 준비가 잘 되었다.</label>
+					<label class="col-form-label">4. 프로그램 내용을 이해하기 쉽게 설명해 줍니까?</label>
 					<div class="ml-2">
 						<span id="value3" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">5. 프로그램의 내용과 분량은 학습이나 활동하기에 적절하였다.</label>
+					<label class="col-form-label">5. 수업 시간에 수업만 전념합니까?</label>
 					<div class="ml-2">
 						<span id="value4" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">6. 강사는 프로그램 내용을 이해하기 쉽게 설명하였다.</label>
+					<label class="col-form-label">6. 프로그램 운영과 관련된 안내가 이루어집니까?</label>
 					<div class="ml-2">
 						<span id="value5" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">7. 수준별 개인 지도가 잘 이루어졌다.</label>
+					<label class="col-form-label">7. 학습이나 활동하기에 적절한 프로그램의 내용과 분량입니까?</label>
 					<div class="ml-2">
 						<span id="value6" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">8. 프로그램에 적극 참여할 수 있도록 관심을 가지고 지도하였다.</label>
+					<label class="col-form-label">8. 학생의 출결사항 및 평가 결과를 안내합니까?</label>
 					<div class="ml-2">
 						<span id="value7" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">9. 프로그램이 특기 계발 및 실력 향상에 도움이 되었다.</label>
+					<label class="col-form-label">9. 프로그램에 적극 참여하도록 관심을 가지고 지도합니까?</label>
 					<div class="ml-2">
 						<span id="value8" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">10. 프로그램을 통해 학습하거나 활동한 내용은 진로탐색 및 진로체험에 도움이 되었다.</label>
+					<label class="col-form-label">10. 프로그램이 특기 적성 계발 및 실력 향상에 도움이 됩니까?</label>
 					<div class="ml-2">
 						<span id="value9" class="font-weight-bold"></span>
 					</div>
 				</div>
-				
 				<div class="form-group">
-					<label class="col-form-label">11. 앞으로 이 프로그램에 계속 참여하거나 다른 친구에게 권유하겠다.</label>
+					<label class="col-form-label">11. 앞으로 이 프로그램에 계속 참여하거나 다른 친구에게 권유하겠습니까?</label>
 					<div class="ml-2">
 						<span id="value10" class="font-weight-bold"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-form-label">12. 현재 진행되고있는 방과후 학교 프로그램 중 재개설 되었으면 하는 강좌</label>
+					<div class="ml-2">
+						<span id="value11" class="font-weight-bold"></span>
 					</div>
 				</div>
 			</div>
@@ -289,6 +285,7 @@ const SurveyManager = function() {
 		    		$("#value8").html(selectScore(survey.value8));
 		    		$("#value9").html(selectScore(survey.value9));
 		    		$("#value10").html(selectScore(survey.value10));
+		    		$("#value11").html(survey.subjects);
 	    			$("#informationModal").modal();
 	           	}
 	    	}); 
