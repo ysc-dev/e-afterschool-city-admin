@@ -64,7 +64,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	}
 
 	/**
-	 * 과목 조회
+	 * 수강 과목 조회
 	 * 
 	 * @param param
 	 * @return
@@ -109,7 +109,7 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	@Override
 	public Mono<ResponseEntity<?>> regist(Subject subject) {
 //		subject.setWaitFixedNumber(subject.getFixedNumber() * 20 / 100);
-		subject.setWaitFixedNumber(subject.getFixedNumber());
+		subject.setWaitFixedNumber(subject.getFixedNumber() * 2);
 		if (subjectService.regist(subject)) {
 			return Mono.just(new ResponseEntity<>(HttpStatus.OK));
 		}
