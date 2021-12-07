@@ -1,301 +1,95 @@
-2021-12-05 02:26:31.030  INFO 31780 --- [http-nio-8081-exec-6] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
- Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
-
-java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
-	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:414) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:294) ~[tomcat-embed-core-9.0.14.jar:9.0.14]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.14.jar:9.0.14]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.14.jar:9.0.14]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.14.jar:9.0.14]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.14.jar:9.0.14]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_251]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_251]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.14.jar:9.0.14]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_251]
-
-2021-12-05 23:15:45.771  INFO 31780 --- [Thread-64] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:15:45.771  INFO 31780 --- [Thread-64] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:15:45.772  INFO 31780 --- [Thread-64] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:15:45.773  INFO 31780 --- [Thread-64] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
-2021-12-05 23:15:45.775  INFO 31780 --- [Thread-64] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
-2021-12-05 23:15:46.074  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 31780 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-12-05 23:15:46.074 DEBUG 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-12-05 23:15:46.074  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-12-05 23:15:46.285  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-12-05 23:15:46.286  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1ms. Found 0 repository interfaces.
-2021-12-05 23:15:46.332  INFO 31780 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$771dfcfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-12-05 23:15:46.486  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-12-05 23:15:46.487  INFO 31780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-05 23:15:46.487  INFO 31780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-12-05 23:15:46.567  INFO 31780 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-12-05 23:15:46.569  INFO 31780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
-2021-12-05 23:15:46.569  INFO 31780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 493 ms
-2021-12-05 23:15:46.601  INFO 31780 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2021-12-07 23:25:09.606  INFO 33044 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 33044 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
+2021-12-07 23:25:09.611 DEBUG 33044 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
+2021-12-07 23:25:09.611  INFO 33044 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
+2021-12-07 23:25:09.642  INFO 33044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-07 23:25:09.642  INFO 33044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-07 23:25:10.317  INFO 33044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-12-07 23:25:10.480  INFO 33044 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 159ms. Found 19 repository interfaces.
+2021-12-07 23:25:10.694  INFO 33044 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cebe37df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-12-07 23:25:10.935  INFO 33044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-12-07 23:25:10.949  INFO 33044 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-07 23:25:10.950  INFO 33044 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2021-12-07 23:25:10.954  INFO 33044 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_251\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\apache-maven-3.6.3\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.2.0\;C:\Program Files\Go\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\hgko\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\hgko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hgko\go\bin;C:\Users\hgko\.dotnet\tools;C:\Users\hgko\AppData\Roaming\npm;.]
+2021-12-07 23:25:11.141  INFO 33044 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-12-07 23:25:11.145  INFO 33044 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
+2021-12-07 23:25:11.145  INFO 33044 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1503 ms
+2021-12-07 23:25:11.337  INFO 33044 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2021-12-05 23:15:46.616  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
-2021-12-05 23:15:46.651  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
-2021-12-05 23:15:46.652  INFO 31780 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-12-05 23:15:46.744  INFO 31780 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:15:46.755  WARN 31780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-12-05 23:15:46.808  INFO 31780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:15:46.813  WARN 31780 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-05 23:15:46.865  INFO 31780 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: e6bd3099-193c-42e8-aa78-afb62986bf29
-
-2021-12-05 23:15:46.882  INFO 31780 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51e96d74, org.springframework.security.web.context.SecurityContextPersistenceFilter@52957448, org.springframework.security.web.header.HeaderWriterFilter@1f853800, org.springframework.security.web.csrf.CsrfFilter@7a845ea5, org.springframework.security.web.authentication.logout.LogoutFilter@3642cf7b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d8e6448, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4f8cd5f6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2fbcb1ba, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@43bda9f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f94c707, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69e7a1cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13e2c21, org.springframework.security.web.session.SessionManagementFilter@47ac3c23, org.springframework.security.web.access.ExceptionTranslationFilter@26257528, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46c70d8e]
-2021-12-05 23:15:46.926  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-12-05 23:15:46.927  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 0.88 seconds (JVM running for 176272.765)
-2021-12-05 23:15:46.930  INFO 31780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
-
-
-==========================
-CONDITION EVALUATION DELTA
-==========================
-
-
-Positive matches:
------------------
-
-   SpringBootWebSecurityConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
-      - found 'session' scope (OnWebApplicationCondition)
-      - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   UserDetailsServiceAutoConfiguration matched:
-      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
-      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   UserDetailsServiceAutoConfiguration#inMemoryUserDetailsManager matched:
-      - @ConditionalOnMissingBean (types: org.springframework.security.oauth2.client.registration.ClientRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-   WebSecurityEnablerConfiguration matched:
-      - found 'session' scope (OnWebApplicationCondition)
-      - @ConditionalOnBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found bean 'org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$DefaultConfigurerAdapter'; @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
-
-
-Negative matches:
------------------
-
-    None
-
-
-Exclusions:
------------
-
-    None
-
-
-Unconditional classes:
-----------------------
-
-    None
-
-
-
-2021-12-05 23:15:51.988  INFO 31780 --- [Thread-72] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:15:51.989  INFO 31780 --- [Thread-72] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:15:51.990  INFO 31780 --- [Thread-72] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
-2021-12-05 23:15:51.992  INFO 31780 --- [Thread-72] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
-2021-12-05 23:15:52.365  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 31780 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-12-05 23:15:52.365 DEBUG 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-12-05 23:15:52.365  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-12-05 23:15:52.724  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-12-05 23:15:52.840  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 116ms. Found 19 repository interfaces.
-2021-12-05 23:15:52.879  INFO 31780 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$771dfcfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-12-05 23:15:53.027  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-12-05 23:15:53.027  INFO 31780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-05 23:15:53.027  INFO 31780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-12-05 23:15:53.106  INFO 31780 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-12-05 23:15:53.107  INFO 31780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
-2021-12-05 23:15:53.107  INFO 31780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 741 ms
-2021-12-05 23:15:53.166  INFO 31780 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2021-12-05 23:15:53.240  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
-2021-12-05 23:15:53.275  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
-2021-12-05 23:15:53.276  INFO 31780 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-12-05 23:15:53.931  INFO 31780 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:15:53.943  WARN 31780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-12-05 23:15:53.998  INFO 31780 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2021-12-05 23:15:54.304  INFO 31780 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e816b50, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e1d5809, org.springframework.security.web.header.HeaderWriterFilter@554eaf55, org.springframework.security.web.authentication.logout.LogoutFilter@71f09a25, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28d7aa47, org.springframework.security.web.session.ConcurrentSessionFilter@3a46626d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@c548552, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e897298, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@782cca47, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@347fa92, org.springframework.security.web.session.SessionManagementFilter@c834608, org.springframework.security.web.access.ExceptionTranslationFilter@7be722e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d5407fd]
-2021-12-05 23:15:54.308  INFO 31780 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:15:54.381  INFO 31780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:15:54.387  WARN 31780 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-05 23:15:54.565  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-12-05 23:15:54.567  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.227 seconds (JVM running for 176280.405)
-2021-12-05 23:15:54.570  INFO 31780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
-
-
-==========================
-CONDITION EVALUATION DELTA
-==========================
-
-
-Positive matches:
------------------
-
-    None
-
-
-Negative matches:
------------------
-
-   SpringBootWebSecurityConfiguration:
-      Did not match:
-         - @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter; SearchStrategy: all) found beans of type 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' securityConfig (OnBeanCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter' (OnClassCondition)
-         - found 'session' scope (OnWebApplicationCondition)
-
-   UserDetailsServiceAutoConfiguration:
-      Did not match:
-         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationProvider' userAuthenticationProvider (OnBeanCondition)
-      Matched:
-         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
-
-   WebSecurityEnablerConfiguration:
-      Did not match:
-         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
-      Matched:
-         - found 'session' scope (OnWebApplicationCondition)
-
-
-Exclusions:
------------
-
-    None
-
-
-Unconditional classes:
-----------------------
-
-    None
-
-
-
-2021-12-05 23:16:07.769  INFO 31780 --- [Thread-80] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:16:07.769  INFO 31780 --- [Thread-80] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:16:07.771  INFO 31780 --- [Thread-80] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:16:07.771  INFO 31780 --- [Thread-80] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
-2021-12-05 23:16:07.772  INFO 31780 --- [Thread-80] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
-2021-12-05 23:16:08.074  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 31780 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-12-05 23:16:08.074 DEBUG 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-12-05 23:16:08.074  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-12-05 23:16:08.403  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-12-05 23:16:08.515  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112ms. Found 19 repository interfaces.
-2021-12-05 23:16:08.552  INFO 31780 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$771dfcfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-12-05 23:16:08.701  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-12-05 23:16:08.701  INFO 31780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-05 23:16:08.701  INFO 31780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-12-05 23:16:08.763  INFO 31780 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-12-05 23:16:08.765  INFO 31780 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring embedded WebApplicationContext
-2021-12-05 23:16:08.765  INFO 31780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 690 ms
-2021-12-05 23:16:08.819  INFO 31780 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2021-12-05 23:16:08.885  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
-2021-12-05 23:16:08.920  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
-2021-12-05 23:16:08.920  INFO 31780 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-12-05 23:16:09.533  INFO 31780 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:16:09.543  WARN 31780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-12-05 23:16:09.588  INFO 31780 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2021-12-05 23:16:09.869  INFO 31780 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1159bb45, org.springframework.security.web.context.SecurityContextPersistenceFilter@e3bf4b2, org.springframework.security.web.header.HeaderWriterFilter@7e18c2f9, org.springframework.security.web.authentication.logout.LogoutFilter@6cde3d45, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@43859d, org.springframework.security.web.session.ConcurrentSessionFilter@39d2ef56, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5002532, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@360cf086, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42d8d217, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4aef7166, org.springframework.security.web.session.SessionManagementFilter@6102a454, org.springframework.security.web.access.ExceptionTranslationFilter@46ce221c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59805dbd]
-2021-12-05 23:16:09.872  INFO 31780 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:16:09.944  INFO 31780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:16:09.950  WARN 31780 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-05 23:16:10.065  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-12-05 23:16:10.065  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.012 seconds (JVM running for 176295.904)
-2021-12-05 23:16:10.067  INFO 31780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2021-12-05 23:18:42.977  INFO 31780 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-05 23:18:42.978  INFO 31780 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-05 23:18:42.981  INFO 31780 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2021-12-05 23:18:45.074 TRACE 31780 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
-2021-12-05 23:18:45.075 TRACE 31780 --- [http-nio-8081-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
-2021-12-05 23:18:45.100 TRACE 31780 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [7]
-2021-12-05 23:18:45.104 TRACE 31780 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2021-12-05 23:18:45.107 TRACE 31780 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
-2021-12-05 23:18:45.110 TRACE 31780 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2021-12-05 23:18:45.113 TRACE 31780 --- [http-nio-8081-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-12-05 23:19:27.573 TRACE 31780 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [7]
-2021-12-05 23:19:27.577 TRACE 31780 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2021-12-05 23:19:27.580 TRACE 31780 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
-2021-12-05 23:19:27.583 TRACE 31780 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2021-12-05 23:19:27.587 TRACE 31780 --- [http-nio-8081-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2021-12-05 23:19:46.601  INFO 31780 --- [Thread-88] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:19:46.602  INFO 31780 --- [Thread-88] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:19:46.603  INFO 31780 --- [Thread-88] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:19:46.604  INFO 31780 --- [Thread-88] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
-2021-12-05 23:19:46.606  INFO 31780 --- [Thread-88] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
-2021-12-05 23:19:53.202  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 31780 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-12-05 23:19:53.203 DEBUG 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-12-05 23:19:53.203  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-12-05 23:19:53.607  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-12-05 23:19:53.738  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131ms. Found 19 repository interfaces.
-2021-12-05 23:19:53.793  INFO 31780 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$771dfcfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-12-05 23:19:53.990  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-12-05 23:19:53.990  INFO 31780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-05 23:19:53.990  INFO 31780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-12-05 23:19:54.069  INFO 31780 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-12-05 23:19:54.070  INFO 31780 --- [restartedMain] o.a.c.c.C.[.[localhost].[/admin]         : Initializing Spring embedded WebApplicationContext
-2021-12-05 23:19:54.070  INFO 31780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 866 ms
-2021-12-05 23:19:54.133  INFO 31780 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2021-12-05 23:19:54.206  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
-2021-12-05 23:19:54.273  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
-2021-12-05 23:19:54.273  INFO 31780 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-12-05 23:19:54.932  INFO 31780 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:19:54.941  WARN 31780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-12-05 23:19:54.989  INFO 31780 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2021-12-05 23:19:55.259  INFO 31780 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f6d8289, org.springframework.security.web.context.SecurityContextPersistenceFilter@1dc7805e, org.springframework.security.web.header.HeaderWriterFilter@1e779945, org.springframework.security.web.authentication.logout.LogoutFilter@53a4641c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7dde2266, org.springframework.security.web.session.ConcurrentSessionFilter@51016251, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@20610239, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3fd89f12, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@96d8c8a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fa59e3e, org.springframework.security.web.session.SessionManagementFilter@73b8b774, org.springframework.security.web.access.ExceptionTranslationFilter@8589a5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a0bd1f]
-2021-12-05 23:19:55.263  INFO 31780 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:19:55.330  INFO 31780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:19:55.336  WARN 31780 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-05 23:19:55.572  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-12-05 23:19:55.573  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.392 seconds (JVM running for 176521.411)
-2021-12-05 23:19:55.575  INFO 31780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2021-12-05 23:20:05.577  INFO 31780 --- [Thread-96] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:20:05.577  INFO 31780 --- [Thread-96] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:20:05.579  INFO 31780 --- [Thread-96] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:20:05.579  INFO 31780 --- [Thread-96] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
-2021-12-05 23:20:05.581  INFO 31780 --- [Thread-96] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
-2021-12-05 23:20:05.886  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Starting EAfterschoolAdminApplication on DESKTOP-08OF09U with PID 31780 (C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin\target\classes started by hgko in C:\Users\hgko\git\e-afterschool-admin\e-afterschool-admin)
-2021-12-05 23:20:05.887 DEBUG 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Running with Spring Boot v2.1.2.RELEASE, Spring v5.1.4.RELEASE
-2021-12-05 23:20:05.887  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : The following profiles are active: dev
-2021-12-05 23:20:06.222  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2021-12-05 23:20:06.328  INFO 31780 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 19 repository interfaces.
-2021-12-05 23:20:06.367  INFO 31780 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$771dfcfe] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-12-05 23:20:06.512  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2021-12-05 23:20:06.513  INFO 31780 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-12-05 23:20:06.513  INFO 31780 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
-2021-12-05 23:20:06.580  INFO 31780 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2021-12-05 23:20:06.581  INFO 31780 --- [restartedMain] o.a.c.c.C.[.[localhost].[/admin]         : Initializing Spring embedded WebApplicationContext
-2021-12-05 23:20:06.581  INFO 31780 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 693 ms
-2021-12-05 23:20:06.643  INFO 31780 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-2021-12-05 23:20:06.709  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
-2021-12-05 23:20:06.744  INFO 31780 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
-2021-12-05 23:20:06.744  INFO 31780 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2021-12-05 23:20:07.383  INFO 31780 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-12-05 23:20:07.393  WARN 31780 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2021-12-05 23:20:07.437  INFO 31780 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2021-12-05 23:20:07.714  INFO 31780 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@151fc1c3, org.springframework.security.web.context.SecurityContextPersistenceFilter@43956320, org.springframework.security.web.header.HeaderWriterFilter@3852ee1c, org.springframework.security.web.authentication.logout.LogoutFilter@423a0170, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@32dcc35c, org.springframework.security.web.session.ConcurrentSessionFilter@3a8c9f7e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6d60842b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c185740, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c930af3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@337e689e, org.springframework.security.web.session.SessionManagementFilter@6fe3f31b, org.springframework.security.web.access.ExceptionTranslationFilter@1c3cab84, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3da36c82]
-2021-12-05 23:20:07.717  INFO 31780 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-2021-12-05 23:20:07.782  INFO 31780 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-12-05 23:20:07.788  WARN 31780 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-12-05 23:20:07.910  INFO 31780 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/admin'
-2021-12-05 23:20:07.910  INFO 31780 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 2.045 seconds (JVM running for 176533.749)
-2021-12-05 23:20:07.912  INFO 31780 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2021-12-05 23:22:58.258  INFO 31780 --- [http-nio-8081-exec-1] o.a.c.c.C.[.[localhost].[/admin]         : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-12-05 23:22:58.259  INFO 31780 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-12-05 23:22:58.262  INFO 31780 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2021-12-05 23:23:00.831 TRACE 31780 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
-2021-12-05 23:23:00.831 TRACE 31780 --- [http-nio-8081-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
-2021-12-05 23:23:00.857 TRACE 31780 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [7]
-2021-12-05 23:23:00.860 TRACE 31780 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2021-12-05 23:23:00.864 TRACE 31780 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
-2021-12-05 23:23:00.868 TRACE 31780 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2021-12-05 23:23:00.871 TRACE 31780 --- [http-nio-8081-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-12-07 23:25:11.386  INFO 33044 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2021-12-07 23:25:11.387  INFO 33044 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-12-07 23:25:11.468  INFO 33044 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-12-07 23:25:11.622  INFO 33044 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-07 23:25:11.720  INFO 33044 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-07 23:25:11.727  INFO 33044 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-12-07 23:25:12.941  INFO 33044 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-07 23:25:12.969  WARN 33044 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-12-07 23:25:13.258  INFO 33044 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-12-07 23:25:13.739  INFO 33044 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a1f72b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b14883e, org.springframework.security.web.header.HeaderWriterFilter@183eee6c, org.springframework.security.web.authentication.logout.LogoutFilter@558b6dbf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e17cf86, org.springframework.security.web.session.ConcurrentSessionFilter@67a213e2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5f9aac4c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2281bbc8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30901058, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31251c92, org.springframework.security.web.session.SessionManagementFilter@3ff6a5c2, org.springframework.security.web.access.ExceptionTranslationFilter@620a99d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13be3b47]
+2021-12-07 23:25:13.922  INFO 33044 --- [restartedMain] org.apache.tiles.access.TilesAccess      : Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-12-07 23:25:14.064  INFO 33044 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-07 23:25:14.087  WARN 33044 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-07 23:25:14.450  INFO 33044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path '/admin'
+2021-12-07 23:25:14.452  INFO 33044 --- [restartedMain] c.y.a.a.EAfterschoolAdminApplication     : Started EAfterschoolAdminApplication in 5.075 seconds (JVM running for 5.716)
+2021-12-07 23:25:15.164  INFO 33044 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/admin]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-07 23:25:15.164  INFO 33044 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-07 23:25:15.170  INFO 33044 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2021-12-07 23:25:18.152 TRACE 33044 --- [http-nio-8082-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
+2021-12-07 23:25:18.153 TRACE 33044 --- [http-nio-8082-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1234]
+2021-12-07 23:25:18.207 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [7]
+2021-12-07 23:25:18.219 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2021-12-07 23:25:18.223 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2021-12-07 23:25:18.227 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-12-07 23:25:18.230 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-12-07 23:26:34.460 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [7]
+2021-12-07 23:26:34.464 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2021-12-07 23:26:34.468 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2021-12-07 23:26:34.472 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-12-07 23:26:34.475 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-12-07 23:26:34.501 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2021-12-07 23:26:34.505 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
+2021-12-07 23:26:34.509 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [116]
+2021-12-07 23:26:34.513 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [118]
+2021-12-07 23:26:34.518 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [109]
+2021-12-07 23:26:34.521 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [31]
+2021-12-07 23:26:34.525 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [114]
+2021-12-07 23:26:34.528 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [115]
+2021-12-07 23:26:34.532 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [47]
+2021-12-07 23:26:34.552 TRACE 33044 --- [http-nio-8082-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2021-12-07 23:26:35.008 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2021-12-07 23:26:35.012 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2021-12-07 23:26:35.016 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5371]
+2021-12-07 23:26:35.020 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [343]
+2021-12-07 23:26:35.024 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5375]
+2021-12-07 23:26:35.028 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [339]
+2021-12-07 23:26:35.032 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5372]
+2021-12-07 23:26:35.036 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [349]
+2021-12-07 23:26:35.040 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5365]
+2021-12-07 23:26:35.044 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [352]
+2021-12-07 23:26:35.048 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2805]
+2021-12-07 23:26:35.052 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [350]
+2021-12-07 23:26:35.056 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5367]
+2021-12-07 23:26:35.060 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5378]
+2021-12-07 23:26:35.063 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5379]
+2021-12-07 23:26:35.067 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [348]
+2021-12-07 23:26:35.071 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5383]
+2021-12-07 23:26:35.075 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [337]
+2021-12-07 23:26:35.080 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [357]
+2021-12-07 23:26:35.084 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5366]
+2021-12-07 23:26:35.088 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5387]
+2021-12-07 23:26:35.091 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5388]
+2021-12-07 23:26:35.094 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5384]
+2021-12-07 23:26:35.098 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [87]
+2021-12-07 23:26:35.101 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5393]
+2021-12-07 23:26:35.147 TRACE 33044 --- [http-nio-8082-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [40]
+2021-12-07 23:26:48.252 TRACE 33044 --- [http-nio-8082-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-12-07 23:26:50.635 TRACE 33044 --- [http-nio-8082-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-12-07 23:26:58.351 TRACE 33044 --- [http-nio-8082-exec-10] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-12-07 23:27:06.699 TRACE 33044 --- [http-nio-8082-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [20]
+2021-12-07 23:27:10.312 TRACE 33044 --- [http-nio-8082-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [19]
+2021-12-07 23:58:24.432  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-12-07 23:58:24.446  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-07 23:58:24.446  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2021-12-07 23:58:24.450  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-07 23:58:24.452  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-07 23:58:24.455  INFO 33044 --- [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
