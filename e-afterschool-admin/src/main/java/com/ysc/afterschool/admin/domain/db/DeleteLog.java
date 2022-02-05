@@ -1,5 +1,7 @@
 package com.ysc.afterschool.admin.domain.db;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,10 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.ysc.afterschool.admin.domain.Domain;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * 삭제 로그
@@ -23,6 +28,7 @@ import lombok.Getter;
 @Entity
 @Table(name = "tb_delete_log")
 @Data
+@NoArgsConstructor
 public class DeleteLog implements Domain {
 
 	@Id
@@ -35,8 +41,22 @@ public class DeleteLog implements Domain {
     @Column(nullable = false)
 	private DeleteType deleteType;
 	
+	/** 생성일시 */
+	@CreationTimestamp
+	private LocalDateTime createDate;
+	
 	@Getter
 	public enum DeleteType {
-		학교, 학생, 강사, 과목, 수강신청
+		School, Student, Teacher, Subject, Apply, Notice
+	}
+
+	/**
+	 * 생성자
+	 * @param deleteId
+	 * @param deleteType
+	 */
+	public DeleteLog(int deleteId, DeleteType deleteType) {
+		this.deleteId = deleteId;
+		this.deleteType = deleteType;
 	}
 }

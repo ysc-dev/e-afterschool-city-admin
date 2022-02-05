@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.core.BooleanBuilder;
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
 import com.ysc.afterschool.admin.domain.db.QSubject;
 import com.ysc.afterschool.admin.domain.db.Subject;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.param.SubjectSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
 import com.ysc.afterschool.admin.repository.ApplyRepository;
@@ -16,6 +18,7 @@ import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.ClassContentsRepository;
 import com.ysc.afterschool.admin.repository.SubjectNoticeRepository;
 import com.ysc.afterschool.admin.repository.SubjectRepository;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.SubjectService;
 import com.ysc.afterschool.admin.service.SurveyService;
 
@@ -49,6 +52,9 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Autowired
 	private SurveyService surveyService;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -90,6 +96,7 @@ public class SubjectServiceImpl implements SubjectService {
 		surveyService.deleteBySubjectId(id);
 
 		subjectRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.Subject));
 		return true;
 	}
 

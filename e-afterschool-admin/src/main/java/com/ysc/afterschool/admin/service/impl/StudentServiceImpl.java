@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.core.BooleanBuilder;
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
 import com.ysc.afterschool.admin.domain.db.QStudent;
 import com.ysc.afterschool.admin.domain.db.Student;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
 import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.StudentRepository;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.StudentService;
 
 /**
@@ -33,6 +36,9 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private ApplyCancelRepository applyCancelRepository;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -69,6 +75,7 @@ public class StudentServiceImpl implements StudentService {
 		applyWaitRepository.deleteByStudentId(id);
 		applyCancelRepository.deleteByStudentId(id);
 		studentRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.Student));
 		return true;
 	}
 
