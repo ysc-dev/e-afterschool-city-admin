@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ysc.afterschool.admin.domain.db.Apply;
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.db.Student;
 import com.ysc.afterschool.admin.domain.param.ApplySearchParam;
 import com.ysc.afterschool.admin.domain.param.StudentSearchParam;
 import com.ysc.afterschool.admin.repository.ApplyRepository;
 import com.ysc.afterschool.admin.service.ApplyService;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.StudentService;
 
 /**
@@ -31,6 +34,9 @@ public class ApplyServiceImpl implements ApplyService {
 
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -65,6 +71,7 @@ public class ApplyServiceImpl implements ApplyService {
 	@Override
 	public boolean delete(Integer id) {
 		applyRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.Apply));
 		return true;
 	}
 

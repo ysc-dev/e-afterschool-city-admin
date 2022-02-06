@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.db.School;
 import com.ysc.afterschool.admin.domain.db.School.SchoolType;
 import com.ysc.afterschool.admin.domain.param.SchoolSearchParam;
 import com.ysc.afterschool.admin.repository.SchoolRepository;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.SchoolService;
 
 /**
@@ -24,6 +27,9 @@ public class SchoolServiceImpl implements SchoolService {
 
 	@Autowired
 	private SchoolRepository schoolRepository;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -58,6 +64,7 @@ public class SchoolServiceImpl implements SchoolService {
 	@Override
 	public boolean delete(Integer id) {
 		schoolRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.School));
 		return true;
 	}
 

@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ysc.afterschool.admin.domain.db.ClassContents;
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.param.ClassContentsSearchParam;
 import com.ysc.afterschool.admin.repository.ClassContentsRepository;
 import com.ysc.afterschool.admin.service.ClassContentsService;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 
 /**
  * 횟부별 수업 관리
@@ -23,6 +26,9 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 
 	@Autowired
 	private ClassContentsRepository classContentsRepository;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -57,6 +63,7 @@ public class ClassContentsServiceImpl implements ClassContentsService {
 	@Override
 	public boolean delete(Integer id) {
 		classContentsRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.ClassContents));
 		return true;
 	}
 

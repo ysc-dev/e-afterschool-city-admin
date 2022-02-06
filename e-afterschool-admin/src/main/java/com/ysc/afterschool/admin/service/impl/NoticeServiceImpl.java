@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.db.Notice;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam.NoticeSearchType;
 import com.ysc.afterschool.admin.repository.NoticeRepository;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.NoticeService;
 
 /**
@@ -24,6 +27,9 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Autowired
 	private NoticeRepository noticeRepository;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -58,6 +64,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public boolean delete(Integer id) {
 		noticeRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.Notice));
 		return true;
 	}
 

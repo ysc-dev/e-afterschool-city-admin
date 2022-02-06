@@ -45,11 +45,6 @@ public class DeleteLog implements Domain {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 	
-	@Getter
-	public enum DeleteType {
-		School, Student, Teacher, Subject, Apply, Notice
-	}
-
 	/**
 	 * 생성자
 	 * @param deleteId
@@ -58,5 +53,18 @@ public class DeleteLog implements Domain {
 	public DeleteLog(int deleteId, DeleteType deleteType) {
 		this.deleteId = deleteId;
 		this.deleteType = deleteType;
+	}
+	
+	@Getter
+	public enum DeleteType {
+		School, 
+		Student, 
+		Teacher, 
+		Subject, 
+		SubjectNotice, 
+		Apply, 
+		Notice, 
+		Invitation,
+		ClassContents
 	}
 }

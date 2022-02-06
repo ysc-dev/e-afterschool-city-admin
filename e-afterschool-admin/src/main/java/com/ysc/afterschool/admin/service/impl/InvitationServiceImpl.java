@@ -7,9 +7,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ysc.afterschool.admin.domain.db.DeleteLog;
+import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
 import com.ysc.afterschool.admin.repository.InvitationRepository;
+import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.InvitationService;
 
 /**
@@ -24,6 +27,9 @@ public class InvitationServiceImpl implements InvitationService {
 
 	@Autowired
 	private InvitationRepository invitationRepository;
+	
+	@Autowired
+	private DeleteLogService deleteLogService;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -58,6 +64,7 @@ public class InvitationServiceImpl implements InvitationService {
 	@Override
 	public boolean delete(Integer id) {
 		invitationRepository.deleteById(id);
+		deleteLogService.regist(new DeleteLog(id, DeleteType.Invitation));
 		return true;
 	}
 
