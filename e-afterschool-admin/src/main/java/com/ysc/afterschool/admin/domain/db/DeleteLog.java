@@ -69,7 +69,8 @@ public class DeleteLog implements Domain {
 		Apply("수강신청"),
 		Notice("공지사항"),
 		Invitation("안내장"),
-		ClassContents("수업관리");
+		ClassContents("수업관리"),
+		SubjectGroup("과목그룹");
 		
 		private String name;
 		
