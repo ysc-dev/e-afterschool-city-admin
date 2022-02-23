@@ -44,6 +44,9 @@ public class DeleteLog implements Domain {
 	@Column(nullable = false, length = 20)
 	private String name;
 	
+	@Column(length = 45)
+	private String tableName;
+	
 	/** 생성일시 */
 	@CreationTimestamp
 	private LocalDateTime createDate;
@@ -57,25 +60,29 @@ public class DeleteLog implements Domain {
 		this.deleteId = deleteId;
 		this.deleteType = deleteType;
 		this.name = deleteType.getName();
+		this.tableName = deleteType.getTableName();
 	}
 	
 	@Getter
 	public enum DeleteType {
-		School("학교"),
-		Student("학생"),
-		Teacher("강사"),
-		Subject("과목"),
-		SubjectNotice("과목공지사항"),
-		Apply("수강신청"),
-		Notice("공지사항"),
-		Invitation("안내장"),
-		ClassContents("수업관리"),
-		SubjectGroup("과목그룹");
+		School("학교", "tb_school"),
+		Student("학생", "tb_student"),
+		Teacher("강사", "tb_teacher"),
+		Subject("과목", "tb_subject"),
+		SubjectNotice("과목공지사항", "tb_subject_notice"),
+		Apply("수강신청", "tb_apply"),
+		Notice("공지사항", "tb_notice"),
+		Invitation("안내장", "tb_invitation"),
+		ClassContents("수업관리", "tb_class_contents"),
+		SubjectGroup("과목그룹", "tb_subject_group");
 		
 		private String name;
 		
-		private DeleteType(String name) {
+		private String tableName;
+		
+		private DeleteType(String name, String tableName) {
 			this.name = name;
+			this.tableName = tableName;
 		}
 	}
 }

@@ -11,6 +11,9 @@ import com.ysc.afterschool.admin.domain.db.DeleteLog;
 import com.ysc.afterschool.admin.domain.db.DeleteLog.DeleteType;
 import com.ysc.afterschool.admin.domain.db.Invitation;
 import com.ysc.afterschool.admin.domain.param.InvitationSearchParam;
+import com.ysc.afterschool.admin.repository.ApplyCancelRepository;
+import com.ysc.afterschool.admin.repository.ApplyRepository;
+import com.ysc.afterschool.admin.repository.ApplyWaitRepository;
 import com.ysc.afterschool.admin.repository.InvitationRepository;
 import com.ysc.afterschool.admin.service.DeleteLogService;
 import com.ysc.afterschool.admin.service.InvitationService;
@@ -30,6 +33,15 @@ public class InvitationServiceImpl implements InvitationService {
 	
 	@Autowired
 	private DeleteLogService deleteLogService;
+	
+	@Autowired
+	private ApplyRepository applyRepository;
+	
+	@Autowired
+	private ApplyWaitRepository applyWaitRepository;
+	
+	@Autowired
+	private ApplyCancelRepository applyCancelRepository;
 
 	@Transactional(readOnly = true)
 	@Override
@@ -63,6 +75,10 @@ public class InvitationServiceImpl implements InvitationService {
 
 	@Override
 	public boolean delete(Integer id) {
+		applyRepository.deleteByInvitationId(id);
+		applyWaitRepository.deleteByInvitationId(id);
+		applyCancelRepository.deleteByInvitationId(id);
+		
 		invitationRepository.deleteById(id);
 		deleteLogService.regist(new DeleteLog(id, DeleteType.Invitation));
 		return true;
