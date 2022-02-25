@@ -88,15 +88,11 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public boolean delete(Integer id) {
-		subjectNoticeRepository.deleteBySubjectId(id);
-		classContentsRepository.deleteBySubjectId(id);
-		applyRepository.deleteBySubjectId(id);
-		applyWaitRepository.deleteBySubjectId(id);
-		applyCancelRepository.deleteBySubjectId(id);
-		surveyService.deleteBySubjectId(id);
-
-		subjectRepository.deleteById(id);
-		deleteLogService.regist(new DeleteLog(id, DeleteType.Subject));
+		if (deleteBySubject(id)) {
+			subjectRepository.deleteById(id);
+			deleteLogService.regist(new DeleteLog(id, DeleteType.Subject));
+		}
+		
 		return true;
 	}
 
@@ -130,9 +126,32 @@ public class SubjectServiceImpl implements SubjectService {
 		return subjectRepository.findByInvitationId(invitationId);
 	}
 
+	/**
+	 * 과목 그룹을 삭제 시 과목도 삭제되도록
+	 */
 	@Override
 	public boolean deleteBySubjectGroup(int subjectGroupId) {
+		
+		for (Subject subject : subjectRepository.findBySubjectGroupId(subjectGroupId)) {
+			deleteBySubject(subject.getId());
+		}
+		
 		subjectRepository.deleteBySubjectGroupId(subjectGroupId);
+		return true;
+	}
+	
+	/**
+	 * 과목이 삭제될 때 같이 삭제 되도록
+	 * @param subjectId
+	 * @return
+	 */
+	private boolean deleteBySubject(int subjectId) {
+		subjectNoticeRepository.deleteBySubjectId(subjectId);
+		classContentsRepository.deleteBySubjectId(subjectId);
+		applyRepository.deleteBySubjectId(subjectId);
+		applyWaitRepository.deleteBySubjectId(subjectId);
+		applyCancelRepository.deleteBySubjectId(subjectId);
+		surveyService.deleteBySubjectId(subjectId);
 		return true;
 	}
 }
