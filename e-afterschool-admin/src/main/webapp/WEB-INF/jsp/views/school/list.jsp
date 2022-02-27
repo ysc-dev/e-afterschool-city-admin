@@ -195,7 +195,21 @@
 					<div class="form-group row">
 						<label class="col-form-label col-md-4 text-md-right">지 역 : </label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="city" placeholder="예) 창원">
+							<select class="form-control form-control-select2" name="city">
+								<c:forEach var="city" items="${cities}" varStatus="status">
+									<option value="${city.name}">${city.name}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-form-label col-md-4 text-md-right">학교 타입 : </label>
+						<div class="col-md-6">
+							<select class="form-control form-control-select2" name="schoolType">
+								<c:forEach var="type" items="${schoolTypes}" varStatus="status">
+									<option value="${type}">${type.name}</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -294,7 +308,8 @@ var SchoolManager = function() {
 	    			$('#updateForm input[name="id"]').val(response.id);
 	    			$('#updateForm input[name="name"]').val(response.name);
 	    			$('#updateForm input[name="number"]').val(response.number);
-	    			$('#updateForm input[name="city"]').val(response.city);
+	    			$('#updateForm select[name="city"]').val(response.city).trigger('change');
+	    			$('#updateForm select[name="schoolType"]').val(response.schoolType).trigger('change');
 	    			$("#updateSchoolModal").modal();
 	           	}
 	    	}); 

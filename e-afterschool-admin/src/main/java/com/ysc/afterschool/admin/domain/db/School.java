@@ -45,7 +45,8 @@ public class School extends AbstractDomain {
 		초등학교("초등학교"),
 		중학교("중학교"),
 		유치부("유치부"),
-		성인부("성인부");
+		성인부("성인부"),
+		고등부("고등부");
 		
 		private String name;
 		

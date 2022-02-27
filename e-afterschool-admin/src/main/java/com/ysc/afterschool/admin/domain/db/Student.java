@@ -70,6 +70,7 @@ public class Student extends AbstractDomain {
 		전체("전체"),
 		초등("초등"),
 		중등("중등"),
+		고등("고등"),
 		유치부("유치부"),
 		성인부("성인부");
 		

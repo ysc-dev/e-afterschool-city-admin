@@ -73,7 +73,9 @@ public class SubjectController extends AbstractController<Subject, SubjectSearch
 	public Mono<ResponseEntity<?>> search(@RequestBody SubjectSearchParam param) {
 		return Mono.just(new ResponseEntity<>(subjectService.getList(param).stream().map(data -> {
 			if (data.getTargetType() == TargetType.전체) {
-				if (data.getGradeType() == GradeType.초_3_6_중등 || data.getGradeType() == GradeType.초_5_6_중등) {
+				if (data.getGradeType() == GradeType.초_3_6_중등
+						|| data.getGradeType() == GradeType.초_5_6_중등
+						|| data.getGradeType() == GradeType.초_1_6_중등) {
 					data.setTarget(data.getGradeType().getName() + " (" + data.getFixedNumber() + ")");
 				} else {
 					data.setTarget("전체 (" + data.getFixedNumber() + ")");
