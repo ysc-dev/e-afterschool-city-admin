@@ -102,7 +102,6 @@ const SignupValidation = function() {
                 }
             },
             submitHandler: function(form) {
-            	console.log(form);
             	$.ajax({
     				url: form.action,
     				type: 'POST',

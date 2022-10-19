@@ -274,7 +274,6 @@ const SurveyManager = function() {
 	    		type: "GET",
 	    		data: {"id": id},
 	    		success: function(survey) {
-		    		console.log(survey);
 		    		$("#programName").html(survey.subject.name + " (" + survey.subject.teacher.name + ")");
 		    		$("#value1").html(selectScore(survey.value1));
 		    		$("#value2").html(selectScore(survey.value2));

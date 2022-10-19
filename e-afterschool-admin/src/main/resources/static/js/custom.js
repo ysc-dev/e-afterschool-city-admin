@@ -127,7 +127,6 @@ function deleteCommon(url, id, name, Datatable, title) {
 	       			});
 	           	},
 	            error: function(response) {
-	            	console.log(response);
 	            	if (isEmpty(response.responseText)) {
 	            		swalInit.fire({title: name + " 삭제를 실패하였습니다.", type: "error"});
 	            	} else {
