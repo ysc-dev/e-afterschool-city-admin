@@ -30,7 +30,7 @@ import com.ysc.afterschool.admin.repository.SubjectUploadedFileRepository;
 import com.ysc.afterschool.admin.service.ClassContentsService;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
-import com.ysc.afterschool.admin.service.impl.FileUploadService;
+import com.ysc.afterschool.admin.service.common.FileUploadService;
 
 /**
  * 횟수별 수업 관리 컨트롤러 클래스

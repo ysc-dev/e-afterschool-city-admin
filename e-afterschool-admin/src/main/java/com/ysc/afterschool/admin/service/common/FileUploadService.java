@@ -1,4 +1,4 @@
-package com.ysc.afterschool.admin.service.impl;
+package com.ysc.afterschool.admin.service.common;
 
 import java.io.File;
 import java.io.FileOutputStream;

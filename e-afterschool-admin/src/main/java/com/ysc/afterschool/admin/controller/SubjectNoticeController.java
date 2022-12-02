@@ -27,7 +27,7 @@ import com.ysc.afterschool.admin.domain.param.NoticeSearchParam;
 import com.ysc.afterschool.admin.domain.param.NoticeSearchParam.NoticeSearchType;
 import com.ysc.afterschool.admin.service.SubjectNoticeService;
 import com.ysc.afterschool.admin.service.SubjectService;
-import com.ysc.afterschool.admin.service.impl.FileUploadService;
+import com.ysc.afterschool.admin.service.common.FileUploadService;
 
 /**
  * 과목별 공지사항 관리 컨트롤러 클래스

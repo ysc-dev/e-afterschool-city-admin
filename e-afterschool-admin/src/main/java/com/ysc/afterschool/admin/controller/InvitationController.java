@@ -28,7 +28,7 @@ import com.ysc.afterschool.admin.repository.CityRepository;
 import com.ysc.afterschool.admin.repository.InvitationFileRepository;
 import com.ysc.afterschool.admin.service.InvitationService;
 import com.ysc.afterschool.admin.service.SubjectService;
-import com.ysc.afterschool.admin.service.impl.FileUploadService;
+import com.ysc.afterschool.admin.service.common.FileUploadService;
 
 /**
  * 안내장 관리 컨트롤러 클래스

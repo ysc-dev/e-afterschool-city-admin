@@ -1,0 +1,6 @@
+2022-11-12 00:32:27.562  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-11-12 00:32:27.618  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-11-12 00:32:27.620  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] org.apache.tiles.access.TilesAccess      : Removing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+2022-11-12 00:32:27.628  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-12 00:32:27.640  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-11-12 00:32:27.645  INFO 43680 --- [RMI TCP Connection(2291)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

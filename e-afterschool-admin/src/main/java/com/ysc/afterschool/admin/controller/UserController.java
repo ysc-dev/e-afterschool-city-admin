@@ -43,14 +43,8 @@ public class UserController {
 	 */
 	@PostMapping("checkDuplicateId")
 	@ResponseBody
-	public boolean chkDuplicateEmail(String userId) {
-
-		if (userService.get(userId) == null) {
-			return true;
-		}
-		;
-
-		return false;
+	public boolean checkDuplicateId(String userId) {
+		return userService.get(userId) == null ? true : false;
 	}
 
 	/**
