@@ -28,8 +28,10 @@
 
 ## 기술
 - Spring Boot
-- JPA
-- JSP
+- Spring Security
+- Spring Data JPA
+- JSP, HTML5, CSS
 - MySQL
+- Querydsl
 - Maven
 - Tiles
